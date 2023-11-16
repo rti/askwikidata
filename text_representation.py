@@ -277,13 +277,13 @@ def create_statement_group_representation(item_label, prop_label, statement_grou
         elif datatype == "string":
             string_value = value if isinstance(value, str) else "Unknown"
             statement_group_text.append(
-                f"{item_label} {prop_label} {string_value}{time_span_text}"
+                f"{item_label} {prop_label} {string_value}{time_span_text}."
             )
 
         elif datatype == "quantity":
             quantity_value = format_quantity(value)
             statement_group_text.append(
-                f"{item_label} {prop_label} {quantity_value}{time_span_text}"
+                f"{item_label} {prop_label} {quantity_value}{time_span_text}."
             )
 
     # Ensure each non-empty statement group ends with a newline
