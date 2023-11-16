@@ -11,7 +11,9 @@ item_cache_file_path = "wikidata_item_cache.json"
 label_cache_file_path = "wikidata_label_cache.json"
 
 # Path to text_representations directory
-text_representations_dir="./text_representations"
+text_representations_dir = "./text_representations"
+
+
 def make_http_request(url):
     """
     Make an HTTP GET request to the specified URL and return the JSON response.
@@ -26,6 +28,7 @@ def make_http_request(url):
     response.raise_for_status()
     return response.json()
 
+
 def load_item_cache():
     if os.path.exists(item_cache_file_path):
         with open(item_cache_file_path, "r") as cache_file:
@@ -33,12 +36,15 @@ def load_item_cache():
     else:
         return {}
 
+
 def load_label_cache():
     if os.path.exists(label_cache_file_path):
         with open(label_cache_file_path, "r") as cache_file:
             return json.load(cache_file)
     else:
         return {}
+
+
 # Load item cache from file if it exists
 item_cache = load_item_cache()
 label_cache = load_label_cache()
@@ -181,7 +187,7 @@ def get_time_span(qualifiers):
         .get("time")
     )
 
-    if start_time_qualifier and not(end_time_qualifier):
+    if start_time_qualifier and not (end_time_qualifier):
         start_time = format_time(start_time_qualifier)
         time_span += f"since {start_time} until today"
     elif start_time_qualifier:
@@ -197,15 +203,16 @@ def get_time_span(qualifiers):
 
     return time_span.strip()
 
+
 def create_statement_group_representation(item_label, prop_label, statement_group):
     """
     Create a text representation of a statement group for an item, ensuring each non-empty group ends with a newline.
-    
+
     Args:
         item_label (str): The label of the item.
         prop_label (str): The label of the property.
         statement_group (list): The list of statements for the property.
-    
+
     Returns:
         str: The text representation of the statement group, ending with a newline if not empty.
     """
@@ -226,31 +233,40 @@ def create_statement_group_representation(item_label, prop_label, statement_grou
             labels = fetch_labels_by_ids([value_id])
             value_label = labels.get(value_id, value_id)
             if value_label:
-                statement_group_text.append(f"{item_label} {prop_label} {value_label}{time_span_text}.")
+                statement_group_text.append(
+                    f"{item_label} {prop_label} {value_label}{time_span_text}."
+                )
 
         elif datatype == "time" and value:
             time_value = format_time(value.get("time"))
-            statement_group_text.append(f"{item_label} {prop_label} {time_value}{time_span_text}")
+            statement_group_text.append(
+                f"{item_label} {prop_label} {time_value}{time_span_text}"
+            )
 
         elif datatype == "string":
             string_value = value if isinstance(value, str) else "Unknown"
-            statement_group_text.append(f"{item_label} {prop_label} {string_value}{time_span_text}")
+            statement_group_text.append(
+                f"{item_label} {prop_label} {string_value}{time_span_text}"
+            )
 
         elif datatype == "quantity":
             quantity_value = format_quantity(value)
-            statement_group_text.append(f"{item_label} {prop_label} {quantity_value}{time_span_text}")
+            statement_group_text.append(
+                f"{item_label} {prop_label} {quantity_value}{time_span_text}"
+            )
 
     # Ensure each non-empty statement group ends with a newline
     return "\n".join(statement_group_text) + "\n" if statement_group_text else ""
 
+
 def create_statements_representation(item_label, statements):
     """
     Create a text representation of all statement groups for an item.
-    
+
     Args:
         item_label (str): The label of the item.
         statements (dict): The dictionary of all statement groups.
-    
+
     Returns:
         str: The text representation of all statement groups.
     """
@@ -264,7 +280,9 @@ def create_statements_representation(item_label, statements):
             continue
 
         prop_label = replace_prop_label(prop_label.lower())
-        statement_group_text = create_statement_group_representation(item_label, prop_label, statement_group)
+        statement_group_text = create_statement_group_representation(
+            item_label, prop_label, statement_group
+        )
 
         if statement_group_text:
             statements_representation.append(statement_group_text)
@@ -276,10 +294,10 @@ def create_statements_representation(item_label, statements):
 def wikidata_item_to_text(item_id):
     """
     Get the text representation of a Wikidata item including its label, description, and statements.
-    
+
     Args:
         item_id (str): The ID of the Wikidata item.
-    
+
     Returns:
         str: The text representation of the Wikidata item.
     """
@@ -293,30 +311,25 @@ def wikidata_item_to_text(item_id):
         item_cache[item_id] = item_data
         save_item_cache()
 
-    item_label = item_data.get("labels", {}).get("en", {}).get("value", "No item label found")
-    description = item_data.get("descriptions", {}).get("en", {}).get("value", "No description found")
+    item_label = (
+        item_data.get("labels", {}).get("en", {}).get("value", "No item label found")
+    )
+    description = (
+        item_data.get("descriptions", {})
+        .get("en", {})
+        .get("value", "No description found")
+    )
     text_representation = f"{item_label}: {description}\n\n"
-    text_representation += create_statements_representation(item_label, item_data.get("claims", {}))
+    text_representation += create_statements_representation(
+        item_label, item_data.get("claims", {})
+    )
     return text_representation
 
 
-capitals = ["Q64","Q84","Q90", "Q1085"]
+capitals = ["Q64", "Q84", "Q90", "Q1085"]
 
 for c in capitals:
     text_representation = wikidata_item_to_text(c)
     # Write to a file named after the Wikidata ID
     with open(f"{text_representations_dir}/{c}.txt", "w") as file:
         file.write(text_representation)
-
-
-# Example usage:
-# text_representation = wikidata_item_to_text("Q64")  # Q64 is the item for Berlin
-# print("\n\n")
-# print(text_representation)
-
-
-# enc = tiktoken.encoding_for_model("gpt-4")
-# encoded = enc.encode(text_representation)
-#
-# print("\n\n")
-# print(f"{len(encoded)} tokens")
