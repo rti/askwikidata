@@ -137,16 +137,43 @@ def fetch_labels_by_ids(ids):
     return labels
 
 
-# Function to format time values
-def format_time(time_value):
-    if time_value:
-        # The time string usually is in the format '+YYYY-MM-DDTHH:MM:SSZ'
-        # We can split by '-' to get the year and ignore the rest
-        date_part = time_value.split("-")[0]
-        # Remove the '+' sign at the beginning
-        date_formatted = date_part.lstrip("+")
-        return date_formatted
-    return "unknown date"
+def format_date(date_value):
+    """
+    Format a Wikidata date value to a common date format or as text if incomplete.
+
+    Args:
+        date_value (str): The date value from Wikidata in the format '+YYYY-MM-DDTHH:MM:SSZ'.
+
+    Returns:
+        str: The formatted date in ISO 8601 format (YYYY, YYYY-MM, or YYYY-MM-DD), 
+             or 'unknown date' if input is None or cannot be parsed.
+    """
+    if date_value:
+        # Remove the '+' sign and time component from the date string
+        date_str = date_value.lstrip('+').split('T')[0]
+        # Split the date into components, expecting at most 3 parts (year, month, day)
+        date_parts = date_str.split('-', 2)
+
+        # Check the number of parts and format accordingly
+        if len(date_parts) == 3:
+            year, month, day = date_parts
+            if month == '00' and day == '00':
+                return year  # Year only
+            elif day == '00':
+                return f"{year}-{month}"  # Year and month
+            else:
+                return f"{year}-{month}-{day}"  # Full date
+        elif len(date_parts) == 2:
+            year, month = date_parts
+            if month == '00':
+                return year  # Year only
+            else:
+                return f"{year}-{month}"  # Year and month
+        elif len(date_parts) == 1:
+            return date_parts[0]  # Year only
+        else:
+            return 'unknown date'
+    return 'unknown date'
 
 
 def format_quantity(value):
@@ -188,17 +215,17 @@ def get_time_span(qualifiers):
     )
 
     if start_time_qualifier and not (end_time_qualifier):
-        start_time = format_time(start_time_qualifier)
+        start_time = format_date(start_time_qualifier)
         time_span += f"since {start_time} until today"
     elif start_time_qualifier:
-        start_time = format_time(start_time_qualifier)
+        start_time = format_date(start_time_qualifier)
         time_span += f"from {start_time} "
 
     if end_time_qualifier:
-        end_time = format_time(end_time_qualifier)
+        end_time = format_date(end_time_qualifier)
         time_span += f"to {end_time}"
     if point_in_time_qualifier and not (start_time_qualifier or end_time_qualifier):
-        point_in_time = format_time(point_in_time_qualifier)
+        point_in_time = format_date(point_in_time_qualifier)
         time_span += f"in {point_in_time}"
 
     return time_span.strip()
@@ -238,9 +265,9 @@ def create_statement_group_representation(item_label, prop_label, statement_grou
                 )
 
         elif datatype == "time" and value:
-            time_value = format_time(value.get("time"))
+            time_value = format_date(value.get("time"))
             statement_group_text.append(
-                f"{item_label} {prop_label} {time_value}{time_span_text}"
+                f"{item_label} {prop_label} on {time_value}{time_span_text}."
             )
 
         elif datatype == "string":
