@@ -12,10 +12,12 @@ from annoy import AnnoyIndex
 # import numpy as np
 import requests
 import json
-import time
+# import time
 import openai
 
-
+HUGGINGFACE_API_KEY = os.getenv("HUGGINGFACE_API_KEY")
+RUNPOD_API_KEY = os.getenv("RUNPOD_API_KEY")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 chunk_embeddings_cache_file_path = "chunk_embeddings_cache.json"
 
@@ -166,7 +168,7 @@ def ask_llama_runpod(question, context):
     # access LLM on runpod
     url = f"https://api.runpod.ai/v2/llama2-7b-chat/runsync"
     headers = {
-        "Authorization": RUNPOD_KEY,
+        "Authorization": RUNPOD_API_KEY,
         "Content-Type": "application/json",
     }
     system = system_from_context(context)
@@ -241,7 +243,7 @@ def ask_mistral(question, context):
     API_URL = (
         "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.1"
     )
-    headers = {"Authorization": f"Bearer {HUGGINGFACE_KEY}"}
+    headers = {"Authorization": f"Bearer {HUGGINGFACE_API_KEY}"}
     system = system_from_context(context)
     prompt = mistral_prompt(question, system)
     print("Sending the following prompt to mistral:")

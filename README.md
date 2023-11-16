@@ -8,3 +8,13 @@ Wikidata Question-Answering System
 This project aims to allow users to ask questions naturally and have the system retrieve relevant information from Wikidata to construct a response while also providing sources to the information. It employs a retrieval-augmented generation approach where the system first fetches data points from Wikidata and then weaves them into the context of a large language model response. 
 
 **The project is in an early proof of concept state.**
+
+## Configuration
+`askwikidata.py` requires access to LLM APIs. Configure your API keys in the following environment variables:
+
+Provider | Environment Variable Name |
+--- | --- |
+Hugging Face | `HUGGINGFACE_API_KEY` |
+runpod.io | `RUNPOD_API_KEY` |
+OpenAI | `OPENAI_API_KEY` |
+
