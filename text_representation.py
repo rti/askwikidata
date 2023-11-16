@@ -157,14 +157,18 @@ def format_date(date_value):
         # Check the number of parts and format accordingly
         if len(date_parts) == 3:
             year, month, day = date_parts
+            if int(month) > 12 or int(day) > 31:  # Check for invalid month or day
+                return 'unknown date'
             if month == '00' and day == '00':
                 return year  # Year only
-            elif day == '00':
+            elif month != '00' and day == '00':
                 return f"{year}-{month}"  # Year and month
             else:
                 return f"{year}-{month}-{day}"  # Full date
         elif len(date_parts) == 2:
             year, month = date_parts
+            if int(month) > 12:  # Check for invalid month or day
+                return 'unknown date'
             if month == '00':
                 return year  # Year only
             else:
