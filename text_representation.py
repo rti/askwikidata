@@ -53,24 +53,33 @@ def replace_prop_label(label) -> str:
 
 
 def prop_skip(label):
-    skip = {
-        "topic's main category": True,
-        "topic's main wikimedia portal": True,
-        "flag": True,
-        "permanent duplicated item": True,
-        "history of topic": True,
-        "geography of topic": True,
-        "related category": True,
-        "demographics of topic": True,
-        "economy of topic": True,
-        "different from": True,
-        "on focus list of wikimedia project": True,
-        "open data portal": True,
-        "commons category": True,
-        "ipa transcription": True,
-    }
+    """
+    Determine if a property label should be skipped.
 
-    return skip.get(label)
+    Args:
+        label (str): The label of the property.
+
+    Returns:
+        bool: True if the label should be skipped, False otherwise.
+    """
+    skip = [
+        "topic's main category",
+        "topic's main wikimedia portal",
+        "flag",
+        "permanent duplicated item",
+        "history of topic",
+        "geography of topic",
+        "related category",
+        "demographics of topic",
+        "economy of topic",
+        "different from",
+        "on focus list of wikimedia project",
+        "open data portal",
+        "commons category",
+        "ipa transcription",
+    ]
+
+    return label in skip
 
 
 # Save label cache to file
