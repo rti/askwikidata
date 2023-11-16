@@ -198,7 +198,18 @@ def get_time_span(qualifiers):
     return time_span.strip()
 
 def create_statement_group_representation(item_label, prop_label, statement_group):
-    statement_group_text = ""
+    """
+    Create a text representation of a statement group for an item, ensuring each non-empty group ends with a newline.
+    
+    Args:
+        item_label (str): The label of the item.
+        prop_label (str): The label of the property.
+        statement_group (list): The list of statements for the property.
+    
+    Returns:
+        str: The text representation of the statement group, ending with a newline if not empty.
+    """
+    statement_group_text = []
     # Iterate over all statements in group
     for statement in statement_group:
         mainsnak = statement.get("mainsnak", {})
@@ -214,76 +225,67 @@ def create_statement_group_representation(item_label, prop_label, statement_grou
             # Fetch labels value
             labels = fetch_labels_by_ids([value_id])
             value_label = labels.get(value_id, value_id)
-            if(value_label):
-                statement_group_text += f"{item_label} {prop_label} {value_label}{time_span_text}.\n"
+            if value_label:
+                statement_group_text.append(f"{item_label} {prop_label} {value_label}{time_span_text}.")
 
         elif datatype == "time" and value:
-            if len(statement_group_text) == 0:
-                statement_group_text = item_label + " " + prop_label
-            else:
-                statement_group_text += ","
-
-            # Format the time value
             time_value = format_time(value.get("time"))
-            statement_group_text += f" {time_value}{time_span_text}"
+            statement_group_text.append(f"{item_label} {prop_label} {time_value}{time_span_text}")
 
         elif datatype == "string":
-            if len(statement_group_text) == 0:
-                statement_group_text = item_label + " " + prop_label
-            else:
-                statement_group_text += ","
-
-            # Directly use the string value
             string_value = value if isinstance(value, str) else "Unknown"
-            statement_group_text += f" {string_value}{time_span_text}"
+            statement_group_text.append(f"{item_label} {prop_label} {string_value}{time_span_text}")
 
         elif datatype == "quantity":
-            if len(statement_group_text) == 0:
-                statement_group_text = item_label + " " + prop_label
-            else:
-                statement_group_text += ","
-
-            # Format the quantity value
             quantity_value = format_quantity(value)
-            statement_group_text += f" {quantity_value}{time_span_text}"
+            statement_group_text.append(f"{item_label} {prop_label} {quantity_value}{time_span_text}")
 
-    if statement_group_text and len(statement_group_text) != 0:
-        return statement_group_text + "\n"
-    else:
-        return
-
+    # Ensure each non-empty statement group ends with a newline
+    return "\n".join(statement_group_text) + "\n" if statement_group_text else ""
 
 def create_statements_representation(item_label, statements):
-    statements_representation = ""
+    """
+    Create a text representation of all statement groups for an item.
+    
+    Args:
+        item_label (str): The label of the item.
+        statements (dict): The dictionary of all statement groups.
+    
+    Returns:
+        str: The text representation of all statement groups.
+    """
+    statements_representation = []
     # Iterate over all statement groups
     for prop_id, statement_group in statements.items():
-        prop_text: str = ""
-
         labels = fetch_labels_by_ids([prop_id])
         prop_label = labels.get(prop_id, prop_id)
 
-        if prop_label.lower().startswith("category"):
-            continue
-        if prop_skip(prop_label.lower()):
+        if prop_label.lower().startswith("category") or prop_skip(prop_label.lower()):
             continue
 
         prop_label = replace_prop_label(prop_label.lower())
-
         statement_group_text = create_statement_group_representation(item_label, prop_label, statement_group)
 
-        if( statement_group_text ):
-            statements_representation += statement_group_text
+        if statement_group_text:
+            statements_representation.append(statement_group_text)
 
-    return statements_representation
+    return "\n".join(statements_representation)
 
 
 # Function to get the label, description, and statements of a Wikidata item
 def wikidata_item_to_text(item_id):
+    """
+    Get the text representation of a Wikidata item including its label, description, and statements.
+    
+    Args:
+        item_id (str): The ID of the Wikidata item.
+    
+    Returns:
+        str: The text representation of the Wikidata item.
+    """
     # Check if the item is already in the cache
-    if item_id in item_cache:
-        print(f"Retrieving cached data for item: {item_id}", file=sys.stderr)
-        item_data = item_cache[item_id]
-    else:
+    item_data = item_cache.get(item_id)
+    if not item_data:
         print(f"Fetching data for item: {item_id}", file=sys.stderr)
         url = f"https://www.wikidata.org/wiki/Special:EntityData/{item_id}.json"
         data = make_http_request(url)
@@ -291,18 +293,10 @@ def wikidata_item_to_text(item_id):
         item_cache[item_id] = item_data
         save_item_cache()
 
-    # Get the Item's label and description in English
     item_label = item_data.get("labels", {}).get("en", {}).get("value", "No item label found")
-    description = (
-        item_data.get("descriptions", {})
-        .get("en", {})
-        .get("value", "No description found")
-    )
-    text_representation = f"{item_label}: {description}\n"
-
+    description = item_data.get("descriptions", {}).get("en", {}).get("value", "No description found")
+    text_representation = f"{item_label}: {description}\n\n"
     text_representation += create_statements_representation(item_label, item_data.get("claims", {}))
-
-    # Return the concatenated string of labels and descriptions
     return text_representation
 
 
