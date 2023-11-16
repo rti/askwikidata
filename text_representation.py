@@ -12,6 +12,19 @@ label_cache_file_path = "wikidata_label_cache.json"
 
 # Path to text_representations directory
 text_representations_dir="./text_representations"
+def make_http_request(url):
+    """
+    Make an HTTP GET request to the specified URL and return the JSON response.
+
+    Args:
+        url (str): The URL to which the request will be sent.
+
+    Returns:
+        dict: The JSON response from the request.
+    """
+    response = requests.get(url)
+    response.raise_for_status()
+    return response.json()
 
 def load_item_cache():
     if os.path.exists(item_cache_file_path):
@@ -105,9 +118,7 @@ def fetch_labels_by_ids(ids):
     if labels_to_fetch:
         print(f"Fetching labels for {uncached_ids}", file=sys.stderr)
         url = f"https://www.wikidata.org/w/api.php?action=wbgetentities&ids={labels_to_fetch}&format=json&props=labels"
-        response = requests.get(url)
-        response.raise_for_status()
-        data = response.json()
+        data = make_http_request(url)
 
         for entity_id, content in data["entities"].items():
             entity_label = content["labels"].get("en", {}).get("value", entity_id)
@@ -274,21 +285,9 @@ def wikidata_item_to_text(item_id):
         item_data = item_cache[item_id]
     else:
         print(f"Fetching data for item: {item_id}", file=sys.stderr)
-        # Build the URL for the JSON version of the item
         url = f"https://www.wikidata.org/wiki/Special:EntityData/{item_id}.json"
-
-        # Make the HTTP request to the Wikidata API
-        response = requests.get(url)
-        response.raise_for_status()  # Raises an HTTPError if the HTTP request returned an unsuccessful status code
-
-        # Parse the JSON response
-        data = response.json()
-
-        # Navigate through the JSON to find the desired data
-        entities = data.get("entities", {})
-        item_data = entities.get(item_id, {})
-
-        # Cache the fetched data
+        data = make_http_request(url)
+        item_data = data.get("entities", {}).get(item_id, {})
         item_cache[item_id] = item_data
         save_item_cache()
 
