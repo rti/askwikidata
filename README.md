@@ -29,6 +29,6 @@ $ python -m unittest
 To get a coverage report, run
 ```sh
 $ coverage run -m unittest discover
-$ coverage report --omit="/nix/*" --show-missing
+$ coverage report --omit="test_*,/nix/*" --show-missing
 ```
 
