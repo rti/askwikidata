@@ -290,7 +290,3 @@ class TestCreateStatementGroupRepresentation(unittest.TestCase):
             self.item_label, {prop_label: statement_group}
         )
         self.assertEqual(result, "")
-
-
-if __name__ == "__main__":
-    unittest.main()

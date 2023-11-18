@@ -18,3 +18,17 @@ Hugging Face | `HUGGINGFACE_API_KEY` |
 runpod.io | `RUNPOD_API_KEY` |
 OpenAI | `OPENAI_API_KEY` |
 
+## Usage
+
+To execute the test suite, run:
+
+```sh
+$ python -m unittest
+```
+
+To get a coverage report, run
+```sh
+$ coverage run -m unittest discover
+$ coverage report --omit="/nix/*" --show-missing
+```
+

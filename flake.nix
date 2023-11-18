@@ -20,6 +20,7 @@
 
         black
         ipython
+        coverage
 
         (
           buildPythonPackage rec {
