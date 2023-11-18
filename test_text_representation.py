@@ -1,17 +1,17 @@
-from text_representation import (
-    create_statements_representation,
-    create_statement_group_representation,
-)
 import unittest
-import requests
 from unittest import mock
+import requests
+
 from text_representation import (
-    make_http_request,
+    create_statement_group_representation,
+    create_statements_representation,
+    format_date,
     load_item_cache,
-    replace_prop_label,
+    load_label_cache,
+    make_http_request,
     prop_skip,
+    replace_prop_label,
 )
-from text_representation import format_date
 
 
 class TestFormatDate(unittest.TestCase):
@@ -103,6 +103,23 @@ class TestPropSkip(unittest.TestCase):
     def test_not_skip_unknown_label(self):
         self.assertFalse(prop_skip("some unknown label"))
 
+class TestLoadLabelCache(unittest.TestCase):
+    # Test loading label cache when cache file exists.
+    @mock.patch("text_representation.os.path.exists")
+    @mock.patch("text_representation.json.load")
+    @mock.patch("builtins.open", new_callable=mock.mock_open, read_data='{"P123": "Label for P123"}')
+    def test_load_label_cache_exists(self, mock_file, mock_json_load, mock_exists):
+        mock_exists.return_value = True
+        mock_json_load.return_value = {"P123": "Label for P123"}
+        label_cache = load_label_cache()
+        self.assertEqual(label_cache, {"P123": "Label for P123"})
+
+    # Test loading label cache when cache file does not exist.
+    @mock.patch("text_representation.os.path.exists")
+    def test_load_label_cache_not_exists(self, mock_exists):
+        mock_exists.return_value = False
+        label_cache = load_label_cache()
+        self.assertEqual(label_cache, {})
 
 class TestCreateStatementsRepresentation(unittest.TestCase):
     def setUp(self):
