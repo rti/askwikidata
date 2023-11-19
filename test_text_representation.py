@@ -197,6 +197,67 @@ class TestSaveLabelCache(unittest.TestCase):
         text_representation.save_label_cache()
         mock_load_label_cache.assert_called_once()
 
+class TestFetchLabelsByIds(unittest.TestCase):
+    @mock.patch("text_representation.make_http_request")
+    @mock.patch("text_representation.save_label_cache")
+    def test_fetch_labels_by_ids_returns_correct_labels(self, mock_save_label_cache, mock_make_http_request):
+        # Setup mock response from the API
+        mock_response = {
+            "entities": {
+                "Q1": {"labels": {"en": {"language": "en", "value": "Universe"}}},
+                "Q2": {"labels": {"en": {"language": "en", "value": "Earth"}}},
+            }
+        }
+        mock_make_http_request.return_value = mock_response
+
+        # Call fetch_labels_by_ids with IDs that are not in the cache
+        labels = text_representation.fetch_labels_by_ids(["Q1", "Q2"])
+
+        # Check that the labels are correctly returned
+        self.assertEqual(labels, {"Q1": "Universe", "Q2": "Earth"})
+        # Check that the API was called since these labels were not in the cache
+        mock_make_http_request.assert_called_once()
+        # Check that the label cache is saved after fetching
+        mock_save_label_cache.assert_called_once()
+
+    @mock.patch("text_representation.make_http_request")
+    def test_fetch_labels_by_ids_uses_cache(self, mock_make_http_request):
+        # Pre-populate the label cache
+        text_representation.label_cache = {"Q1": "Universe"}
+
+        # Call fetch_labels_by_ids with an ID that is in the cache
+        labels = text_representation.fetch_labels_by_ids(["Q1"])
+
+        # Check that the labels are correctly returned from the cache
+        self.assertEqual(labels, {"Q1": "Universe"})
+        # Check that the API was not called since the label was in the cache
+        mock_make_http_request.assert_not_called()
+
+    @mock.patch("text_representation.make_http_request")
+    @mock.patch("text_representation.save_label_cache")
+    def test_fetch_labels_by_ids_updates_cache(self, mock_save_label_cache, mock_make_http_request):
+        # Setup mock response from the API
+        mock_response = {
+            "entities": {
+                "Q2": {"labels": {"en": {"language": "en", "value": "Earth"}}},
+            }
+        }
+        mock_make_http_request.return_value = mock_response
+
+        # Pre-populate the label cache with a different ID
+        text_representation.label_cache = {"Q1": "Universe"}
+
+        # Call fetch_labels_by_ids with a new ID that is not in the cache
+        labels = text_representation.fetch_labels_by_ids(["Q2"])
+
+        # Check that the labels are correctly returned and include the new label from the API
+        self.assertEqual(labels, {"Q2": "Earth"})
+        # Check that the label cache now contains the new label
+        self.assertIn("Q2", text_representation.label_cache)
+        self.assertEqual(text_representation.label_cache["Q2"], "Earth")
+        # Check that the label cache is saved after fetching
+        mock_save_label_cache.assert_called_once()
+
 
 class TestCreateStatementsRepresentation(unittest.TestCase):
     def setUp(self):

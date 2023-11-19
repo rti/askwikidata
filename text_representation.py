@@ -122,7 +122,6 @@ def fetch_labels_by_ids(ids):
     labels_to_fetch = "|".join(uncached_ids)
 
     if labels_to_fetch:
-        print(f"Fetching labels for {uncached_ids}", file=sys.stderr)
         url = f"https://www.wikidata.org/w/api.php?action=wbgetentities&ids={labels_to_fetch}&format=json&props=labels"
         data = make_http_request(url)
 
@@ -335,7 +334,6 @@ def wikidata_item_to_text(item_id):
     # Check if the item is already in the cache
     item_data = item_cache.get(item_id)
     if not item_data:
-        print(f"Fetching data for item: {item_id}", file=sys.stderr)
         url = f"https://www.wikidata.org/wiki/Special:EntityData/{item_id}.json"
         data = make_http_request(url)
         item_data = data.get("entities", {}).get(item_id, {})
