@@ -1,18 +1,13 @@
-# import pandas as pd
 import glob
 import json
 import os
+import requests
 
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings.huggingface import HuggingFaceEmbeddings
 from annoy import AnnoyIndex
-
-# import numpy as np
-import requests
-import json
-
-# import time
 import openai
+
 
 HUGGINGFACE_API_KEY = os.getenv("HUGGINGFACE_API_KEY")
 RUNPOD_API_KEY = os.getenv("RUNPOD_API_KEY")
@@ -162,7 +157,9 @@ class AskWikidata:
         headers = {"Authorization": f"Bearer {HUGGINGFACE_API_KEY}"}
         system = self.system_from_context(context)
         prompt = self.mistral_prompt(question, system)
-        print(f"Sending the following prompt to mistral ({len(prompt)} chars , about {int(len(prompt)/3)} tokens)\n{prompt}")
+        print(
+            f"Sending the following prompt to mistral ({len(prompt)} chars , about {int(len(prompt)/3)} tokens)\n{prompt}"
+        )
         response = requests.post(
             API_URL,
             headers=headers,
@@ -177,11 +174,15 @@ class AskWikidata:
         if HUGGINGFACE_API_KEY is None:
             raise Exception("HUGGINGFACE_API_KEY is None.")
 
-        API_URL = "https://api-inference.huggingface.co/models/meta-llama/Llama-2-7b-chat-hf"
+        API_URL = (
+            "https://api-inference.huggingface.co/models/meta-llama/Llama-2-7b-chat-hf"
+        )
         headers = {"Authorization": f"Bearer {HUGGINGFACE_API_KEY}"}
         system = self.system_from_context(context)
         prompt = self.llama_prompt(question, system)
-        print(f"Sending the following prompt to llama ({len(prompt)} chars , about {int(len(prompt)/3)} tokens)\n{prompt}")
+        print(
+            f"Sending the following prompt to llama ({len(prompt)} chars , about {int(len(prompt)/3)} tokens)\n{prompt}"
+        )
         response = requests.post(
             API_URL,
             headers=headers,
