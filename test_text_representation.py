@@ -2,42 +2,33 @@ import unittest
 from unittest import mock
 import requests
 
-from text_representation import (
-    create_statement_group_representation,
-    create_statements_representation,
-    format_date,
-    load_item_cache,
-    load_label_cache,
-    make_http_request,
-    prop_skip,
-    replace_prop_label,
-)
+import text_representation
 
 
 class TestFormatDate(unittest.TestCase):
     # Test if only the year is extracted when month and day are not provided.
     def test_year_only(self):
-        self.assertEqual(format_date("+2016-00-00T00:00:00Z"), "2016")
+        self.assertEqual(text_representation.format_date("+2016-00-00T00:00:00Z"), "2016")
 
     # Test if the year and month are correctly formatted when the day is not provided.
     def test_year_month(self):
-        self.assertEqual(format_date("+2016-07-00T00:00:00Z"), "2016-07")
+        self.assertEqual(text_representation.format_date("+2016-07-00T00:00:00Z"), "2016-07")
 
     # Test if the full date is correctly formatted when year, month, and day are provided.
     def test_full_date(self):
-        self.assertEqual(format_date("+2016-07-15T00:00:00Z"), "2016-07-15")
+        self.assertEqual(text_representation.format_date("+2016-07-15T00:00:00Z"), "2016-07-15")
 
     # Test if 'unknown date' is returned when an invalid date is provided.
     def test_invalid_date(self):
-        self.assertEqual(format_date("+2016-13-00T00:00:00Z"), "unknown date")
+        self.assertEqual(text_representation.format_date("+2016-13-00T00:00:00Z"), "unknown date")
 
     # Test if 'unknown date' is returned when an empty string is provided as the date.
     def test_empty_date(self):
-        self.assertEqual(format_date(""), "unknown date")
+        self.assertEqual(text_representation.format_date(""), "unknown date")
 
     # Test if 'unknown date' is returned when None is provided as the date.
     def test_none_date(self):
-        self.assertEqual(format_date(None), "unknown date")
+        self.assertEqual(text_representation.format_date(None), "unknown date")
 
 
 class TestMakeHttpRequest(unittest.TestCase):
@@ -47,7 +38,7 @@ class TestMakeHttpRequest(unittest.TestCase):
         mock_get.return_value.json.return_value = {"key": "value"}
         mock_get.return_value.raise_for_status = lambda: None
         url = "http://example.com/api"
-        response = make_http_request(url)
+        response = text_representation.make_http_request(url)
         self.assertEqual(response, {"key": "value"})
 
     # Test if make_http_request raises an HTTPError for a failed request.
@@ -58,7 +49,7 @@ class TestMakeHttpRequest(unittest.TestCase):
         )
         url = "http://example.com/api"
         with self.assertRaises(requests.exceptions.HTTPError):
-            make_http_request(url)
+            text_representation.make_http_request(url)
 
 
 class TestLoadItemCache(unittest.TestCase):
@@ -73,53 +64,139 @@ class TestLoadItemCache(unittest.TestCase):
     def test_load_item_cache_exists(self, mock_open, mock_json_load, mock_exists):
         mock_exists.return_value = True
         mock_json_load.return_value = {"Q1": "entity1"}
-        cache = load_item_cache()
+        cache = text_representation.load_item_cache()
         self.assertEqual(cache, {"Q1": "entity1"})
 
     # Test if load_item_cache returns an empty dictionary when the cache file does not exist.
     @mock.patch("text_representation.os.path.exists")
     def test_load_item_cache_not_exists(self, mock_exists):
         mock_exists.return_value = False
-        cache = load_item_cache()
+        cache = text_representation.load_item_cache()
         self.assertEqual(cache, {})
 
 
 class TestReplacePropLabel(unittest.TestCase):
     # Test if replace_prop_label correctly replaces a known property label with its replacement.
     def test_replace_known_label(self):
-        self.assertEqual(replace_prop_label("instance of"), "is a")
+        self.assertEqual(text_representation.replace_prop_label("instance of"), "is a")
 
     # Test if replace_prop_label returns the original label when no replacement is found.
     def test_replace_unknown_label(self):
-        self.assertEqual(replace_prop_label("some unknown label"), "some unknown label")
+        self.assertEqual(text_representation.replace_prop_label("some unknown label"), "some unknown label")
 
 
 class TestPropSkip(unittest.TestCase):
     # Test if prop_skip correctly identifies labels that should be skipped.
     def test_skip_known_label(self):
-        self.assertTrue(prop_skip("flag"))
+        self.assertTrue(text_representation.prop_skip("flag"))
 
     # Test if prop_skip does not skip labels that are not in the skip list.
     def test_not_skip_unknown_label(self):
-        self.assertFalse(prop_skip("some unknown label"))
+        self.assertFalse(text_representation.prop_skip("some unknown label"))
+
 
 class TestLoadLabelCache(unittest.TestCase):
     # Test loading label cache when cache file exists.
     @mock.patch("text_representation.os.path.exists")
     @mock.patch("text_representation.json.load")
-    @mock.patch("builtins.open", new_callable=mock.mock_open, read_data='{"P123": "Label for P123"}')
+    @mock.patch(
+        "builtins.open",
+        new_callable=mock.mock_open,
+        read_data='{"P123": "Label for P123"}',
+    )
     def test_load_label_cache_exists(self, mock_file, mock_json_load, mock_exists):
         mock_exists.return_value = True
         mock_json_load.return_value = {"P123": "Label for P123"}
-        label_cache = load_label_cache()
+        label_cache = text_representation.load_label_cache()
         self.assertEqual(label_cache, {"P123": "Label for P123"})
 
     # Test loading label cache when cache file does not exist.
     @mock.patch("text_representation.os.path.exists")
     def test_load_label_cache_not_exists(self, mock_exists):
         mock_exists.return_value = False
-        label_cache = load_label_cache()
+        label_cache = text_representation.load_label_cache()
         self.assertEqual(label_cache, {})
+
+
+class TestSaveItemCache(unittest.TestCase):
+    # Test if save_item_cache creates a new file with the correct name if it does not exist
+    @mock.patch("text_representation.open", new_callable=mock.mock_open)
+    @mock.patch("text_representation.json.dump")
+    @mock.patch("text_representation.os.path.exists")
+    def test_save_item_cache_creates_file(self, mock_exists, mock_json_dump, mock_open):
+        mock_exists.return_value = False
+        text_representation.save_item_cache()
+        mock_open.assert_called_once_with(text_representation.item_cache_file_path, "w")
+        mock_json_dump.assert_called_once()
+
+    # Test if save_item_cache writes the correct data to the file
+    @mock.patch("text_representation.open", new_callable=mock.mock_open, read_data='{}')
+    @mock.patch("text_representation.json.dump")
+    @mock.patch("text_representation.os.path.exists")
+    def test_save_item_cache_writes_data(self, mock_exists, mock_json_dump, mock_open):
+        mock_exists.return_value = True
+        test_cache = {"Q1": "entity1"}
+        text_representation.item_cache = test_cache
+        text_representation.save_item_cache()
+        mock_json_dump.assert_called_once_with(test_cache, mock_open.return_value, indent=2)
+
+    # Test if save_item_cache correctly updates the item cache when called
+    @mock.patch("text_representation.load_item_cache")
+    @mock.patch("text_representation.open", new_callable=mock.mock_open)
+    @mock.patch("text_representation.json.dump")
+    @mock.patch("text_representation.os.path.exists")
+    def test_save_item_cache_updates_cache(
+        self, mock_exists, mock_json_dump, mock_open, mock_load_item_cache
+    ):
+        mock_exists.return_value = True
+        test_cache = {"Q1": "entity1"}
+        text_representation.item_cache = test_cache
+        text_representation.save_item_cache()
+        mock_load_item_cache.assert_called_once()
+
+
+class TestSaveLabelCache(unittest.TestCase):
+    # Test if save_label_cache creates a new file with the correct name if it does not exist
+    @mock.patch("text_representation.open", new_callable=mock.mock_open)
+    @mock.patch("text_representation.json.dump")
+    @mock.patch("text_representation.os.path.exists")
+    def test_save_label_cache_creates_file(
+        self, mock_exists, mock_json_dump, mock_open
+    ):
+        mock_exists.return_value = False
+        text_representation.save_label_cache()
+        mock_open.assert_called_once_with(
+            text_representation.label_cache_file_path, "w"
+        )
+        mock_json_dump.assert_called_once()
+
+    # Test if save_label_cache writes the correct data to the file
+    @mock.patch("text_representation.open", new_callable=mock.mock_open, read_data='{}')
+    @mock.patch("text_representation.json.dump")
+    @mock.patch("text_representation.os.path.exists")
+    def test_save_label_cache_writes_data(self, mock_exists, mock_json_dump, mock_open):
+        mock_exists.return_value = True
+        test_cache = {"P123": "Label for P123"}
+        text_representation.label_cache = test_cache
+        text_representation.save_label_cache()
+        mock_json_dump.assert_called_once_with(
+            test_cache, mock_open.return_value, indent=2
+        )
+
+    # Test if save_label_cache correctly updates the label cache when called
+    @mock.patch("text_representation.load_label_cache")
+    @mock.patch("text_representation.open", new_callable=mock.mock_open)
+    @mock.patch("text_representation.json.dump")
+    @mock.patch("text_representation.os.path.exists")
+    def test_save_label_cache_updates_cache(
+        self, mock_exists, mock_json_dump, mock_open, mock_load_label_cache
+    ):
+        mock_exists.return_value = True
+        test_cache = {"P123": "Label for P123"}
+        text_representation.label_cache = test_cache
+        text_representation.save_label_cache()
+        mock_load_label_cache.assert_called_once()
+
 
 class TestCreateStatementsRepresentation(unittest.TestCase):
     def setUp(self):
@@ -138,7 +215,7 @@ class TestCreateStatementsRepresentation(unittest.TestCase):
 
     def test_empty_statements(self):
         statements = {}
-        result = create_statements_representation(self.item_label, statements)
+        result = text_representation.create_statements_representation(self.item_label, statements)
         self.assertEqual(result, "")
 
     def test_statements_with_single_group(self):
@@ -152,7 +229,7 @@ class TestCreateStatementsRepresentation(unittest.TestCase):
                 }
             ]
         }
-        result = create_statements_representation(self.item_label, statements)
+        result = text_representation.create_statements_representation(self.item_label, statements)
         self.assertIn("Sample Item sample property Douglas Adams.", result)
 
     def test_statements_with_multiple_groups(self):
@@ -175,7 +252,7 @@ class TestCreateStatementsRepresentation(unittest.TestCase):
             ],
         }
         self.mock_fetch_labels_start.return_value.update({"P124": "another property"})
-        result = create_statements_representation(self.item_label, statements)
+        result = text_representation.create_statements_representation(self.item_label, statements)
         self.assertIn("Sample Item sample property Douglas Adams.", result)
         self.assertIn("Sample Item another property Sample string.", result)
 
@@ -199,10 +276,10 @@ class TestCreateStatementsRepresentation(unittest.TestCase):
             ],
         }
         self.mock_fetch_labels_start.return_value.update({"P125": "flag"})
-        result = create_statements_representation(self.item_label, statements)
+        result = text_representation.create_statements_representation(self.item_label, statements)
         self.assertIn("Sample Item sample property Douglas Adams.", result)
         self.assertNotIn("Sample Item flag Douglas Adams.", result)
-        result = create_statements_representation(self.item_label, statements)
+        result = text_representation.create_statements_representation(self.item_label, statements)
         self.assertIn("Sample Item sample property Douglas Adams.", result)
         self.assertNotIn("Sample Item flag Douglas Adams.", result)
 
@@ -224,7 +301,7 @@ class TestCreateStatementGroupRepresentation(unittest.TestCase):
     def test_empty_statement_group(self):
         prop_label = "sample property"
         statement_group = []
-        result = create_statement_group_representation(
+        result = text_representation.create_statement_group_representation(
             self.item_label, prop_label, statement_group
         )
         self.assertEqual(result, "")
@@ -262,7 +339,7 @@ class TestCreateStatementGroupRepresentation(unittest.TestCase):
                 }
             },
         ]
-        result = create_statement_group_representation(
+        result = text_representation.create_statement_group_representation(
             self.item_label, prop_label, statement_group
         )
         self.assertIn("Sample Item sample property Douglas Adams", result)
@@ -285,7 +362,7 @@ class TestCreateStatementGroupRepresentation(unittest.TestCase):
                 },
             }
         ]
-        result = create_statement_group_representation(
+        result = text_representation.create_statement_group_representation(
             self.item_label, prop_label, statement_group
         )
         self.assertIn(
@@ -303,7 +380,7 @@ class TestCreateStatementGroupRepresentation(unittest.TestCase):
                 }
             }
         ]
-        result = create_statements_representation(
+        result = text_representation.create_statements_representation(
             self.item_label, {prop_label: statement_group}
         )
         self.assertEqual(result, "")
