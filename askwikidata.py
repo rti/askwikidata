@@ -21,10 +21,14 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 chunk_embeddings_cache_file_path = "chunk_embeddings_cache.json"
 
-# embedding_model_name = "paraphrase-MiniLM-L6-v2"
-embedding_model_name = "paraphrase-MiniLM-L12-v2"
 # embedding_model_name ="all-MiniLM-L6-v2"
+embedding_model_name ="BAAI/bge-base-en-v1.5"
+# embedding_model_name ="BAAI/bge-large-en-v1.5"
 # embedding_model_name ="BAAI/bge-small-en-v1.5"
+# embedding_model_name = "paraphrase-MiniLM-L12-v2"
+# embedding_model_name = "paraphrase-MiniLM-L12-v2"
+# embedding_model_name = "paraphrase-MiniLM-L6-v2"
+
 embeddings_model = SentenceTransformer(embedding_model_name)
 
 
@@ -32,7 +36,7 @@ def create_chunk_embeddings():
     # data loading
     texts = []
     metas = []
-    directory_path = "./test_representations"
+    directory_path = "./text_representations"
 
     for file_path in glob.glob(os.path.join(directory_path, "*.txt")):
         with open(file_path, "r") as file:
@@ -42,9 +46,9 @@ def create_chunk_embeddings():
             metas.append({"source": f"https://www.wikidata.org/wiki/{q_id}"})
 
     chunks = create_chunks(texts, metas)
-    print("chunks size is:", len(chunks))
+    print(f"created {len(chunks)} chunks.")
     embeds = create_embeds(chunks)
-    print("embeds size is:", len(embeds))
+    print(f"created {len(embeds)} embeds.")
 
     return chunks, embeds
 
@@ -91,32 +95,34 @@ def create_embeds(chunks):
     return embeds
 
 
-def save_chunk_embed_cache(chunks, embeddings):
-    chunks_json = []
-    for chunk in chunks:
-        chunk_json = chunks_json.append(chunk.dict())
+# def save_chunk_embed_cache(chunks, embeddings):
+#     chunks_json = []
+#     for chunk in chunks:
+#         chunk_json = chunks_json.append(chunk.dict())
+#
+#     embeds_json = []
+#     for embedding in embeddings:
+#         embedding_json = embeds_json.append(embedding.tolist())
+#
+#     chunk_embeds = {"chunks": chunks_json, "embeddings": embeds_json}
+#     with open(chunk_embeddings_cache_file_path, "w") as cache_file:
+#         json.dump(chunk_embeds, cache_file, indent=2)
+#
+#
+# # TODO: Load chunks & embeddings from cache file if it exists
+# if False and os.path.exists(chunk_embeddings_cache_file_path):
+#     with open(chunk_embeddings_cache_file_path, "r") as cache_file:
+#         cached_chunk_embeds = json.load(cache_file)
+# else:
+#     chunks, embeds = create_chunk_embeddings()
+#     save_chunk_embed_cache(chunks, embeds)
 
-    embeds_json = []
-    for embedding in embeddings:
-        embedding_json = embeds_json.append(embedding.tolist())
-
-    chunk_embeds = {"chunks": chunks_json, "embeddings": embeds_json}
-    with open(chunk_embeddings_cache_file_path, "w") as cache_file:
-        json.dump(chunk_embeds, cache_file, indent=2)
-
-
-# TODO: Load chunks & embeddings from cache file if it exists
-if False and os.path.exists(chunk_embeddings_cache_file_path):
-    with open(chunk_embeddings_cache_file_path, "r") as cache_file:
-        cached_chunk_embeds = json.load(cache_file)
-else:
-    chunks, embeds = create_chunk_embeddings()
-    save_chunk_embed_cache(chunks, embeds)
-
+chunks, embeds = create_chunk_embeddings()
 
 # embeddings index
 index_trees = 10
 embed_dims = len(embeds[0])
+print(f"embeddings have {embed_dims} dimensions.")
 index = AnnoyIndex(embed_dims, "angular")
 for i, e in enumerate(embeds):
     index.add_item(i, e)
@@ -195,7 +201,7 @@ def ask_llama_runpod(question, context):
 
 # access LLM on openai
 def ask_openai(question, context):
-    openai.api_key = OPENAI_KEY
+    openai.api_key = OPENAI_API_KEY
     # openai_model = "gpt-3.5-turbo"
     # openai_model = "gpt-4"
     openai_model = "gpt-4-1106-preview"
@@ -210,29 +216,6 @@ def ask_openai(question, context):
     reply = chat.choices[0].message.content
     return reply
 
-
-
-# # access llama LLM on huggingface
-# def ask_llama(question, context):
-#     # API_URL = (
-#     #     "https://api-inference.huggingface.co/models/meta-llama/Llama-2-7b-chat-hf"
-#     # )
-#     API_URL = (
-#         "https://api-inference.huggingface.co/models/meta-llama/Llama-2-13b-chat-hf"
-#     )
-#     headers = {"Authorization": f"Bearer {HUGGINGFACE_KEY}"}
-#     system = system_from_context(context)
-#     prompt = llama_prompt(question, system)
-#     response = requests.post(
-#         API_URL,
-#         headers=headers,
-#         json={
-#             "inputs": prompt,
-#         },
-#     )
-#     # return response.json()[0]["generated_text"].replace(prompt, "").strip()
-#     return response.json()
-#
 
 # access mistral LLM on huggingface
 def mistral_prompt(text, system="You are a helpful assistent."):
