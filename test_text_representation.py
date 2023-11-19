@@ -458,3 +458,35 @@ class TestCreateStatementGroupRepresentation(unittest.TestCase):
             self.item_label, {prop_label: statement_group}
         )
         self.assertEqual(result, "")
+
+class TestWikidataItemToText(unittest.TestCase):
+    @mock.patch("text_representation.make_http_request")
+    @mock.patch("text_representation.save_item_cache")
+    def test_wikidata_item_to_text_not_in_cache(self, mock_save_item_cache, mock_make_http_request):
+        # Setup mock response from the API
+        mock_response = {
+            "entities": {
+                "Q42": {
+                    "labels": {"en": {"language": "en", "value": "Douglas Adams"}},
+                    "descriptions": {"en": {"language": "en", "value": "English writer and humorist"}},
+                    "claims": {}
+                }
+            }
+        }
+        mock_make_http_request.return_value = mock_response
+
+        # Clear the item cache before testing
+        text_representation.item_cache = {}
+
+        # Call wikidata_item_to_text with an item ID that is not in the cache
+        item_text = text_representation.wikidata_item_to_text("Q42")
+
+        # Check that the text representation is as expected
+        expected_text = "Douglas Adams: English writer and humorist\n\n"
+        self.assertEqual(item_text, expected_text)
+
+        # Check that the API was called since the item was not in the cache
+        mock_make_http_request.assert_called_once()
+
+        # Check that the item cache is saved after fetching
+        mock_save_item_cache.assert_called_once()
