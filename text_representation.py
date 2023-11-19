@@ -198,6 +198,7 @@ def format_quantity(value):
 # Function to get qualifiers for time span
 def get_time_span(qualifiers):
     time_span = ""
+    ongoing = True
     start_time_qualifier = (
         qualifiers.get("P580", [{}])[0]
         .get("datavalue", {})
@@ -217,21 +218,24 @@ def get_time_span(qualifiers):
         .get("time")
     )
 
-    if start_time_qualifier and not (end_time_qualifier):
+    if start_time_qualifier and not end_time_qualifier:
         start_time = format_date(start_time_qualifier)
         time_span += f"since {start_time} until today"
     elif start_time_qualifier:
         start_time = format_date(start_time_qualifier)
         time_span += f"from {start_time} "
+        ongoing = False
 
     if end_time_qualifier:
         end_time = format_date(end_time_qualifier)
         time_span += f"to {end_time}"
+        ongoing = False
     if point_in_time_qualifier and not (start_time_qualifier or end_time_qualifier):
         point_in_time = format_date(point_in_time_qualifier)
         time_span += f"in {point_in_time}"
+        ongoing = False
 
-    return time_span.strip()
+    return time_span.strip(), ongoing
 
 
 def create_statement_group_representation(item_label, prop_label, statement_group):
@@ -254,35 +258,36 @@ def create_statement_group_representation(item_label, prop_label, statement_grou
         value = datavalue.get("value")
         datatype = mainsnak.get("datatype")
         qualifiers = statement.get("qualifiers", {})
-        time_span = get_time_span(qualifiers)
+        time_span, ongoing = get_time_span(qualifiers)
         time_span_text = f" {time_span}" if time_span else ""
+        adjusted_prop_label = prop_label
+
+        if not ongoing:
+            adjusted_prop_label = prop_label.replace("is", "was")
+            adjusted_prop_label = adjusted_prop_label.replace("had", "has")
 
         if datatype == "wikibase-item" and value and value.get("entity-type") == "item":
             value_id = value.get("id")
-            # Fetch labels value
             labels = fetch_labels_by_ids([value_id])
             value_label = labels.get(value_id, value_id)
             if value_label:
                 statement_group_text.append(
-                    f"{item_label} {prop_label} {value_label}{time_span_text}."
+                    f"{item_label} {adjusted_prop_label} {value_label}{time_span_text}."
                 )
-
         elif datatype == "time" and value:
             time_value = format_date(value.get("time"))
             statement_group_text.append(
-                f"{item_label} {prop_label} on {time_value}{time_span_text}."
+                f"{item_label} {adjusted_prop_label} on {time_value}{time_span_text}."
             )
-
         elif datatype == "string":
             string_value = value if isinstance(value, str) else "Unknown"
             statement_group_text.append(
-                f"{item_label} {prop_label} {string_value}{time_span_text}."
+                f"{item_label} {adjusted_prop_label} {string_value}{time_span_text}."
             )
-
         elif datatype == "quantity":
             quantity_value = format_quantity(value)
             statement_group_text.append(
-                f"{item_label} {prop_label} {quantity_value}{time_span_text}."
+                f"{item_label} {adjusted_prop_label} {quantity_value}{time_span_text}."
             )
 
     # Ensure each non-empty statement group ends with a newline
