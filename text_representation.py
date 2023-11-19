@@ -3,8 +3,6 @@ import json
 import os
 import sys
 
-# import tiktoken
-
 # Path to the item cache file
 item_cache_file_path = "wikidata_item_cache.json"
 # Path to the label cache file
@@ -265,7 +263,7 @@ def create_statement_group_representation(item_label, prop_label, statement_grou
 
         if not ongoing:
             adjusted_prop_label = prop_label.replace("is", "was")
-            adjusted_prop_label = adjusted_prop_label.replace("had", "has")
+            adjusted_prop_label = adjusted_prop_label.replace("has", "had")
 
         if datatype == "wikibase-item" and value and value.get("entity-type") == "item":
             value_id = value.get("id")
