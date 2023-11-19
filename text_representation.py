@@ -229,7 +229,7 @@ def get_time_span(qualifiers):
 
     if end_time_qualifier:
         end_time = format_date(end_time_qualifier)
-        time_span += f"to {end_time}"
+        time_span += f"until {end_time}"
         ongoing = False
     if point_in_time_qualifier and not (start_time_qualifier or end_time_qualifier):
         point_in_time = format_date(point_in_time_qualifier)
