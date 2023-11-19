@@ -88,16 +88,17 @@ class AskWikidata:
             # print(self.chunks[n[0]].page_content)
             # print("\n")
 
-        # return self.ask_mistral(query, context)
+        return self.ask_llama_hf(query, context)
+        # return self.ask_mistral_hf(query, context)
         # return self.ask_llama_runpod(query, context)
-        return self.ask_openai(query, context)
+        # return self.ask_openai(query, context)
 
     def system_from_context(self, context):
         system = (
             "You are answering questions for a given context.\n"
             + "Answer based on information from the given context only.\n"
             + "If the answer is not in the context say that you do not know the answer.\n"
-            + "Only give the answer, do not provide any further explanations.\n"
+            + "Only give the answer, do not provide any further explanations. Do not mention the context.\n"
             + f"CONTEXT:\n{context}"
         )
         return system
@@ -153,7 +154,7 @@ class AskWikidata:
     def mistral_prompt(self, text, system="You are a helpful assistent."):
         return f"<s>[INST] {system}\n\nQUESTION: {text} [/INST]"
 
-    def ask_mistral(self, question, context):
+    def ask_mistral_hf(self, question, context):
         if HUGGINGFACE_API_KEY is None:
             raise Exception("HUGGINGFACE_API_KEY is None.")
 
@@ -162,6 +163,25 @@ class AskWikidata:
         system = self.system_from_context(context)
         prompt = self.mistral_prompt(question, system)
         print(f"Sending the following prompt to mistral ({len(prompt)} chars , about {int(len(prompt)/3)} tokens)\n{prompt}")
+        response = requests.post(
+            API_URL,
+            headers=headers,
+            json={
+                "inputs": prompt,
+            },
+        )
+        # print(response.json())
+        return response.json()[0]["generated_text"].replace(prompt, "").strip()
+
+    def ask_llama_hf(self, question, context):
+        if HUGGINGFACE_API_KEY is None:
+            raise Exception("HUGGINGFACE_API_KEY is None.")
+
+        API_URL = "https://api-inference.huggingface.co/models/meta-llama/Llama-2-7b-chat-hf"
+        headers = {"Authorization": f"Bearer {HUGGINGFACE_API_KEY}"}
+        system = self.system_from_context(context)
+        prompt = self.llama_prompt(question, system)
+        print(f"Sending the following prompt to llama ({len(prompt)} chars , about {int(len(prompt)/3)} tokens)\n{prompt}")
         response = requests.post(
             API_URL,
             headers=headers,
@@ -190,6 +210,7 @@ if __name__ == "__main__":
     askwikidata.create_chunk_embeddings()
     askwikidata.create_index()
 
-    query = "Who is the current mayor of Berlin?"
+    # TODO: mistral does not get it atm, why?
+    query = "Who is the current mayor of Berlin today?"
     response = askwikidata.ask(query)
     print(response + "\n")
