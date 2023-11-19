@@ -63,10 +63,12 @@
           ${pkgs.figlet}/bin/figlet "askwikidata"
 
           cat << _EOF
-$ docker run --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=password -d ankane/pgvector:v0.5.1
-$ docker exec -it postgres psql -U postgres
-$ docker exec -it postgres createdb -U postgres askwikidata
+Run unit tests:
+$ python -m unittest
 
+Run unit tests with coverage report:
+$ coverage run -m unittest
+$ coverage report --omit="test_*,/nix/*" --show-missing
 _EOF
         '';
       };
