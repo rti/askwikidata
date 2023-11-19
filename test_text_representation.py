@@ -30,6 +30,19 @@ class TestFormatDate(unittest.TestCase):
     def test_none_date(self):
         self.assertEqual(text_representation.format_date(None), "unknown date")
 
+    def test_short_string_year_month_no_day(self):
+        self.assertEqual(text_representation.format_date("+2016-07"), "2016-07")
+
+    def test_short_string_year_month_no_day_invalid_month(self):
+        self.assertEqual(text_representation.format_date("+2016-17"), "unknown date")
+
+    def test_short_string_year_month_no_day_zero_month(self):
+        self.assertEqual(text_representation.format_date("+2016-00"), "2016")
+
+    def test_short_string_year_only(self):
+        self.assertEqual(text_representation.format_date("+2016"), "2016")
+
+
 
 class TestMakeHttpRequest(unittest.TestCase):
     # Test if make_http_request returns the correct JSON response for a successful request.

@@ -174,8 +174,6 @@ def format_date(date_value):
                 return f"{year}-{month}"  # Year and month
         elif len(date_parts) == 1:
             return date_parts[0]  # Year only
-        else:
-            return 'unknown date'
     return 'unknown date'
 
 
