@@ -64,6 +64,8 @@ def replace_prop_label(label) -> str:
         "hashtag": "has hashtag",
         "award received": "has received award",
         "located in or next to body of water": "is next to river or lake or sea",
+        "capital of": "is capital of",
+        "located in the administrative territorial entity": "is located in the administrative territorial entity",
     }
     l = property_label_replacements.get(label)
     if l is not None:
