@@ -16,7 +16,7 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 
 class AskWikidata:
-    chunk_embeddings_cache_file_path = "chunk_embeddings_cache.json"
+    chunk_embeddings_cache_file_path = "wikidata_embed_cache.json"
     chunks = []
     embeds = []
 
@@ -58,6 +58,8 @@ class AskWikidata:
             f"Created {len(self.embeds)} embeddings with {len(self.embeds[0])} dimensions."
         )
 
+        self.save_embeddings_cache()
+
         return self.chunks, self.embeds
 
     def create_chunks(self, texts, metas):
@@ -72,12 +74,33 @@ class AskWikidata:
 
     def create_embeds(self, chunks, embedding_model_name):
         embeds = []
+
         self.embeddings_model = HuggingFaceEmbeddings(model_name=embedding_model_name)
+
+        if self.load_embeddings_cache():
+            return self.embeds;
 
         for t in chunks:
             embeds.append(self.embeddings_model.embed_documents([t.page_content])[0])
 
         return embeds
+
+    def save_embeddings_cache(self):
+        cache_data = {
+            "embeds": self.embeds
+        }
+        with open(self.chunk_embeddings_cache_file_path, 'w') as cache_file:
+            json.dump(cache_data, cache_file)
+        print(f"Saved embeddings cache to {self.chunk_embeddings_cache_file_path}.")
+
+    def load_embeddings_cache(self):
+        if os.path.exists(self.chunk_embeddings_cache_file_path):
+            with open(self.chunk_embeddings_cache_file_path, 'r') as cache_file:
+                cache_data = json.load(cache_file)
+            self.embeds = cache_data["embeds"]
+            print(f"Loaded embeddings cache from {self.chunk_embeddings_cache_file_path}.")
+            return True
+        return False
 
     def create_index(self):
         embed_dims = len(self.embeds[0])
