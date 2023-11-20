@@ -152,9 +152,9 @@ class AskWikidata:
     # access LLM on openai
     def ask_openai(self, question, context):
         openai.api_key = OPENAI_API_KEY
-        # openai_model = "gpt-3.5-turbo"
+        openai_model = "gpt-3.5-turbo"
         # openai_model = "gpt-4"
-        openai_model = "gpt-4-1106-preview"
+        # openai_model = "gpt-4-1106-preview"
         system = self.system_from_context(context)
         messages = [
             {"role": "system", "content": system},
