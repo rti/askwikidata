@@ -2,6 +2,7 @@ import glob
 import json
 import os
 import requests
+import datetime
 
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings.huggingface import HuggingFaceEmbeddings
@@ -105,11 +106,16 @@ class AskWikidata:
 
     def system_from_context(self, context):
         system = (
-            "You are answering questions for a given context.\n"
-            + "Answer based on information from the given context only.\n"
-            + "If the answer is not in the context say that you do not know the answer.\n"
-            + "Only give the answer, do not provide any further explanations. Do not mention the context.\n"
-            + f"CONTEXT:\n{context}"
+            "You are answering questions for a given context. "
+            + "Answer based on information from the given context only. "
+            + "If the answer is not in the context say that you do not know the answer. "
+            + "Only give the answer, do not provide any further explanations. "
+            + "Do not mention the context. "
+            + "Dates and timespans will be presented to you in YYYY-MM-DD format. Interpret those. "
+            + "For reference, today is the "
+            + f"{datetime.date.today().strftime('%Y-%m-%d')}. "
+            + "Respond with the most current information unless requested otherwise.\n"
+            + f"\nCONTEXT:\n{context}"
         )
         return system
 
