@@ -61,7 +61,7 @@ class AskWikidata:
 
     def create_chunks(self, texts, metas):
         text_splitter = RecursiveCharacterTextSplitter(
-            separators=["\n\n", "\n", " ", ""],
+            separators=["\n\n", "\n"],
             chunk_size=self.chunk_size,
             chunk_overlap=self.chunk_overlap,
             length_function=len,
