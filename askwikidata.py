@@ -19,9 +19,25 @@ class AskWikidata:
     chunks = []
     embeds = []
 
-    def create_chunk_embeddings(
-        self, embedding_model_name="BAAI/bge-small-en-v1.5", chunk_size=768
+    def __init__(
+        self,
+        chunk_size=768,
+        chunk_overlap=0,
+        embedding_model_name="BAAI/bge-small-en-v1.5",
+        index_trees=10,
+        retrieval_chunks=3,
     ):
+        self.chunk_size = chunk_size
+        self.chunk_overlap = chunk_overlap
+        self.index_trees = index_trees
+        self.retrieval_chunks = retrieval_chunks
+        self.embedding_model_name = embedding_model_name
+
+    def setup(self):
+        self.create_chunk_embeddings()
+        self.create_index()
+
+    def create_chunk_embeddings(self):
         texts = []
         metas = []
         directory_path = "./text_representations"
@@ -33,20 +49,21 @@ class AskWikidata:
                 q_id = file_name.split(".")[0]
                 metas.append({"source": f"https://www.wikidata.org/wiki/{q_id}"})
 
-        self.chunks = self.create_chunks(texts, metas, chunk_size)
+        self.chunks = self.create_chunks(texts, metas)
         print(f"Created {len(self.chunks)} chunks.")
-        self.embeds = self.create_embeds(self.chunks, embedding_model_name)
-        print(f"Created {len(self.embeds)} embeddings.")
-        print(f"Each embedding has {len(self.embeds[0])} dimensions.")
+
+        self.embeds = self.create_embeds(self.chunks, self.embedding_model_name)
+        print(
+            f"Created {len(self.embeds)} embeddings with {len(self.embeds[0])} dimensions."
+        )
 
         return self.chunks, self.embeds
 
-    def create_chunks(self, texts, metas, chunk_size):
-        chunk_overlap = 50
+    def create_chunks(self, texts, metas):
         text_splitter = RecursiveCharacterTextSplitter(
             separators=["\n\n", "\n", " ", ""],
-            chunk_size=chunk_size,
-            chunk_overlap=chunk_overlap,
+            chunk_size=self.chunk_size,
+            chunk_overlap=self.chunk_overlap,
             length_function=len,
         )
         chunks = text_splitter.create_documents(texts, metadatas=metas)
@@ -62,19 +79,17 @@ class AskWikidata:
         return embeds
 
     def create_index(self):
-        index_trees = 10
         embed_dims = len(self.embeds[0])
         self.index = AnnoyIndex(embed_dims, "angular")
         for i, e in enumerate(self.embeds):
             self.index.add_item(i, e)
-        self.index.build(index_trees)
+        self.index.build(self.index_trees)
 
     def ask(self, query):
-        num_chunks = 3
         query_embed = self.embeddings_model.embed_documents([query])[0]
         query_embed_float = [float(value) for value in query_embed]
         nearest_ids = self.index.get_nns_by_vector(
-            query_embed_float, num_chunks, include_distances=True
+            query_embed_float, self.retrieval_chunks, include_distances=True
         )
         context = ""
         for n in zip(nearest_ids[0], nearest_ids[1]):
