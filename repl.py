@@ -1,8 +1,7 @@
 from askwikidata import AskWikidata
 
-askwikidata = AskWikidata()
-askwikidata.create_chunk_embeddings()
-askwikidata.create_index()
+askwikidata = AskWikidata(retrieval_chunks=3)
+askwikidata.setup()
 
 while True:
     query = input("AskWikidata >> ")
