@@ -78,7 +78,7 @@ class AskWikidata:
         self.embeddings_model = HuggingFaceEmbeddings(model_name=embedding_model_name)
 
         if self.load_embeddings_cache():
-            return self.embeds;
+            return self.embeds
 
         for t in chunks:
             embeds.append(self.embeddings_model.embed_documents([t.page_content])[0])
@@ -86,19 +86,19 @@ class AskWikidata:
         return embeds
 
     def save_embeddings_cache(self):
-        cache_data = {
-            "embeds": self.embeds
-        }
-        with open(self.chunk_embeddings_cache_file_path, 'w') as cache_file:
+        cache_data = {"embeds": self.embeds}
+        with open(self.chunk_embeddings_cache_file_path, "w") as cache_file:
             json.dump(cache_data, cache_file)
         print(f"Saved embeddings cache to {self.chunk_embeddings_cache_file_path}.")
 
     def load_embeddings_cache(self):
         if os.path.exists(self.chunk_embeddings_cache_file_path):
-            with open(self.chunk_embeddings_cache_file_path, 'r') as cache_file:
+            with open(self.chunk_embeddings_cache_file_path, "r") as cache_file:
                 cache_data = json.load(cache_file)
             self.embeds = cache_data["embeds"]
-            print(f"Loaded embeddings cache from {self.chunk_embeddings_cache_file_path}.")
+            print(
+                f"Loaded embeddings cache from {self.chunk_embeddings_cache_file_path}."
+            )
             return True
         return False
 
@@ -205,9 +205,9 @@ class AskWikidata:
         headers = {"Authorization": f"Bearer {HUGGINGFACE_API_KEY}"}
         system = self.system_from_context(context)
         prompt = self.mistral_prompt(question, system)
-        print(
-            f"Sending the following prompt to mistral ({len(prompt)} chars , about {int(len(prompt)/3)} tokens)\n{prompt}"
-        )
+        # print(
+        #     f"Sending the following prompt to mistral ({len(prompt)} chars , about {int(len(prompt)/3)} tokens)\n{prompt}"
+        # )
         response = requests.post(
             API_URL,
             headers=headers,
@@ -228,9 +228,9 @@ class AskWikidata:
         headers = {"Authorization": f"Bearer {HUGGINGFACE_API_KEY}"}
         system = self.system_from_context(context)
         prompt = self.llama_prompt(question, system)
-        print(
-            f"Sending the following prompt to llama ({len(prompt)} chars , about {int(len(prompt)/3)} tokens)\n{prompt}"
-        )
+        # print(
+        #     f"Sending the following prompt to llama ({len(prompt)} chars , about {int(len(prompt)/3)} tokens)\n{prompt}"
+        # )
         response = requests.post(
             API_URL,
             headers=headers,
@@ -246,24 +246,12 @@ class AskWikidata:
         return response.json()[0]["generated_text"].replace(prompt, "").strip()
 
 
-# context = "head of government also known as mayor, prime minister, premier, first minister, head of national government, chancellor, governor, government headed by, executive power headed by, president.\n\nBerlin is nice.\n\nBerlin is cool.\n\nBerlin head of government Susi"
-# context = "Berlin is nice.\n\nBerlin is cool.\n\nBerlin head of government Susi"
-
-# context = context.replace("Kai Wegner", "")
-
-# print(context)
-
-# print(f"Question: {question}")
-# print("mistral: " + ask_mistral(question, context))
-# print("llama: " + ask_llama_runpod(question, context))
-# print("openai: " + ask_openai(queostion, context))
-
 if __name__ == "__main__":
     askwikidata = AskWikidata()
-    askwikidata.create_chunk_embeddings()
-    askwikidata.create_index()
+    askwikidata.setup()
 
-    # TODO: mistral does not get it atm, why?
-    query = "Who is the current mayor of Berlin today?"
+    # query = "Who is the current mayor of Berlin today?"
+    query = "Who was the mayor of Berlin in 2001?"
+    print(query)
     response = askwikidata.ask(query)
-    print(response + "\n")
+    print(response)
