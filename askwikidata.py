@@ -134,7 +134,7 @@ class AskWikidata:
     def system_from_context(self, context):
         system = (
             "You are answering questions for a given context. "
-            + "Answer based on information from the given context only. "
+            + "Answer based on information from the given context only, but do not mention the context in your response. "
             + "If the answer is not in the context say that you do not know the answer. "
             + "Only give the answer, do not provide any further explanations. "
             + "Do not mention the context. "
