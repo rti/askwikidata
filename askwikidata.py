@@ -109,7 +109,7 @@ class AskWikidata:
             self.index.add_item(i, e)
         self.index.build(self.index_trees)
 
-    def ask(self, query):
+    def context(self, query):
         query_embed = self.embeddings_model.embed_documents([query])[0]
         query_embed_float = [float(value) for value in query_embed]
         nearest_ids = self.index.get_nns_by_vector(
@@ -121,6 +121,10 @@ class AskWikidata:
             # print(n)
             # print(self.chunks[n[0]].page_content)
             # print("\n")
+        return context
+
+    def ask(self, query):
+        context = self.context(query)
 
         return self.ask_llama_hf(query, context)
         # return self.ask_mistral_hf(query, context)
