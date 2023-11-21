@@ -232,6 +232,10 @@ class AskWikidata:
             headers=headers,
             json={
                 "inputs": prompt,
+                "parameters": {
+                    # max is 250 https://huggingface.co/docs/api-inference/detailed_parameters#text-generation-task
+                    "max_new_tokens": 250,
+                },
             },
         )
         # print(response.json())
