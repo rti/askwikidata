@@ -34,7 +34,7 @@ class AskWikidata:
         qa_model_name="mistral-7b-instruct-v0.1",
         reranker_model_name="BAAI/bge-reranker-base",
         retrieval_chunks=64,
-        cache_file="askwikidata_embed_cache.json",
+        cache_file=None,
     ):
         self.chunk_overlap = chunk_overlap
         self.chunk_size = chunk_size
@@ -45,6 +45,10 @@ class AskWikidata:
         self.reranker_model_name = reranker_model_name
         self.retrieval_chunks = retrieval_chunks
         self.cache_file = cache_file
+
+        if not cache_file:
+            emn = embedding_model_name.replace("/","-")
+            self.cache_file = f"cache-{chunk_size}-{chunk_overlap}-{emn}.json"
 
         self.embedding_model = HuggingFaceEmbeddings(
             model_name=self.embedding_model_name
