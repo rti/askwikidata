@@ -28,21 +28,23 @@ class AskWikidata:
 
     def __init__(
         self,
-        chunk_size=768,
         chunk_overlap=0,
-        embedding_model_name="BAAI/bge-small-en-v1.5",
-        reranker_model_name="BAAI/bge-reranker-base",
-        index_trees=10,
-        retrieval_chunks=64,
+        chunk_size=768,
         context_chunks=7,
+        embedding_model_name="BAAI/bge-small-en-v1.5",
+        index_trees=10,
+        qa_model_name="mistral-7b-instruct-v0.1",
+        reranker_model_name="BAAI/bge-reranker-base",
+        retrieval_chunks=64,
     ):
-        self.chunk_size = chunk_size
         self.chunk_overlap = chunk_overlap
-        self.index_trees = index_trees
-        self.retrieval_chunks = retrieval_chunks
+        self.chunk_size = chunk_size
         self.context_chunks = context_chunks
         self.embedding_model_name = embedding_model_name
+        self.index_trees = index_trees
+        self.qa_model_name = qa_model_name
         self.reranker_model_name = reranker_model_name
+        self.retrieval_chunks = retrieval_chunks
 
     def setup(self):
         self.read_data()
@@ -180,7 +182,12 @@ class AskWikidata:
     def ask(self, query):
         context = self.context(query)
 
-        return self.ask_llama_hf(query, context)
+        if self.qa_model_name == "llama-2-7b-chat":
+            return self.ask_llama_hf(query, context)
+        elif self.qa_model_name == "mistral-7b-instruct-v0.1":
+            return self.ask_mistral_hf(query, context)
+        else:
+            raise Exception("unknown model")
         # return self.ask_mistral_hf(query, context)
         # return self.ask_llama_runpod(query, context)
         # return self.ask_openai(query, context)
