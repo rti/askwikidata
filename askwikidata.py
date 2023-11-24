@@ -47,6 +47,15 @@ class AskWikidata:
         self.reranker_model_name = reranker_model_name
         self.retrieval_chunks = retrieval_chunks
 
+        self.embeddings_model = HuggingFaceEmbeddings(
+            model_name=self.embedding_model_name
+        )
+
+        self.rerank_tokenizer = AutoTokenizer.from_pretrained(self.reranker_model_name)
+        self.rerank_model = AutoModelForSequenceClassification.from_pretrained(
+            self.reranker_model_name
+        )
+
     def setup(self):
         self.read_data()
         self.create_embeds()
@@ -85,10 +94,6 @@ class AskWikidata:
 
     def create_embeds(self):
         embeds = []
-
-        self.embeddings_model = HuggingFaceEmbeddings(
-            model_name=self.embedding_model_name
-        )
 
         print("Creating embeddings...")
         for _, row in tqdm(self.df.iterrows(), total=len(self.df)):
@@ -140,17 +145,13 @@ class AskWikidata:
     def rerank(self, query: str, df: pd.DataFrame):
         print("Reranking...")
         start = time.time()
-        tokenizer = AutoTokenizer.from_pretrained(self.reranker_model_name)
-        model = AutoModelForSequenceClassification.from_pretrained(
-            self.reranker_model_name
-        )
 
         pairs = []
         for _, n in df.iterrows():
             pairs.append([query, n["text"]])
 
         with torch.no_grad():
-            inputs = tokenizer(
+            inputs = self.rerank_tokenizer(
                 pairs,
                 padding=True,
                 truncation=True,
@@ -159,7 +160,7 @@ class AskWikidata:
             )
 
             scores = (
-                model(**inputs, return_dict=True)
+                self.rerank_model(**inputs, return_dict=True)
                 .logits.view(
                     -1,
                 )
