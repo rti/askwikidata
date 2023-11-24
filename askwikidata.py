@@ -31,7 +31,7 @@ class AskWikidata:
         context_chunks=7,
         embedding_model_name="BAAI/bge-small-en-v1.5",
         index_trees=10,
-        qa_model_name="mistral-7b-instruct-v0.1",
+        qa_model_url="https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.1",
         reranker_model_name="BAAI/bge-reranker-base",
         retrieval_chunks=64,
         cache_file=None,
@@ -41,13 +41,13 @@ class AskWikidata:
         self.context_chunks = context_chunks
         self.embedding_model_name = embedding_model_name
         self.index_trees = index_trees
-        self.qa_model_name = qa_model_name
+        self.qa_model_url = qa_model_url
         self.reranker_model_name = reranker_model_name
         self.retrieval_chunks = retrieval_chunks
         self.cache_file = cache_file
 
         if not cache_file:
-            emn = embedding_model_name.replace("/","-")
+            emn = embedding_model_name.replace("/", "-")
             self.cache_file = f"cache-{chunk_size}-{chunk_overlap}-{emn}.json"
 
     def setup(self):
@@ -136,7 +136,9 @@ class AskWikidata:
 
     def retrieve(self, query: str) -> pd.DataFrame:
         print("Retrieving...")
-        query_embed = self.embedding_model.embed_documents(["Represent this sentence for searching relevant passages: " + query])[0]
+        query_embed = self.embedding_model.embed_documents(
+            ["Represent this sentence for searching relevant passages: " + query]
+        )[0]
         query_embed_float = [float(value) for value in query_embed]
         nns = self.index.get_nns_by_vector(
             query_embed_float, self.retrieval_chunks, include_distances=True
@@ -184,22 +186,34 @@ class AskWikidata:
 
     def context(self, df: pd.DataFrame):
         context = ""
-        for _, row in df.iterrows():
+        for index in reversed(df.index):
+            row = df.loc[index]
             context += row["text"] + "\n"
         return context.replace("\n\n", "\n")
 
-    def ask(self, query):
-        context = self.context(query)
-
-        if self.qa_model_name == "llama-2-7b-chat":
-            return self.ask_llama_hf(query, context)
-        elif self.qa_model_name == "mistral-7b-instruct-v0.1":
-            return self.ask_mistral_hf(query, context)
+    def llm_generate(self, query: str, df: pd.DataFrame):
+        context = self.context(df)
+        prompt_func = None
+        if "llama" in self.qa_model_url:
+            prompt_func = self.llama_prompt
+        elif "mistral" in self.qa_model_url:
+            prompt_func = self.mistral_prompt
         else:
-            raise Exception("unknown model")
-        # return self.ask_mistral_hf(query, context)
-        # return self.ask_llama_runpod(query, context)
+            raise Exception(f"unknown qa_model_name {self.qa_model_url}")
+
+        if "huggingface.co" in self.qa_model_url:
+            return self.hf_generate(query, context, self.qa_model_url, prompt_func)
+        # elif "api.runpod.ai" in self.qa_model_url:
+        #     return self.hf_generate(query, context, self.qa_model_url, prompt_func)
+        #     return self.ask_llama_runpod(query, context)
         # return self.ask_openai(query, context)
+        else:
+            raise Exception(f"unknown qa_model_url {self.qa_model_url}")
+
+    def ask(self, query: str):
+        retrieved = self.retrieve(query)
+        reranked, _ = self.rerank(query, retrieved)
+        return self.llm_generate(query, reranked)
 
     def system_from_context(self, context):
         system = (
@@ -219,90 +233,24 @@ class AskWikidata:
     def llama_prompt(self, text, system="You are a helpful assistent."):
         return f"<s>[INST] <<SYS>>\n{system}\n<</SYS>>\n\n{text} [/INST]"
 
-    def ask_llama_runpod(self, question, context):
-        # access LLM on runpod
-        url = f"https://api.runpod.ai/v2/llama2-7b-chat/runsync"
-        headers = {
-            "Authorization": RUNPOD_API_KEY,
-            "Content-Type": "application/json",
-        }
-        system = self.system_from_context(context)
-        prompt = self.llama_prompt(question, system)
-        # print(prompt)
-        payload = {
-            "input": {
-                "prompt": prompt,
-                "sampling_params": {
-                    "max_tokens": 1000,
-                    "n": 1,
-                    "presence_penalty": 0.2,
-                    "frequency_penalty": 0.7,
-                    "temperature": 0.0,
-                },
-            }
-        }
-        response = requests.post(url, headers=headers, json=payload)
-        response_json = json.loads(response.text)
-        # print(response_json)
-        return response_json["output"]["text"][0]
-
-    # access LLM on openai
-    def ask_openai(self, question, context):
-        openai.api_key = OPENAI_API_KEY
-        openai_model = "gpt-3.5-turbo"
-        # openai_model = "gpt-4"
-        # openai_model = "gpt-4-1106-preview"
-        system = self.system_from_context(context)
-        messages = [
-            {"role": "system", "content": system},
-            {"role": "user", "content": question},
-        ]
-        # print(messages)
-        chat = openai.ChatCompletion.create(model=openai_model, messages=messages)
-        # print(chat)
-        reply = chat.choices[0].message.content
-        return reply
-
-    # access mistral LLM on huggingface
     def mistral_prompt(self, text, system="You are a helpful assistent."):
         return f"<s>[INST] {system}\n\nQUESTION: {text} [/INST]"
 
-    def ask_mistral_hf(self, question, context):
+    def hf_generate(self, question, context, model_url, prompt_func):
         if HUGGINGFACE_API_KEY is None:
             raise Exception("HUGGINGFACE_API_KEY is None.")
 
-        API_URL = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.1"
+        print("Generating...")
         headers = {"Authorization": f"Bearer {HUGGINGFACE_API_KEY}"}
         system = self.system_from_context(context)
-        prompt = self.mistral_prompt(question, system)
-        # print(
-        #     f"Sending the following prompt to mistral ({len(prompt)} chars , about {int(len(prompt)/3)} tokens)\n{prompt}"
-        # )
-        response = requests.post(
-            API_URL,
-            headers=headers,
-            json={
-                "inputs": prompt,
-            },
-        )
-        # print(response.json())
-        return response.json()[0]["generated_text"].replace(prompt, "").strip()
+        prompt = prompt_func(question, system)
 
-    def ask_llama_hf(self, question, context):
-        if HUGGINGFACE_API_KEY is None:
-            raise Exception("HUGGINGFACE_API_KEY is None.")
+        print(f"Sending the following prompt to {model_url}:")
+        print(prompt)
+        print(f"({len(prompt)} chars, about {int(len(prompt)/3)} tokens)")
 
-        API_URL = (
-            "https://api-inference.huggingface.co/models/meta-llama/Llama-2-7b-chat-hf"
-        )
-        headers = {"Authorization": f"Bearer {HUGGINGFACE_API_KEY}"}
-        system = self.system_from_context(context)
-        prompt = self.llama_prompt(question, system)
-        # print(
-        #     f"Sending the following prompt to llama ({len(prompt)} chars , about {int(len(prompt)/3)} tokens)\n{prompt}"
-        # )
         response = requests.post(
-            API_URL,
+            model_url,
             headers=headers,
             json={
                 "inputs": prompt,
@@ -313,24 +261,79 @@ class AskWikidata:
             },
         )
         # print(response.json())
-        return response.json()[0]["generated_text"].replace(prompt, "").strip()
+        
+        try:
+            return response.json()[0]["generated_text"].replace(prompt, "").strip()
+        except Exception as e:
+            print(f"An unexpected error occurred: {e}")
+            print(response)
+            raise e
+
+    # def ask_llama_runpod(self, question, context):
+    #     # access LLM on runpod
+    #     url = f"https://api.runpod.ai/v2/llama2-7b-chat/runsync"
+    #     headers = {
+    #         "Authorization": RUNPOD_API_KEY,
+    #         "Content-Type": "application/json",
+    #     }
+    #     system = self.system_from_context(context)
+    #     prompt = self.llama_prompt(question, system)
+    #     # print(prompt)
+    #     payload = {
+    #         "input": {
+    #             "prompt": prompt,
+    #             "sampling_params": {
+    #                 "max_tokens": 1000,
+    #                 "n": 1,
+    #                 "presence_penalty": 0.2,
+    #                 "frequency_penalty": 0.7,
+    #                 "temperature": 0.0,
+    #             },
+    #         }
+    #     }
+    #     response = requests.post(url, headers=headers, json=payload)
+    #     response_json = json.loads(response.text)
+    #     # print(response_json)
+    #     return response_json["output"]["text"][0]
+    #
+    # # access LLM on openai
+    # def ask_openai(self, question, context):
+    #     openai.api_key = OPENAI_API_KEY
+    #     openai_model = "gpt-3.5-turbo"
+    #     # openai_model = "gpt-4"
+    #     # openai_model = "gpt-4-1106-preview"
+    #     system = self.system_from_context(context)
+    #     messages = [
+    #         {"role": "system", "content": system},
+    #         {"role": "user", "content": question},
+    #     ]
+    #     # print(messages)
+    #     chat = openai.ChatCompletion.create(model=openai_model, messages=messages)
+    #     # print(chat)
+    #     reply = chat.choices[0].message.content
+    #     return reply
+    #
 
 
-# if __name__ == "__main__":
-#     askwikidata = AskWikidata()
-#     askwikidata.setup()
-#
-#     query = "Who is the current mayor of Berlin today?"
-#     # query = "Who was the mayor of Berlin in 2001?"
-#     print("QUERY: ", query)
-#
-#     retrieved_ids = askwikidata.retrieve(query)
-#     print("RETRIEVED: ", retrieved_ids)
-#
-#     reranked = askwikidata.rerank(retrieved_ids)
-#     print("RERANKED: ", reranked)
-#
-#     # context = askwikidata.context(query)
-#     # print(context)
-#     # response = askwikidata.ask(query)
-#     # print(response)
+if __name__ == "__main__":
+    hyperparams = {
+        "chunk_size": 1280,
+        "chunk_overlap": 0,
+        "index_trees": 10,
+        "retrieval_chunks": 16,
+        "context_chunks": 5,
+        # "embedding_model_name": "BAAI/bge-small-en-v1.5",
+        "embedding_model_name": "BAAI/bge-base-en-v1.5",
+        # "embedding_model_name": "BAAI/bge-large-en-v1.5",
+        "reranker_model_name": "BAAI/bge-reranker-base",
+        # "qa_model_name": "mistral-7b-instruct-v0.1",
+        # "qa_model_url": "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.1",
+        "qa_model_url": "https://api-inference.huggingface.co/models/meta-llama/Llama-2-7b-chat-hf",
+    }
+
+    askwikidata = AskWikidata(**hyperparams)
+    askwikidata.setup()
+
+    query = "Who is the current mayor of Berlin?"
+    response = askwikidata.ask(query)
+    print(response + "\n")
