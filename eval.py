@@ -44,6 +44,7 @@ hyperparameters = [
     #     "embedding_model_name": "BAAI/bge-small-en-v1.5",
     #     "reranker_model_name": "BAAI/bge-reranker-base",
     #     "qa_model_name": "mistral-7b-instruct-v0.1",
+    #     "cache_file": "bge-small-cache.json",
     # },
     # {
     #     "chunk_size": 768,
@@ -54,6 +55,7 @@ hyperparameters = [
     #     "embedding_model_name": "BAAI/bge-small-en-v1.5",
     #     "reranker_model_name": "BAAI/bge-reranker-base",
     #     "qa_model_name": "mistral-7b-instruct-v0.1",
+    #     "cache_file": "bge-small-cache.json",
     # },
     {
         "chunk_size": 768,
@@ -64,6 +66,7 @@ hyperparameters = [
         "embedding_model_name": "BAAI/bge-small-en-v1.5",
         "reranker_model_name": "BAAI/bge-reranker-base",
         "qa_model_name": "mistral-7b-instruct-v0.1",
+        "cache_file": "bge-small-cache.json",
     },
     # {
     #     "chunk_size": 768,
@@ -74,6 +77,7 @@ hyperparameters = [
     #     "embedding_model_name": "BAAI/bge-small-en-v1.5",
     #     "reranker_model_name": "BAAI/bge-reranker-large",
     #     "qa_model_name": "mistral-7b-instruct-v0.1",
+    #     "cache_file": "bge-small-cache.json",
     # },
 ]
 

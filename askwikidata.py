@@ -22,9 +22,6 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 
 class AskWikidata:
-    chunk_embeddings_cache_file_path = "wikidata_embed_cache.json"
-    chunks = []
-
     df = pd.DataFrame()
 
     def __init__(
@@ -37,6 +34,7 @@ class AskWikidata:
         qa_model_name="mistral-7b-instruct-v0.1",
         reranker_model_name="BAAI/bge-reranker-base",
         retrieval_chunks=64,
+        cache_file="askwikidata_embed_cache.json",
     ):
         self.chunk_overlap = chunk_overlap
         self.chunk_size = chunk_size
@@ -46,8 +44,9 @@ class AskWikidata:
         self.qa_model_name = qa_model_name
         self.reranker_model_name = reranker_model_name
         self.retrieval_chunks = retrieval_chunks
+        self.cache_file = cache_file
 
-        self.embeddings_model = HuggingFaceEmbeddings(
+        self.embedding_model = HuggingFaceEmbeddings(
             model_name=self.embedding_model_name
         )
 
@@ -57,8 +56,10 @@ class AskWikidata:
         )
 
     def setup(self):
-        self.read_data()
-        self.create_embeds()
+        if not self.load_cache():
+            self.read_data()
+            self.create_embeds()
+            self.save_cache()
         self.create_index()
 
     def read_data(self):
@@ -94,30 +95,22 @@ class AskWikidata:
 
     def create_embeds(self):
         embeds = []
-
         print("Creating embeddings...")
         for _, row in tqdm(self.df.iterrows(), total=len(self.df)):
             text = str(row["text"])
-            embeddings = self.embeddings_model.embed_documents([text])
+            embeddings = self.embedding_model.embed_documents([text])
             embeds.append(embeddings[0])
-
         self.df["embeddings"] = embeds
 
-    def save_embeddings_cache(self):
-        cache_data = {"embeds": self.embeds}
-        with open(self.chunk_embeddings_cache_file_path, "w") as cache_file:
-            json.dump(cache_data, cache_file)
-        print(f"Saved embeddings cache to {self.chunk_embeddings_cache_file_path}.")
+    def save_cache(self):
+        self.df.to_json(self.cache_file)
+        print(f"Saved embeddings cache to {self.cache_file}.")
 
-    def load_embeddings_cache(self):
-        # if os.path.exists(self.chunk_embeddings_cache_file_path):
-        #     with open(self.chunk_embeddings_cache_file_path, "r") as cache_file:
-        #         cache_data = json.load(cache_file)
-        #     self.embeds = cache_data["embeds"]
-        #     print(
-        #         f"Loaded embeddings cache from {self.chunk_embeddings_cache_file_path}."
-        #     )
-        #     return True
+    def load_cache(self):
+        if os.path.exists(self.cache_file):
+            self.df = pd.read_json(self.cache_file)
+            print(f"Loaded embeddings cache from {self.cache_file}.")
+            return True
         return False
 
     def create_index(self):
@@ -130,7 +123,7 @@ class AskWikidata:
 
     def retrieve(self, query: str) -> pd.DataFrame:
         print("Retrieving...")
-        query_embed = self.embeddings_model.embed_documents([query])[0]
+        query_embed = self.embedding_model.embed_documents([query])[0]
         query_embed_float = [float(value) for value in query_embed]
         nns = self.index.get_nns_by_vector(
             query_embed_float, self.retrieval_chunks, include_distances=True
