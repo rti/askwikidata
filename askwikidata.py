@@ -245,9 +245,9 @@ class AskWikidata:
         system = self.system_from_context(context)
         prompt = prompt_func(question, system)
 
-        print(f"Sending the following prompt to {model_url}:")
-        print(prompt)
-        print(f"({len(prompt)} chars, about {int(len(prompt)/3)} tokens)")
+        # print(f"Sending the following prompt to {model_url}:")
+        # print(prompt)
+        # print(f"({len(prompt)} chars, about {int(len(prompt)/3)} tokens)")
 
         response = requests.post(
             model_url,
@@ -261,7 +261,7 @@ class AskWikidata:
             },
         )
         # print(response.json())
-        
+
         try:
             return response.json()[0]["generated_text"].replace(prompt, "").strip()
         except Exception as e:
@@ -327,8 +327,8 @@ if __name__ == "__main__":
         # "embedding_model_name": "BAAI/bge-large-en-v1.5",
         "reranker_model_name": "BAAI/bge-reranker-base",
         # "qa_model_name": "mistral-7b-instruct-v0.1",
-        # "qa_model_url": "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.1",
-        "qa_model_url": "https://api-inference.huggingface.co/models/meta-llama/Llama-2-7b-chat-hf",
+        "qa_model_url": "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.1",
+        # "qa_model_url": "https://api-inference.huggingface.co/models/meta-llama/Llama-2-7b-chat-hf",
     }
 
     askwikidata = AskWikidata(**hyperparams)

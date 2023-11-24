@@ -32,44 +32,24 @@ quiz = [
     {"q": "Can you name all twin cities of Prague?", "a": [ "Berlin", "Copenhagen", "Miami-Dade County", "Nuremberg", "Luxembourg", "Guangzhou", "Hamburg", "Helsinki", "Nîmes", "Prešov", "Rosh HaAyin", "Teramo", "Bamberg", "City of Brussels", "Frankfurt", "Jerusalem", "Moscow", "Saint Petersburg", "Chicago", "Taipei", "Terni", "Ferrara", "Trento", "Monza", "Lecce", "Naples", "Vilnius", "Istanbul", "Sofia", "Buenos Aires", "Athens", "Bratislava", "Madrid", "Tunis", "Brussels metropolitan area", "Amsterdam", "Phoenix", "Tirana", "Kyoto", "Cali", "Drancy", "Beijing", "Shanghai", "Tbilisi", ], },
     {"q": "Can you name all twinned administrative bodies of Prague?", "a": [ "Berlin", "Copenhagen", "Miami-Dade County", "Nuremberg", "Luxembourg", "Guangzhou", "Hamburg", "Helsinki", "Nîmes", "Prešov", "Rosh HaAyin", "Teramo", "Bamberg", "City of Brussels", "Frankfurt", "Jerusalem", "Moscow", "Saint Petersburg", "Chicago", "Taipei", "Terni", "Ferrara", "Trento", "Monza", "Lecce", "Naples", "Vilnius", "Istanbul", "Sofia", "Buenos Aires", "Athens", "Bratislava", "Madrid", "Tunis", "Brussels metropolitan area", "Amsterdam", "Phoenix", "Tirana", "Kyoto", "Cali", "Drancy", "Beijing", "Shanghai", "Tbilisi", ], },
     {"q": "Which River runs through Prague?", "a": "Vltava"},
-    {"q": "What is the capital of Hawaii?", "a": "Honolulu"},
+    # {"q": "What is the capital of Hawaii?", "a": "Honolulu"},
 ]
 # fmt: off
 
-hyperparameters_list = [
-    # {
-    #     "chunk_size": 768,
-    #     "chunk_overlap": 0,
-    #     "index_trees": 10,
-    #     "retrieval_chunks": 16,
-    #     "context_chunks": 5,
-    #     "embedding_model_name": "BAAI/bge-small-en-v1.5",
-    #     "reranker_model_name": "BAAI/bge-reranker-base",
-    #     "qa_model_name": "mistral-7b-instruct-v0.1",
-    # },
-    {
-        "chunk_size": 1280,
-        "chunk_overlap": 0,
-        "index_trees": 10,
-        "retrieval_chunks": 16,
-        "context_chunks": 5,
-        # "embedding_model_name": "BAAI/bge-small-en-v1.5",
-        "embedding_model_name": "BAAI/bge-base-en-v1.5",
-        # "embedding_model_name": "BAAI/bge-large-en-v1.5",
-        "reranker_model_name": "BAAI/bge-reranker-base",
-        "qa_model_name": "mistral-7b-instruct-v0.1",
-    },
-    # {
-    #     "chunk_size": 768,
-    #     "chunk_overlap": 0,
-    #     "index_trees": 10,
-    #     "retrieval_chunks": 16,
-    #     "context_chunks": 5,
-    #     "embedding_model_name": "BAAI/bge-small-en-v1.5",
-    #     "reranker_model_name": "BAAI/bge-reranker-large",
-    #     "qa_model_name": "mistral-7b-instruct-v0.1",
-    # },
-]
+hyperparameters_list = [ {
+    "chunk_size": 1280,
+    "chunk_overlap": 0,
+    "index_trees": 10,
+    "retrieval_chunks": 16,
+    "context_chunks": 5,
+    # "embedding_model_name": "BAAI/bge-small-en-v1.5",
+    "embedding_model_name": "BAAI/bge-base-en-v1.5",
+    # "embedding_model_name": "BAAI/bge-large-en-v1.5",
+    "reranker_model_name": "BAAI/bge-reranker-base",
+    # "qa_model_name": "mistral-7b-instruct-v0.1",
+    # "qa_model_url": "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.1",
+    "qa_model_url": "https://api-inference.huggingface.co/models/meta-llama/Llama-2-7b-chat-hf",
+} ] 
 
 for hyperparameters_list in hyperparameters_list:
     print("⚙ Hyperparams")
@@ -158,17 +138,34 @@ for hyperparameters_list in hyperparameters_list:
             # print(retrieved_context)
             continue
 
-        # if (isinstance(expected_answer, str) and expected_answer in answer_lower) or (
-        #     isinstance(expected_answer, list)
-        #     and all((answer_part) in answer_lower for answer_part in expected_answer)
-        #     or isinstance(expected_answer, Callable)
-        #     and expected_answer(answer_lower) == True
-        # ):
-        #     correct_answer += 1
-        #     print(f"correct answer '{answer}' ({correct_answer} of {len(quiz)})")
-        # else:
-        #     print(f"### wrong answer '{answer}'")
-        #     print("###")
+        answer = askwikidata.llm_generate(question, reranked)
+        answer_lower = answer.lower()
+
+        if (
+            (
+                isinstance(expected_answer, str)
+                and expected_answer in answer_lower
+            )
+            or (
+                isinstance(expected_answer, list)
+                and all(
+                    (answer_part) in answer_lower
+                    for answer_part in expected_answer
+                )
+            )
+            or (
+                isinstance(expected_answer, Callable)
+                and expected_answer(answer_lower) == True
+            )
+        ):
+            correct_answers += 1
+            print("✅ Answer:", answer)
+        else:
+            print("‼️ WRONG Answer:", answer)
+            failed_answer.append(question)
+            # print(retrieved_context)
+            continue
+
 
     print("")
     print("*************\n"
@@ -182,4 +179,6 @@ for hyperparameters_list in hyperparameters_list:
     for q in failed_retrieve: print(" ", q)
     if len(failed_rerank): print(f"Failed Rerank for questions:") 
     for q in failed_rerank: print(" ", q)
+    if len(failed_answer): print(f"Failed Answer for questions:") 
+    for q in failed_answer: print(" ", q)
     print("*************\n")
