@@ -3,6 +3,7 @@ import json
 import os
 import requests
 import datetime
+import time
 import pandas as pd
 from tqdm import tqdm
 
@@ -80,7 +81,7 @@ class AskWikidata:
         for i, c in enumerate(chunks):
             self.df.loc[i] = [i, c.page_content, c.metadata["source"]]
 
-        print(f"Created {len(self.df)} chunks.")
+        print(f"  {len(self.df)} chunks.")
 
     def create_embeds(self):
         embeds = []
@@ -123,6 +124,7 @@ class AskWikidata:
         self.index.build(self.index_trees)
 
     def retrieve(self, query: str) -> pd.DataFrame:
+        print("Retrieving...")
         query_embed = self.embeddings_model.embed_documents([query])[0]
         query_embed_float = [float(value) for value in query_embed]
         nns = self.index.get_nns_by_vector(
@@ -135,16 +137,18 @@ class AskWikidata:
         ret = ret.sort_values("retrieve_distance")
         return ret
 
-    def rerank(self, query: str, df: pd.DataFrame) -> pd.DataFrame:
+    def rerank(self, query: str, df: pd.DataFrame):
+        print("Reranking...")
+        start = time.time()
         tokenizer = AutoTokenizer.from_pretrained(self.reranker_model_name)
         model = AutoModelForSequenceClassification.from_pretrained(
             self.reranker_model_name
         )
+
         pairs = []
         for _, n in df.iterrows():
             pairs.append([query, n["text"]])
 
-        print("Reranking...")
         with torch.no_grad():
             inputs = tokenizer(
                 pairs,
@@ -153,8 +157,6 @@ class AskWikidata:
                 return_tensors="pt",
                 max_length=512,
             )
-
-            # print(inputs.input_ids[0].shape)
 
             scores = (
                 model(**inputs, return_dict=True)
@@ -165,7 +167,9 @@ class AskWikidata:
             )
 
         df["rank"] = scores
-        return df.sort_values(by="rank", ascending=False).head(self.context_chunks)
+        ret = df.sort_values(by="rank", ascending=False).head(self.context_chunks)
+        seconds = time.time() - start
+        return ret, seconds
 
     def print_data(self):
         pd.set_option("display.max_rows", None)
