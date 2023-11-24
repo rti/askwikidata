@@ -3,5 +3,5 @@
 venv
 __pycache__
 .coverage
-*cache.json
+*cache*.json
 text_representations/*.txt
