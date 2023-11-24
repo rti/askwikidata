@@ -1,5 +1,6 @@
 from askwikidata import AskWikidata
 from typing import Callable
+from pprint import pprint
 
 
 def kai_wegner_date_correct(text):
@@ -31,6 +32,7 @@ quiz = [
     {"q": "Can you name all twin cities of Prague?", "a": [ "Berlin", "Copenhagen", "Miami-Dade County", "Nuremberg", "Luxembourg", "Guangzhou", "Hamburg", "Helsinki", "Nîmes", "Prešov", "Rosh HaAyin", "Teramo", "Bamberg", "City of Brussels", "Frankfurt", "Jerusalem", "Moscow", "Saint Petersburg", "Chicago", "Taipei", "Terni", "Ferrara", "Trento", "Monza", "Lecce", "Naples", "Vilnius", "Istanbul", "Sofia", "Buenos Aires", "Athens", "Bratislava", "Madrid", "Tunis", "Brussels metropolitan area", "Amsterdam", "Phoenix", "Tirana", "Kyoto", "Cali", "Drancy", "Beijing", "Shanghai", "Tbilisi", ], },
     {"q": "Can you name all twinned administrative bodies of Prague?", "a": [ "Berlin", "Copenhagen", "Miami-Dade County", "Nuremberg", "Luxembourg", "Guangzhou", "Hamburg", "Helsinki", "Nîmes", "Prešov", "Rosh HaAyin", "Teramo", "Bamberg", "City of Brussels", "Frankfurt", "Jerusalem", "Moscow", "Saint Petersburg", "Chicago", "Taipei", "Terni", "Ferrara", "Trento", "Monza", "Lecce", "Naples", "Vilnius", "Istanbul", "Sofia", "Buenos Aires", "Athens", "Bratislava", "Madrid", "Tunis", "Brussels metropolitan area", "Amsterdam", "Phoenix", "Tirana", "Kyoto", "Cali", "Drancy", "Beijing", "Shanghai", "Tbilisi", ], },
     # {"q": "Which River runs through Prague?", "a": "Vltava"},
+    # {"q": "What is the capital of Hawaii?", "a": "Honolulu"},
 ]
 # fmt: off
 
@@ -82,7 +84,8 @@ hyperparameters = [
 ]
 
 for hyperparameter in hyperparameters:
-    print(hyperparameter)
+    print("⚙ Hyperparams")
+    pprint(hyperparameter)
 
     askwikidata = AskWikidata(
         chunk_size=hyperparameter["chunk_size"],
@@ -118,10 +121,6 @@ for hyperparameter in hyperparameters:
         retrieved = askwikidata.retrieve(question)
         retrieved_context = askwikidata.context(retrieved)
         retrieved_context_lower = retrieved_context.lower()
-        reranked, rerank_time = askwikidata.rerank(question, retrieved)
-        print(f"  {int(rerank_time)} seconds.")
-        reranked_context = askwikidata.context(reranked)
-        reranked_context_lower = reranked_context.lower()
 
         if (
             (
@@ -146,6 +145,11 @@ for hyperparameter in hyperparameters:
             print("‼️ WRONG Retrieved Context")
             failed_retrieve.append(question)
             # print(retrieved_context)
+
+        reranked, rerank_time = askwikidata.rerank(question, retrieved)
+        print(f"  {int(rerank_time)} seconds.")
+        reranked_context = askwikidata.context(reranked)
+        reranked_context_lower = reranked_context.lower()
 
         if (
             (
@@ -188,7 +192,7 @@ for hyperparameter in hyperparameters:
     print("*************\n"
           "🔍 Results 🔎\n")
 
-    print(hyperparameter)
+    pprint(hyperparameter)
     print(f"Retrieved Contexts: {correct_retrieved_contexts} of {len(quiz)}")
     print(f"Reranked Contexts: {correct_reranked_contexts} of {len(quiz)}")
     print(f"Correct Answers: {correct_answers} of {len(quiz)}")
