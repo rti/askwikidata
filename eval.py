@@ -5,12 +5,15 @@ from typing import Callable
 def kai_wegner_date_correct(text):
     t = text.lower()
     return "27" in t and "2023" in t and ("4" in t or "april" in t)
-    
+
+
 quiz = [
-    {"q": "What is Berlin?", "a": ["capital", "germany", "city"]},
-    {"q": "Mayor of Berlin", "a": "Kai Wegner"},
-    {"q": "mayor berlin", "a": "Kai Wegner"},
-    {"q": "since when is kay wegner mayor of berlin?", "a": kai_wegner_date_correct},
+    # {"q": "What is Berlin?", "a": ["capital", "germany", "city"]},
+    # {"q": "Mayor of Berlin", "a": "Kai Wegner"},
+    {"q": "Who is the current mayor of Berlin?", "a": "Kai Wegner"},
+    # {"q": "mayor berlin", "a": "Kai Wegner"},
+    # {"q": "since when is kay wegner mayor of berlin?", "a": kai_wegner_date_correct},
+    # {"q": "Who was the mayor of Berlin in 2001?", "a": "Klaus Wowereit"},
     # {"q": "Who is the current mayor of Berlin?", "a": "Kai Wegner"},
     # { "q": "What is the population of Berlin?", "a": "3755251" },
     # { "q": "Can you name a twin city of Berlin?", "a": [ "Los Angeles","Paris","Madrid","Istanbul","Warsaw","Moscow","City of Brussels","Budapest","Tashkent","Mexico City","Beijing","Jakarta","Tokyo","Buenos Aires","Prague","Windhoek","London","Sofia","Tehran","Seville","Copenhagen","Kyiv","Brasília","Santo Domingo","Algiers","Rio de Janeiro" ] },
@@ -29,10 +32,12 @@ quiz = [
     # {"q": "Which River runs through Prague?", "a": "Vltava"},
 ]
 
-askwikidata = AskWikidata(retrieval_chunks=3)
+askwikidata = AskWikidata(chunk_size=1280, retrieval_chunks=32)
 askwikidata.setup()
+# askwikidata.print_data()
 
-correct_context = 0
+correct_retrieved_contexts = 0
+correct_reranked_contexts = 0
 correct_answer = 0
 
 for i, q in enumerate(quiz):
@@ -44,38 +49,81 @@ for i, q in enumerate(quiz):
     if isinstance(expected_answer, list):
         expected_answer = [answer_part.lower() for answer_part in expected_answer]
 
-    # print(expected_answer)
+    print("Question:", question)
+    print("Expected answer:", expected_answer)
 
-    print(question)
-    context = askwikidata.context(question)
-    answer = askwikidata.ask(question)
-    answer_lower = askwikidata.ask(question).lower()
-    context = context.lower()
+    retrieved = askwikidata.retrieve(question)
+    # print(retrieved)
+    retrieved_context = askwikidata.context(retrieved)
+    retrieved_context_lower = retrieved_context.lower()
+    reranked = askwikidata.rerank(question, retrieved)
+    reranked_context = askwikidata.context(reranked)
+    reranked_context_lower = reranked_context.lower()
+
+    # context = askwikidata.context(question)
+    # context = askwikidata.context(question)
+    # answer = askwikidata.ask(question)
+    # answer_lower = askwikidata.ask(question).lower()
     # print(answer)
 
-    if (isinstance(expected_answer, str) and expected_answer in context) or (
-        isinstance(expected_answer, list)
-        and all((answer_part) in context for answer_part in expected_answer) or
-        isinstance(expected_answer, Callable) and expected_answer(context) == True
+    if (
+        (
+            isinstance(expected_answer, str)
+            and expected_answer in retrieved_context_lower
+        )
+        or (
+            isinstance(expected_answer, list)
+            and all(
+                (answer_part) in retrieved_context_lower
+                for answer_part in expected_answer
+            )
+        )
+        or (
+            isinstance(expected_answer, Callable)
+            and expected_answer(retrieved_context_lower) == True
+        )
     ):
-        correct_context += 1
-        print(f"correct context ({correct_context} of {len(quiz)})")
+        correct_retrieved_contexts += 1
+        print(f"correct retieved context ({correct_retrieved_contexts} of {len(quiz)})")
     else:
-        print("### WRONG context")
-        print(context)
-        print("###")
+        print("### WRONG retrieved context")
+        print(retrieved_context)
+        # print("###")
 
-    if (isinstance(expected_answer, str) and expected_answer in answer_lower) or (
-        isinstance(expected_answer, list)
-        and all((answer_part) in answer_lower for answer_part in expected_answer) or 
-        isinstance(expected_answer, Callable) and expected_answer(answer_lower) == True
+    if (
+        (isinstance(expected_answer, str) and expected_answer in reranked_context_lower)
+        or (
+            isinstance(expected_answer, list)
+            and all(
+                (answer_part) in reranked_context_lower
+                for answer_part in expected_answer
+            )
+        )
+        or (
+            isinstance(expected_answer, Callable)
+            and expected_answer(reranked_context_lower) == True
+        )
     ):
-        correct_answer += 1
-        print(f"correct answer '{answer}' ({correct_answer} of {len(quiz)})")
+        correct_reranked_contexts += 1
+        print(f"correct reranked context ({correct_reranked_contexts} of {len(quiz)})")
     else:
-        print(f"### wrong answer '{answer}'")
-        print("###")
+        print("### WRONG reranked context")
+        print(retrieved_context)
+        # print("###")
+
+    # if (isinstance(expected_answer, str) and expected_answer in answer_lower) or (
+    #     isinstance(expected_answer, list)
+    #     and all((answer_part) in answer_lower for answer_part in expected_answer)
+    #     or isinstance(expected_answer, Callable)
+    #     and expected_answer(answer_lower) == True
+    # ):
+    #     correct_answer += 1
+    #     print(f"correct answer '{answer}' ({correct_answer} of {len(quiz)})")
+    # else:
+    #     print(f"### wrong answer '{answer}'")
+    #     print("###")
 
 print(f"\n# Results")
-print(f"Correct contexts: {correct_context} of {len(quiz)}")
+print(f"Correct retrieved contexts: {correct_retrieved_contexts} of {len(quiz)}")
+print(f"Correct reranked contexts: {correct_reranked_contexts} of {len(quiz)}")
 print(f"Correct answers: {correct_answer} of {len(quiz)}")

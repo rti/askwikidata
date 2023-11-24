@@ -7,6 +7,7 @@
       pkgs = import nixpkgs { inherit system; };
       python-packages = ps: with ps; [
         torch
+        tqdm
         matplotlib
         langchain
         sentence-transformers

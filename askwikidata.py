@@ -3,11 +3,16 @@ import json
 import os
 import requests
 import datetime
+import pandas as pd
+from tqdm import tqdm
 
-from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings.huggingface import HuggingFaceEmbeddings
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 from annoy import AnnoyIndex
 import openai
+
+import torch
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
 
 HUGGINGFACE_API_KEY = os.getenv("HUGGINGFACE_API_KEY")
@@ -18,51 +23,48 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 class AskWikidata:
     chunk_embeddings_cache_file_path = "wikidata_embed_cache.json"
     chunks = []
-    embeds = []
+
+    df = pd.DataFrame()
 
     def __init__(
         self,
         chunk_size=768,
         chunk_overlap=0,
         embedding_model_name="BAAI/bge-small-en-v1.5",
+        reranker_model_name="BAAI/bge-reranker-base",
         index_trees=10,
-        retrieval_chunks=3,
+        retrieval_chunks=64,
+        context_chunks=7,
     ):
         self.chunk_size = chunk_size
         self.chunk_overlap = chunk_overlap
         self.index_trees = index_trees
         self.retrieval_chunks = retrieval_chunks
+        self.context_chunks = context_chunks
         self.embedding_model_name = embedding_model_name
+        self.reranker_model_name = reranker_model_name
 
     def setup(self):
-        self.create_chunk_embeddings()
+        self.read_data()
+        self.create_embeds()
         self.create_index()
 
-    def create_chunk_embeddings(self):
-        texts = []
-        metas = []
+    def read_data(self):
         directory_path = "./text_representations"
 
-        for file_path in glob.glob(os.path.join(directory_path, "*.txt")):
+        texts = []
+        metas = []
+
+        files = glob.glob(os.path.join(directory_path, "*.txt"))
+        print("Loading files...")
+        for file_path in files:
             with open(file_path, "r") as file:
                 texts.append(file.read())
                 file_name = file_path.split("/")[-1]
                 q_id = file_name.split(".")[0]
                 metas.append({"source": f"https://www.wikidata.org/wiki/{q_id}"})
 
-        self.chunks = self.create_chunks(texts, metas)
-        print(f"Created {len(self.chunks)} chunks.")
-
-        self.embeds = self.create_embeds(self.chunks, self.embedding_model_name)
-        print(
-            f"Created {len(self.embeds)} embeddings with {len(self.embeds[0])} dimensions."
-        )
-
-        self.save_embeddings_cache()
-
-        return self.chunks, self.embeds
-
-    def create_chunks(self, texts, metas):
+        print("Creating chunks...")
         text_splitter = RecursiveCharacterTextSplitter(
             separators=["\n\n", "\n"],
             chunk_size=self.chunk_size,
@@ -70,20 +72,28 @@ class AskWikidata:
             length_function=len,
         )
         chunks = text_splitter.create_documents(texts, metadatas=metas)
-        return chunks
 
-    def create_embeds(self, chunks, embedding_model_name):
+        self.df = pd.DataFrame(columns=["id", "text", "source"])
+
+        for i, c in enumerate(chunks):
+            self.df.loc[i] = [i, c.page_content, c.metadata["source"]]
+
+        print(f"Created {len(self.df)} chunks.")
+
+    def create_embeds(self):
         embeds = []
 
-        self.embeddings_model = HuggingFaceEmbeddings(model_name=embedding_model_name)
+        self.embeddings_model = HuggingFaceEmbeddings(
+            model_name=self.embedding_model_name
+        )
 
-        if self.load_embeddings_cache():
-            return self.embeds
+        print("Creating embeddings...")
+        for _, row in tqdm(self.df.iterrows(), total=len(self.df)):
+            text = str(row["text"])
+            embeddings = self.embeddings_model.embed_documents([text])
+            embeds.append(embeddings[0])
 
-        for t in chunks:
-            embeds.append(self.embeddings_model.embed_documents([t.page_content])[0])
-
-        return embeds
+        self.df["embeddings"] = embeds
 
     def save_embeddings_cache(self):
         cache_data = {"embeds": self.embeds}
@@ -92,35 +102,79 @@ class AskWikidata:
         print(f"Saved embeddings cache to {self.chunk_embeddings_cache_file_path}.")
 
     def load_embeddings_cache(self):
-        if os.path.exists(self.chunk_embeddings_cache_file_path):
-            with open(self.chunk_embeddings_cache_file_path, "r") as cache_file:
-                cache_data = json.load(cache_file)
-            self.embeds = cache_data["embeds"]
-            print(
-                f"Loaded embeddings cache from {self.chunk_embeddings_cache_file_path}."
-            )
-            return True
+        # if os.path.exists(self.chunk_embeddings_cache_file_path):
+        #     with open(self.chunk_embeddings_cache_file_path, "r") as cache_file:
+        #         cache_data = json.load(cache_file)
+        #     self.embeds = cache_data["embeds"]
+        #     print(
+        #         f"Loaded embeddings cache from {self.chunk_embeddings_cache_file_path}."
+        #     )
+        #     return True
         return False
 
     def create_index(self):
-        embed_dims = len(self.embeds[0])
+        print("Creating vector space index...")
+        embed_dims = len(self.df.iloc[0]["embeddings"])
         self.index = AnnoyIndex(embed_dims, "angular")
-        for i, e in enumerate(self.embeds):
+        for i, e in enumerate(self.df["embeddings"]):
             self.index.add_item(i, e)
         self.index.build(self.index_trees)
 
-    def context(self, query):
+    def retrieve(self, query: str) -> pd.DataFrame:
         query_embed = self.embeddings_model.embed_documents([query])[0]
         query_embed_float = [float(value) for value in query_embed]
-        nearest_ids = self.index.get_nns_by_vector(
+        nns = self.index.get_nns_by_vector(
             query_embed_float, self.retrieval_chunks, include_distances=True
         )
+        nns_ids = nns[0]
+        nns_distances = nns[1]
+        ret = self.df.iloc[nns_ids].copy()
+        ret["retrieve_distance"] = nns_distances
+        ret = ret.sort_values("retrieve_distance")
+        return ret
+
+    def rerank(self, query: str, df: pd.DataFrame) -> pd.DataFrame:
+        tokenizer = AutoTokenizer.from_pretrained(self.reranker_model_name)
+        model = AutoModelForSequenceClassification.from_pretrained(
+            self.reranker_model_name
+        )
+        pairs = []
+        for _, n in df.iterrows():
+            pairs.append([query, n["text"]])
+
+        print("Reranking...")
+        with torch.no_grad():
+            inputs = tokenizer(
+                pairs,
+                padding=True,
+                truncation=True,
+                return_tensors="pt",
+                max_length=512,
+            )
+
+            # print(inputs.input_ids[0].shape)
+
+            scores = (
+                model(**inputs, return_dict=True)
+                .logits.view(
+                    -1,
+                )
+                .float()
+            )
+
+        df["rank"] = scores
+        return df.sort_values(by="rank", ascending=False).head(self.context_chunks)
+
+    def print_data(self):
+        pd.set_option("display.max_rows", None)
+        print(self.df)
+
+    def context(self, df: pd.DataFrame):
         context = ""
-        for n in zip(nearest_ids[0], nearest_ids[1]):
-            context += self.chunks[n[0]].page_content + "\n"
-            # print(n)
-            # print(self.chunks[n[0]].page_content)
-            # print("\n")
+
+        for _, row in df.iterrows():
+            context += row["text"] + "\n###########################\n"
+
         return context
 
     def ask(self, query):
@@ -246,12 +300,21 @@ class AskWikidata:
         return response.json()[0]["generated_text"].replace(prompt, "").strip()
 
 
-if __name__ == "__main__":
-    askwikidata = AskWikidata()
-    askwikidata.setup()
-
-    # query = "Who is the current mayor of Berlin today?"
-    query = "Who was the mayor of Berlin in 2001?"
-    print(query)
-    response = askwikidata.ask(query)
-    print(response)
+# if __name__ == "__main__":
+#     askwikidata = AskWikidata()
+#     askwikidata.setup()
+#
+#     query = "Who is the current mayor of Berlin today?"
+#     # query = "Who was the mayor of Berlin in 2001?"
+#     print("QUERY: ", query)
+#
+#     retrieved_ids = askwikidata.retrieve(query)
+#     print("RETRIEVED: ", retrieved_ids)
+#
+#     reranked = askwikidata.rerank(retrieved_ids)
+#     print("RERANKED: ", reranked)
+#
+#     # context = askwikidata.context(query)
+#     # print(context)
+#     # response = askwikidata.ask(query)
+#     # print(response)
