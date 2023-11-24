@@ -136,7 +136,7 @@ class AskWikidata:
 
     def retrieve(self, query: str) -> pd.DataFrame:
         print("Retrieving...")
-        query_embed = self.embedding_model.embed_documents([query])[0]
+        query_embed = self.embedding_model.embed_documents(["Represent this sentence for searching relevant passages: " + query])[0]
         query_embed_float = [float(value) for value in query_embed]
         nns = self.index.get_nns_by_vector(
             query_embed_float, self.retrieval_chunks, include_distances=True
