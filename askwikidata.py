@@ -50,6 +50,17 @@ class AskWikidata:
             emn = embedding_model_name.replace("/","-")
             self.cache_file = f"cache-{chunk_size}-{chunk_overlap}-{emn}.json"
 
+    def setup(self):
+        self.load_models()
+        if not self.load_cache():
+            self.read_data()
+            self.create_embeds()
+            self.save_cache()
+        self.create_index()
+
+    def load_models(self):
+        print("Loading models...")
+
         self.embedding_model = HuggingFaceEmbeddings(
             model_name=self.embedding_model_name
         )
@@ -58,13 +69,6 @@ class AskWikidata:
         self.rerank_model = AutoModelForSequenceClassification.from_pretrained(
             self.reranker_model_name
         )
-
-    def setup(self):
-        if not self.load_cache():
-            self.read_data()
-            self.create_embeds()
-            self.save_cache()
-        self.create_index()
 
     def read_data(self):
         directory_path = "./text_representations"
