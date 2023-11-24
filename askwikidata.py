@@ -77,13 +77,14 @@ class AskWikidata:
         metas = []
 
         files = glob.glob(os.path.join(directory_path, "*.txt"))
-        print("Loading files...")
+        print("Loading text representations...")
         for file_path in files:
             with open(file_path, "r") as file:
                 texts.append(file.read())
                 file_name = file_path.split("/")[-1]
                 q_id = file_name.split(".")[0]
                 metas.append({"source": f"https://www.wikidata.org/wiki/{q_id}"})
+        print(f"  {len(files)} files loaded.")
 
         print("Creating chunks...")
         text_splitter = RecursiveCharacterTextSplitter(
@@ -111,18 +112,22 @@ class AskWikidata:
         self.df["embeddings"] = embeds
 
     def save_cache(self):
+        print(f"Saving dataframe to {self.cache_file}...")
+        # start = time.time()
         self.df.to_json(self.cache_file)
-        print(f"Saved embeddings cache to {self.cache_file}.")
+        # print(f"  {int(time.time() - start)} seconds.")
 
     def load_cache(self):
         if os.path.exists(self.cache_file):
+            print(f"Loading dataframe from {self.cache_file}...")
+            # start = time.time()
             self.df = pd.read_json(self.cache_file)
-            print(f"Loaded embeddings cache from {self.cache_file}.")
+            # print(f"  {int(time.time() - start)} seconds.")
             return True
         return False
 
     def create_index(self):
-        print("Creating vector space index...")
+        print("Creating embedding index...")
         embed_dims = len(self.df.iloc[0]["embeddings"])
         self.index = AnnoyIndex(embed_dims, "angular")
         for i, e in enumerate(self.df["embeddings"]):
