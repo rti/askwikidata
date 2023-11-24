@@ -18,6 +18,19 @@ Hugging Face | `HUGGINGFACE_API_KEY` |
 runpod.io | `RUNPOD_API_KEY` |
 OpenAI | `OPENAI_API_KEY` |
 
+## Setup
+### Nix
+On nix the dev shell will install all required dependencies.
+```sh
+nix develop .
+```
+
+### Pip based
+Install python requirements using pip.
+```shell
+pip install langchain annoy openai sentence_transformers touch pandas tqdm protobuf
+```
+
 ## Usage
 
 To execute the test suite, run:
