@@ -177,11 +177,9 @@ class AskWikidata:
 
     def context(self, df: pd.DataFrame):
         context = ""
-
         for _, row in df.iterrows():
-            context += row["text"] + "\n###########################\n"
-
-        return context
+            context += row["text"] + "\n"
+        return context.replace("\n\n", "\n")
 
     def ask(self, query):
         context = self.context(query)
