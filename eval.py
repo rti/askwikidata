@@ -233,4 +233,4 @@ for eval_result in eval_results:
 
 with open(f"eval_results.json", "a") as file:
     for eval_result in eval_results:
-        file.write(json.dumps(asdict(eval_result)))
+        file.write(json.dumps(asdict(eval_result)) + "\n")
