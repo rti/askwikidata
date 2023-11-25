@@ -166,7 +166,13 @@ for config in configurations:
         else:
             print("‼️ WRONG Retrieved Context")
             eval_result.failed_retrieval_questions.append(
-                QERCA(question, expected_answer, retrieved_context)
+                QERCA(
+                    question,
+                    "<function>"
+                    if isinstance(expected_answer, Callable)
+                    else expected_answer,
+                    retrieved_context,
+                )
             )
             continue
 
@@ -180,7 +186,14 @@ for config in configurations:
         else:
             print("‼️ WRONG Reranked Context")
             eval_result.failed_rerank_questions.append(
-                QERCA(question, expected_answer, retrieved_context, reranked_context)
+                QERCA(
+                    question,
+                    "<function>"
+                    if isinstance(expected_answer, Callable)
+                    else expected_answer,
+                    retrieved_context,
+                    reranked_context,
+                )
             )
             continue
 
