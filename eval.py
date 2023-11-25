@@ -99,7 +99,7 @@ configurations = [
         # "reranker_model_name": "BAAI/bge-reranker-large",
         # "qa_model_url": "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.1",
         "qa_model_url": "https://api-inference.huggingface.co/models/meta-llama/Llama-2-7b-chat-hf",
-    }
+    },
 ]
 
 
@@ -195,7 +195,9 @@ for config in configurations:
             eval_result.failed_answer_questions.append(
                 QERCA(
                     question,
-                    expected_answer,
+                    "<function>"
+                    if isinstance(expected_answer, Callable)
+                    else expected_answer,
                     retrieved_context,
                     reranked_context,
                     answer,
