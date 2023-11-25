@@ -97,7 +97,7 @@ class EvalResult:
     failed_retrieval_questions: List[QERCA] = field(default_factory=list)
     failed_rerank_questions: List[QERCA] = field(default_factory=list)
     failed_answer_questions: List[QERCA] = field(default_factory=list)
-    datatime: datetime.datetime = datetime.datetime.now()
+    datatime: str = datetime.datetime.now().isoformat()
 
 
 eval_results: List[EvalResult] = []
