@@ -78,6 +78,10 @@ class AskWikidata:
             self.reranker_model_name
         )
 
+        if torch.cuda.is_available():
+            print("Moving reranker model to GPU...")
+            self.rerank_model = self.rerank_model.to("cuda")
+
     def read_data(self):
         directory_path = "./text_representations"
 
