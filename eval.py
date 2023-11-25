@@ -162,7 +162,7 @@ for config in configurations:
         else:
             print("‼️ WRONG Answer:", answer)
             eval_result.failed_answer_questions
-            eval_result.failed_retrieval_questions.append(
+            eval_result.failed_answer_questions.append(
                 QERCA(
                     question,
                     expected_answer,
