@@ -51,6 +51,11 @@ class AskWikidata:
         else:
             self.cache_file = cache_file
 
+        self.device = "cpu"
+        if torch.cuda.is_available():
+            print("CUDA available to torch.")
+            self.device = "cuda"
+
     def setup(self):
         self.load_models()
         if not self.load_cache():
@@ -62,13 +67,9 @@ class AskWikidata:
     def load_models(self):
         print("Loading models...")
 
-        device = "cpu"
-        if torch.cuda.is_available():
-            device = "cuda"
-
         self.embedding_model = HuggingFaceBgeEmbeddings(
             model_name=self.embedding_model_name,
-            model_kwargs={"device": device},
+            model_kwargs={"device": self.device},
             encode_kwargs={"normalize_embeddings": True},
             query_instruction="Represent this sentence for searching relevant passages: ",
         )
@@ -77,10 +78,7 @@ class AskWikidata:
         self.rerank_model = AutoModelForSequenceClassification.from_pretrained(
             self.reranker_model_name
         )
-
-        if torch.cuda.is_available():
-            print("Moving reranker model to GPU...")
-            self.rerank_model = self.rerank_model.to("cuda")
+        self.rerank_model.to(self.device)
 
     def read_data(self):
         directory_path = "./text_representations"
@@ -175,7 +173,8 @@ class AskWikidata:
                 truncation=True,
                 return_tensors="pt",
                 max_length=512,
-            )
+            ).to(self.device)
+
             # TODO: do we truncate? do we loose information here?
 
             scores = (
