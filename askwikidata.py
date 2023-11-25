@@ -7,7 +7,7 @@ import time
 import pandas as pd
 from tqdm import tqdm
 
-from langchain.embeddings.huggingface import HuggingFaceEmbeddings
+from langchain.embeddings.huggingface import HuggingFaceBgeEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from annoy import AnnoyIndex
 import openai
@@ -62,8 +62,15 @@ class AskWikidata:
     def load_models(self):
         print("Loading models...")
 
-        self.embedding_model = HuggingFaceEmbeddings(
-            model_name=self.embedding_model_name
+        device = "cpu"
+        if torch.cuda.is_available():
+            device = "cuda"
+
+        self.embedding_model = HuggingFaceBgeEmbeddings(
+            model_name=self.embedding_model_name,
+            model_kwargs={"device": device},
+            encode_kwargs={"normalize_embeddings": True},
+            query_instruction="Represent this sentence for searching relevant passages: ",
         )
 
         self.rerank_tokenizer = AutoTokenizer.from_pretrained(self.reranker_model_name)
@@ -137,9 +144,7 @@ class AskWikidata:
 
     def retrieve(self, query: str) -> pd.DataFrame:
         print("Retrieving...")
-        query_embed = self.embedding_model.embed_documents(
-            ["Represent this sentence for searching relevant passages: " + query]
-        )[0]
+        query_embed = self.embedding_model.embed_documents([query])[0]
         query_embed_float = [float(value) for value in query_embed]
         nns = self.index.get_nns_by_vector(
             query_embed_float, self.retrieval_chunks, include_distances=True
