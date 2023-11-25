@@ -25,14 +25,30 @@ On nix the dev shell will install all required dependencies.
 nix develop .
 ```
 
-### Pip based
+### Pip
 Install python requirements using pip.
-```shell
+```sh
 pip install langchain annoy openai sentence_transformers touch pandas tqdm protobuf
 ```
 
 ## Usage
+### Unpack wikidata item/label cache
+```sh
+bunzip2 --keep wikidata_label_cache.json.bz2
+bunzip2 --keep wikidata_item_cache.json.bz2
+```
 
+### Interactive repl
+```sh
+python repl.py
+```
+
+### Run evaluation
+```sh
+python eval.py
+```
+
+### Run tests
 To execute the test suite, run:
 
 ```sh
