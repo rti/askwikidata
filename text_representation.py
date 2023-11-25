@@ -34,7 +34,10 @@ def load_item_cache():
         with open(item_cache_file_path, 'r') as file:
             for line in file:
                 item = json.loads(line)
-                cache[item["id"]] = item
+                if "id" in item:
+                    cache[item["id"]] = item
+                else:
+                    print("Broken cache entry:", item)
         return cache
     else:
         return {}
