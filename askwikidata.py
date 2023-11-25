@@ -185,7 +185,7 @@ class AskWikidata:
                 .float()
             )
 
-        df["rank"] = scores
+        df["rank"] = scores.to("cpu")
         ret = df.sort_values(by="rank", ascending=False).head(self.context_chunks)
         seconds = time.time() - start
         return ret, seconds
