@@ -3,6 +3,7 @@ from typing import Callable, List, Dict, Optional
 from dataclasses import dataclass, field, asdict
 from pprint import pprint
 import json
+import datetime
 
 
 def kai_wegner_date_correct(text: str):
@@ -87,6 +88,7 @@ class QERCA:
 @dataclass
 class EvalResult:
     config: Dict[str, str | int]
+    total_chunks: int
     total_questions: int
     correct_retrievals: int = 0
     correct_reranks: int = 0
@@ -95,6 +97,7 @@ class EvalResult:
     failed_retrieval_questions: List[QERCA] = field(default_factory=list)
     failed_rerank_questions: List[QERCA] = field(default_factory=list)
     failed_answer_questions: List[QERCA] = field(default_factory=list)
+    datatime: datetime.datetime = datetime.datetime.now()
 
 
 eval_results: List[EvalResult] = []
@@ -102,12 +105,14 @@ eval_results: List[EvalResult] = []
 for config in configurations:
     pprint(config)
 
-    eval_result = EvalResult(config, len(quiz))
-    eval_results.append(eval_result)
-
     askwikidata = AskWikidata(**config)
     askwikidata.setup()
     # askwikidata.print_data()
+
+    eval_result = EvalResult(
+        config, total_questions=len(quiz), total_chunks=len(askwikidata.df)
+    )
+    eval_results.append(eval_result)
 
     for i, q in enumerate(quiz):
         question = q["q"]
@@ -117,14 +122,12 @@ for config in configurations:
         print("Question:", question)
         print("Expected answer:", expected_answer)
 
-
         answer_plain = askwikidata.llm_generate_plain(question)
         if correct(answer_plain, expected_answer):
             eval_result.correct_answers_plain += 1
             print("🙈 Plain Answer correct:", answer_plain)
         else:
-            print("👍 WRONG Plain Answer:", answer_plain)
-
+            print("👍 Plain Answer wrong:", answer_plain)
 
         retrieved = askwikidata.retrieve(question)
         retrieved_context = askwikidata.context(retrieved)
@@ -186,6 +189,6 @@ for eval_result in eval_results:
     print("\n")
 
 
-with open(f"eval_resuls.json", "w") as file:
+with open(f"eval_resuls.json", "a") as file:
     for eval_result in eval_results:
         file.write(json.dumps(asdict(eval_result)))
