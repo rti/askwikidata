@@ -231,6 +231,6 @@ for eval_result in eval_results:
     print("\n")
 
 
-with open(f"eval_resuls.json", "a") as file:
+with open(f"eval_results.json", "a") as file:
     for eval_result in eval_results:
         file.write(json.dumps(asdict(eval_result)))
