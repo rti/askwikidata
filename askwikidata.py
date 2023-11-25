@@ -44,11 +44,12 @@ class AskWikidata:
         self.qa_model_url = qa_model_url
         self.reranker_model_name = reranker_model_name
         self.retrieval_chunks = retrieval_chunks
-        self.cache_file = cache_file
 
         if not cache_file:
             emn = embedding_model_name.replace("/", "-")
             self.cache_file = f"cache-{chunk_size}-{chunk_overlap}-{emn}.json"
+        else:
+            self.cache_file = cache_file
 
     def setup(self):
         self.load_models()
@@ -166,6 +167,7 @@ class AskWikidata:
                 return_tensors="pt",
                 max_length=512,
             )
+            # TODO: do we truncate? do we loose information here?
 
             scores = (
                 self.rerank_model(**inputs, return_dict=True)
