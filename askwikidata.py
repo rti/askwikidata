@@ -210,6 +210,24 @@ class AskWikidata:
         else:
             raise Exception(f"unknown qa_model_url {self.qa_model_url}")
 
+    def llm_generate_plain(self, query: str):
+        prompt_func = None
+        if "llama" in self.qa_model_url:
+            prompt_func = self.llama_prompt
+        elif "mistral" in self.qa_model_url:
+            prompt_func = self.mistral_prompt
+        else:
+            raise Exception(f"unknown qa_model_name {self.qa_model_url}")
+
+        if "huggingface.co" in self.qa_model_url:
+            return self.hf_generate(query, None, self.qa_model_url, prompt_func)
+        # elif "api.runpod.ai" in self.qa_model_url:
+        #     return self.hf_generate(query, context, self.qa_model_url, prompt_func)
+        #     return self.ask_llama_runpod(query, context)
+        # return self.ask_openai(query, context)
+        else:
+            raise Exception(f"unknown qa_model_url {self.qa_model_url}")
+
     def ask(self, query: str):
         retrieved = self.retrieve(query)
         reranked, _ = self.rerank(query, retrieved)
@@ -230,10 +248,12 @@ class AskWikidata:
         )
         return system
 
-    def llama_prompt(self, text, system="You are a helpful assistent."):
+    DEFAULT_SYSTEM = "You are a helpful assistent. Please answer the following question. "
+
+    def llama_prompt(self, text, system=DEFAULT_SYSTEM):
         return f"<s>[INST] <<SYS>>\n{system}\n<</SYS>>\n\n{text} [/INST]"
 
-    def mistral_prompt(self, text, system="You are a helpful assistent."):
+    def mistral_prompt(self, text, system=DEFAULT_SYSTEM):
         return f"<s>[INST] {system}\n\nQUESTION: {text} [/INST]"
 
     def hf_generate(self, question, context, model_url, prompt_func):
@@ -242,8 +262,13 @@ class AskWikidata:
 
         print("Generating...")
         headers = {"Authorization": f"Bearer {HUGGINGFACE_API_KEY}"}
-        system = self.system_from_context(context)
-        prompt = prompt_func(question, system)
+
+        prompt = ""
+        if context:
+            system = self.system_from_context(context)
+            prompt = prompt_func(question, system)
+        else:
+            prompt = prompt_func(question)
 
         # print(f"Sending the following prompt to {model_url}:")
         # print(prompt)
