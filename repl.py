@@ -17,4 +17,4 @@ askwikidata.setup()
 while True:
     query = input("AskWikidata >> ")
     response = askwikidata.ask(query)
-    print(response + "\n")
+    print("\n" + response + "\n")
