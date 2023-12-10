@@ -6,6 +6,7 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
       python-packages = ps: with ps; [
+        jupyterlab
         torch
         tqdm
         matplotlib
