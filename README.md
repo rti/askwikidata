@@ -8,6 +8,10 @@ This system allows users to query Wikidata using natural language questions. The
 
 **The system is in an early proof of concept state.**
 
+## Demo
+
+<p align="center"><img src="./askwikidata.gif" alt="A short demo showing the askwikidata repl responding to a question." style="width:400px;"/></p>
+
 ## Quickstart
 
 To give it a try, use ➡️  [this Google Colab Notebook](https://colab.research.google.com/drive/16GoXCVY1YyiEkuEqoXmgftl6X-68eHCi) or load `AskWikidata_Quickstart.ipynb` in your infrastructure.
