@@ -10,7 +10,7 @@ This system allows users to query Wikidata using natural language questions. The
 
 ## Demo
 
-<p align="center"><img src="./askwikidata.gif" alt="A short demo showing the askwikidata repl responding to a question." style="width:400px;"/></p>
+<p align="center"><img src="./askwikidata.gif" alt="A short demo showing the askwikidata repl responding to a question."/></p>
 
 ## Quickstart
 
