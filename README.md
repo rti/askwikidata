@@ -4,17 +4,19 @@ A Prototype for a Wikidata Question-Answering System
 
 <p align="center"><img src="./image.jpg" alt="A cute wrap, the mascot of Nixwrap" style="width:400px;"/></p>
 
-This system allows users query Wikidata using natural language questions. The responses contain links to sources. If Wikidata does not provide the information requests, the system refuses to answer.
+This system allows users to query Wikidata using natural language questions. The responses contain links to sources. If Wikidata does not provide the information requested, the system refuses to answer.
 
 **The system is in an early proof of concept state.**
 
 ## Quickstart
 
-To give it a try, use [this Google Colab Notebook](https://colab.research.google.com/drive/16GoXCVY1YyiEkuEqoXmgftl6X-68eHCi). **You will need a Huggingface Pro API Key to query the LLM**.
+To give it a try, use ➡️  [this Google Colab Notebook](https://colab.research.google.com/drive/16GoXCVY1YyiEkuEqoXmgftl6X-68eHCi).
+
+**You will need a Huggingface Pro API Key to query the LLM**.
 
 ## Implementation
 
-This system integrates Large Language Models (LLMs) to respond to user queries. It converts Wikidata items into text format to ensure compatibility with the LLM. A retrieval-augmented generation (RAG) method is employed, where the user's question initiates a search for relevant "documents" within a dataset. A reranker then evaluates these documents, prioritizing those most likely to address the query effectively. The chosen documents are then incorporated into the LLM's prompt, directing the model to formulate responses solely based on the provided information.
+This system integrates Large Language Models (LLMs) to respond to user questions. It converts Wikidata items into text format to ensure compatibility with the LLM. A retrieval-augmented generation (RAG) method is employed, where the user's question initiates a search for relevant "documents" within the Wikidata text item dataset. A reranker then evaluates these documents, prioritizing those most likely to address the question effectively. The chosen documents are then incorporated into the LLM's prompt, directing the model to formulate responses solely based on the provided information.
 
 ## Install dependencies
 ### Nix
@@ -31,6 +33,7 @@ pip install langchain annoy openai sentence_transformers touch pandas tqdm proto
 
 ## Usage
 ### Unpack provided caches
+For faster execution, the results of some pre-computation steps are caches. In order to use those caches, unpack them:
 ```sh
 bunzip2 --keep --force *.json.bz2
 ```
@@ -38,14 +41,14 @@ bunzip2 --keep --force *.json.bz2
 ### Configure API Keys
 AskWikidata requires access to LLM APIs. Configure your API keys in the following environment variables:
 
-Provider | Environment Variable Name |
---- | --- |
-Hugging Face | `HUGGINGFACE_API_KEY` |
-runpod.io | `RUNPOD_API_KEY` |
-OpenAI | `OPENAI_API_KEY` |
+Provider | Environment Variable Name | Note
+--- | --- | ---
+Hugging Face | `HUGGINGFACE_API_KEY` | active
+runpod.io | `RUNPOD_API_KEY` | currently disabled
+OpenAI | `OPENAI_API_KEY` | currently disabled
 
-### Configure API Keys
-Generate text representations of Wikidata items.
+### Generate dataset
+Generate text representations for Wikidata items. The list of items to use is currently hardcoded in `text_representation.py`.
 ```sh
 python text_representation.py
 ```
