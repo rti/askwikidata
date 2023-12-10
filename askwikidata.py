@@ -238,7 +238,10 @@ class AskWikidata:
     def ask(self, query: str):
         retrieved = self.retrieve(query)
         reranked, _ = self.rerank(query, retrieved)
-        return self.llm_generate(query, reranked)
+        answer = self.llm_generate(query, reranked) 
+        sources = set(reranked["source"])
+        sources_bullet_list = "Sources:\n" + "\n".join(f"- {s}" for s in sources)
+        return answer + "\n\n" + sources_bullet_list
 
     def system_from_context(self, context):
         system = (
