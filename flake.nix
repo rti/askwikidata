@@ -68,7 +68,7 @@
 # Unzip all cache files provided with the askwikidata repository.
 bunzip2 --force --keep *.bz2
 
-# Generate test representations of Wikidata items.
+# Generate text representations of Wikidata items.
 python text_representation.py > /tmp/text_representations.log
 
 # Start interactive REPL.

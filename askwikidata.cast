@@ -18,7 +18,7 @@
 [3.182792, "o", "\r[\u001b[32;1m0\u001b[0m/1 built] \u001b[0m\u001b[K"]
 [3.217267, "o", "\r\u001b[K"]
 [3.224967, "o", "           _              _ _    _     _       _        \r\n  __ _ ___| | ____      _(_) | _(_) __| | __ _| |_ __ _ \r\n / _` / __| |/ /\\ \\ /\\ / / | |/ / |/ _` |/ _` | __/ _` |\r\n| (_| \\__ \\   <  \\ V  V /| |   <| | (_| | (_| | || (_| |\r\n \\__,_|___/_|\\_\\  \\_/\\_/ |_|_|\\_\\_|\\__,_|\\__,_|\\__\\__,_|\r\n                                                        \r\n"]
-[3.225669, "o", "# Unzip all cache files provided with the askwikidata repository.\r\nbunzip2 --force --keep *.bz2\r\n\r\n# Generate test representations of Wikidata items.\r\npython text_representation.py > /tmp/text_representations.log\r\n\r\n# Start interactive REPL.\r\npython repl.py\r\n\r\n# Run evaluation.\r\npython eval.py\r\n"]
+[3.225669, "o", "# Unzip all cache files provided with the askwikidata repository.\r\nbunzip2 --force --keep *.bz2\r\n\r\n# Generate text representations of Wikidata items.\r\npython text_representation.py > /tmp/text_representations.log\r\n\r\n# Start interactive REPL.\r\npython repl.py\r\n\r\n# Run evaluation.\r\npython eval.py\r\n"]
 [3.233452, "o", "\u001b[1m\u001b[7m%\u001b[27m\u001b[1m\u001b[0m                                                                                             \r \r"]
 [3.257226, "o", "\u001b]2;~/src/askwikidata ⋅ zsh ⋅ rti@r25\u0007"]
 [3.260539, "o", "\r\u001b[0m\u001b[27m\u001b[24m\u001b[J\r\n\u001b[32mrti@r25\u001b[39m \u001b[1m\u001b[37msrc/askwikidata\u001b[39m\u001b[0m \u001b[34mmain\u001b[39m \u001b[32m\u001b[31m\u001b[39m\u001b[31m\u001b[39m\r\n\u001b[34m❱\u001b[39m \u001b[K"]
