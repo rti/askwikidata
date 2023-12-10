@@ -16,11 +16,6 @@ import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
 
-HUGGINGFACE_API_KEY = os.getenv("HUGGINGFACE_API_KEY")
-RUNPOD_API_KEY = os.getenv("RUNPOD_API_KEY")
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-
-
 class AskWikidata:
     df = pd.DataFrame()
 
@@ -271,11 +266,13 @@ class AskWikidata:
         return f"<s>[INST] {system}\n\nQUESTION: {text} [/INST]"
 
     def hf_generate(self, question, context, model_url, prompt_func):
-        if HUGGINGFACE_API_KEY is None:
+        huggingface_api_key = os.getenv("HUGGINGFACE_API_KEY")
+
+        if huggingface_api_key is None:
             raise Exception("HUGGINGFACE_API_KEY is None.")
 
         print("Generating...")
-        headers = {"Authorization": f"Bearer {HUGGINGFACE_API_KEY}"}
+        headers = {"Authorization": f"Bearer {huggingface_api_key}"}
 
         prompt = ""
         if context:
@@ -309,6 +306,7 @@ class AskWikidata:
             raise e
 
     # def ask_llama_runpod(self, question, context):
+    #     RUNPOD_API_KEY = os.getenv("RUNPOD_API_KEY")
     #     # access LLM on runpod
     #     url = f"https://api.runpod.ai/v2/llama2-7b-chat/runsync"
     #     headers = {
@@ -337,6 +335,7 @@ class AskWikidata:
     #
     # # access LLM on openai
     # def ask_openai(self, question, context):
+    #     OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
     #     openai.api_key = OPENAI_API_KEY
     #     openai_model = "gpt-3.5-turbo"
     #     # openai_model = "gpt-4"
