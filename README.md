@@ -54,7 +54,7 @@ python text_representation.py
 ```
 
 ### Interactive REPL
-A simple interactive read eval print loop can we used to ask questions.
+A simple interactive read eval print loop can be used to ask questions.
 ```sh
 python repl.py
 ```
