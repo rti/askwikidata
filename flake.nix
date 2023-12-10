@@ -65,12 +65,17 @@
           ${pkgs.figlet}/bin/figlet "askwikidata"
 
           cat << _EOF
-Run unit tests:
-$ python -m unittest
+# Unzip all cache files provided with the askwikidata repository.
+bunzip2 --force --keep *.bz2
 
-Run unit tests with coverage report:
-$ coverage run -m unittest
-$ coverage report --omit="test_*,/nix/*" --show-missing
+# Generate test representations of Wikidata items.
+python text_representation.py > /tmp/text_representations.log
+
+# Start interactive REPL.
+python repl.py
+
+# Run evaluation.
+python eval.py
 _EOF
         '';
       };
