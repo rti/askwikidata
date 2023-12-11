@@ -160,7 +160,7 @@ def format_date(date_value):
         str: The formatted date in ISO 8601 format (YYYY, YYYY-MM, or YYYY-MM-DD), 
              or 'unknown date' if input is None or cannot be parsed.
     """
-    if date_value:
+    try:
         # Remove the '+' sign and time component from the date string
         date_str = date_value.lstrip('+').split('T')[0]
         # Split the date into components, expecting at most 3 parts (year, month, day)
@@ -187,6 +187,9 @@ def format_date(date_value):
                 return f"{year}-{month}"  # Year and month
         elif len(date_parts) == 1:
             return date_parts[0]  # Year only
+    except:
+        return 'unknown date'
+
     return 'unknown date'
 
 
