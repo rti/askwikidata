@@ -1,0 +1,3145 @@
+item,itemLabel
+http://www.wikidata.org/entity/Q61,"Washington, D.C."
+http://www.wikidata.org/entity/Q62,San Francisco
+http://www.wikidata.org/entity/Q64,Berlin
+http://www.wikidata.org/entity/Q65,Los Angeles
+http://www.wikidata.org/entity/Q70,Bern
+http://www.wikidata.org/entity/Q71,Geneva
+http://www.wikidata.org/entity/Q78,Basel
+http://www.wikidata.org/entity/Q85,Cairo
+http://www.wikidata.org/entity/Q87,Alexandria
+http://www.wikidata.org/entity/Q100,Boston
+http://www.wikidata.org/entity/Q172,Toronto
+http://www.wikidata.org/entity/Q174,São Paulo
+http://www.wikidata.org/entity/Q220,Rome
+http://www.wikidata.org/entity/Q239,City of Brussels
+http://www.wikidata.org/entity/Q240,Brussels-Capital Region
+http://www.wikidata.org/entity/Q268,Poznań
+http://www.wikidata.org/entity/Q270,Warsaw
+http://www.wikidata.org/entity/Q279,Modena
+http://www.wikidata.org/entity/Q288,Tours
+http://www.wikidata.org/entity/Q334,Singapore
+http://www.wikidata.org/entity/Q350,Cambridge
+http://www.wikidata.org/entity/Q365,Cologne
+http://www.wikidata.org/entity/Q384,Skopje
+http://www.wikidata.org/entity/Q385,Gdynia
+http://www.wikidata.org/entity/Q393,Szczecin
+http://www.wikidata.org/entity/Q437,Ljubljana
+http://www.wikidata.org/entity/Q456,Lyon
+http://www.wikidata.org/entity/Q459,Plovdiv
+http://www.wikidata.org/entity/Q472,Sofia
+http://www.wikidata.org/entity/Q490,Milan
+http://www.wikidata.org/entity/Q495,Turin
+http://www.wikidata.org/entity/Q546,Trieste
+http://www.wikidata.org/entity/Q580,Łódź
+http://www.wikidata.org/entity/Q582,Villeurbanne
+http://www.wikidata.org/entity/Q585,Oslo
+http://www.wikidata.org/entity/Q586,Bonn
+http://www.wikidata.org/entity/Q588,Katowice
+http://www.wikidata.org/entity/Q597,Lisbon
+http://www.wikidata.org/entity/Q598,Rzeszów
+http://www.wikidata.org/entity/Q612,Dubai
+http://www.wikidata.org/entity/Q617,Padua
+http://www.wikidata.org/entity/Q628,Bergamo
+http://www.wikidata.org/entity/Q641,Venice
+http://www.wikidata.org/entity/Q647,Rennes
+http://www.wikidata.org/entity/Q648,Lille
+http://www.wikidata.org/entity/Q649,Moscow
+http://www.wikidata.org/entity/Q656,Saint Petersburg
+http://www.wikidata.org/entity/Q690,Delft
+http://www.wikidata.org/entity/Q715,Heilbronn
+http://www.wikidata.org/entity/Q727,Amsterdam
+http://www.wikidata.org/entity/Q749,Groningen
+http://www.wikidata.org/entity/Q761,Białystok
+http://www.wikidata.org/entity/Q793,Zwolle
+http://www.wikidata.org/entity/Q807,Lausanne
+http://www.wikidata.org/entity/Q883,Novosibirsk
+http://www.wikidata.org/entity/Q887,Yekaterinburg
+http://www.wikidata.org/entity/Q891,Nizhny Novgorod
+http://www.wikidata.org/entity/Q894,Samara
+http://www.wikidata.org/entity/Q898,Omsk
+http://www.wikidata.org/entity/Q900,Kazan
+http://www.wikidata.org/entity/Q911,Ufa
+http://www.wikidata.org/entity/Q914,Volgograd
+http://www.wikidata.org/entity/Q915,Perm
+http://www.wikidata.org/entity/Q919,Krasnoyarsk
+http://www.wikidata.org/entity/Q956,Beijing
+http://www.wikidata.org/entity/Q975,San Antonio
+http://www.wikidata.org/entity/Q976,Tomsk
+http://www.wikidata.org/entity/Q994,Tbilisi
+http://www.wikidata.org/entity/Q1010,Maribor
+http://www.wikidata.org/entity/Q1017,Aachen
+http://www.wikidata.org/entity/Q1022,Stuttgart
+http://www.wikidata.org/entity/Q1040,Karlsruhe
+http://www.wikidata.org/entity/Q1055,Hamburg
+http://www.wikidata.org/entity/Q1070,Ahmedabad
+http://www.wikidata.org/entity/Q1083,Salerno
+http://www.wikidata.org/entity/Q1085,Prague
+http://www.wikidata.org/entity/Q1154,Jamnagar
+http://www.wikidata.org/entity/Q1218,Jerusalem
+http://www.wikidata.org/entity/Q1289,Grenoble
+http://www.wikidata.org/entity/Q1295,Dortmund
+http://www.wikidata.org/entity/Q1296,Ghent
+http://www.wikidata.org/entity/Q1297,Chicago
+http://www.wikidata.org/entity/Q1309,Maastricht
+http://www.wikidata.org/entity/Q1342,Pittsburgh
+http://www.wikidata.org/entity/Q1352,Chennai
+http://www.wikidata.org/entity/Q1355,Bangalore
+http://www.wikidata.org/entity/Q1362,Islamabad
+http://www.wikidata.org/entity/Q1435,Zagreb
+http://www.wikidata.org/entity/Q1449,Genoa
+http://www.wikidata.org/entity/Q1461,Manila
+http://www.wikidata.org/entity/Q1476,Le Mans
+http://www.wikidata.org/entity/Q1479,Bordeaux
+http://www.wikidata.org/entity/Q1486,Buenos Aires
+http://www.wikidata.org/entity/Q1489,Mexico City
+http://www.wikidata.org/entity/Q1490,Tokyo
+http://www.wikidata.org/entity/Q1491,La Paz
+http://www.wikidata.org/entity/Q1513,Nagpur
+http://www.wikidata.org/entity/Q1515,Abidjan
+http://www.wikidata.org/entity/Q1520,Astana
+http://www.wikidata.org/entity/Q1524,Athens
+http://www.wikidata.org/entity/Q3889,Maputo
+http://www.wikidata.org/entity/Q3894,Kampala
+http://www.wikidata.org/entity/Q3897,Luanda
+http://www.wikidata.org/entity/Q3901,Moroni
+http://www.wikidata.org/entity/Q3909,Maseru
+http://www.wikidata.org/entity/Q3915,Antananarivo
+http://www.wikidata.org/entity/Q3919,Gaborone
+http://www.wikidata.org/entity/Q3921,Harare
+http://www.wikidata.org/entity/Q3926,Pretoria
+http://www.wikidata.org/entity/Q3927,Astrakhan
+http://www.wikidata.org/entity/Q3929,Port Louis
+http://www.wikidata.org/entity/Q3935,Windhoek
+http://www.wikidata.org/entity/Q3977,Elista
+http://www.wikidata.org/entity/Q3992,Liège
+http://www.wikidata.org/entity/Q4035,Osasco
+http://www.wikidata.org/entity/Q4093,Glasgow
+http://www.wikidata.org/entity/Q4301,Arusha
+http://www.wikidata.org/entity/Q4361,Curitiba
+http://www.wikidata.org/entity/Q4454,Khabarovsk
+http://www.wikidata.org/entity/Q4469,Talca
+http://www.wikidata.org/entity/Q4582,Rancagua
+http://www.wikidata.org/entity/Q4629,Surat
+http://www.wikidata.org/entity/Q4709,Barquisimeto
+http://www.wikidata.org/entity/Q4970,Hangzhou
+http://www.wikidata.org/entity/Q5083,Seattle
+http://www.wikidata.org/entity/Q5087,Siliguri
+http://www.wikidata.org/entity/Q5088,Durgapur
+http://www.wikidata.org/entity/Q5112,Adelaide
+http://www.wikidata.org/entity/Q5168,Makhachkala
+http://www.wikidata.org/entity/Q5196,Grozny
+http://www.wikidata.org/entity/Q5206,Stavropol
+http://www.wikidata.org/entity/Q5326,Cherkessk
+http://www.wikidata.org/entity/Q5332,Saratov
+http://www.wikidata.org/entity/Q5337,Orenburg
+http://www.wikidata.org/entity/Q5343,Saransk
+http://www.wikidata.org/entity/Q5384,Kirov
+http://www.wikidata.org/entity/Q5426,Izhevsk
+http://www.wikidata.org/entity/Q5449,Yoshkar-Ola
+http://www.wikidata.org/entity/Q5465,Cape Town
+http://www.wikidata.org/entity/Q5468,Durban
+http://www.wikidata.org/entity/Q5470,Cheboksary
+http://www.wikidata.org/entity/Q5540,Penza
+http://www.wikidata.org/entity/Q5627,Ulyanovsk
+http://www.wikidata.org/entity/Q5713,Mary
+http://www.wikidata.org/entity/Q5753,Samarkand
+http://www.wikidata.org/entity/Q5764,Bukhara
+http://www.wikidata.org/entity/Q5815,Tyumen
+http://www.wikidata.org/entity/Q5826,Xi'an
+http://www.wikidata.org/entity/Q5869,Lhasa
+http://www.wikidata.org/entity/Q5917,Huntington Beach
+http://www.wikidata.org/entity/Q6014,Barnaul
+http://www.wikidata.org/entity/Q6046,Novara
+http://www.wikidata.org/entity/Q6106,Portland
+http://www.wikidata.org/entity/Q6221,Brescia
+http://www.wikidata.org/entity/Q6225,Coventry
+http://www.wikidata.org/entity/Q6252,Monza
+http://www.wikidata.org/entity/Q6346,Indianapolis
+http://www.wikidata.org/entity/Q6441,Montpellier
+http://www.wikidata.org/entity/Q6487,Antalya
+http://www.wikidata.org/entity/Q6506,Varna
+http://www.wikidata.org/entity/Q6509,Burgas
+http://www.wikidata.org/entity/Q6526,Bolzano
+http://www.wikidata.org/entity/Q6537,Vicenza
+http://www.wikidata.org/entity/Q6548,Orléans
+http://www.wikidata.org/entity/Q6576,Irkutsk
+http://www.wikidata.org/entity/Q6602,Strasbourg
+http://www.wikidata.org/entity/Q6610,Yakutsk
+http://www.wikidata.org/entity/Q6640,Pokhara
+http://www.wikidata.org/entity/Q6647,Lalitpur
+http://www.wikidata.org/entity/Q6730,Perpignan
+http://www.wikidata.org/entity/Q6761,Livorno
+http://www.wikidata.org/entity/Q6816,Ulan-Ude
+http://www.wikidata.org/entity/Q7003,Dijon
+http://www.wikidata.org/entity/Q7525,Sevastopol
+http://www.wikidata.org/entity/Q7550,Lutsk
+http://www.wikidata.org/entity/Q7859,Yuzhno-Sakhalinsk
+http://www.wikidata.org/entity/Q7880,Toulouse
+http://www.wikidata.org/entity/Q8247,Biratnagar
+http://www.wikidata.org/entity/Q8252,Birgunj
+http://www.wikidata.org/entity/Q8254,Dharan
+http://www.wikidata.org/entity/Q8385,Ostrava
+http://www.wikidata.org/entity/Q8471,Reggio Calabria
+http://www.wikidata.org/entity/Q8621,Terni
+http://www.wikidata.org/entity/Q8646,Hong Kong
+http://www.wikidata.org/entity/Q8660,Karachi
+http://www.wikidata.org/entity/Q8673,Lagos
+http://www.wikidata.org/entity/Q8678,Rio de Janeiro
+http://www.wikidata.org/entity/Q8684,Seoul
+http://www.wikidata.org/entity/Q8686,Shanghai
+http://www.wikidata.org/entity/Q8969,Cancun
+http://www.wikidata.org/entity/Q9022,Guadalajara
+http://www.wikidata.org/entity/Q9125,Winterthur
+http://www.wikidata.org/entity/Q9270,Thimphu
+http://www.wikidata.org/entity/Q9310,Dili
+http://www.wikidata.org/entity/Q9347,Malé
+http://www.wikidata.org/entity/Q9361,Bishkek
+http://www.wikidata.org/entity/Q9365,Dushanbe
+http://www.wikidata.org/entity/Q9733,Noumea
+http://www.wikidata.org/entity/Q9777,Venlo
+http://www.wikidata.org/entity/Q9824,Erode
+http://www.wikidata.org/entity/Q9832,Eindhoven
+http://www.wikidata.org/entity/Q9863,Salem
+http://www.wikidata.org/entity/Q9885,Coimbatore
+http://www.wikidata.org/entity/Q9920,Haarlem
+http://www.wikidata.org/entity/Q10002,Enschede
+http://www.wikidata.org/entity/Q10086,Mysore
+http://www.wikidata.org/entity/Q10566,Saskatoon
+http://www.wikidata.org/entity/Q10686,Belfast
+http://www.wikidata.org/entity/Q10690,Cardiff
+http://www.wikidata.org/entity/Q10717,Georgetown
+http://www.wikidata.org/entity/Q11194,Sarajevo
+http://www.wikidata.org/entity/Q11283,Butwal
+http://www.wikidata.org/entity/Q11568,Darwin
+http://www.wikidata.org/entity/Q11711,Siem Reap
+http://www.wikidata.org/entity/Q11720,Shenyang
+http://www.wikidata.org/entity/Q11736,Tianjin
+http://www.wikidata.org/entity/Q11739,Lahore
+http://www.wikidata.org/entity/Q11746,Wuhan
+http://www.wikidata.org/entity/Q11854,Rajkot
+http://www.wikidata.org/entity/Q11909,Vadodara
+http://www.wikidata.org/entity/Q11910,Gandhinagar
+http://www.wikidata.org/entity/Q11959,Alicante
+http://www.wikidata.org/entity/Q11977,Tychy
+http://www.wikidata.org/entity/Q12191,Nantes
+http://www.wikidata.org/entity/Q12193,Brest
+http://www.wikidata.org/entity/Q12258,Sabadell
+http://www.wikidata.org/entity/Q12439,Detroit
+http://www.wikidata.org/entity/Q12886,Anderlecht
+http://www.wikidata.org/entity/Q12892,Antwerp
+http://www.wikidata.org/entity/Q12994,Bruges
+http://www.wikidata.org/entity/Q13030,Curicó
+http://www.wikidata.org/entity/Q13298,Graz
+http://www.wikidata.org/entity/Q13329,Piacenza
+http://www.wikidata.org/entity/Q13360,Reggio Emilia
+http://www.wikidata.org/entity/Q13362,Ferrara
+http://www.wikidata.org/entity/Q13364,Ravenna
+http://www.wikidata.org/entity/Q13367,Forlì
+http://www.wikidata.org/entity/Q13369,Rimini
+http://www.wikidata.org/entity/Q13377,Prato
+http://www.wikidata.org/entity/Q13379,Kurgan
+http://www.wikidata.org/entity/Q13498,Taranto
+http://www.wikidata.org/entity/Q13629,Sassari
+http://www.wikidata.org/entity/Q13666,Messina
+http://www.wikidata.org/entity/Q13670,Syracuse
+http://www.wikidata.org/entity/Q13695,Tenochtitlan
+http://www.wikidata.org/entity/Q14440,Iquique
+http://www.wikidata.org/entity/Q14467,La Serena
+http://www.wikidata.org/entity/Q14773,Macau
+http://www.wikidata.org/entity/Q14960,Brno
+http://www.wikidata.org/entity/Q15092,Castelló de la Plana
+http://www.wikidata.org/entity/Q15174,Shenzhen
+http://www.wikidata.org/entity/Q15468,Badalona
+http://www.wikidata.org/entity/Q15470,L'Hospitalet de Llobregat
+http://www.wikidata.org/entity/Q15674,Kagoshima
+http://www.wikidata.org/entity/Q15760,Novorossiysk
+http://www.wikidata.org/entity/Q15767,Armavir
+http://www.wikidata.org/entity/Q16552,San Diego
+http://www.wikidata.org/entity/Q16553,San Jose
+http://www.wikidata.org/entity/Q16554,Denver
+http://www.wikidata.org/entity/Q16555,Houston
+http://www.wikidata.org/entity/Q16556,Phoenix
+http://www.wikidata.org/entity/Q16557,Dallas
+http://www.wikidata.org/entity/Q16558,Fort Worth
+http://www.wikidata.org/entity/Q16559,Austin
+http://www.wikidata.org/entity/Q16562,El Paso
+http://www.wikidata.org/entity/Q16563,Memphis
+http://www.wikidata.org/entity/Q16565,Charlotte
+http://www.wikidata.org/entity/Q16567,Columbus
+http://www.wikidata.org/entity/Q16568,Jacksonville
+http://www.wikidata.org/entity/Q16572,Guangzhou
+http://www.wikidata.org/entity/Q16666,Nanjing
+http://www.wikidata.org/entity/Q16739,Long Beach
+http://www.wikidata.org/entity/Q16868,Laredo
+http://www.wikidata.org/entity/Q16910,Los Ángeles
+http://www.wikidata.org/entity/Q16959,Ürümqi
+http://www.wikidata.org/entity/Q17042,Oakland
+http://www.wikidata.org/entity/Q17139,Akita
+http://www.wikidata.org/entity/Q17151,Thessaloniki
+http://www.wikidata.org/entity/Q17943,Arlington
+http://www.wikidata.org/entity/Q18013,Sacramento
+http://www.wikidata.org/entity/Q18094,Honolulu
+http://www.wikidata.org/entity/Q18125,Manchester
+http://www.wikidata.org/entity/Q18383,Providence
+http://www.wikidata.org/entity/Q18575,Tucson
+http://www.wikidata.org/entity/Q18780,Likasi
+http://www.wikidata.org/entity/Q18808,Pyongyang
+http://www.wikidata.org/entity/Q19157,Pervouralsk
+http://www.wikidata.org/entity/Q19313,Barysaw
+http://www.wikidata.org/entity/Q19316,Biên Hòa
+http://www.wikidata.org/entity/Q19491,Nha Trang
+http://www.wikidata.org/entity/Q19566,Simferopol
+http://www.wikidata.org/entity/Q19660,Bucharest
+http://www.wikidata.org/entity/Q19689,Tirana
+http://www.wikidata.org/entity/Q20714,Suwon
+http://www.wikidata.org/entity/Q20921,Daejeon
+http://www.wikidata.org/entity/Q20927,Daegu
+http://www.wikidata.org/entity/Q20929,Sejong
+http://www.wikidata.org/entity/Q21194,Vũng Tàu
+http://www.wikidata.org/entity/Q21197,Chișinău
+http://www.wikidata.org/entity/Q22595,Aurora
+http://www.wikidata.org/entity/Q22690,Metz
+http://www.wikidata.org/entity/Q23025,Red Deer
+http://www.wikidata.org/entity/Q23044,San Rafael
+http://www.wikidata.org/entity/Q23051,Swansea
+http://www.wikidata.org/entity/Q23154,Bristol
+http://www.wikidata.org/entity/Q23185,Mytishchi
+http://www.wikidata.org/entity/Q23197,Nashville
+http://www.wikidata.org/entity/Q23430,Ulaanbaatar
+http://www.wikidata.org/entity/Q23436,Edinburgh
+http://www.wikidata.org/entity/Q23438,Ashgabat
+http://www.wikidata.org/entity/Q23443,Provo
+http://www.wikidata.org/entity/Q23482,Marseille
+http://www.wikidata.org/entity/Q23551,Mérida
+http://www.wikidata.org/entity/Q23556,Atlanta
+http://www.wikidata.org/entity/Q23564,Podgorica
+http://www.wikidata.org/entity/Q23661,Wellington
+http://www.wikidata.org/entity/Q23768,Las Vegas
+http://www.wikidata.org/entity/Q24603,Independence
+http://www.wikidata.org/entity/Q24639,Vancouver
+http://www.wikidata.org/entity/Q24826,Liverpool
+http://www.wikidata.org/entity/Q24861,Albany
+http://www.wikidata.org/entity/Q24879,Bremen
+http://www.wikidata.org/entity/Q25262,Cà Mau
+http://www.wikidata.org/entity/Q25270,Prishtina
+http://www.wikidata.org/entity/Q25281,Đà Lạt
+http://www.wikidata.org/entity/Q25282,Da Nang
+http://www.wikidata.org/entity/Q25287,Gothenburg
+http://www.wikidata.org/entity/Q25315,Phan Thiết
+http://www.wikidata.org/entity/Q25319,Aarhus
+http://www.wikidata.org/entity/Q25331,Odense
+http://www.wikidata.org/entity/Q25395,Newark
+http://www.wikidata.org/entity/Q25409,Košice
+http://www.wikidata.org/entity/Q25410,Aalborg
+http://www.wikidata.org/entity/Q25411,Helsingborg
+http://www.wikidata.org/entity/Q25412,Västerås
+http://www.wikidata.org/entity/Q25413,Linköping
+http://www.wikidata.org/entity/Q25444,Funchal
+http://www.wikidata.org/entity/Q25475,Batumi
+http://www.wikidata.org/entity/Q25732,Örebro
+http://www.wikidata.org/entity/Q25804,Trondheim
+http://www.wikidata.org/entity/Q26101,Kasugai
+http://www.wikidata.org/entity/Q26134,Nabatieh
+http://www.wikidata.org/entity/Q26155,Jounieh
+http://www.wikidata.org/entity/Q26323,Jieyang
+http://www.wikidata.org/entity/Q26406,Akashi
+http://www.wikidata.org/entity/Q26410,Yokkaichi
+http://www.wikidata.org/entity/Q26418,Hakodate
+http://www.wikidata.org/entity/Q26430,Tilburg
+http://www.wikidata.org/entity/Q26590,Ciudad Juárez
+http://www.wikidata.org/entity/Q26600,Fukuoka
+http://www.wikidata.org/entity/Q26793,Bergen
+http://www.wikidata.org/entity/Q26887,Davenport
+http://www.wikidata.org/entity/Q27138,Unaizah
+http://www.wikidata.org/entity/Q27161,Körfez
+http://www.wikidata.org/entity/Q27174,Najran
+http://www.wikidata.org/entity/Q27400,Hafar Al-Batin
+http://www.wikidata.org/entity/Q27430,Jubail
+http://www.wikidata.org/entity/Q27469,Sakakah
+http://www.wikidata.org/entity/Q27660,Jizan
+http://www.wikidata.org/entity/Q28198,Jackson
+http://www.wikidata.org/entity/Q28218,Baton Rouge
+http://www.wikidata.org/entity/Q28237,Lansing
+http://www.wikidata.org/entity/Q28260,Lincoln
+http://www.wikidata.org/entity/Q28301,Olinda
+http://www.wikidata.org/entity/Q28441,São Luís
+http://www.wikidata.org/entity/Q28515,Springfield
+http://www.wikidata.org/entity/Q28587,Hamadan
+http://www.wikidata.org/entity/Q28729,Kozhikode
+http://www.wikidata.org/entity/Q28848,Saint Paul
+http://www.wikidata.org/entity/Q28911,Lahti
+http://www.wikidata.org/entity/Q28979,Jixi
+http://www.wikidata.org/entity/Q28994,Zunyi
+http://www.wikidata.org/entity/Q28996,Jinzhou
+http://www.wikidata.org/entity/Q29003,Jiamusi
+http://www.wikidata.org/entity/Q29015,Zigong
+http://www.wikidata.org/entity/Q29364,Montgomery
+http://www.wikidata.org/entity/Q29888,Aswan
+http://www.wikidata.org/entity/Q29962,Asyut
+http://www.wikidata.org/entity/Q30096,Frederiksberg
+http://www.wikidata.org/entity/Q30340,Zhengzhou
+http://www.wikidata.org/entity/Q30651,Kadapa
+http://www.wikidata.org/entity/Q30951,Jalgaon
+http://www.wikidata.org/entity/Q30974,Rouen
+http://www.wikidata.org/entity/Q30996,El Alto
+http://www.wikidata.org/entity/Q31094,Chungju
+http://www.wikidata.org/entity/Q31350,Shibin Al Kawm
+http://www.wikidata.org/entity/Q31356,Mingora
+http://www.wikidata.org/entity/Q31487,Kraków
+http://www.wikidata.org/entity/Q33147,Allen
+http://www.wikidata.org/entity/Q33292,Berdiansk
+http://www.wikidata.org/entity/Q33345,Yevpatoriia
+http://www.wikidata.org/entity/Q33405,Little Rock
+http://www.wikidata.org/entity/Q33469,Buôn Ma Thuột
+http://www.wikidata.org/entity/Q33486,Hartford
+http://www.wikidata.org/entity/Q33682,Nam Định
+http://www.wikidata.org/entity/Q33935,Tel Aviv
+http://www.wikidata.org/entity/Q33959,Nice
+http://www.wikidata.org/entity/Q33986,Valparaíso
+http://www.wikidata.org/entity/Q34109,Fargo
+http://www.wikidata.org/entity/Q34116,Thunder Bay
+http://www.wikidata.org/entity/Q34183,Barrie
+http://www.wikidata.org/entity/Q34218,Burlington
+http://www.wikidata.org/entity/Q34261,Port-au-Prince
+http://www.wikidata.org/entity/Q34370,Rotterdam
+http://www.wikidata.org/entity/Q34404,New Orleans
+http://www.wikidata.org/entity/Q34405,Jingdezhen
+http://www.wikidata.org/entity/Q34412,Foshan
+http://www.wikidata.org/entity/Q34600,Kyoto
+http://www.wikidata.org/entity/Q34647,Johannesburg
+http://www.wikidata.org/entity/Q34664,Hiroshima
+http://www.wikidata.org/entity/Q34692,Kingston
+http://www.wikidata.org/entity/Q34713,Salzburg
+http://www.wikidata.org/entity/Q34739,Dayton
+http://www.wikidata.org/entity/Q34750,Fuxin
+http://www.wikidata.org/entity/Q34804,Albuquerque
+http://www.wikidata.org/entity/Q34820,Santo Domingo
+http://www.wikidata.org/entity/Q34863,Oklahoma City
+http://www.wikidata.org/entity/Q34932,Brisbane
+http://www.wikidata.org/entity/Q35004,Tarija
+http://www.wikidata.org/entity/Q35045,Potosí
+http://www.wikidata.org/entity/Q35135,Catalão
+http://www.wikidata.org/entity/Q35178,Kuwait City
+http://www.wikidata.org/entity/Q35246,Oruro
+http://www.wikidata.org/entity/Q35381,Colombo
+http://www.wikidata.org/entity/Q35484,Medina
+http://www.wikidata.org/entity/Q35747,Tuy Hòa
+http://www.wikidata.org/entity/Q35775,Boise
+http://www.wikidata.org/entity/Q35784,Al Bayda
+http://www.wikidata.org/entity/Q36091,Minneapolis
+http://www.wikidata.org/entity/Q36160,Hội An
+http://www.wikidata.org/entity/Q36168,Bridgetown
+http://www.wikidata.org/entity/Q36214,Puerto Montt
+http://www.wikidata.org/entity/Q36307,Salta
+http://www.wikidata.org/entity/Q36312,Calgary
+http://www.wikidata.org/entity/Q36405,Aberdeen
+http://www.wikidata.org/entity/Q36433,Porto
+http://www.wikidata.org/entity/Q36526,Port Moresby
+http://www.wikidata.org/entity/Q36647,Cork
+http://www.wikidata.org/entity/Q36752,North Dum Dum
+http://www.wikidata.org/entity/Q37043,Tallahassee
+http://www.wikidata.org/entity/Q37320,Cleveland
+http://www.wikidata.org/entity/Q37333,Lublin
+http://www.wikidata.org/entity/Q37400,Naypyidaw
+http://www.wikidata.org/entity/Q37701,Bloemfontein
+http://www.wikidata.org/entity/Q37776,Besançon
+http://www.wikidata.org/entity/Q37836,Milwaukee
+http://www.wikidata.org/entity/Q37951,Sapporo
+http://www.wikidata.org/entity/Q37995,Yangon
+http://www.wikidata.org/entity/Q38022,St. Louis
+http://www.wikidata.org/entity/Q38234,Nagasaki
+http://www.wikidata.org/entity/Q38380,Angers
+http://www.wikidata.org/entity/Q38511,Turku
+http://www.wikidata.org/entity/Q38545,Adana
+http://www.wikidata.org/entity/Q38811,Baghdad
+http://www.wikidata.org/entity/Q38927,Maoming
+http://www.wikidata.org/entity/Q38968,Liuzhou
+http://www.wikidata.org/entity/Q39121,Leeds
+http://www.wikidata.org/entity/Q39450,Anchorage
+http://www.wikidata.org/entity/Q39561,Burbank
+http://www.wikidata.org/entity/Q39709,Des Moines
+http://www.wikidata.org/entity/Q40191,Hobart
+http://www.wikidata.org/entity/Q40194,Mazatlán
+http://www.wikidata.org/entity/Q40236,Manaus
+http://www.wikidata.org/entity/Q40269,Porto Alegre
+http://www.wikidata.org/entity/Q40345,Joliet
+http://www.wikidata.org/entity/Q40347,Norman
+http://www.wikidata.org/entity/Q40435,Buffalo
+http://www.wikidata.org/entity/Q40738,Bursa
+http://www.wikidata.org/entity/Q40816,Benghazi
+http://www.wikidata.org/entity/Q40840,Tampere
+http://www.wikidata.org/entity/Q40844,Breda
+http://www.wikidata.org/entity/Q40898,Nancy
+http://www.wikidata.org/entity/Q41057,Topeka
+http://www.wikidata.org/entity/Q41087,Raleigh
+http://www.wikidata.org/entity/Q41106,Kumagaya
+http://www.wikidata.org/entity/Q41183,Aleppo
+http://www.wikidata.org/entity/Q41185,Caen
+http://www.wikidata.org/entity/Q41211,San Juan
+http://www.wikidata.org/entity/Q41252,Bydgoszcz
+http://www.wikidata.org/entity/Q41262,Nottingham
+http://www.wikidata.org/entity/Q41278,Ulsan
+http://www.wikidata.org/entity/Q41283,Gwangju
+http://www.wikidata.org/entity/Q41329,Linz
+http://www.wikidata.org/entity/Q41473,Nizamabad
+http://www.wikidata.org/entity/Q41496,Thanjavur
+http://www.wikidata.org/entity/Q41538,South Dum Dum
+http://www.wikidata.org/entity/Q41604,Amiens
+http://www.wikidata.org/entity/Q41621,Haifa
+http://www.wikidata.org/entity/Q41753,Klagenfurt
+http://www.wikidata.org/entity/Q41819,Kansas City
+http://www.wikidata.org/entity/Q41827,Chittorgarh
+http://www.wikidata.org/entity/Q41843,Beersheba
+http://www.wikidata.org/entity/Q41876,Reims
+http://www.wikidata.org/entity/Q41963,Sri Jayawardenepura Kotte
+http://www.wikidata.org/entity/Q42053,Isfahan
+http://www.wikidata.org/entity/Q42056,Gangneung
+http://www.wikidata.org/entity/Q42057,Geoje
+http://www.wikidata.org/entity/Q42059,Gyeongsan
+http://www.wikidata.org/entity/Q42061,Goyang
+http://www.wikidata.org/entity/Q42062,Gongju
+http://www.wikidata.org/entity/Q1530,Baghdad
+http://www.wikidata.org/entity/Q1533,Caracas
+http://www.wikidata.org/entity/Q1538,Pune
+http://www.wikidata.org/entity/Q1555,Guatemala City
+http://www.wikidata.org/entity/Q1647,Rijeka
+http://www.wikidata.org/entity/Q1663,Split
+http://www.wikidata.org/entity/Q1707,Kiel
+http://www.wikidata.org/entity/Q1709,Schwerin
+http://www.wikidata.org/entity/Q1711,Potsdam
+http://www.wikidata.org/entity/Q1715,Hanover
+http://www.wikidata.org/entity/Q1718,Düsseldorf
+http://www.wikidata.org/entity/Q1720,Mainz
+http://www.wikidata.org/entity/Q1721,Wiesbaden
+http://www.wikidata.org/entity/Q1724,Saarbrücken
+http://www.wikidata.org/entity/Q1726,Munich
+http://www.wikidata.org/entity/Q1729,Erfurt
+http://www.wikidata.org/entity/Q1731,Dresden
+http://www.wikidata.org/entity/Q1733,Magdeburg
+http://www.wikidata.org/entity/Q1735,Innsbruck
+http://www.wikidata.org/entity/Q1748,Copenhagen
+http://www.wikidata.org/entity/Q1754,Stockholm
+http://www.wikidata.org/entity/Q1757,Helsinki
+http://www.wikidata.org/entity/Q1761,Dublin
+http://www.wikidata.org/entity/Q1764,Reykjavík
+http://www.wikidata.org/entity/Q1770,Tallinn
+http://www.wikidata.org/entity/Q1780,Bratislava
+http://www.wikidata.org/entity/Q1792,Gdańsk
+http://www.wikidata.org/entity/Q1794,Frankfurt
+http://www.wikidata.org/entity/Q1800,Kochi
+http://www.wikidata.org/entity/Q1829,Kaliningrad
+http://www.wikidata.org/entity/Q1842,Luxembourg
+http://www.wikidata.org/entity/Q1850,Phnom Penh
+http://www.wikidata.org/entity/Q1854,Ho Chi Minh City
+http://www.wikidata.org/entity/Q1858,Hanoi
+http://www.wikidata.org/entity/Q1861,Bangkok
+http://www.wikidata.org/entity/Q1865,Kuala Lumpur
+http://www.wikidata.org/entity/Q1867,Taipei
+http://www.wikidata.org/entity/Q1877,Đồng Hới
+http://www.wikidata.org/entity/Q1880,Concepción
+http://www.wikidata.org/entity/Q1891,Bologna
+http://www.wikidata.org/entity/Q1895,Petrozavodsk
+http://www.wikidata.org/entity/Q1903,Catania
+http://www.wikidata.org/entity/Q1930,Ottawa
+http://www.wikidata.org/entity/Q1947,Juba
+http://www.wikidata.org/entity/Q1953,Yerevan
+http://www.wikidata.org/entity/Q1960,Dar es Salaam
+http://www.wikidata.org/entity/Q1963,Khartoum
+http://www.wikidata.org/entity/Q2028,Verona
+http://www.wikidata.org/entity/Q2044,Florence
+http://www.wikidata.org/entity/Q2066,Essen
+http://www.wikidata.org/entity/Q2079,Leipzig
+http://www.wikidata.org/entity/Q2082,St. John's
+http://www.wikidata.org/entity/Q2090,Nuremberg
+http://www.wikidata.org/entity/Q2096,Edmonton
+http://www.wikidata.org/entity/Q2100,Duisburg
+http://www.wikidata.org/entity/Q2103,Bochum
+http://www.wikidata.org/entity/Q2107,Wuppertal
+http://www.wikidata.org/entity/Q2112,Bielefeld
+http://www.wikidata.org/entity/Q2119,Mannheim
+http://www.wikidata.org/entity/Q2123,Regina
+http://www.wikidata.org/entity/Q2132,Victoria
+http://www.wikidata.org/entity/Q2135,Winnipeg
+http://www.wikidata.org/entity/Q2141,Halifax
+http://www.wikidata.org/entity/Q2143,Syktyvkar
+http://www.wikidata.org/entity/Q2145,Quebec City
+http://www.wikidata.org/entity/Q2203,Arica
+http://www.wikidata.org/entity/Q2214,Pskov
+http://www.wikidata.org/entity/Q2235,Veliky Novgorod
+http://www.wikidata.org/entity/Q2280,Minsk
+http://www.wikidata.org/entity/Q2288,Tver
+http://www.wikidata.org/entity/Q2337,Smolensk
+http://www.wikidata.org/entity/Q2423,Yaroslavl
+http://www.wikidata.org/entity/Q2467,Nassau
+http://www.wikidata.org/entity/Q2471,Sanaa
+http://www.wikidata.org/entity/Q2634,Naples
+http://www.wikidata.org/entity/Q2656,Palermo
+http://www.wikidata.org/entity/Q2678,Gomel
+http://www.wikidata.org/entity/Q2683,Parma
+http://www.wikidata.org/entity/Q2684,Vladimir
+http://www.wikidata.org/entity/Q2706,Bremerhaven
+http://www.wikidata.org/entity/Q2742,Münster
+http://www.wikidata.org/entity/Q2746,Ryazan
+http://www.wikidata.org/entity/Q2749,Augsburg
+http://www.wikidata.org/entity/Q2758,Mönchengladbach
+http://www.wikidata.org/entity/Q2765,Gelsenkirchen
+http://www.wikidata.org/entity/Q2770,Tula
+http://www.wikidata.org/entity/Q2773,Brunswick
+http://www.wikidata.org/entity/Q2795,Chemnitz
+http://www.wikidata.org/entity/Q2801,Bryansk
+http://www.wikidata.org/entity/Q2805,Krefeld
+http://www.wikidata.org/entity/Q2814,Halle (Saale)
+http://www.wikidata.org/entity/Q2833,Freiburg im Breisgau
+http://www.wikidata.org/entity/Q2837,Kaluga
+http://www.wikidata.org/entity/Q2838,Oberhausen
+http://www.wikidata.org/entity/Q2841,Bogotá
+http://www.wikidata.org/entity/Q2843,Lübeck
+http://www.wikidata.org/entity/Q2844,Brasília
+http://www.wikidata.org/entity/Q2865,Kassel
+http://www.wikidata.org/entity/Q2868,Lima
+http://www.wikidata.org/entity/Q2871,Hagen
+http://www.wikidata.org/entity/Q42066,Gwangmyeong
+http://www.wikidata.org/entity/Q42067,Gwangyang
+http://www.wikidata.org/entity/Q42069,Gwangju
+http://www.wikidata.org/entity/Q42071,Guri
+http://www.wikidata.org/entity/Q42073,Gumi
+http://www.wikidata.org/entity/Q42074,Gunsan
+http://www.wikidata.org/entity/Q42075,Gunpo
+http://www.wikidata.org/entity/Q42078,Gimcheon
+http://www.wikidata.org/entity/Q42080,Gimpo
+http://www.wikidata.org/entity/Q42082,Gimhae
+http://www.wikidata.org/entity/Q42084,Namyangju
+http://www.wikidata.org/entity/Q42088,Nonsan
+http://www.wikidata.org/entity/Q42089,Dangjin
+http://www.wikidata.org/entity/Q42094,Mokpo
+http://www.wikidata.org/entity/Q42096,Miryang
+http://www.wikidata.org/entity/Q42097,Gyeongju
+http://www.wikidata.org/entity/Q42098,Boryeong
+http://www.wikidata.org/entity/Q42100,Sacheon
+http://www.wikidata.org/entity/Q42103,Seogwipo
+http://www.wikidata.org/entity/Q42105,Seosan
+http://www.wikidata.org/entity/Q42108,Seongnam
+http://www.wikidata.org/entity/Q42112,Suncheon
+http://www.wikidata.org/entity/Q42113,Siheung
+http://www.wikidata.org/entity/Q42114,Asan
+http://www.wikidata.org/entity/Q42116,Andong
+http://www.wikidata.org/entity/Q42119,Anseong
+http://www.wikidata.org/entity/Q42123,Yangsan
+http://www.wikidata.org/entity/Q42124,Yangju
+http://www.wikidata.org/entity/Q42125,Yeosu
+http://www.wikidata.org/entity/Q42126,Yeongju
+http://www.wikidata.org/entity/Q42129,Osan
+http://www.wikidata.org/entity/Q42131,Wonju
+http://www.wikidata.org/entity/Q42134,Uiwang
+http://www.wikidata.org/entity/Q42135,Uijeongbu
+http://www.wikidata.org/entity/Q42136,Icheon
+http://www.wikidata.org/entity/Q42137,Iksan
+http://www.wikidata.org/entity/Q42140,Jeonju
+http://www.wikidata.org/entity/Q42142,Jeju
+http://www.wikidata.org/entity/Q42143,Jecheon
+http://www.wikidata.org/entity/Q42144,Jinju
+http://www.wikidata.org/entity/Q42147,Cheongju
+http://www.wikidata.org/entity/Q42148,Chuncheon
+http://www.wikidata.org/entity/Q42152,Tongyeong
+http://www.wikidata.org/entity/Q42153,Paju
+http://www.wikidata.org/entity/Q42154,Pyeongtaek
+http://www.wikidata.org/entity/Q42155,Pocheon
+http://www.wikidata.org/entity/Q42157,Pohang
+http://www.wikidata.org/entity/Q42159,Hanam
+http://www.wikidata.org/entity/Q42163,Sangju
+http://www.wikidata.org/entity/Q42168,Clermont-Ferrand
+http://www.wikidata.org/entity/Q42448,Sheffield
+http://www.wikidata.org/entity/Q42462,York
+http://www.wikidata.org/entity/Q42622,Suzhou
+http://www.wikidata.org/entity/Q42635,Wenzhou
+http://www.wikidata.org/entity/Q42651,Wuxi
+http://www.wikidata.org/entity/Q42664,Huzhou
+http://www.wikidata.org/entity/Q42666,Shaoxing
+http://www.wikidata.org/entity/Q42716,Saint-Étienne
+http://www.wikidata.org/entity/Q42780,Ningbo
+http://www.wikidata.org/entity/Q42807,Nîmes
+http://www.wikidata.org/entity/Q42810,Le Havre
+http://www.wikidata.org/entity/Q42941,Agra
+http://www.wikidata.org/entity/Q43196,Cincinnati
+http://www.wikidata.org/entity/Q43199,Omaha
+http://www.wikidata.org/entity/Q43301,Fresno
+http://www.wikidata.org/entity/Q43382,Plymouth
+http://www.wikidata.org/entity/Q43387,Edirne
+http://www.wikidata.org/entity/Q43433,Chandigarh
+http://www.wikidata.org/entity/Q43453,Plzeň
+http://www.wikidata.org/entity/Q43475,Derby
+http://www.wikidata.org/entity/Q43509,Guayaquil
+http://www.wikidata.org/entity/Q43595,Cotonou
+http://www.wikidata.org/entity/Q43668,Louisville
+http://www.wikidata.org/entity/Q43788,Madison
+http://www.wikidata.org/entity/Q44012,Trois-Rivières
+http://www.wikidata.org/entity/Q44013,Vaughan
+http://www.wikidata.org/entity/Q44016,Markham
+http://www.wikidata.org/entity/Q44059,La Plata
+http://www.wikidata.org/entity/Q44160,Toulon
+http://www.wikidata.org/entity/Q44162,San Fernando del Valle de Catamarca
+http://www.wikidata.org/entity/Q44198,Brampton
+http://www.wikidata.org/entity/Q44206,Resistencia
+http://www.wikidata.org/entity/Q44211,Corrientes
+http://www.wikidata.org/entity/Q44213,Paraná
+http://www.wikidata.org/entity/Q44214,Formosa
+http://www.wikidata.org/entity/Q44215,Santa Rosa
+http://www.wikidata.org/entity/Q44217,San Salvador de Jujuy
+http://www.wikidata.org/entity/Q44236,La Rioja
+http://www.wikidata.org/entity/Q44237,"Mendoza, Argentina"
+http://www.wikidata.org/entity/Q44238,Posadas
+http://www.wikidata.org/entity/Q44239,Neuquén
+http://www.wikidata.org/entity/Q44241,San Juan
+http://www.wikidata.org/entity/Q44243,San Luis
+http://www.wikidata.org/entity/Q44253,Santiago del Estero
+http://www.wikidata.org/entity/Q44255,San Miguel de Tucumán
+http://www.wikidata.org/entity/Q44830,Tochigi
+http://www.wikidata.org/entity/Q44989,Tulsa
+http://www.wikidata.org/entity/Q45301,Trabzon
+http://www.wikidata.org/entity/Q45313,Herat
+http://www.wikidata.org/entity/Q45412,Coimbra
+http://www.wikidata.org/entity/Q2880,Hamm
+http://www.wikidata.org/entity/Q2887,Santiago
+http://www.wikidata.org/entity/Q2899,Mülheim an der Ruhr
+http://www.wikidata.org/entity/Q2904,Herne
+http://www.wikidata.org/entity/Q2907,Sucre
+http://www.wikidata.org/entity/Q2910,Ludwigshafen
+http://www.wikidata.org/entity/Q2916,Osnabrück
+http://www.wikidata.org/entity/Q2933,Asunción
+http://www.wikidata.org/entity/Q2936,Oldenburg
+http://www.wikidata.org/entity/Q2938,Leverkusen
+http://www.wikidata.org/entity/Q2942,Solingen
+http://www.wikidata.org/entity/Q2948,Neuss
+http://www.wikidata.org/entity/Q2966,Heidelberg
+http://www.wikidata.org/entity/Q2971,Paderborn
+http://www.wikidata.org/entity/Q2973,Darmstadt
+http://www.wikidata.org/entity/Q2978,Regensburg
+http://www.wikidata.org/entity/Q2999,Würzburg
+http://www.wikidata.org/entity/Q3001,Paramaribo
+http://www.wikidata.org/entity/Q3004,Ingolstadt
+http://www.wikidata.org/entity/Q3012,Ulm
+http://www.wikidata.org/entity/Q3014,Wolfsburg
+http://www.wikidata.org/entity/Q3033,Göttingen
+http://www.wikidata.org/entity/Q3037,Kathmandu
+http://www.wikidata.org/entity/Q3042,Offenbach am Main
+http://www.wikidata.org/entity/Q3046,Pforzheim
+http://www.wikidata.org/entity/Q3050,Recklinghausen
+http://www.wikidata.org/entity/Q3069,Bottrop
+http://www.wikidata.org/entity/Q3070,San José
+http://www.wikidata.org/entity/Q3075,Fürth
+http://www.wikidata.org/entity/Q3085,Reutlingen
+http://www.wikidata.org/entity/Q3097,Remscheid
+http://www.wikidata.org/entity/Q3104,Koblenz
+http://www.wikidata.org/entity/Q3110,San Salvador
+http://www.wikidata.org/entity/Q3114,Canberra
+http://www.wikidata.org/entity/Q3117,Bergisch Gladbach
+http://www.wikidata.org/entity/Q3126,Erlangen
+http://www.wikidata.org/entity/Q3130,Sydney
+http://www.wikidata.org/entity/Q3132,Moers
+http://www.wikidata.org/entity/Q3138,Trier
+http://www.wikidata.org/entity/Q3141,Melbourne
+http://www.wikidata.org/entity/Q3150,Jena
+http://www.wikidata.org/entity/Q3167,Siegen
+http://www.wikidata.org/entity/Q3183,Perth
+http://www.wikidata.org/entity/Q3185,Hildesheim
+http://www.wikidata.org/entity/Q3200,Salzgitter
+http://www.wikidata.org/entity/Q3214,Cottbus
+http://www.wikidata.org/entity/Q3238,Tegucigalpa
+http://www.wikidata.org/entity/Q3274,Managua
+http://www.wikidata.org/entity/Q3306,Panama City
+http://www.wikidata.org/entity/Q3323,Belgorod
+http://www.wikidata.org/entity/Q3415,Ancona
+http://www.wikidata.org/entity/Q3426,Voronezh
+http://www.wikidata.org/entity/Q3437,Perugia
+http://www.wikidata.org/entity/Q3519,Bari
+http://www.wikidata.org/entity/Q3544,Tambov
+http://www.wikidata.org/entity/Q3551,Rabat
+http://www.wikidata.org/entity/Q3561,Algiers
+http://www.wikidata.org/entity/Q3572,Tunis
+http://www.wikidata.org/entity/Q3579,Tripoli
+http://www.wikidata.org/entity/Q3604,Djibouti
+http://www.wikidata.org/entity/Q3612,Antofagasta
+http://www.wikidata.org/entity/Q3616,Tehran
+http://www.wikidata.org/entity/Q3624,Addis Ababa
+http://www.wikidata.org/entity/Q3642,Asmara
+http://www.wikidata.org/entity/Q3646,Krasnodar
+http://www.wikidata.org/entity/Q3659,N'Djamena
+http://www.wikidata.org/entity/Q3674,Niamey
+http://www.wikidata.org/entity/Q3688,Nouakchott
+http://www.wikidata.org/entity/Q3711,Belgrade
+http://www.wikidata.org/entity/Q3718,Dakar
+http://www.wikidata.org/entity/Q3739,Bissau
+http://www.wikidata.org/entity/Q3748,Monrovia
+http://www.wikidata.org/entity/Q3750,Gera
+http://www.wikidata.org/entity/Q3751,Praia
+http://www.wikidata.org/entity/Q3761,Accra
+http://www.wikidata.org/entity/Q3764,Witten
+http://www.wikidata.org/entity/Q3766,Damascus
+http://www.wikidata.org/entity/Q3768,Yamoussoukro
+http://www.wikidata.org/entity/Q3774,Chillán
+http://www.wikidata.org/entity/Q3777,Ouagadougou
+http://www.wikidata.org/entity/Q3780,Freetown
+http://www.wikidata.org/entity/Q3787,Abuja
+http://www.wikidata.org/entity/Q3792,Lomé
+http://www.wikidata.org/entity/Q3805,Amman
+http://www.wikidata.org/entity/Q3818,Malabo
+http://www.wikidata.org/entity/Q3820,Beirut
+http://www.wikidata.org/entity/Q3825,Libreville
+http://www.wikidata.org/entity/Q3826,Muscat
+http://www.wikidata.org/entity/Q3832,Bangui
+http://www.wikidata.org/entity/Q3844,Brazzaville
+http://www.wikidata.org/entity/Q3854,Bujumbura
+http://www.wikidata.org/entity/Q3856,Nicosia
+http://www.wikidata.org/entity/Q3859,Kigali
+http://www.wikidata.org/entity/Q3866,Dodoma
+http://www.wikidata.org/entity/Q3868,Copiapó
+http://www.wikidata.org/entity/Q3870,Nairobi
+http://www.wikidata.org/entity/Q3871,Coquimbo
+http://www.wikidata.org/entity/Q3876,Lilongwe
+http://www.wikidata.org/entity/Q3881,Lusaka
+http://www.wikidata.org/entity/Q3882,Manama
+http://www.wikidata.org/entity/Q45604,Kandahar
+http://www.wikidata.org/entity/Q45656,Limoges
+http://www.wikidata.org/entity/Q45779,Pécs
+http://www.wikidata.org/entity/Q45798,Gifu
+http://www.wikidata.org/entity/Q45942,Annaba
+http://www.wikidata.org/entity/Q46400,Suceava
+http://www.wikidata.org/entity/Q46747,Sendai
+http://www.wikidata.org/entity/Q46852,Iași
+http://www.wikidata.org/entity/Q47034,Espoo
+http://www.wikidata.org/entity/Q47045,Saint-Denis
+http://www.wikidata.org/entity/Q47048,Oulu
+http://www.wikidata.org/entity/Q47084,Kasuga
+http://www.wikidata.org/entity/Q47138,Encarnación
+http://www.wikidata.org/entity/Q47166,Orsk
+http://www.wikidata.org/entity/Q47264,Hassan
+http://www.wikidata.org/entity/Q47282,Osh
+http://www.wikidata.org/entity/Q47465,Aix-en-Provence
+http://www.wikidata.org/entity/Q47492,Gaza City
+http://www.wikidata.org/entity/Q47535,Kuki
+http://www.wikidata.org/entity/Q47554,Toruń
+http://www.wikidata.org/entity/Q47716,Charleston
+http://www.wikidata.org/entity/Q47772,Bariloche
+http://www.wikidata.org/entity/Q47837,Laayoune
+http://www.wikidata.org/entity/Q47916,Lucknow
+http://www.wikidata.org/entity/Q47952,Salford
+http://www.wikidata.org/entity/Q48195,Basra
+http://www.wikidata.org/entity/Q48256,Dnipro
+http://www.wikidata.org/entity/Q48278,Medellín
+http://www.wikidata.org/entity/Q48320,Kobe
+http://www.wikidata.org/entity/Q48338,Kayseri
+http://www.wikidata.org/entity/Q48370,Manchester
+http://www.wikidata.org/entity/Q48403,Amritsar
+http://www.wikidata.org/entity/Q48888,Hoeryong
+http://www.wikidata.org/entity/Q49145,New Haven
+http://www.wikidata.org/entity/Q49158,Springfield
+http://www.wikidata.org/entity/Q49162,Lowell
+http://www.wikidata.org/entity/Q49169,Stamford
+http://www.wikidata.org/entity/Q49174,Bridgeport
+http://www.wikidata.org/entity/Q49178,Waterbury
+http://www.wikidata.org/entity/Q49179,Worcester
+http://www.wikidata.org/entity/Q49218,Rochester
+http://www.wikidata.org/entity/Q49219,Irvine
+http://www.wikidata.org/entity/Q49220,Fremont
+http://www.wikidata.org/entity/Q49221,Scottsdale
+http://www.wikidata.org/entity/Q49225,Reno
+http://www.wikidata.org/entity/Q49227,Winston-Salem
+http://www.wikidata.org/entity/Q49229,Durham
+http://www.wikidata.org/entity/Q49233,Orlando
+http://www.wikidata.org/entity/Q49236,St. Petersburg
+http://www.wikidata.org/entity/Q49238,Greensboro
+http://www.wikidata.org/entity/Q49239,Toledo
+http://www.wikidata.org/entity/Q49240,Stockton
+http://www.wikidata.org/entity/Q49241,Lexington
+http://www.wikidata.org/entity/Q49242,Corpus Christi
+http://www.wikidata.org/entity/Q49243,Riverside
+http://www.wikidata.org/entity/Q49244,Santa Ana
+http://www.wikidata.org/entity/Q49246,Aurora
+http://www.wikidata.org/entity/Q49247,Anaheim
+http://www.wikidata.org/entity/Q49255,Tampa
+http://www.wikidata.org/entity/Q49256,Bakersfield
+http://www.wikidata.org/entity/Q49258,Colorado Springs
+http://www.wikidata.org/entity/Q49261,Mesa
+http://www.wikidata.org/entity/Q49266,Wichita
+http://www.wikidata.org/entity/Q49267,Henderson
+http://www.wikidata.org/entity/Q49268,Fort Wayne
+http://www.wikidata.org/entity/Q49270,Chula Vista
+http://www.wikidata.org/entity/Q49272,Chandler
+http://www.wikidata.org/entity/Q49273,Lubbock
+http://www.wikidata.org/entity/Q49274,Garland
+http://www.wikidata.org/entity/Q49276,Hialeah
+http://www.wikidata.org/entity/Q50054,Garden Grove
+http://www.wikidata.org/entity/Q50189,Annecy
+http://www.wikidata.org/entity/Q50257,Yeoju
+http://www.wikidata.org/entity/Q50816,Mississauga
+http://www.wikidata.org/entity/Q51059,Osorno
+http://www.wikidata.org/entity/Q51103,Cali
+http://www.wikidata.org/entity/Q51111,Pereira
+http://www.wikidata.org/entity/Q51599,Punta Arenas
+http://www.wikidata.org/entity/Q51682,Glendale
+http://www.wikidata.org/entity/Q51685,Tempe
+http://www.wikidata.org/entity/Q51686,Peoria
+http://www.wikidata.org/entity/Q51687,Surprise
+http://www.wikidata.org/entity/Q51689,Plano
+http://www.wikidata.org/entity/Q51690,Irving
+http://www.wikidata.org/entity/Q51691,Amarillo
+http://www.wikidata.org/entity/Q51693,Brownsville
+http://www.wikidata.org/entity/Q51694,Grand Prairie
+http://www.wikidata.org/entity/Q51695,Pasadena
+http://www.wikidata.org/entity/Q51696,Mesquite
+http://www.wikidata.org/entity/Q51697,McKinney
+http://www.wikidata.org/entity/Q51698,McAllen
+http://www.wikidata.org/entity/Q52028,Chiang Mai
+http://www.wikidata.org/entity/Q52465,West Valley City
+http://www.wikidata.org/entity/Q52466,West Jordan
+http://www.wikidata.org/entity/Q52535,Rosario
+http://www.wikidata.org/entity/Q52578,Concordia
+http://www.wikidata.org/entity/Q52585,Gualeguaychú
+http://www.wikidata.org/entity/Q52607,Mar del Plata
+http://www.wikidata.org/entity/Q52842,Kalisz
+http://www.wikidata.org/entity/Q52998,Richmond Hill
+http://www.wikidata.org/entity/Q53077,Saltillo
+http://www.wikidata.org/entity/Q53139,Chita
+http://www.wikidata.org/entity/Q54108,Bahía Blanca
+http://www.wikidata.org/entity/Q55630,Novi Sad
+http://www.wikidata.org/entity/Q56037,East Berlin
+http://www.wikidata.org/entity/Q57278,Newcastle
+http://www.wikidata.org/entity/Q57719,Xuzhou
+http://www.wikidata.org/entity/Q57756,Lianyungang
+http://www.wikidata.org/entity/Q57787,Suqian
+http://www.wikidata.org/entity/Q57818,Huai'an
+http://www.wikidata.org/entity/Q57866,Yancheng
+http://www.wikidata.org/entity/Q57906,Yangzhou
+http://www.wikidata.org/entity/Q57931,Taizhou
+http://www.wikidata.org/entity/Q57947,Nantong
+http://www.wikidata.org/entity/Q57958,Zhenjiang
+http://www.wikidata.org/entity/Q57970,Changzhou
+http://www.wikidata.org/entity/Q58178,Jiaxing
+http://www.wikidata.org/entity/Q58210,Jinhua
+http://www.wikidata.org/entity/Q58235,Quzhou
+http://www.wikidata.org/entity/Q58273,Taizhou
+http://www.wikidata.org/entity/Q58294,Lishui
+http://www.wikidata.org/entity/Q58324,Zhoushan
+http://www.wikidata.org/entity/Q58401,Shijiazhuang
+http://www.wikidata.org/entity/Q58422,Tangshan
+http://www.wikidata.org/entity/Q58560,Qinhuangdao
+http://www.wikidata.org/entity/Q58570,Handan
+http://www.wikidata.org/entity/Q58584,Baoding
+http://www.wikidata.org/entity/Q58650,Zhangjiakou
+http://www.wikidata.org/entity/Q58675,Chengde
+http://www.wikidata.org/entity/Q58695,Cangzhou
+http://www.wikidata.org/entity/Q58710,Langfang
+http://www.wikidata.org/entity/Q58724,Hengshui
+http://www.wikidata.org/entity/Q58794,Satna
+http://www.wikidata.org/entity/Q58976,Piraeus
+http://www.wikidata.org/entity/Q59018,Kakinada
+http://www.wikidata.org/entity/Q59095,Zhuhai
+http://www.wikidata.org/entity/Q59100,Shantou
+http://www.wikidata.org/entity/Q59107,Shaoguan
+http://www.wikidata.org/entity/Q59132,Jiangmen
+http://www.wikidata.org/entity/Q59144,Zhanjiang
+http://www.wikidata.org/entity/Q59164,Zhaoqing
+http://www.wikidata.org/entity/Q59173,Huizhou
+http://www.wikidata.org/entity/Q59184,Meizhou
+http://www.wikidata.org/entity/Q59189,Shanwei
+http://www.wikidata.org/entity/Q59205,Heyuan
+http://www.wikidata.org/entity/Q59209,Yangjiang
+http://www.wikidata.org/entity/Q59213,Qingyuan
+http://www.wikidata.org/entity/Q59218,Dongguan
+http://www.wikidata.org/entity/Q59223,Zhongshan
+http://www.wikidata.org/entity/Q59227,Chaozhou
+http://www.wikidata.org/entity/Q59233,Yunfu
+http://www.wikidata.org/entity/Q59670,Columbia
+http://www.wikidata.org/entity/Q59975,Bejaia
+http://www.wikidata.org/entity/Q60956,Ashkelon
+http://www.wikidata.org/entity/Q61092,George Town
+http://www.wikidata.org/entity/Q61301,San Francisco de Campeche
+http://www.wikidata.org/entity/Q61302,Chihuahua City
+http://www.wikidata.org/entity/Q61320,Colima
+http://www.wikidata.org/entity/Q61434,Nellore
+http://www.wikidata.org/entity/Q61445,Navi Mumbai
+http://www.wikidata.org/entity/Q61944,Semey
+http://www.wikidata.org/entity/Q62823,Barranquilla
+http://www.wikidata.org/entity/Q62868,Koszalin
+http://www.wikidata.org/entity/Q63049,Abadan
+http://www.wikidata.org/entity/Q64116,High Wycombe
+http://www.wikidata.org/entity/Q66485,Jaipur
+http://www.wikidata.org/entity/Q66568,Kanpur
+http://www.wikidata.org/entity/Q66616,Indore
+http://www.wikidata.org/entity/Q68481,Fuzhou
+http://www.wikidata.org/entity/Q68534,Nanping
+http://www.wikidata.org/entity/Q68579,Putian
+http://www.wikidata.org/entity/Q68593,Naihati
+http://www.wikidata.org/entity/Q68614,Sanming
+http://www.wikidata.org/entity/Q68695,Quanzhou
+http://www.wikidata.org/entity/Q68744,Xiamen
+http://www.wikidata.org/entity/Q68814,Zhangzhou
+http://www.wikidata.org/entity/Q68862,Longyan
+http://www.wikidata.org/entity/Q68919,Ningde
+http://www.wikidata.org/entity/Q68953,Kamarhati
+http://www.wikidata.org/entity/Q69060,Xining
+http://www.wikidata.org/entity/Q71204,Huangshi
+http://www.wikidata.org/entity/Q71227,Shiyan
+http://www.wikidata.org/entity/Q71247,Jingzhou
+http://www.wikidata.org/entity/Q71266,Yichang
+http://www.wikidata.org/entity/Q71284,Xiangyang
+http://www.wikidata.org/entity/Q71305,Ezhou
+http://www.wikidata.org/entity/Q71323,Jingmen
+http://www.wikidata.org/entity/Q71339,Xiaogan
+http://www.wikidata.org/entity/Q71355,Huanggang
+http://www.wikidata.org/entity/Q71373,Xianning
+http://www.wikidata.org/entity/Q71401,Suizhou
+http://www.wikidata.org/entity/Q72125,Giugliano in Campania
+http://www.wikidata.org/entity/Q72259,Portsmouth
+http://www.wikidata.org/entity/Q72536,Zheleznogorsk
+http://www.wikidata.org/entity/Q72778,Taiyuan
+http://www.wikidata.org/entity/Q72818,Haiphong
+http://www.wikidata.org/entity/Q72877,Datong
+http://www.wikidata.org/entity/Q72907,Yangquan
+http://www.wikidata.org/entity/Q72945,Changzhi
+http://www.wikidata.org/entity/Q72990,Jincheng
+http://www.wikidata.org/entity/Q73020,Shuozhou
+http://www.wikidata.org/entity/Q73045,Jinzhong
+http://www.wikidata.org/entity/Q73119,Xinzhou
+http://www.wikidata.org/entity/Q73156,Linfen
+http://www.wikidata.org/entity/Q73186,Lüliang
+http://www.wikidata.org/entity/Q74881,Dalian
+http://www.wikidata.org/entity/Q74957,Anshan
+http://www.wikidata.org/entity/Q75026,Fushun
+http://www.wikidata.org/entity/Q75091,Benxi
+http://www.wikidata.org/entity/Q75110,Dandong
+http://www.wikidata.org/entity/Q75150,Yingkou
+http://www.wikidata.org/entity/Q75203,Liaoyang
+http://www.wikidata.org/entity/Q75230,Panjin
+http://www.wikidata.org/entity/Q75268,Tieling
+http://www.wikidata.org/entity/Q75336,Chaoyang
+http://www.wikidata.org/entity/Q75379,Huludao
+http://www.wikidata.org/entity/Q75621,Salamiyah
+http://www.wikidata.org/entity/Q79808,Constanța
+http://www.wikidata.org/entity/Q79815,Mulhouse
+http://www.wikidata.org/entity/Q79848,Southampton
+http://www.wikidata.org/entity/Q79857,Konya
+http://www.wikidata.org/entity/Q79860,Huntsville
+http://www.wikidata.org/entity/Q79867,Birmingham
+http://www.wikidata.org/entity/Q79875,Mobile
+http://www.wikidata.org/entity/Q79980,Varanasi
+http://www.wikidata.org/entity/Q79990,Christchurch
+http://www.wikidata.org/entity/Q80004,Coronel Fabriciano
+http://www.wikidata.org/entity/Q80484,Patna
+http://www.wikidata.org/entity/Q80517,Shreveport
+http://www.wikidata.org/entity/Q80561,Antakya
+http://www.wikidata.org/entity/Q80989,Bhopal
+http://www.wikidata.org/entity/Q81033,Monterrey
+http://www.wikidata.org/entity/Q81046,Charleroi
+http://www.wikidata.org/entity/Q81137,Olomouc
+http://www.wikidata.org/entity/Q81398,Acapulco
+http://www.wikidata.org/entity/Q81581,Szeged
+http://www.wikidata.org/entity/Q81844,Gresham
+http://www.wikidata.org/entity/Q81882,Santos
+http://www.wikidata.org/entity/Q82070,Tyre
+http://www.wikidata.org/entity/Q82128,Temuco
+http://www.wikidata.org/entity/Q82174,Brașov
+http://www.wikidata.org/entity/Q82765,Olsztyn
+http://www.wikidata.org/entity/Q83061,Van
+http://www.wikidata.org/entity/Q83065,Leicester
+http://www.wikidata.org/entity/Q83114,São Gonçalo
+http://www.wikidata.org/entity/Q83178,Almere
+http://www.wikidata.org/entity/Q83247,Braga
+http://www.wikidata.org/entity/Q83285,Durrës
+http://www.wikidata.org/entity/Q83317,Mosul
+http://www.wikidata.org/entity/Q83324,Sibiu
+http://www.wikidata.org/entity/Q83387,Diyarbakır
+http://www.wikidata.org/entity/Q83404,Timișoara
+http://www.wikidata.org/entity/Q83786,Shimla
+http://www.wikidata.org/entity/Q83813,Savannah
+http://www.wikidata.org/entity/Q92161,Changchun
+http://www.wikidata.org/entity/Q92212,Opole
+http://www.wikidata.org/entity/Q92277,Jilin City
+http://www.wikidata.org/entity/Q92297,Siping
+http://www.wikidata.org/entity/Q92561,London
+http://www.wikidata.org/entity/Q93230,Rawalpindi
+http://www.wikidata.org/entity/Q93338,Gaziantep
+http://www.wikidata.org/entity/Q93358,Oradea
+http://www.wikidata.org/entity/Q95041,Naberezhnye Chelny
+http://www.wikidata.org/entity/Q95449,Magnitogorsk
+http://www.wikidata.org/entity/Q98967,Nizhny Tagil
+http://www.wikidata.org/entity/Q98995,Volzhsky
+http://www.wikidata.org/entity/Q99648,Ibb
+http://www.wikidata.org/entity/Q100188,Cluj-Napoca
+http://www.wikidata.org/entity/Q101254,Newport
+http://www.wikidata.org/entity/Q101625,Marrakesh
+http://www.wikidata.org/entity/Q102217,Vitebsk
+http://www.wikidata.org/entity/Q102317,Kielce
+http://www.wikidata.org/entity/Q102350,Bytom
+http://www.wikidata.org/entity/Q102397,Miskolc
+http://www.wikidata.org/entity/Q102667,Biysk
+http://www.wikidata.org/entity/Q103217,Częstochowa
+http://www.wikidata.org/entity/Q103483,Almetyevsk
+http://www.wikidata.org/entity/Q103892,Zabrze
+http://www.wikidata.org/entity/Q104232,Achinsk
+http://www.wikidata.org/entity/Q104302,Chorzów
+http://www.wikidata.org/entity/Q104560,Balakovo
+http://www.wikidata.org/entity/Q104649,Bataysk
+http://www.wikidata.org/entity/Q104712,Elbląg
+http://www.wikidata.org/entity/Q104720,Zielona Góra
+http://www.wikidata.org/entity/Q104725,Płock
+http://www.wikidata.org/entity/Q104731,Gorzów Wielkopolski
+http://www.wikidata.org/entity/Q104740,Radom
+http://www.wikidata.org/entity/Q104991,Berdsk
+http://www.wikidata.org/entity/Q105002,Berezniki
+http://www.wikidata.org/entity/Q105037,Callao
+http://www.wikidata.org/entity/Q105060,Sosnowiec
+http://www.wikidata.org/entity/Q105084,Gliwice
+http://www.wikidata.org/entity/Q105444,Kamensk-Uralsky
+http://www.wikidata.org/entity/Q106583,Bielsko-Biała
+http://www.wikidata.org/entity/Q106636,Bam
+http://www.wikidata.org/entity/Q106681,Włocławek
+http://www.wikidata.org/entity/Q107401,Sivas
+http://www.wikidata.org/entity/Q108672,Dąbrowa Górnicza
+http://www.wikidata.org/entity/Q108679,Ruda Śląska
+http://www.wikidata.org/entity/Q109188,Pelotas
+http://www.wikidata.org/entity/Q109336,Chongjin
+http://www.wikidata.org/entity/Q109356,Hamhung
+http://www.wikidata.org/entity/Q109374,Wonsan
+http://www.wikidata.org/entity/Q109386,Nampho
+http://www.wikidata.org/entity/Q109949,Matola
+http://www.wikidata.org/entity/Q110017,Caxias do Sul
+http://www.wikidata.org/entity/Q110218,Mwanza
+http://www.wikidata.org/entity/Q110732,Wałbrzych
+http://www.wikidata.org/entity/Q112813,Durango
+http://www.wikidata.org/entity/Q114045,Chuzhou
+http://www.wikidata.org/entity/Q115256,Taoyuan
+http://www.wikidata.org/entity/Q115323,Sumbawanga
+http://www.wikidata.org/entity/Q115329,Camagüey
+http://www.wikidata.org/entity/Q115382,Bayamo
+http://www.wikidata.org/entity/Q115403,Manzanillo
+http://www.wikidata.org/entity/Q115465,Ciego de Ávila
+http://www.wikidata.org/entity/Q115527,Las Tunas
+http://www.wikidata.org/entity/Q117040,Santiago de Cuba
+http://www.wikidata.org/entity/Q118958,Leuven
+http://www.wikidata.org/entity/Q119140,Bagé
+http://www.wikidata.org/entity/Q122803,Erzurum
+http://www.wikidata.org/entity/Q123709,Dundee
+http://www.wikidata.org/entity/Q125293,Puebla City
+http://www.wikidata.org/entity/Q125434,Port Elizabeth
+http://www.wikidata.org/entity/Q126148,Tangier
+http://www.wikidata.org/entity/Q126805,St. Catharines
+http://www.wikidata.org/entity/Q126995,Weinan
+http://www.wikidata.org/entity/Q127041,Mangaluru
+http://www.wikidata.org/entity/Q127063,Kars
+http://www.wikidata.org/entity/Q128228,Killeen
+http://www.wikidata.org/entity/Q128244,Waco
+http://www.wikidata.org/entity/Q128261,Carrollton
+http://www.wikidata.org/entity/Q128269,Frisco
+http://www.wikidata.org/entity/Q128282,Beaumont
+http://www.wikidata.org/entity/Q128295,Abilene
+http://www.wikidata.org/entity/Q128306,Denton
+http://www.wikidata.org/entity/Q128321,Midland
+http://www.wikidata.org/entity/Q128349,Wichita Falls
+http://www.wikidata.org/entity/Q128674,Hunchun
+http://www.wikidata.org/entity/Q128849,Nagano
+http://www.wikidata.org/entity/Q128891,Lafayette
+http://www.wikidata.org/entity/Q129259,Niš
+http://www.wikidata.org/entity/Q129649,İzmit
+http://www.wikidata.org/entity/Q130191,Norwich
+http://www.wikidata.org/entity/Q130324,Hòa Bình
+http://www.wikidata.org/entity/Q130469,Mazar-i-Sharif
+http://www.wikidata.org/entity/Q130514,Luxor
+http://www.wikidata.org/entity/Q131127,Banja Luka
+http://www.wikidata.org/entity/Q131290,Ganja
+http://www.wikidata.org/entity/Q131301,Homs
+http://www.wikidata.org/entity/Q131323,Misrata
+http://www.wikidata.org/entity/Q131335,Sioux Falls
+http://www.wikidata.org/entity/Q131350,Nishapur
+http://www.wikidata.org/entity/Q131416,Derbent
+http://www.wikidata.org/entity/Q131491,Brighton
+http://www.wikidata.org/entity/Q131620,Natal
+http://www.wikidata.org/entity/Q131638,Shkodër
+http://www.wikidata.org/entity/Q131694,Aden
+http://www.wikidata.org/entity/Q131818,Oran
+http://www.wikidata.org/entity/Q132189,Saint-Marc
+http://www.wikidata.org/entity/Q132572,Tiraspol
+http://www.wikidata.org/entity/Q132679,Willemstad
+http://www.wikidata.org/entity/Q132754,Erbil
+http://www.wikidata.org/entity/Q132830,Douala
+http://www.wikidata.org/entity/Q132997,Florianópolis
+http://www.wikidata.org/entity/Q133073,Dunedin
+http://www.wikidata.org/entity/Q133116,Hamilton
+http://www.wikidata.org/entity/Q133118,Şanlıurfa
+http://www.wikidata.org/entity/Q133123,Patras
+http://www.wikidata.org/entity/Q134121,Namur
+http://www.wikidata.org/entity/Q134287,Tarsus
+http://www.wikidata.org/entity/Q134291,Mersin
+http://www.wikidata.org/entity/Q134509,Port Said
+http://www.wikidata.org/entity/Q134514,Suez
+http://www.wikidata.org/entity/Q134620,Jyväskylä
+http://www.wikidata.org/entity/Q134635,Saitama
+http://www.wikidata.org/entity/Q134672,Exeter
+http://www.wikidata.org/entity/Q134703,Kahramanmaraş
+http://www.wikidata.org/entity/Q134712,Šiauliai
+http://www.wikidata.org/entity/Q134902,Stoke-on-Trent
+http://www.wikidata.org/entity/Q135285,Dimitrovgrad
+http://www.wikidata.org/entity/Q135615,Springfield
+http://www.wikidata.org/entity/Q136217,Erzincan
+http://www.wikidata.org/entity/Q137203,Sandakan
+http://www.wikidata.org/entity/Q137271,Kota Kinabalu
+http://www.wikidata.org/entity/Q139190,Terrebonne
+http://www.wikidata.org/entity/Q139208,Lévis
+http://www.wikidata.org/entity/Q139229,Saguenay
+http://www.wikidata.org/entity/Q139473,Sherbrooke
+http://www.wikidata.org/entity/Q140075,Gold Coast
+http://www.wikidata.org/entity/Q140087,Zlatoust
+http://www.wikidata.org/entity/Q140147,Brest
+http://www.wikidata.org/entity/Q140304,Zagazig
+http://www.wikidata.org/entity/Q140561,Zahedan
+http://www.wikidata.org/entity/Q140631,Tainan
+http://www.wikidata.org/entity/Q141810,Laval
+http://www.wikidata.org/entity/Q141844,Gatineau
+http://www.wikidata.org/entity/Q143782,North Las Vegas
+http://www.wikidata.org/entity/Q144170,Kamyshin
+http://www.wikidata.org/entity/Q144663,Hengyang
+http://www.wikidata.org/entity/Q145333,Zama
+http://www.wikidata.org/entity/Q145507,Kaspiysk
+http://www.wikidata.org/entity/Q145865,Zamora de Hidalgo
+http://www.wikidata.org/entity/Q146351,Liberec
+http://www.wikidata.org/entity/Q146699,Zanjan
+http://www.wikidata.org/entity/Q146723,Kisangani
+http://www.wikidata.org/entity/Q146790,Aomori
+http://www.wikidata.org/entity/Q147089,Manisa
+http://www.wikidata.org/entity/Q147187,Zaozhuang
+http://www.wikidata.org/entity/Q147402,Zapopan
+http://www.wikidata.org/entity/Q147756,Khasavyurt
+http://www.wikidata.org/entity/Q151958,Yueyang
+http://www.wikidata.org/entity/Q152449,Beit Shemesh
+http://www.wikidata.org/entity/Q152467,Bnei Brak
+http://www.wikidata.org/entity/Q152831,Duhok
+http://www.wikidata.org/entity/Q152902,Tanga
+http://www.wikidata.org/entity/Q153511,Carúpano
+http://www.wikidata.org/entity/Q153647,St Helens
+http://www.wikidata.org/entity/Q154814,Bandar Abbas
+http://www.wikidata.org/entity/Q154835,Mogilev
+http://www.wikidata.org/entity/Q155148,Kopeysk
+http://www.wikidata.org/entity/Q155277,Tlaquepaque
+http://www.wikidata.org/entity/Q155557,Blumenau
+http://www.wikidata.org/entity/Q155809,Novoshakhtinsk
+http://www.wikidata.org/entity/Q156243,Sinuiju
+http://www.wikidata.org/entity/Q156711,Uzhhorod
+http://www.wikidata.org/entity/Q156726,Ivano-Frankivsk
+http://www.wikidata.org/entity/Q156760,Nikopol
+http://www.wikidata.org/entity/Q156819,Joinville
+http://www.wikidata.org/entity/Q157024,Tetovo
+http://www.wikidata.org/entity/Q157065,Kerch
+http://www.wikidata.org/entity/Q157137,Kryvyi Rih
+http://www.wikidata.org/entity/Q157144,Vinnytsia
+http://www.wikidata.org/entity/Q157725,Chernivtsi
+http://www.wikidata.org/entity/Q157835,Zaporizhzhia
+http://www.wikidata.org/entity/Q157915,Garoua
+http://www.wikidata.org/entity/Q158467,Gwalior
+http://www.wikidata.org/entity/Q158928,Bushehr
+http://www.wikidata.org/entity/Q159260,Santa Clara
+http://www.wikidata.org/entity/Q159273,Arequipa
+http://www.wikidata.org/entity/Q159610,Vlorë
+http://www.wikidata.org/entity/Q159835,Batman
+http://www.wikidata.org/entity/Q160173,Ruse
+http://www.wikidata.org/entity/Q160320,Dammam
+http://www.wikidata.org/entity/Q160450,Samsun
+http://www.wikidata.org/entity/Q160506,Saint-Denis
+http://www.wikidata.org/entity/Q160544,Heraklion
+http://www.wikidata.org/entity/Q160687,Valdivia
+http://www.wikidata.org/entity/Q161176,Fukushima
+http://www.wikidata.org/entity/Q162279,Kuopio
+http://www.wikidata.org/entity/Q162442,Prayagraj
+http://www.wikidata.org/entity/Q162548,Oskemen
+http://www.wikidata.org/entity/Q162677,Murom
+http://www.wikidata.org/entity/Q162880,Dezhou
+http://www.wikidata.org/entity/Q163132,Akron
+http://www.wikidata.org/entity/Q163464,Charallave
+http://www.wikidata.org/entity/Q163490,Sidon
+http://www.wikidata.org/entity/Q163798,Thrissur
+http://www.wikidata.org/entity/Q163888,Ageo
+http://www.wikidata.org/entity/Q165204,Mérida
+http://www.wikidata.org/entity/Q165341,Teresina
+http://www.wikidata.org/entity/Q165420,Pleven
+http://www.wikidata.org/entity/Q165444,Tikrit
+http://www.wikidata.org/entity/Q165806,Nevinnomyssk
+http://www.wikidata.org/entity/Q165857,Tokorozawa
+http://www.wikidata.org/entity/Q166304,Billings
+http://www.wikidata.org/entity/Q166824,Afyonkarahisar
+http://www.wikidata.org/entity/Q167394,Kragujevac
+http://www.wikidata.org/entity/Q167436,João Pessoa
+http://www.wikidata.org/entity/Q167715,Thiruvananthapuram
+http://www.wikidata.org/entity/Q167974,Táriba
+http://www.wikidata.org/entity/Q168057,Craiova
+http://www.wikidata.org/entity/Q168193,Najaf
+http://www.wikidata.org/entity/Q168197,Adıyaman
+http://www.wikidata.org/entity/Q168225,Hebron
+http://www.wikidata.org/entity/Q168376,Vitoria
+http://www.wikidata.org/entity/Q168652,Hargeisa
+http://www.wikidata.org/entity/Q168843,Sari
+http://www.wikidata.org/entity/Q168866,Eskişehir
+http://www.wikidata.org/entity/Q168929,Campo Grande
+http://www.wikidata.org/entity/Q169134,Nara
+http://www.wikidata.org/entity/Q169997,Darjeeling
+http://www.wikidata.org/entity/Q170047,Samarra
+http://www.wikidata.org/entity/Q170115,Srinagar
+http://www.wikidata.org/entity/Q170247,Jinan
+http://www.wikidata.org/entity/Q170287,Subotica
+http://www.wikidata.org/entity/Q170315,Abbottabad
+http://www.wikidata.org/entity/Q170322,Qingdao
+http://www.wikidata.org/entity/Q170366,Ahvaz
+http://www.wikidata.org/entity/Q170415,Stara Zagora
+http://www.wikidata.org/entity/Q170454,Agartala
+http://www.wikidata.org/entity/Q170457,Aydın
+http://www.wikidata.org/entity/Q170478,Bournemouth
+http://www.wikidata.org/entity/Q170497,Gloucester
+http://www.wikidata.org/entity/Q170513,Taganrog
+http://www.wikidata.org/entity/Q170521,Kashgar
+http://www.wikidata.org/entity/Q170532,Amasya
+http://www.wikidata.org/entity/Q170540,Taubaté
+http://www.wikidata.org/entity/Q170578,Aracaju
+http://www.wikidata.org/entity/Q170616,Chiba
+http://www.wikidata.org/entity/Q170688,Santa Cruz de la Sierra
+http://www.wikidata.org/entity/Q170762,Cuiabá
+http://www.wikidata.org/entity/Q170919,Pattaya
+http://www.wikidata.org/entity/Q170967,Denizli
+http://www.wikidata.org/entity/Q170996,Galați
+http://www.wikidata.org/entity/Q171031,Isparta
+http://www.wikidata.org/entity/Q171223,Nyíregyháza
+http://www.wikidata.org/entity/Q171357,Kecskemét
+http://www.wikidata.org/entity/Q171612,Rio Branco
+http://www.wikidata.org/entity/Q171617,Campinas
+http://www.wikidata.org/entity/Q171632,Maracaibo
+http://www.wikidata.org/entity/Q171639,Ashdod
+http://www.wikidata.org/entity/Q171714,Kerman
+http://www.wikidata.org/entity/Q171771,Bhubaneswar
+http://www.wikidata.org/entity/Q171866,Middlesbrough
+http://www.wikidata.org/entity/Q171943,Nanchang
+http://www.wikidata.org/entity/Q172343,Rafah
+http://www.wikidata.org/entity/Q172415,Kutaisi
+http://www.wikidata.org/entity/Q172438,Peterborough
+http://www.wikidata.org/entity/Q172455,Boulogne-Billancourt
+http://www.wikidata.org/entity/Q172512,Porto Velho
+http://www.wikidata.org/entity/Q172601,Neftekamsk
+http://www.wikidata.org/entity/Q172616,Nefteyugansk
+http://www.wikidata.org/entity/Q172637,Nizhnevartovsk
+http://www.wikidata.org/entity/Q172657,Nizhnekamsk
+http://www.wikidata.org/entity/Q173270,Veracruz
+http://www.wikidata.org/entity/Q173310,Kirkuk
+http://www.wikidata.org/entity/Q173545,Hama
+http://www.wikidata.org/entity/Q173591,Arad
+http://www.wikidata.org/entity/Q173699,Setúbal
+http://www.wikidata.org/entity/Q173731,Ghazni
+http://www.wikidata.org/entity/Q173849,"São José, Santa Catarina"
+http://www.wikidata.org/entity/Q174060,Elazığ
+http://www.wikidata.org/entity/Q174091,Changsha
+http://www.wikidata.org/entity/Q174461,Ranchi
+http://www.wikidata.org/entity/Q174684,Tuzla
+http://www.wikidata.org/entity/Q174691,Shizuoka
+http://www.wikidata.org/entity/Q174744,Villa Alemana
+http://www.wikidata.org/entity/Q174916,Tartus
+http://www.wikidata.org/entity/Q175124,Novokuybyshevsk
+http://www.wikidata.org/entity/Q175161,Novomoskovsk
+http://www.wikidata.org/entity/Q175323,Adapazarı
+http://www.wikidata.org/entity/Q175433,Novocheboksarsk
+http://www.wikidata.org/entity/Q175452,Novocherkassk
+http://www.wikidata.org/entity/Q175470,Novy Urengoy
+http://www.wikidata.org/entity/Q175524,Noyabrsk
+http://www.wikidata.org/entity/Q176325,Oktyabrsky
+http://www.wikidata.org/entity/Q176891,Carapicuíba
+http://www.wikidata.org/entity/Q177149,Obihiro
+http://www.wikidata.org/entity/Q178067,Toamasina
+http://www.wikidata.org/entity/Q178373,Rasht
+http://www.wikidata.org/entity/Q178405,Larissa
+http://www.wikidata.org/entity/Q178663,Meknes
+http://www.wikidata.org/entity/Q178725,Niterói
+http://www.wikidata.org/entity/Q178945,Bazhong
+http://www.wikidata.org/entity/Q178993,Palmas
+http://www.wikidata.org/entity/Q179585,Ploiești
+http://www.wikidata.org/entity/Q179608,Nanning
+http://www.wikidata.org/entity/Q179665,Urmia
+http://www.wikidata.org/entity/Q179691,Niigata
+http://www.wikidata.org/entity/Q179833,Sumgait
+http://www.wikidata.org/entity/Q179841,Ciudad Acuña
+http://www.wikidata.org/entity/Q180057,Lincoln
+http://www.wikidata.org/entity/Q180078,Kermanshah
+http://www.wikidata.org/entity/Q180084,Ile Ife
+http://www.wikidata.org/entity/Q180192,Sinop
+http://www.wikidata.org/entity/Q180215,Macapá
+http://www.wikidata.org/entity/Q180470,Huangshan
+http://www.wikidata.org/entity/Q180522,Aqaba
+http://www.wikidata.org/entity/Q180921,Omdurman
+http://www.wikidata.org/entity/Q181056,Boa Vista
+http://www.wikidata.org/entity/Q181376,Hrodna
+http://www.wikidata.org/entity/Q181379,Osmaniye
+http://www.wikidata.org/entity/Q181557,Kaohsiung
+http://www.wikidata.org/entity/Q181578,Qazvin
+http://www.wikidata.org/entity/Q181946,Argenteuil
+http://www.wikidata.org/entity/Q181966,Naha
+http://www.wikidata.org/entity/Q182009,Tekirdağ
+http://www.wikidata.org/entity/Q182025,Aksaray
+http://www.wikidata.org/entity/Q182059,Kumasi
+http://www.wikidata.org/entity/Q182092,Tobruk
+http://www.wikidata.org/entity/Q182394,Yazd
+http://www.wikidata.org/entity/Q182521,Rustavi
+http://www.wikidata.org/entity/Q182625,Windsor
+http://www.wikidata.org/entity/Q182640,Ta'if
+http://www.wikidata.org/entity/Q182852,Kunming
+http://www.wikidata.org/entity/Q182984,Kano
+http://www.wikidata.org/entity/Q183002,Surgut
+http://www.wikidata.org/entity/Q183124,Cochabamba
+http://www.wikidata.org/entity/Q183303,Jalalabad
+http://www.wikidata.org/entity/Q183405,Safi
+http://www.wikidata.org/entity/Q183584,Lanzhou
+http://www.wikidata.org/entity/Q183651,Tokat
+http://www.wikidata.org/entity/Q184046,Zenica
+http://www.wikidata.org/entity/Q184090,Preston
+http://www.wikidata.org/entity/Q184345,Viña del Mar
+http://www.wikidata.org/entity/Q184403,São Bernardo do Campo
+http://www.wikidata.org/entity/Q184409,Guarulhos
+http://www.wikidata.org/entity/Q184579,Bolton
+http://www.wikidata.org/entity/Q184587,Grand Rapids
+http://www.wikidata.org/entity/Q185084,Siirt
+http://www.wikidata.org/entity/Q185125,Hamamatsu
+http://www.wikidata.org/entity/Q185134,Tlemcen
+http://www.wikidata.org/entity/Q185156,Guantánamo
+http://www.wikidata.org/entity/Q185280,Baia Mare
+http://www.wikidata.org/entity/Q185332,Satu Mare
+http://www.wikidata.org/entity/Q185453,Multan
+http://www.wikidata.org/entity/Q185518,Mandalay
+http://www.wikidata.org/entity/Q185582,Knoxville
+http://www.wikidata.org/entity/Q185632,Limassol
+http://www.wikidata.org/entity/Q185684,Hefei
+http://www.wikidata.org/entity/Q186006,Dingxi
+http://www.wikidata.org/entity/Q186141,Gangtok
+http://www.wikidata.org/entity/Q186234,Kufa
+http://www.wikidata.org/entity/Q186349,Târgu Mureș
+http://www.wikidata.org/entity/Q186702,Chattanooga
+http://www.wikidata.org/entity/Q186935,Ahuachapán
+http://www.wikidata.org/entity/Q187136,Luoyang
+http://www.wikidata.org/entity/Q187284,Hurghada
+http://www.wikidata.org/entity/Q187346,Constantine
+http://www.wikidata.org/entity/Q187593,Lubumbashi
+http://www.wikidata.org/entity/Q187805,Spokane
+http://www.wikidata.org/entity/Q187826,Móstoles
+http://www.wikidata.org/entity/Q187938,Pitești
+http://www.wikidata.org/entity/Q188022,Mardin
+http://www.wikidata.org/entity/Q188155,Gorgan
+http://www.wikidata.org/entity/Q188304,Sunderland
+http://www.wikidata.org/entity/Q188478,Brăila
+http://www.wikidata.org/entity/Q188693,Blantyre
+http://www.wikidata.org/entity/Q188806,Kitakyushu
+http://www.wikidata.org/entity/Q188892,Ribeirão Preto
+http://www.wikidata.org/entity/Q188897,Nova Iguaçu
+http://www.wikidata.org/entity/Q188901,Sorocaba
+http://www.wikidata.org/entity/Q189043,Petrópolis
+http://www.wikidata.org/entity/Q189128,León de Los Aldama
+http://www.wikidata.org/entity/Q189133,Cairns
+http://www.wikidata.org/entity/Q189134,Uşak
+http://www.wikidata.org/entity/Q189138,Hermosillo
+http://www.wikidata.org/entity/Q189166,Amadora
+http://www.wikidata.org/entity/Q189383,Damietta
+http://www.wikidata.org/entity/Q189633,Guilin
+http://www.wikidata.org/entity/Q189697,Karabük
+http://www.wikidata.org/entity/Q189823,Haikou
+http://www.wikidata.org/entity/Q190005,Cienfuegos
+http://www.wikidata.org/entity/Q190021,Townsville
+http://www.wikidata.org/entity/Q190184,Harar
+http://www.wikidata.org/entity/Q190828,Petah Tikva
+http://www.wikidata.org/entity/Q190948,Abha
+http://www.wikidata.org/entity/Q191130,Kanazawa
+http://www.wikidata.org/entity/Q191135,Vila Nova de Gaia
+http://www.wikidata.org/entity/Q191170,Fallujah
+http://www.wikidata.org/entity/Q191204,Sulaymaniyah
+http://www.wikidata.org/entity/Q191642,São José dos Campos
+http://www.wikidata.org/entity/Q191652,Santo André
+http://www.wikidata.org/entity/Q191914,Hachinohe
+http://www.wikidata.org/entity/Q192181,São José do Rio Preto
+http://www.wikidata.org/entity/Q192213,Holon
+http://www.wikidata.org/entity/Q192225,Netanya
+http://www.wikidata.org/entity/Q192235,Ciudad del Este
+http://www.wikidata.org/entity/Q192271,Guiyang
+http://www.wikidata.org/entity/Q192387,Londrina
+http://www.wikidata.org/entity/Q192517,Boulder
+http://www.wikidata.org/entity/Q192807,Ramat Gan
+http://www.wikidata.org/entity/Q192918,Sabratha
+http://www.wikidata.org/entity/Q192961,Ramadi
+http://www.wikidata.org/entity/Q193016,Campina Grande
+http://www.wikidata.org/entity/Q193019,Juiz de Fora
+http://www.wikidata.org/entity/Q193021,Duque de Caxias
+http://www.wikidata.org/entity/Q193250,Bulawayo
+http://www.wikidata.org/entity/Q193289,Iquitos
+http://www.wikidata.org/entity/Q193350,Itumbiara
+http://www.wikidata.org/entity/Q193370,Montreuil
+http://www.wikidata.org/entity/Q193380,Rubtsovsk
+http://www.wikidata.org/entity/Q193413,Rybinsk
+http://www.wikidata.org/entity/Q193428,Sakai
+http://www.wikidata.org/entity/Q193443,Salavat
+http://www.wikidata.org/entity/Q193486,Dire Dawa
+http://www.wikidata.org/entity/Q193722,Sergiyev Posad
+http://www.wikidata.org/entity/Q193802,Oujda
+http://www.wikidata.org/entity/Q193806,Birjand
+http://www.wikidata.org/entity/Q193909,Seversk
+http://www.wikidata.org/entity/Q193965,Kamianets-Podilskyi
+http://www.wikidata.org/entity/Q194087,Hirosaki
+http://www.wikidata.org/entity/Q194146,Niğde
+http://www.wikidata.org/entity/Q194165,Irbid
+http://www.wikidata.org/entity/Q194325,Canoas
+http://www.wikidata.org/entity/Q194328,Uberlândia
+http://www.wikidata.org/entity/Q194332,Mogi das Cruzes
+http://www.wikidata.org/entity/Q194338,São Carlos
+http://www.wikidata.org/entity/Q194343,Feira de Santana
+http://www.wikidata.org/entity/Q194531,Shaoyang
+http://www.wikidata.org/entity/Q195531,Jaramana
+http://www.wikidata.org/entity/Q196236,Anju
+http://www.wikidata.org/entity/Q196486,Stary Oskol
+http://www.wikidata.org/entity/Q196489,Sterlitamak
+http://www.wikidata.org/entity/Q197379,Zhangjiajie
+http://www.wikidata.org/entity/Q197402,Zhangye
+http://www.wikidata.org/entity/Q197519,Zhaotong
+http://www.wikidata.org/entity/Q197922,Zhongwei
+http://www.wikidata.org/entity/Q198061,Zhoukou
+http://www.wikidata.org/entity/Q198206,Shakhty
+http://www.wikidata.org/entity/Q198240,Zhumadian
+http://www.wikidata.org/entity/Q198266,Zhuzhou
+http://www.wikidata.org/entity/Q198370,Zibo
+http://www.wikidata.org/entity/Q198748,Engels
+http://www.wikidata.org/entity/Q198989,Aktau
+http://www.wikidata.org/entity/Q199440,Mexicali
+http://www.wikidata.org/entity/Q199500,Gyumri
+http://www.wikidata.org/entity/Q199528,Dehradun
+http://www.wikidata.org/entity/Q199575,Ağrı
+http://www.wikidata.org/entity/Q199605,Guwahati
+http://www.wikidata.org/entity/Q199609,Ōita
+http://www.wikidata.org/entity/Q199712,Çanakkale
+http://www.wikidata.org/entity/Q199723,Balıkesir
+http://www.wikidata.org/entity/Q199797,Tacoma
+http://www.wikidata.org/entity/Q199889,Kumamoto
+http://www.wikidata.org/entity/Q199909,Karbala
+http://www.wikidata.org/entity/Q200016,Visakhapatnam
+http://www.wikidata.org/entity/Q200017,Vijayawada
+http://www.wikidata.org/entity/Q200019,Jodhpur
+http://www.wikidata.org/entity/Q200022,Matsuyama
+http://www.wikidata.org/entity/Q200028,Hamilton
+http://www.wikidata.org/entity/Q200030,Latakia
+http://www.wikidata.org/entity/Q200054,Jamshedpur
+http://www.wikidata.org/entity/Q200077,Morioka
+http://www.wikidata.org/entity/Q200078,Okayama
+http://www.wikidata.org/entity/Q200119,Ujjain
+http://www.wikidata.org/entity/Q200166,Kitchener
+http://www.wikidata.org/entity/Q200235,Nashik
+http://www.wikidata.org/entity/Q200237,Meerut
+http://www.wikidata.org/entity/Q200251,Kōchi
+http://www.wikidata.org/entity/Q200267,Kamakura
+http://www.wikidata.org/entity/Q200340,Udaipur
+http://www.wikidata.org/entity/Q200578,Yokosuka
+http://www.wikidata.org/entity/Q200589,Utsunomiya
+http://www.wikidata.org/entity/Q200663,Faridabad
+http://www.wikidata.org/entity/Q200707,Takamatsu
+http://www.wikidata.org/entity/Q200713,Aurangabad
+http://www.wikidata.org/entity/Q200718,Bikaner
+http://www.wikidata.org/entity/Q200731,Tottori
+http://www.wikidata.org/entity/Q200740,Asahikawa
+http://www.wikidata.org/entity/Q200747,Wakayama
+http://www.wikidata.org/entity/Q200805,Aguascalientes City
+http://www.wikidata.org/entity/Q200878,Jabalpur
+http://www.wikidata.org/entity/Q200942,Swindon
+http://www.wikidata.org/entity/Q200951,Bolu
+http://www.wikidata.org/entity/Q201051,Rishon LeZion
+http://www.wikidata.org/entity/Q201095,Giresun
+http://www.wikidata.org/entity/Q201101,Rize
+http://www.wikidata.org/entity/Q201117,Toyota
+http://www.wikidata.org/entity/Q201404,Buzău
+http://www.wikidata.org/entity/Q201613,Maebashi
+http://www.wikidata.org/entity/Q201618,Fukui
+http://www.wikidata.org/entity/Q201812,Huddersfield
+http://www.wikidata.org/entity/Q201832,Aligarh
+http://www.wikidata.org/entity/Q201932,Kofu
+http://www.wikidata.org/entity/Q202139,Asansol
+http://www.wikidata.org/entity/Q202162,Aba
+http://www.wikidata.org/entity/Q202316,Foz do Iguaçu
+http://www.wikidata.org/entity/Q202453,Novi Pazar
+http://www.wikidata.org/entity/Q202776,Ziguinchor
+http://www.wikidata.org/entity/Q202907,Ōtsu
+http://www.wikidata.org/entity/Q202973,Kingston
+http://www.wikidata.org/entity/Q203027,Tsu
+http://www.wikidata.org/entity/Q203045,Semnan
+http://www.wikidata.org/entity/Q203263,Athens
+http://www.wikidata.org/entity/Q203299,Faiyum
+http://www.wikidata.org/entity/Q203308,Shimonoseki
+http://www.wikidata.org/entity/Q203476,Port Blair
+http://www.wikidata.org/entity/Q204150,Pinsk
+http://www.wikidata.org/entity/Q204234,Milton Keynes
+http://www.wikidata.org/entity/Q204249,Mito
+http://www.wikidata.org/entity/Q204266,Toyama
+http://www.wikidata.org/entity/Q204271,San Luis Potosí
+http://www.wikidata.org/entity/Q204308,Miyazaki
+http://www.wikidata.org/entity/Q204561,Modesto
+http://www.wikidata.org/entity/Q205119,Cajamarca
+http://www.wikidata.org/entity/Q205327,Kananga
+http://www.wikidata.org/entity/Q205526,Yamagata
+http://www.wikidata.org/entity/Q205648,Granada
+http://www.wikidata.org/entity/Q205681,Cascavel
+http://www.wikidata.org/entity/Q205914,Lijiang
+http://www.wikidata.org/entity/Q205922,Qiqihar
+http://www.wikidata.org/entity/Q206484,Abeokuta
+http://www.wikidata.org/entity/Q206879,Nevşehir
+http://www.wikidata.org/entity/Q206881,Kilis
+http://www.wikidata.org/entity/Q206885,Düzce
+http://www.wikidata.org/entity/Q206891,Kırıkkale
+http://www.wikidata.org/entity/Q206900,Çorum
+http://www.wikidata.org/entity/Q206903,Kırklareli
+http://www.wikidata.org/entity/Q206988,Cheltenham
+http://www.wikidata.org/entity/Q207030,Ziyang
+http://www.wikidata.org/entity/Q207098,Ghaziabad
+http://www.wikidata.org/entity/Q207294,Babruysk
+http://www.wikidata.org/entity/Q207309,Tokushima
+http://www.wikidata.org/entity/Q207311,Suzuka
+http://www.wikidata.org/entity/Q207321,Matsue
+http://www.wikidata.org/entity/Q207322,Huambo
+http://www.wikidata.org/entity/Q207324,Cuttack
+http://www.wikidata.org/entity/Q207350,Rehovot
+http://www.wikidata.org/entity/Q207429,Tuxtla Gutiérrez
+http://www.wikidata.org/entity/Q207749,Thane
+http://www.wikidata.org/entity/Q207754,Tiruchirappalli
+http://www.wikidata.org/entity/Q207756,Tauranga
+http://www.wikidata.org/entity/Q207799,Puri
+http://www.wikidata.org/entity/Q207801,Bijeljina
+http://www.wikidata.org/entity/Q207876,Yamaguchi
+http://www.wikidata.org/entity/Q207881,Ichihara
+http://www.wikidata.org/entity/Q207972,Tepic
+http://www.wikidata.org/entity/Q208005,Kırşehir
+http://www.wikidata.org/entity/Q208097,Imphal
+http://www.wikidata.org/entity/Q208143,Wigan
+http://www.wikidata.org/entity/Q208151,León
+http://www.wikidata.org/entity/Q208162,Patiala
+http://www.wikidata.org/entity/Q208262,Eastbourne
+http://www.wikidata.org/entity/Q208318,Kaduna
+http://www.wikidata.org/entity/Q208389,Sabha
+http://www.wikidata.org/entity/Q208445,Vallejo
+http://www.wikidata.org/entity/Q208447,Thousand Oaks
+http://www.wikidata.org/entity/Q208459,Sunnyvale
+http://www.wikidata.org/entity/Q208471,Kaifeng
+http://www.wikidata.org/entity/Q208472,Bingöl
+http://www.wikidata.org/entity/Q208669,Maringá
+http://www.wikidata.org/entity/Q208718,Port Sudan
+http://www.wikidata.org/entity/Q208725,Bat Yam
+http://www.wikidata.org/entity/Q208818,Fuchū
+http://www.wikidata.org/entity/Q208863,Hachioji
+http://www.wikidata.org/entity/Q209016,Santa Marta
+http://www.wikidata.org/entity/Q209034,Toluca
+http://www.wikidata.org/entity/Q209338,Oxnard
+http://www.wikidata.org/entity/Q209766,Saga
+http://www.wikidata.org/entity/Q209779,Sagamihara
+http://www.wikidata.org/entity/Q209785,Ichikawa
+http://www.wikidata.org/entity/Q209801,Himeji
+http://www.wikidata.org/entity/Q210292,Yozgat
+http://www.wikidata.org/entity/Q210307,Ciudad Nezahualcóyotl
+http://www.wikidata.org/entity/Q210365,Beihai
+http://www.wikidata.org/entity/Q210493,Yantai
+http://www.wikidata.org/entity/Q210628,Machida
+http://www.wikidata.org/entity/Q210661,Musashino
+http://www.wikidata.org/entity/Q210667,Chofu
+http://www.wikidata.org/entity/Q210886,Villahermosa
+http://www.wikidata.org/entity/Q211243,Yinchuan
+http://www.wikidata.org/entity/Q211563,Beira
+http://www.wikidata.org/entity/Q211590,Santa Clara
+http://www.wikidata.org/entity/Q211805,Bartın
+http://www.wikidata.org/entity/Q211811,Burdur
+http://www.wikidata.org/entity/Q211867,Oshawa
+http://www.wikidata.org/entity/Q211907,Slough
+http://www.wikidata.org/entity/Q212332,Kanchipuram
+http://www.wikidata.org/entity/Q212494,Akishima
+http://www.wikidata.org/entity/Q212628,Arak
+http://www.wikidata.org/entity/Q212826,West Bromwich
+http://www.wikidata.org/entity/Q212991,Santa Rosa
+http://www.wikidata.org/entity/Q213014,Akola
+http://www.wikidata.org/entity/Q213026,Bareilly
+http://www.wikidata.org/entity/Q213169,Chongju
+http://www.wikidata.org/entity/Q213242,Barcelos
+http://www.wikidata.org/entity/Q213263,Tama
+http://www.wikidata.org/entity/Q213278,Kodaira
+http://www.wikidata.org/entity/Q213318,Amagasaki
+http://www.wikidata.org/entity/Q213324,Matsumoto
+http://www.wikidata.org/entity/Q214164,Bellevue
+http://www.wikidata.org/entity/Q214173,Trujillo
+http://www.wikidata.org/entity/Q214215,La Paz
+http://www.wikidata.org/entity/Q214248,Benguela
+http://www.wikidata.org/entity/Q214485,Kisumu
+http://www.wikidata.org/entity/Q214651,Bandırma
+http://www.wikidata.org/entity/Q214655,Çorlu
+http://www.wikidata.org/entity/Q214670,Lüleburgaz
+http://www.wikidata.org/entity/Q215733,Warrington
+http://www.wikidata.org/entity/Q215755,Xiangtan
+http://www.wikidata.org/entity/Q216075,Cần Thơ
+http://www.wikidata.org/entity/Q216077,Jiujiang
+http://www.wikidata.org/entity/Q216835,Cap-Haïtien
+http://www.wikidata.org/entity/Q216847,Cúcuta
+http://www.wikidata.org/entity/Q216897,Siverek
+http://www.wikidata.org/entity/Q216902,Kabwe
+http://www.wikidata.org/entity/Q217039,Rotherham
+http://www.wikidata.org/entity/Q217040,Tamale
+http://www.wikidata.org/entity/Q217071,Pucallpa
+http://www.wikidata.org/entity/Q217156,Ismailia
+http://www.wikidata.org/entity/Q217432,Port Harcourt
+http://www.wikidata.org/entity/Q217646,Mudanjiang
+http://www.wikidata.org/entity/Q217681,Tai'an
+http://www.wikidata.org/entity/Q217698,Weifang
+http://www.wikidata.org/entity/Q218861,Gondar
+http://www.wikidata.org/entity/Q219039,Nadiad
+http://www.wikidata.org/entity/Q219117,Zomba
+http://www.wikidata.org/entity/Q219583,El Jadida
+http://www.wikidata.org/entity/Q219656,Macon
+http://www.wikidata.org/entity/Q219671,Ndola
+http://www.wikidata.org/entity/Q220049,Malakal
+http://www.wikidata.org/entity/Q220445,Kuching
+http://www.wikidata.org/entity/Q221051,Xalapa
+http://www.wikidata.org/entity/Q221283,Cape Coast
+http://www.wikidata.org/entity/Q221734,Rason
+http://www.wikidata.org/entity/Q221914,Moçâmedes
+http://www.wikidata.org/entity/Q221921,Comodoro Rivadavia
+http://www.wikidata.org/entity/Q222755,Ibagué
+http://www.wikidata.org/entity/Q223422,Anápolis
+http://www.wikidata.org/entity/Q223439,Kure
+http://www.wikidata.org/entity/Q223517,Ahmednagar
+http://www.wikidata.org/entity/Q223587,Mansoura
+http://www.wikidata.org/entity/Q223920,Pointe-Noire
+http://www.wikidata.org/entity/Q223966,Piura
+http://www.wikidata.org/entity/Q225641,Mombasa
+http://www.wikidata.org/entity/Q228405,Madurai
+http://www.wikidata.org/entity/Q230628,Erdenet
+http://www.wikidata.org/entity/Q231765,Geelong
+http://www.wikidata.org/entity/Q232226,Kelowna
+http://www.wikidata.org/entity/Q232842,Puno
+http://www.wikidata.org/entity/Q234053,Vancouver
+http://www.wikidata.org/entity/Q234061,Erie
+http://www.wikidata.org/entity/Q234453,Hollywood
+http://www.wikidata.org/entity/Q234600,Al Ain
+http://www.wikidata.org/entity/Q236197,Hino
+http://www.wikidata.org/entity/Q236744,Bogotá
+http://www.wikidata.org/entity/Q237655,Baranavichy
+http://www.wikidata.org/entity/Q237683,Ome
+http://www.wikidata.org/entity/Q237699,Aizuwakamatsu
+http://www.wikidata.org/entity/Q237847,Solapur
+http://www.wikidata.org/entity/Q238217,Daraa
+http://www.wikidata.org/entity/Q238375,Dorud
+http://www.wikidata.org/entity/Q238452,Arish
+http://www.wikidata.org/entity/Q238508,Gurgaon
+http://www.wikidata.org/entity/Q239097,Deir ez-Zor
+http://www.wikidata.org/entity/Q239107,Edfu
+http://www.wikidata.org/entity/Q239421,Nakuru
+http://www.wikidata.org/entity/Q239580,Kitwe
+http://www.wikidata.org/entity/Q239870,Columbus
+http://www.wikidata.org/entity/Q240475,Kashan
+http://www.wikidata.org/entity/Q240489,Higashimurayama
+http://www.wikidata.org/entity/Q240891,Higashiōmi
+http://www.wikidata.org/entity/Q241037,Numazu
+http://www.wikidata.org/entity/Q241645,Bauru
+http://www.wikidata.org/entity/Q242108,Otaru
+http://www.wikidata.org/entity/Q242144,Bhilai
+http://www.wikidata.org/entity/Q242783,Okazaki
+http://www.wikidata.org/entity/Q242874,Koganei
+http://www.wikidata.org/entity/Q242882,Nishitokyo
+http://www.wikidata.org/entity/Q242885,Mitaka
+http://www.wikidata.org/entity/Q242895,Saharanpur
+http://www.wikidata.org/entity/Q242906,Ponta Grossa
+http://www.wikidata.org/entity/Q242995,Jhansi
+http://www.wikidata.org/entity/Q243293,Sekondi-Takoradi
+http://www.wikidata.org/entity/Q243319,Morogoro
+http://www.wikidata.org/entity/Q243322,Gujranwala
+http://www.wikidata.org/entity/Q243325,Khulna
+http://www.wikidata.org/entity/Q243766,Bucaramanga
+http://www.wikidata.org/entity/Q243846,Hillah
+http://www.wikidata.org/entity/Q243853,Nishinomiya
+http://www.wikidata.org/entity/Q243859,Abiko
+http://www.wikidata.org/entity/Q243863,Higashiōsaka
+http://www.wikidata.org/entity/Q244004,Sétif
+http://www.wikidata.org/entity/Q244139,Pinar del Río
+http://www.wikidata.org/entity/Q244146,Clearwater
+http://www.wikidata.org/entity/Q244154,Holguín
+http://www.wikidata.org/entity/Q244232,Tabuk
+http://www.wikidata.org/entity/Q244509,Kigoma
+http://www.wikidata.org/entity/Q245023,Taichung
+http://www.wikidata.org/entity/Q247248,Sambhal
+http://www.wikidata.org/entity/Q249007,Wuwei
+http://www.wikidata.org/entity/Q249830,Águas Lindas de Goiás
+http://www.wikidata.org/entity/Q249994,Hsinchu City
+http://www.wikidata.org/entity/Q249996,Keelung
+http://www.wikidata.org/entity/Q250220,Bharatpur
+http://www.wikidata.org/entity/Q251329,Gaya
+http://www.wikidata.org/entity/Q255455,Jammu
+http://www.wikidata.org/entity/Q259253,Buraidah
+http://www.wikidata.org/entity/Q260911,Chiclayo
+http://www.wikidata.org/entity/Q261076,Margilan
+http://www.wikidata.org/entity/Q261988,Rajpur Sonarpur
+http://www.wikidata.org/entity/Q262579,Karaman
+http://www.wikidata.org/entity/Q264206,Kōriyama
+http://www.wikidata.org/entity/Q265555,Kitami
+http://www.wikidata.org/entity/Q266014,Yongzhou
+http://www.wikidata.org/entity/Q267258,Odawara
+http://www.wikidata.org/entity/Q267439,Guarapari
+http://www.wikidata.org/entity/Q268915,Dhahran
+http://www.wikidata.org/entity/Q269634,Tachikawa
+http://www.wikidata.org/entity/Q269960,Shobra Elkhema
+http://www.wikidata.org/entity/Q270041,Al Hudaydah
+http://www.wikidata.org/entity/Q270176,Belgaum
+http://www.wikidata.org/entity/Q270806,Anjo
+http://www.wikidata.org/entity/Q270810,Ichinomiya
+http://www.wikidata.org/entity/Q270814,Ishinomaki
+http://www.wikidata.org/entity/Q270821,Baqubah
+http://www.wikidata.org/entity/Q270912,Hirakata
+http://www.wikidata.org/entity/Q271000,Bouaké
+http://www.wikidata.org/entity/Q271215,Corumbá
+http://www.wikidata.org/entity/Q271333,Contagem
+http://www.wikidata.org/entity/Q271374,Guarujá
+http://www.wikidata.org/entity/Q271393,Jaboatão dos Guararapes
+http://www.wikidata.org/entity/Q271417,Funabashi
+http://www.wikidata.org/entity/Q271619,Ipoh
+http://www.wikidata.org/entity/Q271730,Abbotsford
+http://www.wikidata.org/entity/Q271733,Moshi
+http://www.wikidata.org/entity/Q271771,Tanta
+http://www.wikidata.org/entity/Q271911,Dispur
+http://www.wikidata.org/entity/Q271917,Kushiro
+http://www.wikidata.org/entity/Q272093,Sanandaj
+http://www.wikidata.org/entity/Q272254,São Vicente
+http://www.wikidata.org/entity/Q272471,Matanzas
+http://www.wikidata.org/entity/Q272795,Tacna
+http://www.wikidata.org/entity/Q273779,Saint-Louis
+http://www.wikidata.org/entity/Q273798,Narita
+http://www.wikidata.org/entity/Q273863,Tsukuba
+http://www.wikidata.org/entity/Q273880,Beppu
+http://www.wikidata.org/entity/Q274384,Iwaki
+http://www.wikidata.org/entity/Q274584,San Pedro Sula
+http://www.wikidata.org/entity/Q275109,Jundiaí
+http://www.wikidata.org/entity/Q276176,Volta Redonda
+http://www.wikidata.org/entity/Q276534,Wau
+http://www.wikidata.org/entity/Q278913,Chakradharpur
+http://www.wikidata.org/entity/Q279009,David
+http://www.wikidata.org/entity/Q279951,Cuddalore
+http://www.wikidata.org/entity/Q282335,Teixeira de Freitas
+http://www.wikidata.org/entity/Q282948,Yidu
+http://www.wikidata.org/entity/Q283368,Raqqa
+http://www.wikidata.org/entity/Q287722,Nchelenge
+http://www.wikidata.org/entity/Q289693,Sharjah
+http://www.wikidata.org/entity/Q290504,Pisco
+http://www.wikidata.org/entity/Q291277,Rio Claro
+http://www.wikidata.org/entity/Q293927,Ödemiş
+http://www.wikidata.org/entity/Q297511,Panvel
+http://www.wikidata.org/entity/Q304848,Daqing
+http://www.wikidata.org/entity/Q309348,Khan Yunis
+http://www.wikidata.org/entity/Q309475,Al-Ubayyid
+http://www.wikidata.org/entity/Q310114,Khartoum North
+http://www.wikidata.org/entity/Q310117,Minya
+http://www.wikidata.org/entity/Q310772,Mukalla
+http://www.wikidata.org/entity/Q310892,al-Bab
+http://www.wikidata.org/entity/Q311266,Al Khobar
+http://www.wikidata.org/entity/Q311321,Al-Hasakah
+http://www.wikidata.org/entity/Q311341,Al-Ahsa Oasis
+http://www.wikidata.org/entity/Q312209,Buea
+http://www.wikidata.org/entity/Q312723,El Mahalla El Kubra
+http://www.wikidata.org/entity/Q312759,Biskra
+http://www.wikidata.org/entity/Q316887,Saint-Paul
+http://www.wikidata.org/entity/Q317830,Higashikurume
+http://www.wikidata.org/entity/Q317834,Kokubunji
+http://www.wikidata.org/entity/Q317844,Nishio
+http://www.wikidata.org/entity/Q317946,Bojnord
+http://www.wikidata.org/entity/Q318047,Narashino
+http://www.wikidata.org/entity/Q318156,Bahawalpur
+http://www.wikidata.org/entity/Q318299,Xai-Xai
+http://www.wikidata.org/entity/Q318306,Quelimane
+http://www.wikidata.org/entity/Q318314,Ipatinga
+http://www.wikidata.org/entity/Q319476,Upata
+http://www.wikidata.org/entity/Q319729,Urayasu
+http://www.wikidata.org/entity/Q319740,Kawagoe
+http://www.wikidata.org/entity/Q319743,Kashiwa
+http://www.wikidata.org/entity/Q320015,Pasto
+http://www.wikidata.org/entity/Q320487,Bragança
+http://www.wikidata.org/entity/Q320792,Bata
+http://www.wikidata.org/entity/Q320934,Kurume
+http://www.wikidata.org/entity/Q320943,Matsudo
+http://www.wikidata.org/entity/Q320964,Yonago
+http://www.wikidata.org/entity/Q321079,Jos
+http://www.wikidata.org/entity/Q321331,Novo Hamburgo
+http://www.wikidata.org/entity/Q321475,Kollam
+http://www.wikidata.org/entity/Q322149,Eldoret
+http://www.wikidata.org/entity/Q322155,Rajshahi
+http://www.wikidata.org/entity/Q323414,Simi Valley
+http://www.wikidata.org/entity/Q323432,Fairfield
+http://www.wikidata.org/entity/Q323801,Nampula
+http://www.wikidata.org/entity/Q324293,Anyang
+http://www.wikidata.org/entity/Q325164,Kayes
+http://www.wikidata.org/entity/Q326354,Guarapuava
+http://www.wikidata.org/entity/Q326956,Uji
+http://www.wikidata.org/entity/Q328000,Sasebo
+http://www.wikidata.org/entity/Q328015,Almada
+http://www.wikidata.org/entity/Q328030,Kut
+http://www.wikidata.org/entity/Q328067,Ise
+http://www.wikidata.org/entity/Q328153,Damanhur
+http://www.wikidata.org/entity/Q328176,Kafr el-Sheikh
+http://www.wikidata.org/entity/Q328518,Armenia
+http://www.wikidata.org/entity/Q328596,Isesaki
+http://www.wikidata.org/entity/Q328605,Iizuka
+http://www.wikidata.org/entity/Q328610,Ikoma
+http://www.wikidata.org/entity/Q328613,Fuji
+http://www.wikidata.org/entity/Q328615,Okinawa
+http://www.wikidata.org/entity/Q328619,Noda
+http://www.wikidata.org/entity/Q328625,Nagareyama
+http://www.wikidata.org/entity/Q328651,Yachiyo
+http://www.wikidata.org/entity/Q328941,Clarksville
+http://www.wikidata.org/entity/Q329488,"Brusque, Santa Catarina"
+http://www.wikidata.org/entity/Q329797,Iwakuni
+http://www.wikidata.org/entity/Q330175,Piracicaba
+http://www.wikidata.org/entity/Q330202,Itaquaquecetuba
+http://www.wikidata.org/entity/Q330531,Kota
+http://www.wikidata.org/entity/Q330643,Muradabad
+http://www.wikidata.org/entity/Q331078,Amol
+http://www.wikidata.org/entity/Q331104,Fayetteville
+http://www.wikidata.org/entity/Q331300,Mauá
+http://www.wikidata.org/entity/Q332319,Mek'ele
+http://www.wikidata.org/entity/Q332753,Heze
+http://www.wikidata.org/entity/Q333074,Moundou
+http://www.wikidata.org/entity/Q333476,Ségou
+http://www.wikidata.org/entity/Q333928,Maracay
+http://www.wikidata.org/entity/Q334197,Vila Velha
+http://www.wikidata.org/entity/Q334577,Quetzaltenango
+http://www.wikidata.org/entity/Q334985,Ünye
+http://www.wikidata.org/entity/Q335135,Popayán
+http://www.wikidata.org/entity/Q335423,Takatsuki
+http://www.wikidata.org/entity/Q335427,Kisarazu
+http://www.wikidata.org/entity/Q335444,Itami
+http://www.wikidata.org/entity/Q335506,Salto
+http://www.wikidata.org/entity/Q335708,6th of October City
+http://www.wikidata.org/entity/Q335769,Kafr el-Dawwar
+http://www.wikidata.org/entity/Q336431,Toyohashi
+http://www.wikidata.org/entity/Q336438,Takasaki
+http://www.wikidata.org/entity/Q336661,Qena
+http://www.wikidata.org/entity/Q336966,Benha
+http://www.wikidata.org/entity/Q337123,Mit Ghamr
+http://www.wikidata.org/entity/Q338059,Acarigua
+http://www.wikidata.org/entity/Q339527,Launceston
+http://www.wikidata.org/entity/Q340572,Akhmim
+http://www.wikidata.org/entity/Q343973,İnegöl
+http://www.wikidata.org/entity/Q345204,Dakhla
+http://www.wikidata.org/entity/Q348972,Saqqez
+http://www.wikidata.org/entity/Q349973,Shuangyashan
+http://www.wikidata.org/entity/Q349976,Yichun
+http://www.wikidata.org/entity/Q349979,Qitaihe
+http://www.wikidata.org/entity/Q349982,Hegang
+http://www.wikidata.org/entity/Q349983,Heihe
+http://www.wikidata.org/entity/Q349985,Suihua
+http://www.wikidata.org/entity/Q359990,Wuhu
+http://www.wikidata.org/entity/Q360069,Bengbu
+http://www.wikidata.org/entity/Q360178,Huainan
+http://www.wikidata.org/entity/Q360235,Ma'anshan
+http://www.wikidata.org/entity/Q360268,Huaibei
+http://www.wikidata.org/entity/Q360326,Tongling
+http://www.wikidata.org/entity/Q360374,Anqing
+http://www.wikidata.org/entity/Q360584,Fuyang
+http://www.wikidata.org/entity/Q360643,Suzhou
+http://www.wikidata.org/entity/Q360702,Lu'an
+http://www.wikidata.org/entity/Q360769,Bozhou
+http://www.wikidata.org/entity/Q360870,Chizhou
+http://www.wikidata.org/entity/Q360942,Xuancheng
+http://www.wikidata.org/entity/Q362865,Pingxiang
+http://www.wikidata.org/entity/Q362959,Xinyu
+http://www.wikidata.org/entity/Q363076,Yingtan
+http://www.wikidata.org/entity/Q363166,Ganzhou
+http://www.wikidata.org/entity/Q363262,Ji'an
+http://www.wikidata.org/entity/Q363326,Yichun
+http://www.wikidata.org/entity/Q363391,Fuzhou
+http://www.wikidata.org/entity/Q363479,Shangrao
+http://www.wikidata.org/entity/Q366010,Amarah
+http://www.wikidata.org/entity/Q370456,George
+http://www.wikidata.org/entity/Q370925,Daly City
+http://www.wikidata.org/entity/Q370972,Pembroke Pines
+http://www.wikidata.org/entity/Q371112,Andimeshk
+http://www.wikidata.org/entity/Q371354,Castelar
+http://www.wikidata.org/entity/Q371640,Laiyang
+http://www.wikidata.org/entity/Q372414,Dongying
+http://www.wikidata.org/entity/Q372454,Escondido
+http://www.wikidata.org/entity/Q372773,Raipur
+http://www.wikidata.org/entity/Q372791,Jining
+http://www.wikidata.org/entity/Q373023,Weihai
+http://www.wikidata.org/entity/Q373101,Rizhao
+http://www.wikidata.org/entity/Q373214,Châu Đốc
+http://www.wikidata.org/entity/Q373564,Liaocheng
+http://www.wikidata.org/entity/Q373687,Binzhou
+http://www.wikidata.org/entity/Q373705,Ilhéus
+http://www.wikidata.org/entity/Q373808,Khujand
+http://www.wikidata.org/entity/Q374365,Jeddah
+http://www.wikidata.org/entity/Q374432,Tucuruí
+http://www.wikidata.org/entity/Q374477,Ashikaga
+http://www.wikidata.org/entity/Q374511,Oyama
+http://www.wikidata.org/entity/Q375432,Kâhta
+http://www.wikidata.org/entity/Q376023,Kasukabe
+http://www.wikidata.org/entity/Q376903,Valledupar
+http://www.wikidata.org/entity/Q377588,Sheikh Othman
+http://www.wikidata.org/entity/Q377601,Poá
+http://www.wikidata.org/entity/Q377965,San Nicolás de los Arroyos
+http://www.wikidata.org/entity/Q379509,Puerto La Cruz
+http://www.wikidata.org/entity/Q381733,Uberaba
+http://www.wikidata.org/entity/Q383129,Yasuj
+http://www.wikidata.org/entity/Q383622,Pāksē
+http://www.wikidata.org/entity/Q384926,Ogaki
+http://www.wikidata.org/entity/Q385341,Jimma
+http://www.wikidata.org/entity/Q385623,Ōmuta
+http://www.wikidata.org/entity/Q385762,Ōnojō
+http://www.wikidata.org/entity/Q385892,Osaki
+http://www.wikidata.org/entity/Q386052,Ōshū
+http://www.wikidata.org/entity/Q386179,Ota
+http://www.wikidata.org/entity/Q386487,Mazyr
+http://www.wikidata.org/entity/Q386628,Niihama
+http://www.wikidata.org/entity/Q386635,Hikone
+http://www.wikidata.org/entity/Q386649,Shahr-e Kord
+http://www.wikidata.org/entity/Q386651,Iwata
+http://www.wikidata.org/entity/Q386661,Fujisawa
+http://www.wikidata.org/entity/Q386668,Daitō
+http://www.wikidata.org/entity/Q386677,Kusatsu
+http://www.wikidata.org/entity/Q386682,Khost
+http://www.wikidata.org/entity/Q386691,Niiza
+http://www.wikidata.org/entity/Q386697,Yamato
+http://www.wikidata.org/entity/Q386991,Torreón
+http://www.wikidata.org/entity/Q387136,Kawaguchi
+http://www.wikidata.org/entity/Q387322,Centennial
+http://www.wikidata.org/entity/Q387365,Kamagaya
+http://www.wikidata.org/entity/Q388108,Sohag
+http://www.wikidata.org/entity/Q388242,Tete
+http://www.wikidata.org/entity/Q389495,Toyokawa
+http://www.wikidata.org/entity/Q389515,Kariya
+http://www.wikidata.org/entity/Q389537,Komaki
+http://www.wikidata.org/entity/Q389562,Inazawa
+http://www.wikidata.org/entity/Q389633,Neyagawa
+http://www.wikidata.org/entity/Q389711,Atsugi
+http://www.wikidata.org/entity/Q390413,Tomakomai
+http://www.wikidata.org/entity/Q390583,Surrey
+http://www.wikidata.org/entity/Q390817,Ichinoseki
+http://www.wikidata.org/entity/Q391221,Barcelona
+http://www.wikidata.org/entity/Q392599,Everett
+http://www.wikidata.org/entity/Q393495,Bilbeis
+http://www.wikidata.org/entity/Q393498,Mallawi
+http://www.wikidata.org/entity/Q394080,Beni Suef
+http://www.wikidata.org/entity/Q395863,Desouk
+http://www.wikidata.org/entity/Q397343,Solihull
+http://www.wikidata.org/entity/Q397905,Columbia
+http://www.wikidata.org/entity/Q399270,Uruapan
+http://www.wikidata.org/entity/Q399316,Gweru
+http://www.wikidata.org/entity/Q399322,Mutare
+http://www.wikidata.org/entity/Q403446,Douma
+http://www.wikidata.org/entity/Q404116,Pingdingshan
+http://www.wikidata.org/entity/Q404301,Hebi
+http://www.wikidata.org/entity/Q404362,Xinxiang
+http://www.wikidata.org/entity/Q404429,Jiaozuo
+http://www.wikidata.org/entity/Q404484,Puyang
+http://www.wikidata.org/entity/Q404529,Xuchang
+http://www.wikidata.org/entity/Q404599,Luohe
+http://www.wikidata.org/entity/Q404636,Sanmenxia
+http://www.wikidata.org/entity/Q404763,Nanyang
+http://www.wikidata.org/entity/Q404817,Shangqiu
+http://www.wikidata.org/entity/Q404873,Xinyang
+http://www.wikidata.org/entity/Q406358,Koforidua
+http://www.wikidata.org/entity/Q416544,Changde
+http://www.wikidata.org/entity/Q416669,Yiyang
+http://www.wikidata.org/entity/Q416748,Chenzhou
+http://www.wikidata.org/entity/Q416922,Huaihua
+http://www.wikidata.org/entity/Q416988,Loudi
+http://www.wikidata.org/entity/Q425415,Panzhihua
+http://www.wikidata.org/entity/Q425996,Deyang
+http://www.wikidata.org/entity/Q426130,Mianyang
+http://www.wikidata.org/entity/Q426237,Guangyuan
+http://www.wikidata.org/entity/Q426644,Suining
+http://www.wikidata.org/entity/Q426756,Neijiang
+http://www.wikidata.org/entity/Q426868,Leshan
+http://www.wikidata.org/entity/Q426996,Nanchong
+http://www.wikidata.org/entity/Q427097,Meishan
+http://www.wikidata.org/entity/Q427265,Yibin
+http://www.wikidata.org/entity/Q427367,Guang'an
+http://www.wikidata.org/entity/Q427488,Dazhou
+http://www.wikidata.org/entity/Q427557,Ya'an
+http://www.wikidata.org/entity/Q429215,Sangli
+http://www.wikidata.org/entity/Q430308,Izeh
+http://www.wikidata.org/entity/Q431533,Chingola
+http://www.wikidata.org/entity/Q431845,Kusong
+http://www.wikidata.org/entity/Q434285,Altamira
+http://www.wikidata.org/entity/Q449593,Alvorada
+http://www.wikidata.org/entity/Q459360,Cabinda
+http://www.wikidata.org/entity/Q459553,Chetumal
+http://www.wikidata.org/entity/Q459690,São João de Meriti
+http://www.wikidata.org/entity/Q459711,Aparecida de Goiânia
+http://www.wikidata.org/entity/Q460222,Ulhasnagar
+http://www.wikidata.org/entity/Q460750,Itabuna
+http://www.wikidata.org/entity/Q460806,Hadano
+http://www.wikidata.org/entity/Q460829,Matsusaka
+http://www.wikidata.org/entity/Q460835,Marugame
+http://www.wikidata.org/entity/Q461020,Imabari
+http://www.wikidata.org/entity/Q461773,Barueri
+http://www.wikidata.org/entity/Q462218,Governador Valadares
+http://www.wikidata.org/entity/Q462789,Cape Coral
+http://www.wikidata.org/entity/Q462804,Lakewood
+http://www.wikidata.org/entity/Q463171,Handa
+http://www.wikidata.org/entity/Q464699,Bahir Dar
+http://www.wikidata.org/entity/Q465022,Enugu
+http://www.wikidata.org/entity/Q466000,Koh Kong Province
+http://www.wikidata.org/entity/Q466027,Yanbu
+http://www.wikidata.org/entity/Q466046,Salé
+http://www.wikidata.org/entity/Q466216,Ta'izz
+http://www.wikidata.org/entity/Q466221,Sylhet
+http://www.wikidata.org/entity/Q467421,Americana
+http://www.wikidata.org/entity/Q467479,Toyonaka
+http://www.wikidata.org/entity/Q467487,Kurashiki
+http://www.wikidata.org/entity/Q468563,Nova Friburgo
+http://www.wikidata.org/entity/Q468765,Ube
+http://www.wikidata.org/entity/Q468782,Huancayo
+http://www.wikidata.org/entity/Q472925,Urgench
+http://www.wikidata.org/entity/Q473250,Macaé
+http://www.wikidata.org/entity/Q476800,Lashkar Gah
+http://www.wikidata.org/entity/Q477148,Pul-e Khomri
+http://www.wikidata.org/entity/Q477232,Aktobe
+http://www.wikidata.org/entity/Q478207,Kenitra
+http://www.wikidata.org/entity/Q478302,Toowoomba
+http://www.wikidata.org/entity/Q478518,Kallithea
+http://www.wikidata.org/entity/Q478818,São José dos Pinhais
+http://www.wikidata.org/entity/Q483331,Iğdır
+http://www.wikidata.org/entity/Q484678,Berkeley
+http://www.wikidata.org/entity/Q484706,Karaganda
+http://www.wikidata.org/entity/Q484799,Marbella
+http://www.wikidata.org/entity/Q485172,Ann Arbor
+http://www.wikidata.org/entity/Q485176,Pasadena
+http://www.wikidata.org/entity/Q485496,Shymkent
+http://www.wikidata.org/entity/Q485716,Glendale
+http://www.wikidata.org/entity/Q485887,Ananindeua
+http://www.wikidata.org/entity/Q485918,Liupanshui
+http://www.wikidata.org/entity/Q486149,Anshun
+http://www.wikidata.org/entity/Q486168,San Bernardino
+http://www.wikidata.org/entity/Q486235,Tongren
+http://www.wikidata.org/entity/Q486282,Pavlodar
+http://www.wikidata.org/entity/Q486319,Bijie
+http://www.wikidata.org/entity/Q486329,Fergana
+http://www.wikidata.org/entity/Q486439,Cedar Rapids
+http://www.wikidata.org/entity/Q486459,Evansville
+http://www.wikidata.org/entity/Q486472,Kansas City
+http://www.wikidata.org/entity/Q486479,Rochester
+http://www.wikidata.org/entity/Q486545,Taraz
+http://www.wikidata.org/entity/Q486868,Pomona
+http://www.wikidata.org/entity/Q486877,South Bend
+http://www.wikidata.org/entity/Q486913,Atyrau
+http://www.wikidata.org/entity/Q487439,Oral
+http://www.wikidata.org/entity/Q487656,Andijan
+http://www.wikidata.org/entity/Q487672,Daşoguz
+http://www.wikidata.org/entity/Q487684,Türkmenabat
+http://www.wikidata.org/entity/Q487999,Gainesville
+http://www.wikidata.org/entity/Q488125,Salinas
+http://www.wikidata.org/entity/Q488134,Ontario
+http://www.wikidata.org/entity/Q488379,Petropavl
+http://www.wikidata.org/entity/Q488924,Oceanside
+http://www.wikidata.org/entity/Q488940,Palmdale
+http://www.wikidata.org/entity/Q488946,Downey
+http://www.wikidata.org/entity/Q488990,Kostanay
+http://www.wikidata.org/entity/Q489197,Torrance
+http://www.wikidata.org/entity/Q489825,Kanggye
+http://www.wikidata.org/entity/Q489829,Hyesan
+http://www.wikidata.org/entity/Q489898,Nukus
+http://www.wikidata.org/entity/Q490434,Ventura
+http://www.wikidata.org/entity/Q490441,Concord
+http://www.wikidata.org/entity/Q490584,Flint
+http://www.wikidata.org/entity/Q490643,Kokshetau
+http://www.wikidata.org/entity/Q490732,Fort Collins
+http://www.wikidata.org/entity/Q490872,Yao
+http://www.wikidata.org/entity/Q490928,Tondabayashi
+http://www.wikidata.org/entity/Q491099,Carlsbad
+http://www.wikidata.org/entity/Q491114,Hayward
+http://www.wikidata.org/entity/Q491123,Kyzylorda
+http://www.wikidata.org/entity/Q491128,Fontana
+http://www.wikidata.org/entity/Q491132,Santa Clarita
+http://www.wikidata.org/entity/Q491340,Roseville
+http://www.wikidata.org/entity/Q491350,Orange
+http://www.wikidata.org/entity/Q491879,Termez
+http://www.wikidata.org/entity/Q492552,Namangan
+http://www.wikidata.org/entity/Q492778,Kiffa
+http://www.wikidata.org/entity/Q494606,Munchon
+http://www.wikidata.org/entity/Q494707,Corona
+http://www.wikidata.org/entity/Q494711,Lancaster
+http://www.wikidata.org/entity/Q494715,Norwalk
+http://www.wikidata.org/entity/Q494720,Moreno Valley
+http://www.wikidata.org/entity/Q494723,Fullerton
+http://www.wikidata.org/entity/Q494728,West Covina
+http://www.wikidata.org/entity/Q495353,Victorville
+http://www.wikidata.org/entity/Q495357,Antioch
+http://www.wikidata.org/entity/Q495365,Rancho Cucamonga
+http://www.wikidata.org/entity/Q495373,Visalia
+http://www.wikidata.org/entity/Q495377,Richmond
+http://www.wikidata.org/entity/Q495387,Masan
+http://www.wikidata.org/entity/Q495730,Manzini
+http://www.wikidata.org/entity/Q495809,Fujimi
+http://www.wikidata.org/entity/Q496072,Fujinomiya
+http://www.wikidata.org/entity/Q496080,Kadoma
+http://www.wikidata.org/entity/Q496319,Kashihara
+http://www.wikidata.org/entity/Q496405,Qujing
+http://www.wikidata.org/entity/Q496442,Ekibastuz
+http://www.wikidata.org/entity/Q496472,Kuwana
+http://www.wikidata.org/entity/Q496576,Baoshan
+http://www.wikidata.org/entity/Q496681,Ebetsu
+http://www.wikidata.org/entity/Q496765,Pu'er City
+http://www.wikidata.org/entity/Q496837,Lincang
+http://www.wikidata.org/entity/Q497341,Xianyang
+http://www.wikidata.org/entity/Q497731,Viranşehir
+http://www.wikidata.org/entity/Q497952,Koshigaya
+http://www.wikidata.org/entity/Q498011,Sakura
+http://www.wikidata.org/entity/Q498027,Nasushiobara
+http://www.wikidata.org/entity/Q498048,Pemba
+http://www.wikidata.org/entity/Q499196,Costa Mesa
+http://www.wikidata.org/entity/Q499401,Warren
+http://www.wikidata.org/entity/Q499470,Ilam
+http://www.wikidata.org/entity/Q499493,Seto
+http://www.wikidata.org/entity/Q499922,Porto Seguro
+http://www.wikidata.org/entity/Q500033,Shah Alam
+http://www.wikidata.org/entity/Q500366,Ogbomosho
+http://www.wikidata.org/entity/Q500481,Overland Park
+http://www.wikidata.org/entity/Q501766,Murfreesboro
+http://www.wikidata.org/entity/Q502023,Coatzacoalcos
+http://www.wikidata.org/entity/Q502199,Hiratsuka
+http://www.wikidata.org/entity/Q502209,Hōfu
+http://www.wikidata.org/entity/Q502212,Khorramabad
+http://www.wikidata.org/entity/Q502216,Mzuzu
+http://www.wikidata.org/entity/Q502988,Takaoka
+http://www.wikidata.org/entity/Q503852,Paranaguá
+http://www.wikidata.org/entity/Q504114,Guelph
+http://www.wikidata.org/entity/Q504215,Ayacucho
+http://www.wikidata.org/entity/Q504394,Huánuco
+http://www.wikidata.org/entity/Q504587,Franca
+http://www.wikidata.org/entity/Q504657,Idlib
+http://www.wikidata.org/entity/Q504690,Sakata
+http://www.wikidata.org/entity/Q504755,Imperatriz
+http://www.wikidata.org/entity/Q505557,Coral Springs
+http://www.wikidata.org/entity/Q505807,Sariwon
+http://www.wikidata.org/entity/Q505930,Songrim
+http://www.wikidata.org/entity/Q507080,Ciudad Guayana
+http://www.wikidata.org/entity/Q509324,Patnos
+http://www.wikidata.org/entity/Q509818,Marabá
+http://www.wikidata.org/entity/Q510413,Sullana
+http://www.wikidata.org/entity/Q511352,Sinpo
+http://www.wikidata.org/entity/Q513537,Tanchon
+http://www.wikidata.org/entity/Q514136,Pyongsong
+http://www.wikidata.org/entity/Q514608,Tongchuan
+http://www.wikidata.org/entity/Q514796,Baoji
+http://www.wikidata.org/entity/Q515118,Garulia
+http://www.wikidata.org/entity/Q515388,Yan'an
+http://www.wikidata.org/entity/Q515573,Hanzhong
+http://www.wikidata.org/entity/Q515712,Yulin
+http://www.wikidata.org/entity/Q515983,Shangluo
+http://www.wikidata.org/entity/Q518431,Chimbote
+http://www.wikidata.org/entity/Q518785,Butembo
+http://www.wikidata.org/entity/Q519810,Longnan
+http://www.wikidata.org/entity/Q523778,Sahiwal
+http://www.wikidata.org/entity/Q524250,Wenling
+http://www.wikidata.org/entity/Q524894,San Cristóbal de las Casas
+http://www.wikidata.org/entity/Q525118,Maxixe
+http://www.wikidata.org/entity/Q525618,Presidente Prudente
+http://www.wikidata.org/entity/Q525647,Passo Fundo
+http://www.wikidata.org/entity/Q526318,Santana de Parnaíba
+http://www.wikidata.org/entity/Q528432,Bamenda
+http://www.wikidata.org/entity/Q530171,Ajman
+http://www.wikidata.org/entity/Q532560,Jiayuguan City
+http://www.wikidata.org/entity/Q532776,Jinchang
+http://www.wikidata.org/entity/Q532981,Baiyin
+http://www.wikidata.org/entity/Q533157,Tianshui
+http://www.wikidata.org/entity/Q533432,Jiuquan
+http://www.wikidata.org/entity/Q533764,Qingyang
+http://www.wikidata.org/entity/Q533985,Pingliang
+http://www.wikidata.org/entity/Q534409,Keren
+http://www.wikidata.org/entity/Q535534,Hohhot
+http://www.wikidata.org/entity/Q536569,Abreu e Lima
+http://www.wikidata.org/entity/Q538953,La Vega
+http://www.wikidata.org/entity/Q540312,Nagaoka
+http://www.wikidata.org/entity/Q542829,Angra dos Reis
+http://www.wikidata.org/entity/Q542966,Angren
+http://www.wikidata.org/entity/Q545707,Mascara
+http://www.wikidata.org/entity/Q548652,Bento Gonçalves
+http://www.wikidata.org/entity/Q548807,Berazategui
+http://www.wikidata.org/entity/Q551658,Vila Nova de Famalicão
+http://www.wikidata.org/entity/Q559834,Bharatpur
+http://www.wikidata.org/entity/Q564813,Santa Maria da Feira
+http://www.wikidata.org/entity/Q569766,Shahrisabz
+http://www.wikidata.org/entity/Q569907,Baotou
+http://www.wikidata.org/entity/Q570312,Conselheiro Lafaiete
+http://www.wikidata.org/entity/Q570768,Wuhai
+http://www.wikidata.org/entity/Q570829,Chifeng
+http://www.wikidata.org/entity/Q570884,Tongliao
+http://www.wikidata.org/entity/Q570937,Ordos City
+http://www.wikidata.org/entity/Q571033,Hulunbuir
+http://www.wikidata.org/entity/Q571126,Bayannur
+http://www.wikidata.org/entity/Q571219,Ulanqab
+http://www.wikidata.org/entity/Q571652,Wuzhou
+http://www.wikidata.org/entity/Q571712,Fangchenggang
+http://www.wikidata.org/entity/Q571766,Qinzhou
+http://www.wikidata.org/entity/Q571808,Guigang
+http://www.wikidata.org/entity/Q571918,Yulin
+http://www.wikidata.org/entity/Q571949,Baise
+http://www.wikidata.org/entity/Q572014,Hezhou
+http://www.wikidata.org/entity/Q572089,Hechi
+http://www.wikidata.org/entity/Q572140,Laibin
+http://www.wikidata.org/entity/Q572231,Chongzuo
+http://www.wikidata.org/entity/Q572380,Jizzakh
+http://www.wikidata.org/entity/Q574469,Taza
+http://www.wikidata.org/entity/Q575780,Upington
+http://www.wikidata.org/entity/Q576938,Telford
+http://www.wikidata.org/entity/Q579761,Thornton
+http://www.wikidata.org/entity/Q580366,Araras
+http://www.wikidata.org/entity/Q580876,Vasai-Virar
+http://www.wikidata.org/entity/Q581213,São Pedro da Aldeia
+http://www.wikidata.org/entity/Q581562,Satara
+http://www.wikidata.org/entity/Q582289,Joetsu
+http://www.wikidata.org/entity/Q582917,Arambagh
+http://www.wikidata.org/entity/Q583184,Antsirabe
+http://www.wikidata.org/entity/Q583568,Ashokenagar Kalyangarh
+http://www.wikidata.org/entity/Q583619,Owerri
+http://www.wikidata.org/entity/Q583818,Ichalkaranji
+http://www.wikidata.org/entity/Q584295,Udupi
+http://www.wikidata.org/entity/Q585014,Baduria
+http://www.wikidata.org/entity/Q586057,Araxá
+http://www.wikidata.org/entity/Q587085,Ilorin
+http://www.wikidata.org/entity/Q588477,Kharagpur
+http://www.wikidata.org/entity/Q590133,La Victoria
+http://www.wikidata.org/entity/Q590849,Arvada
+http://www.wikidata.org/entity/Q593022,Olathe
+http://www.wikidata.org/entity/Q593948,Umuarama
+http://www.wikidata.org/entity/Q594843,Linjiang
+http://www.wikidata.org/entity/Q595550,El Monte
+http://www.wikidata.org/entity/Q596012,Temperley
+http://www.wikidata.org/entity/Q596469,Isahaya
+http://www.wikidata.org/entity/Q596688,Matagalpa
+http://www.wikidata.org/entity/Q598016,Balneário Camboriú
+http://www.wikidata.org/entity/Q598985,Begusarai
+http://www.wikidata.org/entity/Q600693,Thiès
+http://www.wikidata.org/entity/Q600893,Kasama
+http://www.wikidata.org/entity/Q601130,Al-Thuqbah
+http://www.wikidata.org/entity/Q601897,Bally
+http://www.wikidata.org/entity/Q604385,Shizuishan
+http://www.wikidata.org/entity/Q604517,Wuzhong
+http://www.wikidata.org/entity/Q604625,Guyuan
+http://www.wikidata.org/entity/Q605105,Khoy
+http://www.wikidata.org/entity/Q605142,Dezful
+http://www.wikidata.org/entity/Q605157,Babol
+http://www.wikidata.org/entity/Q605167,Potchefstroom
+http://www.wikidata.org/entity/Q605209,Malayer
+http://www.wikidata.org/entity/Q605224,Sirjan
+http://www.wikidata.org/entity/Q605454,Borujerd
+http://www.wikidata.org/entity/Q606564,Bukan
+http://www.wikidata.org/entity/Q607167,Iguala
+http://www.wikidata.org/entity/Q609350,Kawanishi
+http://www.wikidata.org/entity/Q616650,Indaiatuba
+http://www.wikidata.org/entity/Q621549,Inglewood
+http://www.wikidata.org/entity/Q622607,Bansberia
+http://www.wikidata.org/entity/Q622612,Bangaon
+http://www.wikidata.org/entity/Q622620,Tokai
+http://www.wikidata.org/entity/Q622823,Uruguaiana
+http://www.wikidata.org/entity/Q622830,Caruaru
+http://www.wikidata.org/entity/Q622836,Teresópolis
+http://www.wikidata.org/entity/Q625279,Araguaína
+http://www.wikidata.org/entity/Q625394,Baidyabati
+http://www.wikidata.org/entity/Q626175,Arapiraca
+http://www.wikidata.org/entity/Q626199,Arar
+http://www.wikidata.org/entity/Q626247,Araraquara
+http://www.wikidata.org/entity/Q626670,Araure
+http://www.wikidata.org/entity/Q626835,Araçatuba
+http://www.wikidata.org/entity/Q628172,Paço do Lumiar
+http://www.wikidata.org/entity/Q628877,Itaúna
+http://www.wikidata.org/entity/Q630203,Jequié
+http://www.wikidata.org/entity/Q631194,High Point
+http://www.wikidata.org/entity/Q631517,Marivan
+http://www.wikidata.org/entity/Q633036,Nakhon Ratchasima
+http://www.wikidata.org/entity/Q633530,Berhampore
+http://www.wikidata.org/entity/Q633911,Chigasaki
+http://www.wikidata.org/entity/Q633922,Hitachi
+http://www.wikidata.org/entity/Q633945,Saijō
+http://www.wikidata.org/entity/Q634022,Kiryū
+http://www.wikidata.org/entity/Q634698,Kenema
+http://www.wikidata.org/entity/Q636188,Ray
+http://www.wikidata.org/entity/Q636209,Mufulira
+http://www.wikidata.org/entity/Q637120,Nazilli
+http://www.wikidata.org/entity/Q637555,Montego Bay
+http://www.wikidata.org/entity/Q637901,Inzai
+http://www.wikidata.org/entity/Q638260,Neiva
+http://www.wikidata.org/entity/Q638301,Miyakonojō
+http://www.wikidata.org/entity/Q638312,Toride
+http://www.wikidata.org/entity/Q638509,Chimoio
+http://www.wikidata.org/entity/Q639408,Waterloo
+http://www.wikidata.org/entity/Q639452,Lakeland
+http://www.wikidata.org/entity/Q641491,Kakamigahara
+http://www.wikidata.org/entity/Q642057,Lomas de Zamora
+http://www.wikidata.org/entity/Q642088,Erechim
+http://www.wikidata.org/entity/Q643112,Tabora
+http://www.wikidata.org/entity/Q643172,Masjed Soleiman
+http://www.wikidata.org/entity/Q643207,Behbahan
+http://www.wikidata.org/entity/Q643215,Coquitlam
+http://www.wikidata.org/entity/Q643386,Shushtar
+http://www.wikidata.org/entity/Q643929,Shūnan
+http://www.wikidata.org/entity/Q644008,Qarshi
+http://www.wikidata.org/entity/Q644663,Portmore
+http://www.wikidata.org/entity/Q645725,Bhiwandi
+http://www.wikidata.org/entity/Q646834,Asaka
+http://www.wikidata.org/entity/Q646898,Komatsu
+http://www.wikidata.org/entity/Q646912,Sano
+http://www.wikidata.org/entity/Q647417,Mohammedia
+http://www.wikidata.org/entity/Q648696,Tacheng
+http://www.wikidata.org/entity/Q649955,Dum Dum
+http://www.wikidata.org/entity/Q651131,Kota Bharu
+http://www.wikidata.org/entity/Q651286,Hat Yai
+http://www.wikidata.org/entity/Q651860,Embu das Artes
+http://www.wikidata.org/entity/Q651874,Dourados
+http://www.wikidata.org/entity/Q651891,Diadema
+http://www.wikidata.org/entity/Q651906,Montes Claros
+http://www.wikidata.org/entity/Q652376,Ratlam
+http://www.wikidata.org/entity/Q652895,Peristeri
+http://www.wikidata.org/entity/Q653372,Higashihiroshima
+http://www.wikidata.org/entity/Q653389,Nobeoka
+http://www.wikidata.org/entity/Q653446,Tsuchiura
+http://www.wikidata.org/entity/Q653478,Mishima
+http://www.wikidata.org/entity/Q653510,Suita
+http://www.wikidata.org/entity/Q655363,Jacareí
+http://www.wikidata.org/entity/Q655734,Itaituba
+http://www.wikidata.org/entity/Q657199,Franco da Rocha
+http://www.wikidata.org/entity/Q657461,Cartagena de Indias
+http://www.wikidata.org/entity/Q657734,Bertoua
+http://www.wikidata.org/entity/Q658240,Karamay
+http://www.wikidata.org/entity/Q659450,Santarém
+http://www.wikidata.org/entity/Q661038,Fukuyama
+http://www.wikidata.org/entity/Q664550,Maradi
+http://www.wikidata.org/entity/Q665097,Minō
+http://www.wikidata.org/entity/Q667650,Lichinga
+http://www.wikidata.org/entity/Q667749,Port St. Lucie
+http://www.wikidata.org/entity/Q668616,Negombo
+http://www.wikidata.org/entity/Q669305,Cotia
+http://www.wikidata.org/entity/Q671314,Elk Grove
+http://www.wikidata.org/entity/Q672458,San Miguel
+http://www.wikidata.org/entity/Q675568,Ha'il
+http://www.wikidata.org/entity/Q675576,Pueblo
+http://www.wikidata.org/entity/Q679169,Comayagua
+http://www.wikidata.org/entity/Q681340,Ciudad Obregón
+http://www.wikidata.org/entity/Q681999,San Francisco de Macorís
+http://www.wikidata.org/entity/Q685315,Barasat
+http://www.wikidata.org/entity/Q685941,Mawlamyine
+http://www.wikidata.org/entity/Q686813,Kassala
+http://www.wikidata.org/entity/Q688275,São Leopoldo
+http://www.wikidata.org/entity/Q689868,Campos dos Goytacazes
+http://www.wikidata.org/entity/Q693093,Machakos
+http://www.wikidata.org/entity/Q693929,Kızıltepe
+http://www.wikidata.org/entity/Q694154,Moriguchi
+http://www.wikidata.org/entity/Q694308,Habikino
+http://www.wikidata.org/entity/Q694313,Uruma
+http://www.wikidata.org/entity/Q694322,Chikusei
+http://www.wikidata.org/entity/Q694822,Gravataí
+http://www.wikidata.org/entity/Q694845,Mossoró
+http://www.wikidata.org/entity/Q694939,Al Diwaniyah
+http://www.wikidata.org/entity/Q695511,College Station
+http://www.wikidata.org/entity/Q695591,Chandannagar
+http://www.wikidata.org/entity/Q695623,Barinas
+http://www.wikidata.org/entity/Q695631,Los Teques
+http://www.wikidata.org/entity/Q695895,Urasoe
+http://www.wikidata.org/entity/Q696074,Juliaca
+http://www.wikidata.org/entity/Q696407,Hakusan
+http://www.wikidata.org/entity/Q696412,Izumi
+http://www.wikidata.org/entity/Q696605,Larkana
+http://www.wikidata.org/entity/Q696694,Onomichi
+http://www.wikidata.org/entity/Q696772,Hitachinaka
+http://www.wikidata.org/entity/Q696783,Yaizu
+http://www.wikidata.org/entity/Q696925,Iruma
+http://www.wikidata.org/entity/Q698064,Manpo
+http://www.wikidata.org/entity/Q698719,Huichon
+http://www.wikidata.org/entity/Q699777,Yueqing
+http://www.wikidata.org/entity/Q709267,Bardhaman
+http://www.wikidata.org/entity/Q709298,Barrackpore
+http://www.wikidata.org/entity/Q712504,Baranagar
+http://www.wikidata.org/entity/Q712515,Basirhat
+http://www.wikidata.org/entity/Q712644,Baramulla
+http://www.wikidata.org/entity/Q713310,Hualien City
+http://www.wikidata.org/entity/Q713357,Rui'an
+http://www.wikidata.org/entity/Q713381,Taitung City
+http://www.wikidata.org/entity/Q714865,Haeju
+http://www.wikidata.org/entity/Q714873,Kimchaek
+http://www.wikidata.org/entity/Q715931,Tokchon
+http://www.wikidata.org/entity/Q715946,Sunchon
+http://www.wikidata.org/entity/Q715975,Taoyuan District
+http://www.wikidata.org/entity/Q716127,Kaechon
+http://www.wikidata.org/entity/Q720001,Khomeyni Shahr
+http://www.wikidata.org/entity/Q720403,Kashmar
+http://www.wikidata.org/entity/Q720828,Handwara
+http://www.wikidata.org/entity/Q720937,Qaem Shahr
+http://www.wikidata.org/entity/Q721034,Fasa
+http://www.wikidata.org/entity/Q721198,Najafabad
+http://www.wikidata.org/entity/Q721455,Miami Gardens
+http://www.wikidata.org/entity/Q722827,Sikasso
+http://www.wikidata.org/entity/Q723246,Santa Tecla
+http://www.wikidata.org/entity/Q723588,Florencia
+http://www.wikidata.org/entity/Q723677,Huaral
+http://www.wikidata.org/entity/Q726143,Tema
+http://www.wikidata.org/entity/Q730437,Itaguaí
+http://www.wikidata.org/entity/Q732905,Viamão
+http://www.wikidata.org/entity/Q733005,Guanare
+http://www.wikidata.org/entity/Q734390,Ebina
+http://www.wikidata.org/entity/Q734416,Tsuruoka
+http://www.wikidata.org/entity/Q734432,Fujieda
+http://www.wikidata.org/entity/Q734442,Soka
+http://www.wikidata.org/entity/Q734479,Yatsushiro
+http://www.wikidata.org/entity/Q734520,Isehara
+http://www.wikidata.org/entity/Q734532,Fukaya
+http://www.wikidata.org/entity/Q734541,Konosu
+http://www.wikidata.org/entity/Q735025,Cabo Frio
+http://www.wikidata.org/entity/Q736897,Hatsukaichi
+http://www.wikidata.org/entity/Q737636,Belford Roxo
+http://www.wikidata.org/entity/Q737644,Betim
+http://www.wikidata.org/entity/Q737660,Marília
+http://www.wikidata.org/entity/Q737670,Suzano
+http://www.wikidata.org/entity/Q737689,Ribeirão das Neves
+http://www.wikidata.org/entity/Q737822,Bergama
+http://www.wikidata.org/entity/Q738275,Karatsu
+http://www.wikidata.org/entity/Q738303,Reynosa
+http://www.wikidata.org/entity/Q738353,Matamoros
+http://www.wikidata.org/entity/Q738748,Sittwe
+http://www.wikidata.org/entity/Q739664,Santa Ana
+http://www.wikidata.org/entity/Q739908,Manzanillo
+http://www.wikidata.org/entity/Q740236,Asella
+http://www.wikidata.org/entity/Q740456,Kishiwada
+http://www.wikidata.org/entity/Q740477,Tultitlán de Mariano Escobedo
+http://www.wikidata.org/entity/Q740687,Guéckédougou
+http://www.wikidata.org/entity/Q740833,Santa Maria
+http://www.wikidata.org/entity/Q742227,Assis
+http://www.wikidata.org/entity/Q743601,Midyat
+http://www.wikidata.org/entity/Q745168,Miramar
+http://www.wikidata.org/entity/Q745906,Ngaoundéré
+http://www.wikidata.org/entity/Q746718,Birkenhead
+http://www.wikidata.org/entity/Q747840,Barishal
+http://www.wikidata.org/entity/Q748028,Puerto Madryn
+http://www.wikidata.org/entity/Q748336,Battambang
+http://www.wikidata.org/entity/Q749187,Girga
+http://www.wikidata.org/entity/Q749224,Villavicencio
+http://www.wikidata.org/entity/Q750443,Savannakhet
+http://www.wikidata.org/entity/Q750569,Kakogawa
+http://www.wikidata.org/entity/Q750679,Samawah
+http://www.wikidata.org/entity/Q753044,Juazeiro
+http://www.wikidata.org/entity/Q753906,Atbarah
+http://www.wikidata.org/entity/Q755752,Dessie
+http://www.wikidata.org/entity/Q755763,Jijiga
+http://www.wikidata.org/entity/Q755765,Hawaasa
+http://www.wikidata.org/entity/Q759381,Khamis Mushait
+http://www.wikidata.org/entity/Q760714,Bhagalpur
+http://www.wikidata.org/entity/Q762009,Lages
+http://www.wikidata.org/entity/Q763015,Navoiy
+http://www.wikidata.org/entity/Q765528,Torbat-e Heydarieh
+http://www.wikidata.org/entity/Q765553,Sabzevar
+http://www.wikidata.org/entity/Q765571,Shahreza
+http://www.wikidata.org/entity/Q765715,Torbat-e Jam
+http://www.wikidata.org/entity/Q768864,Nonthaburi
+http://www.wikidata.org/entity/Q770309,Cúa
+http://www.wikidata.org/entity/Q771345,Helwan
+http://www.wikidata.org/entity/Q771575,Garanhuns
+http://www.wikidata.org/entity/Q773065,Itatiba
+http://www.wikidata.org/entity/Q773764,Juticalpa
+http://www.wikidata.org/entity/Q774952,Matsubara
+http://www.wikidata.org/entity/Q776965,Klaipėda
+http://www.wikidata.org/entity/Q778941,General Escobedo
+http://www.wikidata.org/entity/Q781510,Santa Cruz do Sul
+http://www.wikidata.org/entity/Q793809,Huaraz
+http://www.wikidata.org/entity/Q796669,Bhiwani
+http://www.wikidata.org/entity/Q796739,Bidhannagar
+http://www.wikidata.org/entity/Q800122,Bago
+http://www.wikidata.org/entity/Q807311,Barbacena
+http://www.wikidata.org/entity/Q808797,Barra Mansa
+http://www.wikidata.org/entity/Q810196,Basingstoke
+http://www.wikidata.org/entity/Q814033,Beed
+http://www.wikidata.org/entity/Q814748,Beiliu
+http://www.wikidata.org/entity/Q816331,Udon Thani
+http://www.wikidata.org/entity/Q816420,Quibdó
+http://www.wikidata.org/entity/Q816809,Palm Bay
+http://www.wikidata.org/entity/Q816845,Irapuato
+http://www.wikidata.org/entity/Q817216,Poços de Caldas
+http://www.wikidata.org/entity/Q817227,Juazeiro do Norte
+http://www.wikidata.org/entity/Q817233,Caucaia
+http://www.wikidata.org/entity/Q817387,Chapecó
+http://www.wikidata.org/entity/Q817954,Cubatão
+http://www.wikidata.org/entity/Q817965,Ikeda
+http://www.wikidata.org/entity/Q818019,Settat
+http://www.wikidata.org/entity/Q818106,Benoni
+http://www.wikidata.org/entity/Q819572,Kawachinagano
+http://www.wikidata.org/entity/Q819578,Kanoya
+http://www.wikidata.org/entity/Q819689,Tajimi
+http://www.wikidata.org/entity/Q820235,San Cristóbal
+http://www.wikidata.org/entity/Q821363,Cizre
+http://www.wikidata.org/entity/Q822196,Bernal
+http://www.wikidata.org/entity/Q823874,Toda
+http://www.wikidata.org/entity/Q823988,Kakegawa
+http://www.wikidata.org/entity/Q824009,Sayama
+http://www.wikidata.org/entity/Q824594,Nador
+http://www.wikidata.org/entity/Q825166,Izumo
+http://www.wikidata.org/entity/Q826566,Riohacha
+http://www.wikidata.org/entity/Q828782,Quilmes
+http://www.wikidata.org/entity/Q836836,Koga
+http://www.wikidata.org/entity/Q838785,Temecula
+http://www.wikidata.org/entity/Q838787,Murrieta
+http://www.wikidata.org/entity/Q838954,Sheberghan
+http://www.wikidata.org/entity/Q840712,Ica
+http://www.wikidata.org/entity/Q840957,Samandağ
+http://www.wikidata.org/entity/Q841125,Tsuyama
+http://www.wikidata.org/entity/Q841218,Magé
+http://www.wikidata.org/entity/Q841222,Cariacica
+http://www.wikidata.org/entity/Q841226,Sete Lagoas
+http://www.wikidata.org/entity/Q841231,Taboão da Serra
+http://www.wikidata.org/entity/Q841241,Limeira
+http://www.wikidata.org/entity/Q841244,Itaboraí
+http://www.wikidata.org/entity/Q841299,Matosinhos
+http://www.wikidata.org/entity/Q842143,Petrolina
+http://www.wikidata.org/entity/Q842407,Umm Qasr
+http://www.wikidata.org/entity/Q842713,Itajaí
+http://www.wikidata.org/entity/Q842779,Maturín
+http://www.wikidata.org/entity/Q842806,Guelmim
+http://www.wikidata.org/entity/Q844130,Nagahama
+http://www.wikidata.org/entity/Q844140,Chikushino
+http://www.wikidata.org/entity/Q844852,Ueda
+http://www.wikidata.org/entity/Q845097,Sokodé
+http://www.wikidata.org/entity/Q845720,Sancti Spíritus
+http://www.wikidata.org/entity/Q846502,Kuala Terengganu
+http://www.wikidata.org/entity/Q846939,Spanish Town
+http://www.wikidata.org/entity/Q847037,Maricá
+http://www.wikidata.org/entity/Q963782,Guiping
+http://www.wikidata.org/entity/Q966819,Kira Town
+http://www.wikidata.org/entity/Q967648,São Caetano do Sul
+http://www.wikidata.org/entity/Q967688,Robat Karim
+http://www.wikidata.org/entity/Q972756,Sheikhupura
+http://www.wikidata.org/entity/Q973513,Palhoça
+http://www.wikidata.org/entity/Q974354,Chinandega
+http://www.wikidata.org/entity/Q974642,Pindamonhangaba
+http://www.wikidata.org/entity/Q979808,Cagua
+http://www.wikidata.org/entity/Q982550,Pearland
+http://www.wikidata.org/entity/Q983451,Río Cuarto
+http://www.wikidata.org/entity/Q983459,Nilópolis
+http://www.wikidata.org/entity/Q983480,Valparaíso de Goiás
+http://www.wikidata.org/entity/Q983483,Gondomar
+http://www.wikidata.org/entity/Q983498,Caraguatatuba
+http://www.wikidata.org/entity/Q983511,Valinhos
+http://www.wikidata.org/entity/Q983524,Varginha
+http://www.wikidata.org/entity/Q983714,Rondonópolis
+http://www.wikidata.org/entity/Q983747,Santa Bárbara d'Oeste
+http://www.wikidata.org/entity/Q983815,Ji-Paraná
+http://www.wikidata.org/entity/Q983884,Várzea Grande (Mato Grosso)
+http://www.wikidata.org/entity/Q984571,Patos de Minas
+http://www.wikidata.org/entity/Q984581,Castanhal
+http://www.wikidata.org/entity/Q984646,Jiutepec
+http://www.wikidata.org/entity/Q984780,Mesquita
+http://www.wikidata.org/entity/Q984788,Haidong
+http://www.wikidata.org/entity/Q985521,Heroica Guaymas
+http://www.wikidata.org/entity/Q985531,Tulkarm
+http://www.wikidata.org/entity/Q985579,Passos
+http://www.wikidata.org/entity/Q985583,Trindade
+http://www.wikidata.org/entity/Q985605,Ourinhos
+http://www.wikidata.org/entity/Q985627,Korhogo
+http://www.wikidata.org/entity/Q985685,Vitória de Santo Antão
+http://www.wikidata.org/entity/Q986207,Carrefour
+http://www.wikidata.org/entity/Q986261,Parnamirim
+http://www.wikidata.org/entity/Q986288,Socopó
+http://www.wikidata.org/entity/Q986429,Olmaliq
+http://www.wikidata.org/entity/Q986803,Miri
+http://www.wikidata.org/entity/Q988225,Tapachula de Córdova y Ordóñez
+http://www.wikidata.org/entity/Q989492,Córdoba
+http://www.wikidata.org/entity/Q989988,Playa del Carmen
+http://www.wikidata.org/entity/Q990001,Heroica Nogales
+http://www.wikidata.org/entity/Q990080,Nacala
+http://www.wikidata.org/entity/Q990115,Khenifra
+http://www.wikidata.org/entity/Q990403,Maia
+http://www.wikidata.org/entity/Q990448,Seixal
+http://www.wikidata.org/entity/Q990706,Montero
+http://www.wikidata.org/entity/Q990764,San Fernando de Apure
+http://www.wikidata.org/entity/Q991006,Minatitlán
+http://www.wikidata.org/entity/Q991400,Puerto Barrios
+http://www.wikidata.org/entity/Q991435,Ciudad del Carmen
+http://www.wikidata.org/entity/Q994514,Rangpur
+http://www.wikidata.org/entity/Q994917,González Catán
+http://www.wikidata.org/entity/Q995163,Tawau
+http://www.wikidata.org/entity/Q995380,San Luis Río Colorado
+http://www.wikidata.org/entity/Q995695,Puerto Cabello
+http://www.wikidata.org/entity/Q995718,San Carlos
+http://www.wikidata.org/entity/Q995727,Sacaba
+http://www.wikidata.org/entity/Q996056,Ereğli
+http://www.wikidata.org/entity/Q996478,Guarenas
+http://www.wikidata.org/entity/Q996748,Aliağa
+http://www.wikidata.org/entity/Q997069,Mansa
+http://www.wikidata.org/entity/Q997084,Turmero
+http://www.wikidata.org/entity/Q997107,Caxias
+http://www.wikidata.org/entity/Q997821,Delmas
+http://www.wikidata.org/entity/Q999076,Dera Ghazi Khan
+http://www.wikidata.org/entity/Q1000336,Tandil
+http://www.wikidata.org/entity/Q1000383,Ulanhot
+http://www.wikidata.org/entity/Q1001104,Temirtau
+http://www.wikidata.org/entity/Q1001440,Pétion-Ville
+http://www.wikidata.org/entity/Q1001522,Navojoa
+http://www.wikidata.org/entity/Q1001914,Masaya
+http://www.wikidata.org/entity/Q1002090,Quillacollo
+http://www.wikidata.org/entity/Q1002900,Edéa
+http://www.wikidata.org/entity/Q1003392,Formosa
+http://www.wikidata.org/entity/Q1003502,Secunderabad
+http://www.wikidata.org/entity/Q1004897,Crato
+http://www.wikidata.org/entity/Q1006240,Palakkad
+http://www.wikidata.org/entity/Q1006277,Mandya
+http://www.wikidata.org/entity/Q1006330,Nabadwip
+http://www.wikidata.org/entity/Q1006338,Krishnanagar
+http://www.wikidata.org/entity/Q1006343,Mira-Bhayandar
+http://www.wikidata.org/entity/Q1006367,São José de Ribamar
+http://www.wikidata.org/entity/Q1007634,Estelí
+http://www.wikidata.org/entity/Q1008456,Puerto Cabezas
+http://www.wikidata.org/entity/Q1009253,Ipswich
+http://www.wikidata.org/entity/Q1009276,Trelew
+http://www.wikidata.org/entity/Q1010367,Valera
+http://www.wikidata.org/entity/Q1011201,Yuyao City
+http://www.wikidata.org/entity/Q1012419,Chamdo
+http://www.wikidata.org/entity/Q1012424,Nakhon Si Thammarat
+http://www.wikidata.org/entity/Q1012460,Nagqu
+http://www.wikidata.org/entity/Q1012465,Nyingchi
+http://www.wikidata.org/entity/Q1012546,Vespasiano
+http://www.wikidata.org/entity/Q1012824,Kadirli
+http://www.wikidata.org/entity/Q1012831,Nizip
+http://www.wikidata.org/entity/Q1012935,Salihli
+http://www.wikidata.org/entity/Q1014010,Tarim
+http://www.wikidata.org/entity/Q1014125,Kemalpaşa
+http://www.wikidata.org/entity/Q1015132,Danzhou
+http://www.wikidata.org/entity/Q1016720,Ji'an
+http://www.wikidata.org/entity/Q1017101,Timon
+http://www.wikidata.org/entity/Q1017554,Monte Grande
+http://www.wikidata.org/entity/Q1017594,Merlo
+http://www.wikidata.org/entity/Q1017637,Nawabshah
+http://www.wikidata.org/entity/Q1017651,Chiniot
+http://www.wikidata.org/entity/Q1017696,Jacobabad
+http://www.wikidata.org/entity/Q1018144,Paarl
+http://www.wikidata.org/entity/Q1018167,Dawei
+http://www.wikidata.org/entity/Q1018501,Lahad Datu
+http://www.wikidata.org/entity/Q1018592,Porto Amboim
+http://www.wikidata.org/entity/Q1018781,San Diego
+http://www.wikidata.org/entity/Q1019424,Rufisque
+http://www.wikidata.org/entity/Q1020192,Uitenhage
+http://www.wikidata.org/entity/Q1020279,Punto Fijo
+http://www.wikidata.org/entity/Q1020297,El Tigre
+http://www.wikidata.org/entity/Q1020384,Labé
+http://www.wikidata.org/entity/Q1020490,Mirpur Khas
+http://www.wikidata.org/entity/Q1020637,Jahrom
+http://www.wikidata.org/entity/Q1020753,Rosarito
+http://www.wikidata.org/entity/Q1020901,Obuasi
+http://www.wikidata.org/entity/Q1021748,Quíbor
+http://www.wikidata.org/entity/Q1021818,Edremit
+http://www.wikidata.org/entity/Q1022488,Brighton and Hove
+http://www.wikidata.org/entity/Q1023359,Jalapa
+http://www.wikidata.org/entity/Q1023493,Yaritagua
+http://www.wikidata.org/entity/Q1023910,Lianzhou
+http://www.wikidata.org/entity/Q1023920,Xingning
+http://www.wikidata.org/entity/Q1025448,Leiyang
+http://www.wikidata.org/entity/Q1025475,Jaunpur
+http://www.wikidata.org/entity/Q1026185,Calabozo
+http://www.wikidata.org/entity/Q1026270,Paita
+http://www.wikidata.org/entity/Q1026296,Jinotega
+http://www.wikidata.org/entity/Q1026376,Campo Largo
+http://www.wikidata.org/entity/Q1026616,Jhang
+http://www.wikidata.org/entity/Q1026987,Guatire
+http://www.wikidata.org/entity/Q1027004,Santa Rita
+http://www.wikidata.org/entity/Q1027734,Pingxiang
+http://www.wikidata.org/entity/Q1028279,Cambridge
+http://www.wikidata.org/entity/Q1031051,Cẩm Phả
+http://www.wikidata.org/entity/Q1043513,Barranquilla
+http://www.wikidata.org/entity/Q1044689,Carora
+http://www.wikidata.org/entity/Q1046653,Khemisset
+http://www.wikidata.org/entity/Q1048700,Sibu
+http://www.wikidata.org/entity/Q1054450,Centurion
+http://www.wikidata.org/entity/Q1062370,Myitkyina
+http://www.wikidata.org/entity/Q1113311,Peshawar
+http://www.wikidata.org/entity/Q1120810,Durán
+http://www.wikidata.org/entity/Q1134454,Coro
+http://www.wikidata.org/entity/Q1136204,Camaçari
+http://www.wikidata.org/entity/Q1164081,Al-Faw
+http://www.wikidata.org/entity/Q1189982,Godoy Cruz
+http://www.wikidata.org/entity/Q1209404,Hpa-An
+http://www.wikidata.org/entity/Q1211183,Xigazê
+http://www.wikidata.org/entity/Q1241426,Dongning
+http://www.wikidata.org/entity/Q1249888,Dera Ismail Khan
+http://www.wikidata.org/entity/Q1250417,Tando Allahyar
+http://www.wikidata.org/entity/Q1252806,Mandi Bahauddin
+http://www.wikidata.org/entity/Q1266637,Dibrugarh
+http://www.wikidata.org/entity/Q1308292,Valle de La Pascua
+http://www.wikidata.org/entity/Q1324317,El Limón
+http://www.wikidata.org/entity/Q1344820,Tieli
+http://www.wikidata.org/entity/Q1355911,Ruili
+http://www.wikidata.org/entity/Q1384520,Barreiras
+http://www.wikidata.org/entity/Q1385982,Ezeiza
+http://www.wikidata.org/entity/Q1390081,Santa Teresa del Tuy
+http://www.wikidata.org/entity/Q1425428,Newcastle upon Tyne
+http://www.wikidata.org/entity/Q1439157,Criciúma
+http://www.wikidata.org/entity/Q1439193,Cachoeiro de Itapemirim
+http://www.wikidata.org/entity/Q1446993,Dhangadhi
+http://www.wikidata.org/entity/Q1447167,Bhimdatta
+http://www.wikidata.org/entity/Q1451808,Sabará
+http://www.wikidata.org/entity/Q1453180,Rohtak
+http://www.wikidata.org/entity/Q1453196,Muzaffarpur
+http://www.wikidata.org/entity/Q1494067,La Banda
+http://www.wikidata.org/entity/Q1496283,Moreno
+http://www.wikidata.org/entity/Q1517139,Tinaquillo
+http://www.wikidata.org/entity/Q1525057,Malda
+http://www.wikidata.org/entity/Q1552562,Guacara
+http://www.wikidata.org/entity/Q1552906,Guasdualito
+http://www.wikidata.org/entity/Q1553052,Nusaybin
+http://www.wikidata.org/entity/Q1557691,Guédiawaye
+http://www.wikidata.org/entity/Q1615298,Abaetetuba
+http://www.wikidata.org/entity/Q1622565,Lanús
+http://www.wikidata.org/entity/Q1625598,Botucatu
+http://www.wikidata.org/entity/Q1635606,Temara
+http://www.wikidata.org/entity/Q1637405,Atibaia
+http://www.wikidata.org/entity/Q1637446,Muriaé
+http://www.wikidata.org/entity/Q1637488,Barretos
+http://www.wikidata.org/entity/Q1637522,Araguari
+http://www.wikidata.org/entity/Q1637538,Cabo de Santo Agostinho
+http://www.wikidata.org/entity/Q1637552,Teófilo Otoni
+http://www.wikidata.org/entity/Q1637702,Alberton
+http://www.wikidata.org/entity/Q1638385,Apucarana
+http://www.wikidata.org/entity/Q1638413,Itabira
+http://www.wikidata.org/entity/Q1638425,Lavras
+http://www.wikidata.org/entity/Q1640079,Hyderabad
+http://www.wikidata.org/entity/Q1643864,Parnaíba
+http://www.wikidata.org/entity/Q1645080,Simões Filho
+http://www.wikidata.org/entity/Q1646103,Francisco Morato
+http://www.wikidata.org/entity/Q847315,Musoma
+http://www.wikidata.org/entity/Q847607,Sanda
+http://www.wikidata.org/entity/Q847610,Seremban
+http://www.wikidata.org/entity/Q847677,Kaolack
+http://www.wikidata.org/entity/Q848638,Turkistan
+http://www.wikidata.org/entity/Q848680,Shihezi
+http://www.wikidata.org/entity/Q849292,Pedro Juan Caballero
+http://www.wikidata.org/entity/Q849561,Chlef
+http://www.wikidata.org/entity/Q849584,Jaraguá do Sul
+http://www.wikidata.org/entity/Q849859,Florencia
+http://www.wikidata.org/entity/Q850344,Sakado
+http://www.wikidata.org/entity/Q850837,Odivelas
+http://www.wikidata.org/entity/Q851292,Praia Grande
+http://www.wikidata.org/entity/Q851576,Nyala
+http://www.wikidata.org/entity/Q851680,Kazo
+http://www.wikidata.org/entity/Q852018,Izumisano
+http://www.wikidata.org/entity/Q852238,Onitsha
+http://www.wikidata.org/entity/Q852550,Gonaïves
+http://www.wikidata.org/entity/Q852725,Montería
+http://www.wikidata.org/entity/Q853061,Misato
+http://www.wikidata.org/entity/Q853805,Kani
+http://www.wikidata.org/entity/Q854109,Luanshya
+http://www.wikidata.org/entity/Q854914,Bhatpara
+http://www.wikidata.org/entity/Q855724,Kampong Cham
+http://www.wikidata.org/entity/Q855997,Sargodha
+http://www.wikidata.org/entity/Q856003,Klang
+http://www.wikidata.org/entity/Q857581,Chakdaha
+http://www.wikidata.org/entity/Q857746,Champdani
+http://www.wikidata.org/entity/Q858120,Caaguazú District
+http://www.wikidata.org/entity/Q858352,Kirishima
+http://www.wikidata.org/entity/Q860452,Bilaspur
+http://www.wikidata.org/entity/Q862105,Shahin Shahr
+http://www.wikidata.org/entity/Q862519,Eslamshahr
+http://www.wikidata.org/entity/Q863461,Bimbo
+http://www.wikidata.org/entity/Q864965,Petaling Jaya
+http://www.wikidata.org/entity/Q867102,Gharyan
+http://www.wikidata.org/entity/Q868527,Turpan
+http://www.wikidata.org/entity/Q868631,Sukkur
+http://www.wikidata.org/entity/Q869403,Ciudad de la Costa
+http://www.wikidata.org/entity/Q869571,Rio Grande
+http://www.wikidata.org/entity/Q873405,La Guaira
+http://www.wikidata.org/entity/Q873590,Fujimino
+http://www.wikidata.org/entity/Q876526,Khon Kaen
+http://www.wikidata.org/entity/Q876876,Subang Jaya
+http://www.wikidata.org/entity/Q890671,Manchouli
+http://www.wikidata.org/entity/Q893274,Bor
+http://www.wikidata.org/entity/Q897232,Bragança Paulista
+http://www.wikidata.org/entity/Q897320,Brahmanbaria
+http://www.wikidata.org/entity/Q905157,Guaratinguetá
+http://www.wikidata.org/entity/Q905164,Lauro de Freitas
+http://www.wikidata.org/entity/Q910973,Diourbel
+http://www.wikidata.org/entity/Q911727,Ahar
+http://www.wikidata.org/entity/Q913356,Tocuyito
+http://www.wikidata.org/entity/Q913390,Resende
+http://www.wikidata.org/entity/Q913406,Chirchiq
+http://www.wikidata.org/entity/Q914055,san luis gto
+http://www.wikidata.org/entity/Q916536,La Ceiba
+http://www.wikidata.org/entity/Q917326,Vila Franca de Xira
+http://www.wikidata.org/entity/Q917535,Loures
+http://www.wikidata.org/entity/Q922944,Ubá
+http://www.wikidata.org/entity/Q926426,Kozan
+http://www.wikidata.org/entity/Q926606,Divinópolis
+http://www.wikidata.org/entity/Q926662,Itapecerica da Serra
+http://www.wikidata.org/entity/Q926688,Colombo
+http://www.wikidata.org/entity/Q926713,Parintins
+http://www.wikidata.org/entity/Q927243,Sterling Heights
+http://www.wikidata.org/entity/Q927537,Serra
+http://www.wikidata.org/entity/Q927933,Tarapoto
+http://www.wikidata.org/entity/Q927935,Ribeirão Pires
+http://www.wikidata.org/entity/Q929062,Gujrat
+http://www.wikidata.org/entity/Q931560,Mairiporã
+http://www.wikidata.org/entity/Q933380,Colatina
+http://www.wikidata.org/entity/Q938835,Guadalupe
+http://www.wikidata.org/entity/Q942064,Rio Verde
+http://www.wikidata.org/entity/Q942071,Itapetininga
+http://www.wikidata.org/entity/Q942083,Votorantim
+http://www.wikidata.org/entity/Q942122,Sapucaia do Sul
+http://www.wikidata.org/entity/Q942135,Sumaré
+http://www.wikidata.org/entity/Q942235,"Santa Luzia, Minas Gerais"
+http://www.wikidata.org/entity/Q945363,Ergani
+http://www.wikidata.org/entity/Q945388,Polatlı
+http://www.wikidata.org/entity/Q948129,Westminster
+http://www.wikidata.org/entity/Q949746,Cox's Bazar
+http://www.wikidata.org/entity/Q949798,Pouso Alegre
+http://www.wikidata.org/entity/Q949833,Paulista
+http://www.wikidata.org/entity/Q952617,Hortolândia
+http://www.wikidata.org/entity/Q953449,Porlamar
+http://www.wikidata.org/entity/Q953490,Ciudad Ojeda
+http://www.wikidata.org/entity/Q955510,Itapevi
+http://www.wikidata.org/entity/Q955523,Dhamar
+http://www.wikidata.org/entity/Q956008,Paulo Afonso
+http://www.wikidata.org/entity/Q956017,Luziânia
+http://www.wikidata.org/entity/Q956172,Mogi Guaçu
+http://www.wikidata.org/entity/Q956371,Mirzapur
+http://www.wikidata.org/entity/Q956602,Durg
+http://www.wikidata.org/entity/Q956659,Masaka
+http://www.wikidata.org/entity/Q957653,Itu
+http://www.wikidata.org/entity/Q957697,Cachoeirinha
+http://www.wikidata.org/entity/Q958586,Santa Cruz de Barahona
+http://www.wikidata.org/entity/Q963648,Birigui
+http://www.wikidata.org/entity/Q2224587,José C. Paz
+http://www.wikidata.org/entity/Q2230683,Madhyamgram
+http://www.wikidata.org/entity/Q2235942,Konnagar
+http://www.wikidata.org/entity/Q2274595,"Parque San Martín, Buenos Aires Province"
+http://www.wikidata.org/entity/Q2287060,Jhargram
+http://www.wikidata.org/entity/Q2287264,Titagarh
+http://www.wikidata.org/entity/Q2288052,Lagarto
+http://www.wikidata.org/entity/Q2289846,Tailândia
+http://www.wikidata.org/entity/Q2294847,Bouskoura
+http://www.wikidata.org/entity/Q2296366,Randburg
+http://www.wikidata.org/entity/Q2304045,Raiganj
+http://www.wikidata.org/entity/Q2317215,Uttarpara Kotrung
+http://www.wikidata.org/entity/Q2318208,North Barrackpore
+http://www.wikidata.org/entity/Q2318927,Uluberia
+http://www.wikidata.org/entity/Q2320876,Seiyun
+http://www.wikidata.org/entity/Q2321929,Sopore
+http://www.wikidata.org/entity/Q2329701,Taourirt
+http://www.wikidata.org/entity/Q2359107,Florencio Varela
+http://www.wikidata.org/entity/Q2384142,Ait Melloul
+http://www.wikidata.org/entity/Q2421238,Khak-e Ali
+http://www.wikidata.org/entity/Q2453308,Bhadreswar
+http://www.wikidata.org/entity/Q2453443,Rishra
+http://www.wikidata.org/entity/Q2462135,Dharashiv
+http://www.wikidata.org/entity/Q2466841,San Justo
+http://www.wikidata.org/entity/Q2471226,Rafael Castillo
+http://www.wikidata.org/entity/Q2484567,Gregorio de Laferrere
+http://www.wikidata.org/entity/Q2563840,New Barrackpore
+http://www.wikidata.org/entity/Q2564010,Old Malda
+http://www.wikidata.org/entity/Q2570924,Nazarabad
+http://www.wikidata.org/entity/Q2578786,Kartepe
+http://www.wikidata.org/entity/Q2671609,Çayırova
+http://www.wikidata.org/entity/Q2700395,Isidro Casanova
+http://www.wikidata.org/entity/Q2711899,Greater Noida
+http://www.wikidata.org/entity/Q2722762,Alwar
+http://www.wikidata.org/entity/Q2725457,Catia La Mar
+http://www.wikidata.org/entity/Q2734589,Kalyani
+http://www.wikidata.org/entity/Q2766547,'s-Hertogenbosch
+http://www.wikidata.org/entity/Q2768192,Mahbubnagar
+http://www.wikidata.org/entity/Q2794758,Djelfa
+http://www.wikidata.org/entity/Q2799572,Narsingdi
+http://www.wikidata.org/entity/Q2898863,Surif
+http://www.wikidata.org/entity/Q2987563,Sa Đéc City
+http://www.wikidata.org/entity/Q2996335,Menderes
+http://www.wikidata.org/entity/Q3015863,Piranshahr
+http://www.wikidata.org/entity/Q3120966,Guntur
+http://www.wikidata.org/entity/Q3133884,Palo Negro
+http://www.wikidata.org/entity/Q3183016,Ungaran
+http://www.wikidata.org/entity/Q3236167,Machiques
+http://www.wikidata.org/entity/Q3344946,Braga
+http://www.wikidata.org/entity/Q3360716,Pak Kret
+http://www.wikidata.org/entity/Q3472806,El Rosario de Soapire
+http://www.wikidata.org/entity/Q3612324,Prayagraj
+http://www.wikidata.org/entity/Q3635276,Visakhapatnam
+http://www.wikidata.org/entity/Q3636023,Vijayapura
+http://www.wikidata.org/entity/Q3695624,Kandhkot
+http://www.wikidata.org/entity/Q3852743,Dharwad
+http://www.wikidata.org/entity/Q3869982,Naissus
+http://www.wikidata.org/entity/Q3916792,Las Cumbres
+http://www.wikidata.org/entity/Q3980318,Taki
+http://www.wikidata.org/entity/Q4115712,Kaunas
+http://www.wikidata.org/entity/Q4120519,Al Hawiyah
+http://www.wikidata.org/entity/Q4418748,Sidi Bennour
+http://www.wikidata.org/entity/Q4939409,Bolgatanga
+http://www.wikidata.org/entity/Q4986926,Bukit Merah
+http://www.wikidata.org/entity/Q5124156,Ciudad Madero
+http://www.wikidata.org/entity/Q5207471,Dabgram
+http://www.wikidata.org/entity/Q5219966,Dankuni
+http://www.wikidata.org/entity/Q5576202,Godavarikhani
+http://www.wikidata.org/entity/Q5582862,Cuzco
+http://www.wikidata.org/entity/Q6063659,A Coruña
+http://www.wikidata.org/entity/Q6163801,Virrey del Pino
+http://www.wikidata.org/entity/Q6397066,Shiraz
+http://www.wikidata.org/entity/Q6465359,La Tablada
+http://www.wikidata.org/entity/Q6634626,Pali
+http://www.wikidata.org/entity/Q6635526,Karaköprü
+http://www.wikidata.org/entity/Q7450932,Q7450932
+http://www.wikidata.org/entity/Q10737004,Bacău
+http://www.wikidata.org/entity/Q12185424,Jubail
+http://www.wikidata.org/entity/Q12191144,New Cairo
+http://www.wikidata.org/entity/Q12191403,Qatif
+http://www.wikidata.org/entity/Q12242935,Musturud
+http://www.wikidata.org/entity/Q12447537,Medinipur
+http://www.wikidata.org/entity/Q12460009,Haldia
+http://www.wikidata.org/entity/Q12489692,Karta
+http://www.wikidata.org/entity/Q12685199,Cochin
+http://www.wikidata.org/entity/Q12817935,Q12817935
+http://www.wikidata.org/entity/Q12824432,Kardiff
+http://www.wikidata.org/entity/Q12824787,Q12824787
+http://www.wikidata.org/entity/Q12825018,Colón City
+http://www.wikidata.org/entity/Q12829141,Q12829141
+http://www.wikidata.org/entity/Q12829343,Q12829343
+http://www.wikidata.org/entity/Q12829733,Belém
+http://www.wikidata.org/entity/Q13035398,Maramba
+http://www.wikidata.org/entity/Q13124930,Soma
+http://www.wikidata.org/entity/Q16123684,Al-Kharj
+http://www.wikidata.org/entity/Q16251875,Artuklu
+http://www.wikidata.org/entity/Q16319283,Zafarwal
+http://www.wikidata.org/entity/Q16836589,Efeler
+http://www.wikidata.org/entity/Q16895027,Merkezefendi
+http://www.wikidata.org/entity/Q16897309,Süleymanpaşa
+http://www.wikidata.org/entity/Q1646181,Worcester
+http://www.wikidata.org/entity/Q1646968,Ferraz de Vasconcelos
+http://www.wikidata.org/entity/Q1646970,Jandira
+http://www.wikidata.org/entity/Q1646975,Ariquemes
+http://www.wikidata.org/entity/Q1647167,Pathankot
+http://www.wikidata.org/entity/Q1650073,Arapongas
+http://www.wikidata.org/entity/Q1650078,Almirante Tamandaré
+http://www.wikidata.org/entity/Q1656639,Gayespur
+http://www.wikidata.org/entity/Q1675245,Itaperuna
+http://www.wikidata.org/entity/Q1707370,Gobardanga
+http://www.wikidata.org/entity/Q1707695,Halisahar
+http://www.wikidata.org/entity/Q1708114,Godhra
+http://www.wikidata.org/entity/Q1708439,Habra
+http://www.wikidata.org/entity/Q1734942,Kashikishi
+http://www.wikidata.org/entity/Q1749958,Vilhena
+http://www.wikidata.org/entity/Q1750870,Babylon
+http://www.wikidata.org/entity/Q1751207,Ibirité
+http://www.wikidata.org/entity/Q1755402,Linhares
+http://www.wikidata.org/entity/Q1756328,Ituiutaba
+http://www.wikidata.org/entity/Q1756745,Villa Mercedes
+http://www.wikidata.org/entity/Q1759112,Várzea Paulista
+http://www.wikidata.org/entity/Q1759235,Jaú
+http://www.wikidata.org/entity/Q1761143,Camaragibe
+http://www.wikidata.org/entity/Q1761549,Araruama
+http://www.wikidata.org/entity/Q1763534,Açailândia
+http://www.wikidata.org/entity/Q1763574,São Mateus
+http://www.wikidata.org/entity/Q1764163,Santo Antônio de Jesus
+http://www.wikidata.org/entity/Q1771398,Riffa
+http://www.wikidata.org/entity/Q1771721,Khafji
+http://www.wikidata.org/entity/Q1771762,Aligarh
+http://www.wikidata.org/entity/Q1772825,Hisar
+http://www.wikidata.org/entity/Q1773148,Choluteca
+http://www.wikidata.org/entity/Q1773313,Araucária
+http://www.wikidata.org/entity/Q1773340,Cambé
+http://www.wikidata.org/entity/Q1776774,Toledo
+http://www.wikidata.org/entity/Q1787619,Igarassu
+http://www.wikidata.org/entity/Q1787668,Rio das Ostras
+http://www.wikidata.org/entity/Q1787673,Japeri
+http://www.wikidata.org/entity/Q1788891,Pinhais
+http://www.wikidata.org/entity/Q1790206,Nova Serrana
+http://www.wikidata.org/entity/Q1794219,Aracruz
+http://www.wikidata.org/entity/Q1794732,Maracanaú
+http://www.wikidata.org/entity/Q1795232,Maranguape
+http://www.wikidata.org/entity/Q1795613,Tatuí
+http://www.wikidata.org/entity/Q1795634,Sertãozinho
+http://www.wikidata.org/entity/Q1796277,Eunápolis
+http://www.wikidata.org/entity/Q1796467,São Lourenço da Mata
+http://www.wikidata.org/entity/Q1797985,Itapipoca
+http://www.wikidata.org/entity/Q1798241,Santa Catarina
+http://www.wikidata.org/entity/Q1798559,Tonalá
+http://www.wikidata.org/entity/Q1800687,Nossa Senhora do Socorro
+http://www.wikidata.org/entity/Q1800756,Queimados
+http://www.wikidata.org/entity/Q1801463,Panihati
+http://www.wikidata.org/entity/Q1804770,Breves
+http://www.wikidata.org/entity/Q1805166,Marituba
+http://www.wikidata.org/entity/Q1805206,Cametá
+http://www.wikidata.org/entity/Q1806100,Parauapebas
+http://www.wikidata.org/entity/Q1807313,Bacabal
+http://www.wikidata.org/entity/Q1807947,Maheshtala
+http://www.wikidata.org/entity/Q1813001,Balsas
+http://www.wikidata.org/entity/Q1815367,Serampore
+http://www.wikidata.org/entity/Q1815730,Tubarão
+http://www.wikidata.org/entity/Q1815899,Sobral
+http://www.wikidata.org/entity/Q1816543,Fresnillo
+http://www.wikidata.org/entity/Q1817441,Los Guayos
+http://www.wikidata.org/entity/Q1822816,Al-Hajar al-Aswad
+http://www.wikidata.org/entity/Q1853445,Villa de Álvarez
+http://www.wikidata.org/entity/Q1856408,Piedras Negras
+http://www.wikidata.org/entity/Q1866604,Livingstone
+http://www.wikidata.org/entity/Q1897488,Anaco
+http://www.wikidata.org/entity/Q1922275,Mandsaur
+http://www.wikidata.org/entity/Q1922283,Mehsana
+http://www.wikidata.org/entity/Q1937304,Santa Rita
+http://www.wikidata.org/entity/Q1944489,San Pedro Garza García
+http://www.wikidata.org/entity/Q1949069,Mohali
+http://www.wikidata.org/entity/Q1949125,Jalpaiguri
+http://www.wikidata.org/entity/Q1949422,Saharsa
+http://www.wikidata.org/entity/Q1961680,Comitán de Domínguez
+http://www.wikidata.org/entity/Q1962104,Chalco de Díaz Covarrubias
+http://www.wikidata.org/entity/Q1966384,Patos
+http://www.wikidata.org/entity/Q1972757,Ocumare del Tuy
+http://www.wikidata.org/entity/Q1975291,Gonbad-e Kavus
+http://www.wikidata.org/entity/Q1994826,Salto
+http://www.wikidata.org/entity/Q1994845,Santana
+http://www.wikidata.org/entity/Q2004395,Piraquara
+http://www.wikidata.org/entity/Q2004440,Fazenda Rio Grande
+http://www.wikidata.org/entity/Q2009595,Barcarena
+http://www.wikidata.org/entity/Q2013225,Codó
+http://www.wikidata.org/entity/Q2022168,Takoradi
+http://www.wikidata.org/entity/Q2035284,Santipur
+http://www.wikidata.org/entity/Q2076464,Ramos Mejía
+http://www.wikidata.org/entity/Q2088134,San José del Cabo
+http://www.wikidata.org/entity/Q2088474,Kanchrapara
+http://www.wikidata.org/entity/Q2110515,Naucalpan de Juárez
+http://www.wikidata.org/entity/Q2120110,Khardah
+http://www.wikidata.org/entity/Q2152404,Menemen
+http://www.wikidata.org/entity/Q2158697,Bukit Mertajam
+http://www.wikidata.org/entity/Q2166182,Roodepoort
+http://www.wikidata.org/entity/Q2191860,Berrechid
+http://www.wikidata.org/entity/Q2222874,Zanzibar City
+http://www.wikidata.org/entity/Q17396881,Turgutlu
+http://www.wikidata.org/entity/Q20099772,Hugli-Chuchura
+http://www.wikidata.org/entity/Q21414421,Oviedo
+http://www.wikidata.org/entity/Q21746038,Laksham
+http://www.wikidata.org/entity/Q22050101,Alagoinhas
+http://www.wikidata.org/entity/Q22060164,Alvorada
+http://www.wikidata.org/entity/Q22062839,Vitória da Conquista
+http://www.wikidata.org/entity/Q22067368,Três Lagoas
+http://www.wikidata.org/entity/Q23984578,Las Palmas de Gran Canaria
+http://www.wikidata.org/entity/Q23984786,Huelva city
+http://www.wikidata.org/entity/Q23992498,Santander City
+http://www.wikidata.org/entity/Q23995898,Lleida City
+http://www.wikidata.org/entity/Q24001084,Girona City
+http://www.wikidata.org/entity/Q24008386,Albacete City
+http://www.wikidata.org/entity/Q24008392,Vitoria-Gasteiz
+http://www.wikidata.org/entity/Q24012386,Pamplona city
+http://www.wikidata.org/entity/Q24014650,Santa Cruz de Tenerife
+http://www.wikidata.org/entity/Q24017120,City of Valencia
+http://www.wikidata.org/entity/Q25563078,Karimnagar
+http://www.wikidata.org/entity/Q25563103,Warangal
+http://www.wikidata.org/entity/Q26236372,New Town
+http://www.wikidata.org/entity/Q26772333,Stavanger
+http://www.wikidata.org/entity/Q31912880,Badajoz city
+http://www.wikidata.org/entity/Q31913048,City of Barcelona
+http://www.wikidata.org/entity/Q31917806,Logroño
+http://www.wikidata.org/entity/Q31918779,Murcia City
+http://www.wikidata.org/entity/Q31925679,Valladolid city
+http://www.wikidata.org/entity/Q31926034,Zaragoza City
+http://www.wikidata.org/entity/Q43167665,Burgos city
+http://www.wikidata.org/entity/Q49279759,Arlington
+http://www.wikidata.org/entity/Q56299321,Q56299321
+http://www.wikidata.org/entity/Q62866867,Deo
+http://www.wikidata.org/entity/Q80349557,Gijón City
+http://www.wikidata.org/entity/Q97290671,Qurayyat
+http://www.wikidata.org/entity/Q101948176,Córdoba City
+http://www.wikidata.org/entity/Q106576946,Wellington urban area
+http://www.wikidata.org/entity/Q111961821,Kajen
+http://www.wikidata.org/entity/Q112795541,Almería city
+http://www.wikidata.org/entity/Q116170766,Madrid city
+http://www.wikidata.org/entity/Q116423012,Tarragona City
+http://www.wikidata.org/entity/Q116442617,Salamanca City
+http://www.wikidata.org/entity/Q116450456,Jaén City
+http://www.wikidata.org/entity/Q116450968,Málaga City
+http://www.wikidata.org/entity/Q116451210,Cádiz City
