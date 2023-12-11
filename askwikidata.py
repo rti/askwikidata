@@ -232,6 +232,7 @@ class AskWikidata:
         else:
             raise Exception(f"unknown qa_model_name {self.qa_model_url}")
 
+        # TODO: DRY (see llm_generate)
         if "huggingface.co" in self.qa_model_url:
             return self.hf_generate(query, None, self.qa_model_url, prompt_func)
         # elif "api.runpod.ai" in self.qa_model_url:
@@ -239,7 +240,7 @@ class AskWikidata:
         #     return self.ask_llama_runpod(query, context)
         # return self.ask_openai(query, context)
         else:
-            raise Exception(f"unknown qa_model_url {self.qa_model_url}")
+            return self.local_generate(query, None, prompt_func)
 
     def ask(self, query: str):
         retrieved = self.retrieve(query)
