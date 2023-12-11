@@ -10,7 +10,7 @@ from tqdm import tqdm
 from langchain.embeddings.huggingface import HuggingFaceBgeEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from annoy import AnnoyIndex
-import openai
+# import openai
 
 import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
