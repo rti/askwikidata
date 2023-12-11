@@ -14,7 +14,7 @@ This system allows users to query Wikidata using natural language questions. The
 
 ## Quickstart
 
-To give it a try, use ➡️  [this Google Colab Notebook](https://colab.research.google.com/drive/16GoXCVY1YyiEkuEqoXmgftl6X-68eHCi) or load `AskWikidata_Quickstart.ipynb` in your infrastructure.
+To give it a try, use ➡️  [this Google Colab Notebook](https://drive.google.com/file/d/1yRZshpNj0kXwY0XuUYw5ziqjw_RffxH-/view) or load `AskWikidata_Quickstart.ipynb` in your infrastructure.
 
 ## Implementation
 
