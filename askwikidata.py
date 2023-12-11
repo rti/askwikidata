@@ -15,9 +15,11 @@ import openai
 import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
+from generate import LLM
 
 class AskWikidata:
     df = pd.DataFrame()
+    local_llm = None
 
     def __init__(
         self,
@@ -215,7 +217,7 @@ class AskWikidata:
         #     return self.ask_llama_runpod(query, context)
         # return self.ask_openai(query, context)
         else:
-            raise Exception(f"unknown qa_model_url {self.qa_model_url}")
+            return self.local_generate(query, context, self.qa_model_url, prompt_func)
 
     def llm_generate_plain(self, query: str):
         prompt_func = None
@@ -307,6 +309,20 @@ class AskWikidata:
             print(f"An unexpected error occurred: {e}")
             print(response)
             raise e
+
+    def local_generate(self, question, context, model_url, prompt_func):
+        if self.local_llm is None or self.local_llm.model_name != model_url:
+            self.local_llm = LLM(model_url)
+
+        prompt = ""
+        if context:
+            system = self.system_from_context(context)
+            prompt = prompt_func(question, system)
+        else:
+            prompt = prompt_func(question)
+
+        return self.local_llm(prompt)
+
 
     # def ask_llama_runpod(self, question, context):
     #     RUNPOD_API_KEY = os.getenv("RUNPOD_API_KEY")
