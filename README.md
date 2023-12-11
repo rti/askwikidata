@@ -46,7 +46,7 @@ Generate text representations for Wikidata items. The list of items to use is cu
 python text_representation.py
 ```
 
-### Answer an question
+### Answer a question
 This python code will use AskWikidata to answer one question.
 ```python
 from askwikidata import AskWikidata
