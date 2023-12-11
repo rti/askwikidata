@@ -37,4 +37,18 @@ class LLM:
             pad_token_id=self.tokenizer.eos_token_id
         )
         decoded = self.tokenizer.batch_decode(generated_ids)
-        return decoded[0]
+
+        result = decoded[0]
+
+        # mistrals response does not match prompt
+        result = result.replace("<s> [INST]", "<s>[INST]") 
+
+        # remove prompt from response
+        result = result.replace(prompt, "")
+
+        # remove end token
+        result = result.replace("</s>", "")
+
+        result = result.strip()
+
+        return result
