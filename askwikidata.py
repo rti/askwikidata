@@ -17,6 +17,7 @@ from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
 from generate import LLM
 
+
 class AskWikidata:
     df = pd.DataFrame()
     local_llm = None
@@ -76,6 +77,9 @@ class AskWikidata:
             self.reranker_model_name
         )
         self.rerank_model.to(self.device)
+
+        if not "https://" in self.qa_model_url:
+            self.local_llm = LLM(self.qa_model_url)
 
     def read_data(self):
         directory_path = "./text_representations"
@@ -217,7 +221,7 @@ class AskWikidata:
         #     return self.ask_llama_runpod(query, context)
         # return self.ask_openai(query, context)
         else:
-            return self.local_generate(query, context, self.qa_model_url, prompt_func)
+            return self.local_generate(query, context, prompt_func)
 
     def llm_generate_plain(self, query: str):
         prompt_func = None
@@ -240,7 +244,7 @@ class AskWikidata:
     def ask(self, query: str):
         retrieved = self.retrieve(query)
         reranked, _ = self.rerank(query, retrieved)
-        answer = self.llm_generate(query, reranked) 
+        answer = self.llm_generate(query, reranked)
         sources = set(reranked["source"])
         sources_bullet_list = "Sources:\n" + "\n".join(f"- {s}" for s in sources)
         return answer + "\n\n" + sources_bullet_list
@@ -310,10 +314,11 @@ class AskWikidata:
             print(response)
             raise e
 
-    def local_generate(self, question, context, model_url, prompt_func):
-        if self.local_llm is None or self.local_llm.model_name != model_url:
-            self.local_llm = LLM(model_url)
+    def local_generate(self, question, context, prompt_func):
+        if self.local_llm is None:
+            raise Exception("no local llm loaded")
 
+        print("Generating...")
         prompt = ""
         if context:
             system = self.system_from_context(context)
@@ -322,7 +327,6 @@ class AskWikidata:
             prompt = prompt_func(question)
 
         return self.local_llm(prompt)
-
 
     # def ask_llama_runpod(self, question, context):
     #     RUNPOD_API_KEY = os.getenv("RUNPOD_API_KEY")
