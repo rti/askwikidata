@@ -327,7 +327,8 @@ class AskWikidata:
         else:
             prompt = prompt_func(question)
 
-        return self.local_llm(prompt)
+        result = self.local_llm(prompt)
+        return result.replace(prompt, "")
 
     # def ask_llama_runpod(self, question, context):
     #     RUNPOD_API_KEY = os.getenv("RUNPOD_API_KEY")
