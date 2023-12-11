@@ -32,7 +32,7 @@ class LLM:
         model_input.to(self.device)
         generated_ids = self.model.generate(
             **model_input,
-            do_sample=True,
+            do_sample=False,
             max_new_tokens=200,
             pad_token_id=self.tokenizer.eos_token_id
         )
