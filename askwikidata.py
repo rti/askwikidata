@@ -328,7 +328,13 @@ class AskWikidata:
             prompt = prompt_func(question)
 
         result = self.local_llm(prompt)
-        return result.replace(prompt, "")
+
+        # mistrals response does not match prompt
+        result = result.replace("<s> [INST]", "<s>[INST]") 
+        # remove prompt from response
+        result = result.replace(prompt, "")
+        result = result.strip()
+        return result
 
     # def ask_llama_runpod(self, question, context):
     #     RUNPOD_API_KEY = os.getenv("RUNPOD_API_KEY")
