@@ -3,21 +3,21 @@ import json
 import time
 import sys
 import asyncio
-import aiofiles 
+import aiofiles
 
 
 def process_line(line):
     # print(f"'{line}'", file=sys.stderr)
 
-    # line = line.strip("\n")
-    line = line[:-1]
+    line = line.strip("\n")
+    # line = line[:-1]
 
     if line == "[" or line == "]":
         return
 
     # remove tailing ,
-    # line = line.rstrip(",")
-    line = line[:-1]
+    line = line.rstrip(",")
+    # line = line[:-1]
 
     entity = None
 
@@ -25,7 +25,7 @@ def process_line(line):
         entity = json.loads(line)
     except ValueError as e:
         print("failed to parse json", e, line)
-        exit()
+        raise e
 
     if entity is None:
         return
@@ -35,17 +35,16 @@ def process_line(line):
         return json.dumps(entity)
 
 
-
-async def readlines(file, chunk_size):
-    return await file.readlines(chunk_size)
-
 async def process(pool, chunk_of_lines):
     return pool.map(process_line, chunk_of_lines)
 
 
+async def readlines(file, chunk_size):
+    return await file.readlines(chunk_size)
+
+
 async def process_file(file_path, num_processes, chunk_size):
     with Pool(num_processes) as pool:
-
         start = time.time()
         line_per_ms_values = []
         iterations = 0
@@ -74,7 +73,7 @@ async def process_file(file_path, num_processes, chunk_size):
             lines_per_ms_avg = sum(line_per_ms_values) / len(line_per_ms_values)
             iterations += 1
             print(
-                    f"{iterations:5}: {lines_per_ms:.2f} (avg {lines_per_ms_avg:.2f}) lines per ms ",
+                f"{iterations:5}: {lines_per_ms:.2f} (avg {lines_per_ms_avg:.2f}) entities per ms",
                 file=sys.stderr,
             )
 
@@ -92,7 +91,8 @@ if __name__ == "__main__":
     print(f"using {threads} processes, {chunksize} as chunk_size", file=sys.stderr)
     asyncio.run(
         process_file(
-            "/home/rti/tmp/wikidata-20240514/wikidata-20240514.json", threads, chunksize
+            "/home/rti/tmp/wikidata-20240514/wikidata-20240514.json",
+            threads,
+            chunksize,
         )
     )
-
