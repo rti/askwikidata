@@ -19,6 +19,7 @@
         psycopg
         annoy
         openai
+        aiofiles
 
         black
         ipython
