@@ -14,7 +14,7 @@ async def readlines(file, chunk_size):
     return await file.readlines(chunk_size)
 
 
-async def process_file(file_path, line_handler_func, num_processes, chunk_size):
+async def process_file(file_path, line_handler_func, result_handler_func, num_processes, chunk_size):
     with Pool(num_processes) as pool:
         start = time.time()
         line_per_ms_values = []
@@ -36,8 +36,7 @@ async def process_file(file_path, line_handler_func, num_processes, chunk_size):
             results = await process_task
 
             for result in results:
-                if result is not None:
-                    print(result)
+                result_handler_func(result)
 
             time_per_iteration_ms = (time.time() - start) * 1000
             lines_per_ms = len(chunk_of_lines) / time_per_iteration_ms
@@ -58,11 +57,11 @@ async def process_file(file_path, line_handler_func, num_processes, chunk_size):
         await file.close()
 
 
-def read_wikidata_dump(dump_file, line_handler_func):
+def read_wikidata_dump(dump_file, line_handler_func, result_handler_func):
     threads = int(cpu_count() * 2)
     chunksize = int(1024 * 1024 * 1024 * 1)
     print(f"using {threads} processes, {chunksize} as chunk_size", file=sys.stderr)
-    asyncio.run(process_file(dump_file, line_handler_func, threads, chunksize))
+    asyncio.run(process_file(dump_file, line_handler_func, result_handler_func, threads, chunksize))
 
 
 # Example usage
@@ -95,7 +94,12 @@ def process_line(line):
         return json.dumps(entity)
 
 
+def handle_result(result):
+    if result is not None:
+        print(result)
+
+
 if __name__ == "__main__":
     read_wikidata_dump(
-        "/home/rti/tmp/wikidata-20240514/wikidata-20240514.json", process_line
+        "/home/rti/tmp/wikidata-20240514/wikidata-20240514.json", process_line, handle_result
     )
