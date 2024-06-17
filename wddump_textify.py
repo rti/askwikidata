@@ -31,9 +31,7 @@ def format_date(date_value):
     return date_value
 
 
-def gen_statement_text(
-    subject_label, subject_desc, property, property_label, statement
-):
+def gen_statement_text(subject_label, subject_desc, property_label, statement):
     datatype = statement["mainsnak"]["datatype"]
 
     if datatype == "wikibase-item":
@@ -80,7 +78,7 @@ def process_line(line):
             for statement in statement_group:
                 item_statement_texts.append(
                     gen_statement_text(
-                        subject_label, subject_desc, property, property_label, statement
+                        subject_label, subject_desc, property_label, statement
                     )
                 )
 
