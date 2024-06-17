@@ -14,7 +14,9 @@ async def readlines(file, chunk_size):
     return await file.readlines(chunk_size)
 
 
-async def process_file(file_path, line_handler_func, result_handler_func, num_processes, chunk_size):
+async def process_file(
+    file_path, line_handler_func, result_handler_func, num_processes, chunk_size
+):
     with Pool(num_processes) as pool:
         start = time.time()
         line_per_ms_values = []
@@ -61,11 +63,14 @@ def read_wikidata_dump(dump_file, line_handler_func, result_handler_func):
     threads = int(cpu_count() * 2)
     chunksize = int(1024 * 1024 * 1024 * 1)
     print(f"using {threads} processes, {chunksize} as chunk_size", file=sys.stderr)
-    asyncio.run(process_file(dump_file, line_handler_func, result_handler_func, threads, chunksize))
+    asyncio.run(
+        process_file(
+            dump_file, line_handler_func, result_handler_func, threads, chunksize
+        )
+    )
 
 
-# Example usage
-def process_line(line):
+def line_to_entity(line):
     # print(f"'{line}'", file=sys.stderr)
 
     line = line.strip("\n")
@@ -86,6 +91,13 @@ def process_line(line):
         print("failed to parse json", e, line)
         raise e
 
+    return entity
+
+
+# Example usage
+def process_line(line):
+    entity = line_to_entity(line)
+
     if entity is None:
         return
 
@@ -101,5 +113,7 @@ def handle_result(result):
 
 if __name__ == "__main__":
     read_wikidata_dump(
-        "/home/rti/tmp/wikidata-20240514/wikidata-20240514.json", process_line, handle_result
+        "/home/rti/tmp/wikidata-20240514/wikidata-20240514.json",
+        process_line,
+        handle_result,
     )

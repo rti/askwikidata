@@ -1,25 +1,9 @@
-from read_wikidata_dump import read_wikidata_dump
-import json
+from wddump import read_wikidata_dump, line_to_entity
 import sqlite3
 
 
 def process_line(line):
-    # print(f"'{line}'", file=sys.stderr)
-
-    line = line.strip("\n")
-
-    if line == "[" or line == "]":
-        return
-
-    line = line.rstrip(",")
-
-    entity = None
-
-    try:
-        entity = json.loads(line)
-    except ValueError as e:
-        print("failed to parse json", e, line)
-        raise e
+    entity = line_to_entity(line)
 
     if entity is None:
         return
@@ -28,7 +12,6 @@ def process_line(line):
         id = entity.get("id")
         label = entity.get("labels", {}).get("en", {}).get("value", None)
         desc = entity.get("descriptions", {}).get("en", {}).get("value", None)
-
 
         if label is None:
             # print(f"found {entity_id} without en label", file=sys.stderr)
