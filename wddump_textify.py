@@ -143,8 +143,9 @@ class ResultHandler:
 
     @classmethod
     def handle_result(cls, result):
-        if result is not None:
-            print(result)
+        # if result is not None:
+        #     print(result)
+        pass
 
 
 if __name__ == "__main__":

@@ -37,6 +37,7 @@ async def process_file(
             )
             results = await process_task
 
+            # can we do this async in one task?
             for result in results:
                 result_handler_func(result)
 
