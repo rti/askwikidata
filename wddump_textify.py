@@ -10,9 +10,18 @@ def get_label(id):
     global cursor
     cursor.execute("SELECT label_en FROM entities WHERE id=?", (id,))
     results = cursor.fetchall()
+
+    if len(results) == 0:
+        # raise Exception(f"could not find label for id {id}")
+        # print(f"could not find label for id {id}")
+        return
+
     label = results[0][0]
     if label is None:
-        raise Exception("could not find label")
+        # raise Exception(f"could not find label for id {id}")
+        # print(f"could not find label for id {id}")
+        return
+
     return label
 
 
@@ -20,9 +29,18 @@ def get_desc(id):
     global cursor
     cursor.execute("SELECT desc_en FROM entities WHERE id=?", (id,))
     results = cursor.fetchall()
+
+    if len(results) == 0:
+        # raise Exception(f"could not find description for id {id}")
+        # print(f"could not find description for id {id}")
+        return
+
     desc = results[0][0]
     if desc is None:
-        raise Exception("could not find label")
+        # raise Exception(f"could not find description for id {id}")
+        # print(f"could not find description for id {id}")
+        return
+
     return desc
 
 
@@ -32,23 +50,50 @@ def format_date(date_value):
 
 
 def gen_statement_text(subject_label, subject_desc, property_label, statement):
+    snaktype = statement["mainsnak"]["snaktype"]
+    if snaktype != "value":
+        return
+
     datatype = statement["mainsnak"]["datatype"]
 
     if datatype == "wikibase-item":
-        object_id = statement["mainsnak"]["datavalue"]["value"]["id"]
-        object_label = get_label(object_id).rstrip(".")
-        object_desc = get_desc(object_id).rstrip(".")
+        mainsnak = statement.get("mainsnak")
+        datavalue = mainsnak.get("datavalue")
+        value = datavalue.get("value")
+        object_id = value.get("id")
+        object_label = get_label(object_id)
+        object_desc = get_desc(object_id)
 
-        print(
+        if object_label is None or object_desc is None:
+            return
+
+        object_label = object_label.rstrip(".")
+        object_desc = object_desc.rstrip(".")
+
+        # print (
+        #     f"{subject_label}: {subject_desc}.\n"
+        #     + f"{subject_label} {property_label} {object_label}.\n"
+        #     + f"{object_label}: {object_desc}.\n"
+        # )
+        return (
             f"{subject_label}: {subject_desc}.\n"
             + f"{subject_label} {property_label} {object_label}.\n"
             + f"{object_label}: {object_desc}.\n"
         )
 
-    elif datatype == "time":
-        pass
-
     elif datatype == "string":
+        value = statement["mainsnak"]["datavalue"]["value"].rstrip(".")
+
+        # print (
+        #     f"{subject_label}: {subject_desc}.\n"
+        #     + f"{subject_label} {property_label} {value}.\n"
+        # )
+        return (
+            f"{subject_label}: {subject_desc}.\n"
+            + f"{subject_label} {property_label} {value}.\n"
+        )
+
+    elif datatype == "time":
         pass
 
     elif datatype == "quantity":
@@ -61,20 +106,26 @@ def process_line(line):
     entity = line_to_entity(line)
 
     if entity is None:
-        return None
+        return
 
     if entity.get("type") == "item":
         item_statement_texts = []
 
-        subject_id = entity.get("id")
         subject_label = entity.get("labels", {}).get("en", {}).get("value", None)
         subject_desc = entity.get("descriptions", {}).get("en", {}).get("value", None)
+
+        if subject_label is None or subject_desc is None:
+            return
+
         claims = entity.get("claims")
 
         for claim_key in claims:
-            property = claim_key
             property_label = get_label(claim_key)
+            if property_label is None:
+                continue
+
             statement_group = claims[claim_key]
+
             for statement in statement_group:
                 item_statement_texts.append(
                     gen_statement_text(
