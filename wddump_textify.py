@@ -1,6 +1,9 @@
 from wddump import read_wikidata_dump, line_to_entity
 import sqlite3
-
+import postgres
+import embeddings
+import pandas as pd
+from typing import List
 
 conn = sqlite3.connect("entities.db")
 cursor = conn.cursor()
@@ -111,10 +114,11 @@ def process_line(line):
     if entity.get("type") == "item":
         item_statement_texts = []
 
+        subject_id = entity.get("id", None)
         subject_label = entity.get("labels", {}).get("en", {}).get("value", None)
         subject_desc = entity.get("descriptions", {}).get("en", {}).get("value", None)
 
-        if subject_label is None or subject_desc is None:
+        if subject_id is None or subject_label is None or subject_desc is None:
             return
 
         claims = entity.get("claims")
@@ -127,25 +131,43 @@ def process_line(line):
             statement_group = claims[claim_key]
 
             for statement in statement_group:
-                item_statement_texts.append(
-                    gen_statement_text(
-                        subject_label, subject_desc, property_label, statement
-                    )
+                text = gen_statement_text(
+                    subject_label, subject_desc, property_label, statement
                 )
 
-        return item_statement_texts
+                if text is None:
+                    continue
+
+                item_statement_texts.append((subject_id, text))
+
+        df = pd.DataFrame(item_statement_texts, columns=["id", "text"])
+        return df
 
 
 class ResultHandler:
     @classmethod
     def init(cls):
+        # test_embedding = embeddings.embed_query("test")
+        # postgres.init(len(test_embedding))
+        postgres.init(384)
+
         pass
 
     @classmethod
-    def handle_result(cls, result):
-        # if result is not None:
-        #     print(result)
-        pass
+    def handle_result(cls, df):
+        if df is not None:
+            embeds = embeddings.embed_docs(df["text"].values)
+
+            # print("========")
+            # print(embeds)
+            # print("========")
+
+            for index, row in df.iterrows():
+                # print(index, row["id"], row["text"], embeds[index])
+                # e = embeds.
+                postgres.insert(
+                    postgres.Chunk(id=row["id"], text=row["text"], embedding=embeds[index])
+                )
 
 
 if __name__ == "__main__":

@@ -1,0 +1,42 @@
+services:
+
+  postgres:
+    image: tensorchord/pgvecto-rs:pg16-v0.2.1
+
+    environment:
+      POSTGRES_DB: mydb
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+    ports:
+      - 5432:5432
+
+    healthcheck:
+      test: "pg_isready -U myuser -d mydb"
+      interval: 5s
+      timeout: 1s
+      retries: 10
+      start_period: 10s
+
+  app:
+    build: .
+    volumes:
+      - .:/workspace
+      - app-cache:/root/.cache
+      - /home/rti/tmp/wikidata-20240514/wikidata-20240514.json:/home/rti/tmp/wikidata-20240514/wikidata-20240514.json
+
+    # GPU access for ROCm (AMD)
+    devices:
+      - /dev/dri:/dev/dri
+      - /dev/kfd:/dev/kfd
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  app-cache:
+  postgres-data:
