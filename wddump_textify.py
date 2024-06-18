@@ -1,9 +1,10 @@
 from wddump import read_wikidata_dump, line_to_entity
 import sqlite3
+import time
 import postgres
 import embeddings
-import pandas as pd
-from typing import List
+
+from multiprocessing import Process, Queue
 
 conn = sqlite3.connect("entities.db")
 cursor = conn.cursor()
@@ -137,44 +138,101 @@ def process_line(line):
 
                 if text is None:
                     continue
+                if len(text) == 0:
+                    continue
 
-                item_statement_texts.append((subject_id, text))
-
-        df = pd.DataFrame(item_statement_texts, columns=["id", "text"])
-        return df
+                embed_queue.put((subject_id, text))
 
 
 class ResultHandler:
     @classmethod
     def init(cls):
-        # test_embedding = embeddings.embed_query("test")
-        # postgres.init(len(test_embedding))
-        postgres.init(384)
-
         pass
 
     @classmethod
-    def handle_result(cls, df):
-        if df is not None:
-            embeds = embeddings.embed_docs(df["text"].values)
-
-            # print("========")
-            # print(embeds)
-            # print("========")
-
-            for index, row in df.iterrows():
-                # print(index, row["id"], row["text"], embeds[index])
-                # e = embeds.
-                postgres.insert(
-                    postgres.Chunk(id=row["id"], text=row["text"], embedding=embeds[index])
-                )
+    def handle_result(cls, _):
+        pass
 
 
-if __name__ == "__main__":
-    ResultHandler.init()
-
+def read_dump():
     read_wikidata_dump(
         "/home/rti/tmp/wikidata-20240514/wikidata-20240514.json",
         process_line,
         ResultHandler.handle_result,
     )
+
+
+BATCH_SIZE = 1024 * 2
+
+
+def handle_embed_queue():
+    embeddings.embed_docs(["warmup"])
+
+    ids = []
+    texts = []
+    while True:
+        if len(texts) == BATCH_SIZE:
+            start_time = time.time()
+            embeds = embeddings.embed_docs(texts)
+            end_time = time.time()
+            diff = end_time - start_time
+            print(
+                f"Embedded batch in {diff:.2f} seconds ({1000* diff / BATCH_SIZE:.2f} ms/chunk) Queue: {embed_queue.qsize()}"
+            )
+
+            tuple = (ids.copy(), texts.copy(), embeds.copy())
+            # print(f"inserting {len(ids)} {len(texts)} {len(embeds)} to insert_queue")
+            insert_queue.put(tuple, block=False)
+
+            ids.clear()
+            texts.clear()
+
+        item = embed_queue.get()
+
+        if item is None:
+            break
+
+        ids.append(item[0])
+        texts.append(item[1])
+
+
+def handle_insert_queue():
+    while True:
+        t = insert_queue.get()
+
+        # print(f"{len(t[0])} {len(t[1])} {len(t[2])}")
+
+        if t is None:
+            break
+
+        start_time = time.time()
+        for id, text, embed in zip(t[0], t[1], t[2]):
+            postgres.insert(postgres.Chunk(id=id, text=text, embedding=embed))
+        end_time = time.time()
+        diff = end_time - start_time
+        print(
+            f"Inserted batch in {diff:.2f} seconds ({1000 * diff / BATCH_SIZE:.2f} ms/chunk) Queue: {insert_queue.qsize() * BATCH_SIZE}"
+        )
+
+
+if __name__ == "__main__":
+    ResultHandler.init()
+
+    postgres.init(384)
+
+    global embed_queue
+    global insert_queue
+    embed_queue = Queue()
+    insert_queue = Queue()
+
+    read_dump_process = Process(target=read_dump)
+    insert_process = Process(target=handle_insert_queue)
+    read_dump_process.start()
+    insert_process.start()
+
+    handle_embed_queue()
+
+    read_dump_process.join()
+    insert_process.join()
+
+    # embed_process.join()

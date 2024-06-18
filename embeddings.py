@@ -12,7 +12,6 @@ MODEL_PREFIX_QUERY = ""
 
 _model: sentence_transformers.SentenceTransformer | None = None
 
-
 def get_model() -> sentence_transformers.SentenceTransformer:
     global _model
     if not _model:
@@ -23,6 +22,7 @@ def get_model() -> sentence_transformers.SentenceTransformer:
         else:
             print("torch uses CPU.")
 
+        print("Initializing model...")
         _model = sentence_transformers.SentenceTransformer(MODEL_NAME, device=device)
     return _model
 
@@ -30,6 +30,7 @@ def get_model() -> sentence_transformers.SentenceTransformer:
 def embed_docs(documents: List[str]) -> numpy.ndarray:
     model = get_model()
     prefixed_documents = [f"{MODEL_PREFIX_DOCUMENT}{s}" for s in documents]
+    # print(f"{len(prefixed_documents)=}")
     embeddings = model.encode(prefixed_documents)
     if isinstance(embeddings, numpy.ndarray):
         embeddings = embeddings
