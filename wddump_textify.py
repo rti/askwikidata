@@ -138,37 +138,40 @@ def process_line(line):
     if entity is None:
         return
 
-    if entity.get("type") == "item":
-        subject_id = entity.get("id", None)
-        subject_label = entity.get("labels", {}).get("en", {}).get("value")
-        subject_desc = entity.get("descriptions", {}).get("en", {}).get("value")
-        claims = entity.get("claims")
+    if entity.get("type") != "item":
+        return
 
-        if is_scholar_article(entity):
-            print(f"Skipping scholar article {subject_id} ({subject_label})")
-            return  # skip
+    subject_id = entity.get("id", None)
+    subject_label = entity.get("labels", {}).get("en", {}).get("value")
+    subject_desc = entity.get("descriptions", {}).get("en", {}).get("value")
+    claims = entity.get("claims")
 
-        if subject_id is None or subject_label is None or subject_desc is None:
-            return
+    if is_scholar_article(entity):
+        print(f"Skipping scholar article {subject_id} ({subject_label})")
+        return  # skip
 
-        for claim_key in claims:
-            property_label = get_label(claim_key)
-            if property_label is None:
+    if subject_id is None or subject_label is None or subject_desc is None:
+        return
+
+    for claim_key in claims:
+        property_label = get_label(claim_key)
+
+        if property_label is None:
+            continue
+
+        statement_group = claims[claim_key]
+
+        for statement in statement_group:
+            text = gen_statement_text(
+                subject_label, subject_desc, property_label, statement
+            )
+
+            if text is None:
+                continue
+            if len(text) == 0:
                 continue
 
-            statement_group = claims[claim_key]
-
-            for statement in statement_group:
-                text = gen_statement_text(
-                    subject_label, subject_desc, property_label, statement
-                )
-
-                if text is None:
-                    continue
-                if len(text) == 0:
-                    continue
-
-                embed_queue.put((subject_id, text), block=True)
+            embed_queue.put((subject_id, text), block=True)
 
 
 def read_dump():
