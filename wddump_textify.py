@@ -170,9 +170,9 @@ def handle_embed_queue():
                 f" > Embed {GPU_BATCH_SIZE / (1000*diff):.2f}stmt/ms Q:{embed_queue.qsize()}"
             )
 
-            # tuple = (ids.copy(), texts.copy(), embeds.copy())
+            tuple = (ids, texts, embeds)
             # print(f"inserting {len(ids)} {len(texts)} {len(embeds)} to insert_queue")
-            # insert_queue.put(tuple, block=False)
+            insert_queue.put(tuple, block=True)
 
             ids = []
             texts = []
@@ -190,7 +190,7 @@ def handle_insert_queue():
     while True:
         t = insert_queue.get()
 
-        # print(f"{len(t[0])} {len(t[1])} {len(t[2])}")
+        # print(f" got from insert queue {len(t[0])} {len(t[1])} {len(t[2])}")
 
         if t is None:
             break
@@ -201,13 +201,12 @@ def handle_insert_queue():
         end_time = time.time()
         diff = end_time - start_time
         print(
-            f"Inserted batch in {diff:.2f} seconds ({1000 * diff / GPU_BATCH_SIZE:.2f} ms/chunk) Queue: {insert_queue.qsize() * GPU_BATCH_SIZE}"
+            f" # DB insert ({GPU_BATCH_SIZE / (1000*diff):.2f}stmt/ms) Q:{insert_queue.qsize() * GPU_BATCH_SIZE}"
         )
 
 
 if __name__ == "__main__":
-    ResultHandler.init()
-
+    # TODO: DO NOT HARDCODE EMBEDDING DIMS
     postgres.init(384)
 
     global embed_queue
