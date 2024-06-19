@@ -105,6 +105,33 @@ def gen_statement_text(subject_label, subject_desc, property_label, statement):
     pass
 
 
+def is_scholar_article(entity):
+    claims = entity.get("claims")
+
+    instance_of = claims.get("P31")
+    if instance_of is None:
+        return
+
+    for statement in instance_of:
+        mainsnak = statement["mainsnak"]
+        snaktype = mainsnak["snaktype"]
+
+        if snaktype != "value":
+            continue
+
+        datatype = mainsnak["datatype"]
+
+        if datatype != "wikibase-item":
+            continue
+
+        datavalue = mainsnak.get("datavalue")
+        value = datavalue.get("value")
+        id = value.get("id")
+
+        if id == "Q13442814":  # scholar article
+            return True
+
+
 def process_line(line):
     entity = line_to_entity(line)
 
@@ -113,26 +140,13 @@ def process_line(line):
 
     if entity.get("type") == "item":
         subject_id = entity.get("id", None)
-        subject_label = entity.get("labels", {}).get("en", {}).get("value", None)
+        subject_label = entity.get("labels", {}).get("en", {}).get("value")
+        subject_desc = entity.get("descriptions", {}).get("en", {}).get("value")
         claims = entity.get("claims")
 
-        instance_of = claims.get("P31", None)
-        if instance_of:
-            for statement in instance_of:
-                mainsnak = statement["mainsnak"]
-                snaktype = mainsnak["snaktype"]
-                datatype = mainsnak["datatype"]
-                if snaktype == "value" and datatype == "wikibase-item":
-                    datavalue = mainsnak.get("datavalue")
-                    value = datavalue.get("value")
-                    if value == "Q13442814":  # scholar article
-                        print(f"{subject_id} ({subject_label}) skipping scholar article {line}")
-                        return  # skip
-                else:
-                    print(f"{subject_id} ({subject_label}) has instance_of not being a wikibase-item or value {line}")
-
-        subject_label = entity.get("labels", {}).get("en", {}).get("value", None)
-        subject_desc = entity.get("descriptions", {}).get("en", {}).get("value", None)
+        if is_scholar_article(entity):
+            print(f"Skipping scholar article {subject_id} ({subject_label})")
+            return  # skip
 
         if subject_id is None or subject_label is None or subject_desc is None:
             return
