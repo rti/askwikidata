@@ -141,28 +141,18 @@ def process_line(line):
                 if len(text) == 0:
                     continue
 
-                embed_queue.put((subject_id, text))
-
-
-class ResultHandler:
-    @classmethod
-    def init(cls):
-        pass
-
-    @classmethod
-    def handle_result(cls, _):
-        pass
+                embed_queue.put((subject_id, text), block=True)
 
 
 def read_dump():
     read_wikidata_dump(
         "/home/rti/tmp/wikidata-20240514/wikidata-20240514.json",
         process_line,
-        ResultHandler.handle_result,
+        threads=2
     )
 
 
-BATCH_SIZE = 1024 * 2
+GPU_BATCH_SIZE = 65536
 
 
 def handle_embed_queue():
@@ -171,21 +161,21 @@ def handle_embed_queue():
     ids = []
     texts = []
     while True:
-        if len(texts) == BATCH_SIZE:
+        if len(texts) == GPU_BATCH_SIZE:
             start_time = time.time()
-            embeds = embeddings.embed_docs(texts)
+            embeds = embeddings.embed_docs(texts, batch_size=256)
             end_time = time.time()
             diff = end_time - start_time
             print(
-                f"Embedded batch in {diff:.2f} seconds ({1000* diff / BATCH_SIZE:.2f} ms/chunk) Queue: {embed_queue.qsize()}"
+                f" > Embed {GPU_BATCH_SIZE / (1000*diff):.2f}stmt/ms Q:{embed_queue.qsize()}"
             )
 
-            tuple = (ids.copy(), texts.copy(), embeds.copy())
+            # tuple = (ids.copy(), texts.copy(), embeds.copy())
             # print(f"inserting {len(ids)} {len(texts)} {len(embeds)} to insert_queue")
-            insert_queue.put(tuple, block=False)
+            # insert_queue.put(tuple, block=False)
 
-            ids.clear()
-            texts.clear()
+            ids = []
+            texts = []
 
         item = embed_queue.get()
 
@@ -211,7 +201,7 @@ def handle_insert_queue():
         end_time = time.time()
         diff = end_time - start_time
         print(
-            f"Inserted batch in {diff:.2f} seconds ({1000 * diff / BATCH_SIZE:.2f} ms/chunk) Queue: {insert_queue.qsize() * BATCH_SIZE}"
+            f"Inserted batch in {diff:.2f} seconds ({1000 * diff / GPU_BATCH_SIZE:.2f} ms/chunk) Queue: {insert_queue.qsize() * GPU_BATCH_SIZE}"
         )
 
 
@@ -222,7 +212,7 @@ if __name__ == "__main__":
 
     global embed_queue
     global insert_queue
-    embed_queue = Queue()
+    embed_queue = Queue(maxsize=GPU_BATCH_SIZE * 4)
     insert_queue = Queue()
 
     read_dump_process = Process(target=read_dump)
