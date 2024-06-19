@@ -115,16 +115,30 @@ def process_line(line):
         return
 
     if entity.get("type") == "item":
-        item_statement_texts = []
-
         subject_id = entity.get("id", None)
+        subject_label = entity.get("labels", {}).get("en", {}).get("value", None)
+        claims = entity.get("claims")
+
+        instance_of = claims.get("P31", None)
+        if instance_of:
+            for statement in instance_of:
+                mainsnak = statement["mainsnak"]
+                snaktype = mainsnak["snaktype"]
+                datatype = mainsnak["datatype"]
+                if snaktype == "value" and datatype == "wikibase-item":
+                    datavalue = mainsnak.get("datavalue")
+                    value = datavalue.get("value")
+                    if value == "Q13442814":  # scholar article
+                        print(f"{subject_id} ({subject_label}) skipping scholar article {line}")
+                        return  # skip
+                else:
+                    print(f"{subject_id} ({subject_label}) has instance_of not being a wikibase-item or value {line}")
+
         subject_label = entity.get("labels", {}).get("en", {}).get("value", None)
         subject_desc = entity.get("descriptions", {}).get("en", {}).get("value", None)
 
         if subject_id is None or subject_label is None or subject_desc is None:
             return
-
-        claims = entity.get("claims")
 
         for claim_key in claims:
             property_label = get_label(claim_key)
@@ -150,7 +164,7 @@ def read_dump():
     read_wikidata_dump(
         "/home/rti/tmp/wikidata-20240514/wikidata-20240514.json",
         process_line,
-        threads=2,
+        threads=8,
     )
 
 
@@ -228,5 +242,3 @@ if __name__ == "__main__":
 
     read_dump_process.join()
     insert_process.join()
-
-    # embed_process.join()

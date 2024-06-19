@@ -40,3 +40,26 @@ CREATE TABLE items (
     embedding VECTOR(3)
 );
 
+
+
+ # DBins 6.40stmt/ms Q:0.0
+ > Embed 5.35stmt/ms Q:4.0
+ # DBins 6.50stmt/ms Q:0.0
+ > Embed 5.20stmt/ms Q:4.0
+   98: 0.36 (avg 0.40) ents/ms
+KeyboardInterrupt after 196:29
+
+root@11988f4a8c39:/var/lib/postgresql# du -hs .
+113G	.
+
+SELECT count(DISTINCT id) FROM chunks;
+4.305.655
+
+SELECT count(id) FROM chunks;
+58.589.184
+
+Q668984 (Google I/O) has instance_of not being a wikibase-item or value.
+Q38933840 (The Evolution of Fangs, Venom, and Mimicry Systems in Blenny Fishes) has instance_of not being a wikibase-item or value. https://www.wikidata.org/wiki/Q38933840
+
+TODO: scholar article dropping does not seam to work
+HDD too small for DB
