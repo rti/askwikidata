@@ -104,7 +104,7 @@ def get_similar_chunks_with_distance(
 
     return [
         (
-            Chunk(id=r[0], text=r[1], embedding=[]),
+            Chunk(id=r[0], text=r[1], embedding=numpy.ndarray([])),
             float(r[2]),
         )
         for r in res
