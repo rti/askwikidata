@@ -105,28 +105,3 @@ def line_to_entity(line):
         raise e
 
     return entity
-
-
-# Example usage
-def process_line(line):
-    entity = line_to_entity(line)
-
-    if entity is None:
-        return
-
-    if entity.get("type") == "property":
-        print(f"found prop {entity.get('id')}", file=sys.stderr)
-        return json.dumps(entity)
-
-
-def handle_result(result):
-    if result is not None:
-        print(result)
-
-
-if __name__ == "__main__":
-    read_wikidata_dump(
-        "/home/rti/tmp/wikidata-20240514/wikidata-20240514.json",
-        process_line,
-        handle_result,
-    )
