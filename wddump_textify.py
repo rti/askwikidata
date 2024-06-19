@@ -148,7 +148,7 @@ def read_dump():
     read_wikidata_dump(
         "/home/rti/tmp/wikidata-20240514/wikidata-20240514.json",
         process_line,
-        threads=2
+        threads=2,
     )
 
 
@@ -167,7 +167,7 @@ def handle_embed_queue():
             end_time = time.time()
             diff = end_time - start_time
             print(
-                f" > Embed {GPU_BATCH_SIZE / (1000*diff):.2f}stmt/ms Q:{embed_queue.qsize()}"
+                f" > Embed {GPU_BATCH_SIZE / (1000*diff):.2f}stmt/ms Q:{embed_queue.qsize() / GPU_BATCH_SIZE:.1f}"
             )
 
             tuple = (ids, texts, embeds)
@@ -196,12 +196,15 @@ def handle_insert_queue():
             break
 
         start_time = time.time()
+        chunks = []
         for id, text, embed in zip(t[0], t[1], t[2]):
-            postgres.insert(postgres.Chunk(id=id, text=text, embedding=embed))
+            embedding_string = "[" + ", ".join([str(num) for num in embed]) + "]"
+            chunks.append((id, text, embedding_string))
+        postgres.insertmany(chunks)
         end_time = time.time()
         diff = end_time - start_time
         print(
-            f" # DB insert ({GPU_BATCH_SIZE / (1000*diff):.2f}stmt/ms) Q:{insert_queue.qsize() * GPU_BATCH_SIZE}"
+            f" # DBins {GPU_BATCH_SIZE / (1000*diff):.2f}stmt/ms Q:{float(insert_queue.qsize()):.1f}"
         )
 
 
@@ -212,7 +215,7 @@ if __name__ == "__main__":
     global embed_queue
     global insert_queue
     embed_queue = Queue(maxsize=GPU_BATCH_SIZE * 4)
-    insert_queue = Queue()
+    insert_queue = Queue(maxsize=4)
 
     read_dump_process = Process(target=read_dump)
     insert_process = Process(target=handle_insert_queue)

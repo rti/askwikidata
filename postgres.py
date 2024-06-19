@@ -59,10 +59,20 @@ def insert(chunk: Chunk):
 
     embedding_string = "[" + ", ".join([str(num) for num in chunk.embedding]) + "]"
 
-    # TODO: executemany
     cur.execute(
         "INSERT INTO chunks (id, text, embedding) VALUES (%s, %s, %s);",
         (chunk.id, chunk.text, embedding_string),
+    )
+    cur.close()
+    db.commit()
+
+
+def insertmany(chunks: List[Tuple[str, str, str]]):
+    db = get_connection()
+    cur = db.cursor()
+
+    cur.executemany(
+        "INSERT INTO chunks (id, text, embedding) VALUES (%s, %s, %s)", chunks
     )
     cur.close()
     db.commit()
