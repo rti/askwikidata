@@ -38,8 +38,9 @@ async def process_file(
             results = await process_task
 
             # can we do this async in one task?
-            for result in results:
-                result_handler_func(result)
+            if result_handler_func:
+                for result in results:
+                    result_handler_func(result)
 
             time_per_iteration_ms = (time.time() - start) * 1000
             lines_per_ms = len(chunk_of_lines) / time_per_iteration_ms
@@ -48,7 +49,7 @@ async def process_file(
             lines_per_ms_avg = sum(line_per_ms_values) / len(line_per_ms_values)
             iterations += 1
             print(
-                f"{iterations:5}: {lines_per_ms:.2f} (avg {lines_per_ms_avg:.2f}) entities per ms",
+                f"{iterations:5}: {lines_per_ms:.2f} (avg {lines_per_ms_avg:.2f}) ents/ms",
                 file=sys.stderr,
             )
 
@@ -60,13 +61,24 @@ async def process_file(
         await file.close()
 
 
-def read_wikidata_dump(dump_file, line_handler_func, result_handler_func):
-    threads = int(cpu_count() * 2)
-    chunksize = int(1024 * 1024 * 1024 * 1)
-    print(f"using {threads} processes, {chunksize} as chunk_size", file=sys.stderr)
+def read_wikidata_dump(
+    dump_file,
+    line_handler_func,
+    result_handler_func=None,
+    threads=None,
+    chunk_size=None,
+):
+    if threads is None:
+        threads = int(cpu_count() * 2)
+
+    if chunk_size is None:
+        chunk_size = int(1024 * 1024 * 1024 * 1)
+
+    print(f"using {threads} processes to process lines", file=sys.stderr)
+    print(f"reading {chunk_size}byte chunks from disk", file=sys.stderr)
     asyncio.run(
         process_file(
-            dump_file, line_handler_func, result_handler_func, threads, chunksize
+            dump_file, line_handler_func, result_handler_func, threads, chunk_size
         )
     )
 
