@@ -6,9 +6,6 @@ import embeddings
 
 from multiprocessing import Process, Queue
 
-conn = sqlite3.connect("entities.db")
-cursor = conn.cursor()
-
 
 def get_label(id):
     global cursor
@@ -225,6 +222,11 @@ def handle_insert_queue():
 
 
 if __name__ == "__main__":
+    conn = sqlite3.connect("entities.db")
+
+    global cursor
+    cursor = conn.cursor()
+
     # TODO: DO NOT HARDCODE EMBEDDING DIMS
     postgres.init(384)
 
