@@ -45,7 +45,7 @@ async def process_file(
             time_per_iteration_ms = (time.time() - start) * 1000
             lines_per_ms = len(chunk_of_lines) / time_per_iteration_ms
             line_per_ms_values.append(lines_per_ms)
-            line_per_ms_values = line_per_ms_values[-5:]
+            line_per_ms_values = line_per_ms_values[-16:]
             lines_per_ms_avg = sum(line_per_ms_values) / len(line_per_ms_values)
             iterations += 1
             print(
