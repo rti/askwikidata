@@ -79,11 +79,12 @@ def gen_statement_text(subject_label, subject_desc, property_label, statement):
         #     + f"{subject_label} {property_label} {object_label}.\n"
         #     + f"{object_label}: {object_desc}.\n"
         # )
-        return (
-            f"{subject_label}: {subject_desc}.\n"
-            + f"{subject_label} {property_label} {object_label}.\n"
-            + f"{object_label}: {object_desc}.\n"
-        )
+        # return (
+        #     f"{subject_label}: {subject_desc}.\n"
+        #     + f"{subject_label} {property_label} {object_label}.\n"
+        #     + f"{object_label}: {object_desc}.\n"
+        # )
+        return f"{subject_label} ({subject_desc}) {property_label} {object_label} ({object_desc})."
 
     elif datatype == "string":
         value = statement["mainsnak"]["datavalue"]["value"].rstrip(".")
@@ -92,10 +93,11 @@ def gen_statement_text(subject_label, subject_desc, property_label, statement):
         #     f"{subject_label}: {subject_desc}.\n"
         #     + f"{subject_label} {property_label} {value}.\n"
         # )
-        return (
-            f"{subject_label}: {subject_desc}.\n"
-            + f"{subject_label} {property_label} {value}.\n"
-        )
+        # return (
+        #     f"{subject_label}: {subject_desc}.\n"
+        #     + f"{subject_label} {property_label} {value}.\n"
+        # )
+        return f"{subject_label} ({subject_desc}) {property_label} {value}."
 
     elif datatype == "time":
         pass
