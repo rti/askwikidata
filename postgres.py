@@ -42,7 +42,8 @@ def init(embeddingLength: int):
         SQL(
             """
             CREATE TABLE IF NOT EXISTS chunks ( 
-                id CHAR(16) NOT NULL, 
+                id SERIAL PRIMARY KEY,
+                qid CHAR(16) NOT NULL, 
                 text TEXT NOT NULL, 
                 embedding vector( {} ) NOT NULL
             );
@@ -60,7 +61,7 @@ def insert(chunk: Chunk):
     embedding_string = "[" + ", ".join([str(num) for num in chunk.embedding]) + "]"
 
     cur.execute(
-        "INSERT INTO chunks (id, text, embedding) VALUES (%s, %s, %s);",
+        "INSERT INTO chunks (qid, text, embedding) VALUES (%s, %s, %s);",
         (chunk.id, chunk.text, embedding_string),
     )
     cur.close()
@@ -72,7 +73,7 @@ def insertmany(chunks: List[Tuple[str, str, str]]):
     cur = db.cursor()
 
     cur.executemany(
-        "INSERT INTO chunks (id, text, embedding) VALUES (%s, %s, %s)", chunks
+        "INSERT INTO chunks (qid, text, embedding) VALUES (%s, %s, %s)", chunks
     )
     cur.close()
     db.commit()
@@ -87,7 +88,7 @@ def get_similar_chunks_with_distance(
     cur.execute(
         """
         SELECT 
-            c.id, c.text, 
+            c.qid, c.text, 
             c.embedding <-> %s AS distance
         FROM chunks c
         ORDER BY c.embedding <-> %s
