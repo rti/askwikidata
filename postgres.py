@@ -47,6 +47,10 @@ def init(embeddingLength: int):
                 text TEXT NOT NULL, 
                 embedding vector( {} ) NOT NULL
             );
+
+            CREATE INDEX IF NOT EXISTS chunks_embedding_vector_l2_ops_index
+            ON chunks
+            USING vectors (embedding vector_l2_ops);
             """
         ).format(Literal(str(embeddingLength)))
     )
