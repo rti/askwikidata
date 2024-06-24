@@ -84,23 +84,24 @@ def insertmany(chunks: List[Tuple[str, str, str]]):
 
 
 def get_similar_chunks_with_distance(
-    embeddingString: str, limit=5
+    embedding: numpy.ndarray, limit=5, threshold=100
 ) -> List[Tuple[Chunk, float]]:
     """<-> in pgvecto.rs is squared euclidean distance as metric"""
+
+    embedding_string = "[" + ", ".join([str(num) for num in embedding]) + "]"
 
     cur = get_connection().cursor()
     cur.execute(
         """
         SELECT 
-            c.qid, c.text, 
-            c.embedding <-> %s AS distance
+            c.qid, c.text, c.embedding <-> %s AS distance
         FROM chunks c
         ORDER BY c.embedding <-> %s
         LIMIT %s;
         """,
         (
-            embeddingString,
-            embeddingString,
+            embedding_string,
+            embedding_string,
             limit,
         ),
     )
@@ -112,5 +113,5 @@ def get_similar_chunks_with_distance(
             Chunk(id=r[0], text=r[1], embedding=numpy.ndarray([])),
             float(r[2]),
         )
-        for r in res
+        for r in res if r[2] < threshold
     ]
