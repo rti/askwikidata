@@ -31,11 +31,40 @@ services:
     # GPU access for ROCm (AMD)
     devices:
       - /dev/dri:/dev/dri
-      - /dev/kfd:/dev/kfd
+      # - /dev/kfd:/dev/kfd
 
     depends_on:
       postgres:
         condition: service_healthy
+
+
+  scheduler:
+    image: ghcr.io/dask/dask:latest
+    hostname: scheduler
+    ports:
+      - "8786:8786"
+      - "8787:8787"
+    command: ["dask-scheduler"]
+    volumes:
+      - /home/rti/tmp/wikidata-20240514/wikidata-20240514.json:/home/rti/tmp/wikidata-20240514/wikidata-20240514.json
+
+  worker:
+    image: ghcr.io/dask/dask:latest
+    command: ["dask-worker", "tcp://scheduler:8786"]
+    # For Docker swarm you can specify multiple workers, this is ignored by `docker-compose up`
+    deploy:
+      replicas: 8
+    volumes:
+      - /home/rti/tmp/wikidata-20240514/wikidata-20240514.json:/home/rti/tmp/wikidata-20240514/wikidata-20240514.json
+
+  notebook:
+    image: ghcr.io/dask/dask-notebook:latest
+    ports:
+      - "8888:8888"
+    environment:
+      - DASK_SCHEDULER_ADDRESS="tcp://scheduler:8786"
+    volumes:
+      - /home/rti/tmp/wikidata-20240514/wikidata-20240514.json:/home/rti/tmp/wikidata-20240514/wikidata-20240514.json
 
 volumes:
   app-cache:

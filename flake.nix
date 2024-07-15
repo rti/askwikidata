@@ -26,28 +26,29 @@
         openai
         aiofiles
 
-        black
-        ipython
-        coverage
+        dask
+        dask-expr
+        distributed
+        bokeh
 
-        (
-          buildPythonPackage rec {
-            pname = "mentat";
-            version = "1.0.2";
-            src = fetchPypi {
-              inherit pname version;
-              sha256 = "sha256-r+rWxTLL4g1qJjfep9Uf4zdzZ4ISenonNq4k9P/tPvk=";
-            };
-            doCheck = false;
-            propagatedBuildInputs = [
-              # Specify dependencies
-              pkgs.python3Packages.backoff
-              pkgs.python3Packages.termcolor
-              pkgs.python3Packages.sentry-sdk
-              pkgs.python3Packages.python-dotenv
-            ];
-          }
-        )
+        # (
+        #   buildPythonPackage rec {
+        #     pname = "mentat";
+        #     version = "1.0.2";
+        #     src = fetchPypi {
+        #       inherit pname version;
+        #       sha256 = "sha256-r+rWxTLL4g1qJjfep9Uf4zdzZ4ISenonNq4k9P/tPvk=";
+        #     };
+        #     doCheck = false;
+        #     propagatedBuildInputs = [
+        #       # Specify dependencies
+        #       pkgs.python3Packages.backoff
+        #       pkgs.python3Packages.termcolor
+        #       pkgs.python3Packages.sentry-sdk
+        #       pkgs.python3Packages.python-dotenv
+        #     ];
+        #   }
+        # )
       ];
     in
     {
@@ -57,6 +58,10 @@
           (pkgs.python3.withPackages python-packages)
 
           pyright
+          black
+          pip
+          ipython
+          coverage
 
           (writeShellScriptBin "ipython-simple-prompt" ''
             ipython --simple-prompt --nosep "$@"
