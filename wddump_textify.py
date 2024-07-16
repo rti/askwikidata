@@ -1,10 +1,16 @@
-from wddump import read_wikidata_dump, line_to_entity
-import sqlite3
 import time
-import postgres
-import embeddings
+import sqlite3
 
 from multiprocessing import Process, Queue
+
+from dask.distributed import Client, LocalCluster
+from dask.delayed import delayed
+import dask.bag as bag
+
+
+from wddump import read_wikidata_dump, line_to_entity
+import embeddings
+import postgres
 
 
 def get_label(id):
@@ -182,7 +188,45 @@ def read_dump():
     )
 
 
-GPU_BATCH_SIZE = 65536
+GPU_BATCH_SIZE = 4096
+TASK_BATCH_SIZE = 16
+
+
+def dask_embed_batch(ids, texts):
+    embeds = embeddings.embed_docs(texts, batch_size=256)
+    return (ids, texts, embeds)
+
+
+def handle_embed_queue_dask():
+    # embeddings.embed_docs(["warmup"])
+
+    ids = []
+    texts = []
+    tasks = []
+
+    while True:
+        if len(texts) == GPU_BATCH_SIZE:
+            print(f"appending {GPU_BATCH_SIZE} texts and ids {len(ids)} {len(texts)}")
+            tasks.append(delayed(dask_embed_batch)(ids, texts))
+
+            ids = []
+            texts = []
+
+        if len(tasks) == TASK_BATCH_SIZE:
+            result_tuple = list(bag.from_delayed(tasks))
+            tasks = []
+
+            insert_queue.put(result_tuple, block=True)
+
+
+
+        item = embed_queue.get()
+
+        if item is None:
+            break
+
+        ids.append(item[0])
+        texts.append(item[1])
 
 
 def handle_embed_queue():
@@ -239,6 +283,16 @@ def handle_insert_queue():
 
 
 if __name__ == "__main__":
+    client = Client(
+        LocalCluster(
+            n_workers=1,
+            threads_per_worker=1,
+            memory_limit="auto",
+            dashboard_address="0.0.0.0:8787",
+        )
+    )
+    print(client.dashboard_link)
+
     conn = sqlite3.connect("entities.db")
 
     global cursor
@@ -257,7 +311,8 @@ if __name__ == "__main__":
     read_dump_process.start()
     insert_process.start()
 
-    handle_embed_queue()
+    # handle_embed_queue()
+    handle_embed_queue_dask()
 
     read_dump_process.join()
     insert_process.join()
