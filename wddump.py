@@ -4,6 +4,7 @@ import time
 import sys
 import asyncio
 import aiofiles
+import os
 
 
 async def process(pool, line_handler_func, chunk_of_lines):
@@ -12,12 +13,14 @@ async def process(pool, line_handler_func, chunk_of_lines):
 
 async def readlines(file, chunk_size):
     return await file.readlines(chunk_size)
+def init_worker():
+    os.nice(19)
 
 
 async def process_file(
     file_path, line_handler_func, result_handler_func, num_processes, chunk_size
 ):
-    with Pool(num_processes) as pool:
+    with Pool(num_processes, init_worker) as pool:
         start = time.time()
         line_per_ms_values = []
         iterations = 0
