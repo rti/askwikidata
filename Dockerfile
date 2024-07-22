@@ -10,6 +10,7 @@ COPY requirements.txt .
 # RUN pip install sentence-transformers aiofiles pandas tqdm psycopg[binary,pool]
 # RUN pip install dask distributed dask-expr bokeh
 RUN pip install -r requirements.txt
+RUN pip install setproctitle
 
 CMD ["sleep", "infinity"]
 

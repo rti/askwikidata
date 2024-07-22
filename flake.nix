@@ -30,6 +30,7 @@
         dask-expr
         distributed
         bokeh
+        setproctitle
 
         # (
         #   buildPythonPackage rec {
