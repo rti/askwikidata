@@ -1,0 +1,85 @@
+schemaVersion: 2.2.0
+
+metadata:
+  name: askwikidata
+  displayName: Python
+  language: Python
+  projectType: Python
+
+components:
+  - name: innerloop-build
+    image:
+      imageName: askwikidata
+      autoBuild: true
+      dockerfile:
+        uri: ./Dockerfile
+        buildContext: .
+        rootRequired: false
+
+  # - name: outerloop-build
+  #   image:
+  #     imageName: askwikidata
+  #     autoBuild: true
+  #     dockerfile:
+  #       uri: ./Dockerfile
+  #       buildContext: .
+  #       rootRequired: false
+  #
+  - name: py
+    container:
+      image: askwikidata
+      args:
+        - tail
+        - -f
+        - /dev/null
+      # endpoints:
+      #   - name: port-8787-tcp
+      #     protocol: tcp
+      #     targetPort: 8787
+      #   - exposure: none
+      #     name: debug
+      #     targetPort: 5858
+      env:
+        - name: DEBUG_PORT
+          value: "5858"
+      mountSources: true
+
+commands:
+  # - id: pip-install-requirements
+  #   exec:
+  #     component: py
+  #     commandLine: echo hi
+  #     group:
+  #       isDefault: true
+  #       kind: build
+  #     workingDir: ${PROJECT_SOURCE}
+
+  - id: run-app
+    exec:
+      commandLine: echo "print('run')" | python
+      component: py
+      group:
+        isDefault: true
+        kind: run
+      workingDir: ${PROJECT_SOURCE}
+
+  # - id: run-wddump-textify
+  #   exec:
+  #     commandLine: python wddump_textify.py
+  #     component: py
+  #     group:
+  #       isDefault: false
+  #       kind: run
+  #     workingDir: ${PROJECT_SOURCE}
+  #
+
+  # - exec:
+  #     commandLine:
+  #       pip install debugpy && python -m debugpy --listen 0.0.0.0:${DEBUG_PORT}
+  #       app.py
+  #     component: py
+  #     group:
+  #       kind: debug
+  #     workingDir: ${PROJECT_SOURCE}
+  #   id: debug-py
+
