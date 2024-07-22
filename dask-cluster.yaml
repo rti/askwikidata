@@ -1,0 +1,116 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dask
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dask-scheduler
+  namespace: dask
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dask-scheduler
+  template:
+    metadata:
+      labels:
+        app: dask-scheduler
+    spec:
+      containers:
+      - name: dask-scheduler
+        image: daskdev/dask:latest
+        args: ["dask", "scheduler"]
+        ports:
+        - containerPort: 8786
+        - containerPort: 8787
+---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: dask-scheduler
+#   namespace: dask
+# spec:
+#   selector:
+#     app: dask-scheduler
+#   ports:
+#     - name: dask-port
+#       protocol: TCP
+#       port: 8786
+#       targetPort: 8786
+#     - name: dashboard
+#       protocol: TCP
+#       port: 8787
+#       targetPort: 8787
+#   type: NodePort
+# ---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dask-worker
+  namespace: dask
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dask-worker
+  template:
+    metadata:
+      labels:
+        app: dask-worker
+    spec:
+      containers:
+      - name: dask-worker
+        image: daskdev/dask:latest
+        args: ["dask", "worker", "dask-scheduler.dask:8786"]
+        resources:
+          limits:
+            memory: "2Gi"
+            cpu: "1"
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-scheduler-communication-to-worker
+  namespace: dask
+spec:
+  podSelector:
+    matchLabels:
+      app: dask-scheduler
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: dask-worker
+  egress:
+  - to:
+    - podSelector:
+        matchLabels:
+          app: dask-worker
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-worker-communication-to-scheduler
+  namespace: dask
+spec:
+  podSelector:
+    matchLabels:
+      app: dask-worker
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: dask-scheduler
+  egress:
+  - to:
+    - podSelector:
+        matchLabels:
+          app: dask-scheduler
