@@ -72,9 +72,4 @@ class ResultHandler:
 
 if __name__ == "__main__":
     ResultHandler.init()
-
-    read_wikidata_dump(
-        "/home/rti/tmp/wikidata-20240514/wikidata-20240514.json",
-        process_line,
-        ResultHandler.handle_result,
-    )
+    read_wikidata_dump("/wikidata.json", process_line, ResultHandler.handle_result)

@@ -26,7 +26,7 @@ services:
     volumes:
       - .:/workspace
       - app-cache:/root/.cache
-      - /home/rti/tmp/wikidata-20240514/wikidata-20240514.json:/home/rti/tmp/wikidata-20240514/wikidata-20240514.json
+      - /home/rti/tmp/wikidata-20240514/wikidata-20240514.json:/wikidata.json
 
     ports:
       - 8787:8787
