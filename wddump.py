@@ -7,12 +7,10 @@ import aiofiles
 import os
 
 
-async def process(pool, line_handler_func, chunk_of_lines):
+async def handle_lines(pool, line_handler_func, chunk_of_lines):
     return pool.map(line_handler_func, chunk_of_lines)
 
 
-async def readlines(file, chunk_size):
-    return await file.readlines(chunk_size)
 def init_worker():
     os.nice(19)
 
@@ -27,20 +25,19 @@ async def process_file(
 
         file = await aiofiles.open(file_path, mode="r")
 
-        read_task = asyncio.create_task(readlines(file, chunk_size))
+        read_task = asyncio.create_task(file.readlines(chunk_size))
 
         while True:
             chunk_of_lines = await read_task
             if not chunk_of_lines:
                 break
 
-            read_task = asyncio.create_task(readlines(file, chunk_size))
+            read_task = asyncio.create_task(file.readlines(chunk_size))
             process_task = asyncio.create_task(
-                process(pool, line_handler_func, chunk_of_lines)
+                handle_lines(pool, line_handler_func, chunk_of_lines)
             )
             results = await process_task
 
-            # can we do this async in one task?
             if result_handler_func:
                 for result in results:
                     result_handler_func(result)
@@ -77,8 +74,10 @@ def read_wikidata_dump(
     if chunk_size is None:
         chunk_size = int(1024 * 1024 * 1024 * 1)
 
-    print(f"using {threads} processes to process lines", file=sys.stderr)
-    print(f"reading {chunk_size}byte chunks from disk", file=sys.stderr)
+    print(f"Using {threads} processes to process lines", file=sys.stderr)
+    print(
+        f"Reading {int(chunk_size / (1024 * 1024))}MB chunks from disk", file=sys.stderr
+    )
     asyncio.run(
         process_file(
             dump_file, line_handler_func, result_handler_func, threads, chunk_size
