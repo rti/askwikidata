@@ -2,15 +2,19 @@ import time
 import sqlite3
 
 from multiprocessing import Process, Queue
+import setproctitle
 
 from dask.distributed import Client, LocalCluster
-from dask.delayed import delayed
-import dask.bag as bag
-
 
 from wddump import read_wikidata_dump, line_to_entity
 import embeddings
 import postgres
+
+
+
+EMBED_QUEUE_SIZE = 1024
+EMBED_BATCH_SIZE = 32
+INSERT_QUEUE_SIZE = 1
 
 
 def get_label(id):
@@ -181,138 +185,105 @@ def process_line(line):
 
 
 def read_dump():
-    read_wikidata_dump(
-        "/home/rti/tmp/wikidata-20240514/wikidata-20240514.json",
-        process_line,
-        threads=8,
-    )
+    setproctitle.setproctitle("wddump-read")
+    read_wikidata_dump("/wikidata.json", process_line, threads=8)
 
 
-GPU_BATCH_SIZE = 4096
-TASK_BATCH_SIZE = 16
 
 
-def dask_embed_batch(ids, texts):
+async def embed_batch(ids, texts):
     embeds = embeddings.embed_docs(texts, batch_size=256)
     return (ids, texts, embeds)
 
 
-def handle_embed_queue_dask():
-    # embeddings.embed_docs(["warmup"])
+def handle_embed_queue():
+    setproctitle.setproctitle("wddump-embed-queue")
+    print("Start handle embed queue...")
+
+    daskCluster = Client(
+        LocalCluster(
+            n_workers=2,
+            threads_per_worker=1,
+            memory_limit="auto",
+            dashboard_address="0.0.0.0:8787",
+        )
+    )
+    print(daskCluster.dashboard_link)
+
+    embeddings.embed_query("warmup")
 
     ids = []
     texts = []
     tasks = []
 
     while True:
-        if len(texts) == GPU_BATCH_SIZE:
-            print(f"appending {GPU_BATCH_SIZE} texts and ids {len(ids)} {len(texts)}")
-            tasks.append(delayed(dask_embed_batch)(ids, texts))
+        item = embed_queue.get()
 
+        if item is not None:
+            ids.append(item[0])
+            texts.append(item[1])
+
+        if len(texts) == EMBED_BATCH_SIZE or (len(texts) and item is None):
+            future = daskCluster.submit(embed_batch, ids, texts)
+            tasks.append(future)
             ids = []
             texts = []
 
-        if len(tasks) == TASK_BATCH_SIZE:
-            result_tuple = list(bag.from_delayed(tasks))
-            tasks = []
-
-            insert_queue.put(result_tuple, block=True)
-
-
-
-        item = embed_queue.get()
-
-        if item is None:
-            break
-
-        ids.append(item[0])
-        texts.append(item[1])
-
-
-def handle_embed_queue():
-    embeddings.embed_docs(["warmup"])
-
-    ids = []
-    texts = []
-    while True:
-        if len(texts) == GPU_BATCH_SIZE:
-            start_time = time.time()
-            embeds = embeddings.embed_docs(texts, batch_size=256)
-            end_time = time.time()
-            diff = end_time - start_time
-            print(
-                f" > Embed {GPU_BATCH_SIZE / (1000*diff):.2f}stmt/ms Q:{embed_queue.qsize() / GPU_BATCH_SIZE:.1f}"
-            )
-
-            tuple = (ids, texts, embeds)
-            # print(f"inserting {len(ids)} {len(texts)} {len(embeds)} to insert_queue")
-            insert_queue.put(tuple, block=True)
-
-            ids = []
-            texts = []
-
-        item = embed_queue.get()
-
-        if item is None:
-            break
-
-        ids.append(item[0])
-        texts.append(item[1])
+        if len(tasks) and tasks[0].status == "finished":  # TODO: handle last batch
+            future = tasks[0]
+            tasks = tasks[1:]
+            result = future.result()
+            insert_queue.put(result, block=True)
 
 
 def handle_insert_queue():
+    setproctitle.setproctitle("wddump-insert-queue")
+    print("Start handle insert queue...")
+
     while True:
-        t = insert_queue.get()
+        start_time = time.time()
 
-        # print(f" got from insert queue {len(t[0])} {len(t[1])} {len(t[2])}")
-
-        if t is None:
+        insert_data = insert_queue.get()
+        if insert_data is None:
             break
 
-        start_time = time.time()
         chunks = []
-        for id, text, embed in zip(t[0], t[1], t[2]):
+
+        for id, text, embed in zip(insert_data[0], insert_data[1], insert_data[2]):
             embedding_string = "[" + ", ".join([str(num) for num in embed]) + "]"
             chunks.append((id, text, embedding_string))
         postgres.insertmany(chunks)
+
         end_time = time.time()
         diff = end_time - start_time
         print(
-            f" # DBins {GPU_BATCH_SIZE / (1000*diff):.2f}stmt/ms Q:{float(insert_queue.qsize()):.1f}"
+            f" # DBins {EMBED_BATCH_SIZE / (1000*diff):.2f}stmt/ms Q:{float(insert_queue.qsize()):.1f}"
         )
 
 
 if __name__ == "__main__":
-    client = Client(
-        LocalCluster(
-            n_workers=1,
-            threads_per_worker=1,
-            memory_limit="auto",
-            dashboard_address="0.0.0.0:8787",
-        )
-    )
-    print(client.dashboard_link)
+    setproctitle.setproctitle("wddump-main")
 
     conn = sqlite3.connect("entities.db")
 
     global cursor
     cursor = conn.cursor()
 
-    # TODO: DO NOT HARDCODE EMBEDDING DIMS
+    # TODO: do not hardcode embedding dims
     postgres.init(384)
 
     global embed_queue
     global insert_queue
-    embed_queue = Queue(maxsize=GPU_BATCH_SIZE * 4)
-    insert_queue = Queue(maxsize=4)
+    embed_queue = Queue(maxsize=EMBED_QUEUE_SIZE)
+    insert_queue = Queue(maxsize=1)
 
     read_dump_process = Process(target=read_dump)
+    embed_process = Process(target=handle_embed_queue)
     insert_process = Process(target=handle_insert_queue)
     read_dump_process.start()
+    embed_process.start()
     insert_process.start()
 
-    # handle_embed_queue()
-    handle_embed_queue_dask()
-
     read_dump_process.join()
+    embed_process.join()
     insert_process.join()
