@@ -9,6 +9,8 @@ import numpy
 MODEL_NAME = "paraphrase-MiniLM-L6-v2"
 MODEL_PREFIX_DOCUMENT = ""
 MODEL_PREFIX_QUERY = ""
+# TRY_GPU = True
+TRY_GPU = False
 
 _model: sentence_transformers.SentenceTransformer | None = None
 
@@ -17,7 +19,7 @@ def get_model() -> sentence_transformers.SentenceTransformer:
     global _model
     if not _model:
         device = "cpu"
-        if cuda.is_available():
+        if TRY_GPU and cuda.is_available():
             print("CUDA available to torch.")
             device = "cuda"
         else:
