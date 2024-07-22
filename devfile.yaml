@@ -28,10 +28,6 @@ components:
   - name: py
     container:
       image: askwikidata
-      args:
-        - tail
-        - -f
-        - /dev/null
       # endpoints:
       #   - name: port-8787-tcp
       #     protocol: tcp
