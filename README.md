@@ -82,7 +82,7 @@ python eval.py
 ```
 
 ### Configure API Keys
-If you do not want to use a local LLM, AskWikidata can access LLM APIs by hosted on Huggingface. Configure your HF API key in the `HUGGINGFACE_API_KEY` environment variable.
+If you do not want to use a local LLM, AskWikidata can access the Huggingface LLM API. Configure your Hugginface API key in the `HUGGINGFACE_API_KEY` environment variable.
 
 
 ### Run tests
