@@ -229,7 +229,7 @@ class AskWikidata:
             prompt_func = self.llama_prompt
         elif "mistral" in self.qa_model_url:
             prompt_func = self.mistral_prompt
-        elif "Qwen2.5" in self.qa_model_url:
+        elif "Qwen" in self.qa_model_url:
             prompt_func = self.qwen25_prompt
         else:
             raise Exception(f"unknown qa_model_name {self.qa_model_url}")
