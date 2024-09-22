@@ -2,7 +2,7 @@
 
 A Prototype for a Wikidata Question-Answering System
 
-<p align="center"><img src="./image.jpg" alt="A cute wrap, the mascot of Nixwrap" style="width:400px;"/></p>
+<p align="center"><img src="./image.jpg" alt="The askwikidata title image" style="width:400px;"/></p>
 
 This system allows users to query Wikidata using natural language questions. The responses contain links to sources. If Wikidata does not provide the information requested, the system refuses to answer.
 
@@ -18,7 +18,9 @@ To give it a try, use ➡️  [this Google Colab Notebook](https://colab.researc
 
 ## Implementation
 
-This system integrates Large Language Models (LLMs) to respond to user questions. It converts Wikidata items into text format to ensure compatibility with the LLM. A retrieval-augmented generation (RAG) method is employed, where the user's question initiates a search for relevant "documents" within the Wikidata text item dataset. A reranker then evaluates these documents, prioritizing those most likely to address the question effectively. The chosen documents are then incorporated into the LLM's prompt, directing the model to formulate responses solely based on the provided information.
+In order to answer questions based on Wikidata, the system uses retrieval augmented generation. First it transforms Wikidata items to text and generates embeddings for them. The user query is then embedded as well. Using nearest neighbor search, most relevant Wikidata items are identified. A reranker model selects only the best matches from the neighbors. Finally, these matches are incorporated into the LLM prompt in order to allow the LLM to generate using Wikidata knowledge.
+
+All models, including the LLM can run on the local machine using `pytorch`. For nearest neighbor search, an `annoy` index is used.
 
 ## Usage
 ### Install dependencies
@@ -31,7 +33,7 @@ nix develop .
 #### Pip
 Alternatively, install python requirements using pip.
 ```sh
-pip install -q langchain annoy sentence_transformers transformers touch pandas tqdm protobuf accelerate bitsandbytes safetensors sentencepiece
+pip install -r requirements.txt
 ```
 
 ### Unpack provided caches
@@ -59,7 +61,7 @@ config = {
     "context_chunks": 5,
     "embedding_model_name": "BAAI/bge-small-en-v1.5",
     "reranker_model_name": "BAAI/bge-reranker-base",
-    "qa_model_url": "mistralai/Mistral-7B-Instruct-v0.1",
+    "qa_model_url": "Qwen/Qwen2.5-3B-Instruct",
 }
 
 askwikidata = AskWikidata(**config)
@@ -80,13 +82,8 @@ python eval.py
 ```
 
 ### Configure API Keys
-If you do not want to use a local LLM, AskWikidata can access LLM APIs by hosted by Huggingface, runpod.io and OpenAI. Configure your API keys in the following environment variables:
+If you do not want to use a local LLM, AskWikidata can access LLM APIs by hosted on Huggingface. Configure your HF API key in the `HUGGINGFACE_API_KEY` environment variable.
 
-Provider | Environment Variable Name | Note
---- | --- | ---
-Hugging Face | `HUGGINGFACE_API_KEY` | active
-runpod.io | `RUNPOD_API_KEY` | currently defunct
-OpenAI | `OPENAI_API_KEY` | currently defunct
 
 ### Run tests
 To execute the unit test suite, run:
