@@ -10,7 +10,6 @@ from tqdm import tqdm
 from langchain.embeddings.huggingface import HuggingFaceBgeEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from annoy import AnnoyIndex
-# import openai
 
 import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
@@ -147,8 +146,6 @@ class AskWikidata:
 
     def retrieve(self, query: str) -> pd.DataFrame:
         print("Retrieving...")
-        # TODO: what works better?
-        # query_embed = self.embedding_model.embed_documents([query])[0]
         query_embed = self.embedding_model.embed_query(query)
         query_embed_float = [float(value) for value in query_embed]
         nns = self.index.get_nns_by_vector(
@@ -218,10 +215,6 @@ class AskWikidata:
 
         if "huggingface.co" in self.qa_model_url:
             return self.hf_generate(query, context, self.qa_model_url, prompt_func)
-        # elif "api.runpod.ai" in self.qa_model_url:
-        #     return self.hf_generate(query, context, self.qa_model_url, prompt_func)
-        #     return self.ask_llama_runpod(query, context)
-        # return self.ask_openai(query, context)
         else:
             return self.local_generate(query, context, prompt_func)
 
@@ -239,10 +232,6 @@ class AskWikidata:
         # TODO: DRY (see llm_generate)
         if "huggingface.co" in self.qa_model_url:
             return self.hf_generate(query, None, self.qa_model_url, prompt_func)
-        # elif "api.runpod.ai" in self.qa_model_url:
-        #     return self.hf_generate(query, context, self.qa_model_url, prompt_func)
-        #     return self.ask_llama_runpod(query, context)
-        # return self.ask_openai(query, context)
         else:
             return self.local_generate(query, None, prompt_func)
 
