@@ -20,7 +20,7 @@ To give it a try, use ➡️  [this Google Colab Notebook](https://colab.researc
 
 In order to answer questions based on Wikidata, the system uses retrieval augmented generation. First it transforms Wikidata items to text and generates embeddings for them. The user query is then embedded as well. Using nearest neighbor search, most relevant Wikidata items are identified. A reranker model selects only the best matches from the neighbors. Finally, these matches are incorporated into the LLM prompt in order to allow the LLM to generate using Wikidata knowledge.
 
-All models, including the LLM can run on the local machine using `pytorch`. For nearest neighbor search, an `annoy` index is used.
+All models, including the LLM, can run on the local machine using `pytorch` and `bitsandbytes` quantization. For nearest neighbor search, an `annoy` index is used.
 
 ## Usage
 ### Install dependencies
