@@ -229,6 +229,8 @@ class AskWikidata:
             prompt_func = self.llama_prompt
         elif "mistral" in self.qa_model_url:
             prompt_func = self.mistral_prompt
+        elif "Qwen2.5" in self.qa_model_url:
+            prompt_func = self.qwen25_prompt
         else:
             raise Exception(f"unknown qa_model_name {self.qa_model_url}")
 
@@ -274,6 +276,9 @@ class AskWikidata:
 
     def mistral_prompt(self, text, system=DEFAULT_SYSTEM):
         return f"<s>[INST] {system}\n\nQUESTION: {text} [/INST]"
+
+    def qwen25_prompt(self, text, system=DEFAULT_SYSTEM):
+        return f"<|im_start|>system\n{system}\n<|im_end|>\n<|im_start|>assistant\nQUESTION: {text}\n<|im_end|>\n"
 
     def hf_generate(self, question, context, model_url, prompt_func):
         huggingface_api_key = os.getenv("HUGGINGFACE_API_KEY")
