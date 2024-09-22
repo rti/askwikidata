@@ -37,7 +37,7 @@ pip install -r requirements.txt
 ```
 
 ### Unpack provided caches
-For faster execution, the results of some pre-computation steps are caches. In order to use those caches, unpack them:
+For faster execution, the results of some pre-computation steps are cached. In order to use those caches, unpack them:
 ```sh
 bunzip2 --keep --force *.json.bz2
 ```
