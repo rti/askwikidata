@@ -17,7 +17,6 @@ class LLM:
 
         self.model = AutoModelForCausalLM.from_pretrained(
             self.model_name,
-            load_in_4bit=True,
             torch_dtype=torch.bfloat16,
             quantization_config=bnb_config,
         )
