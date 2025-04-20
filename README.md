@@ -1,5 +1,8 @@
 # AskWikidata
 
+> **⚠️ This project is archived and no longer maintained.**  
+> Parts of this prototype supported the development of the [Wikidata Embedding Project](https://www.wikidata.org/wiki/Wikidata:Embedding_Project).
+
 A Prototype for a Wikidata Question-Answering System
 
 <p align="center"><img src="./image.jpg" alt="The askwikidata title image" style="width:400px;"/></p>
